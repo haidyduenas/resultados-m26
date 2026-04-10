@@ -270,11 +270,11 @@ function SRev(){
         <StCard v={DATA.conversionRate.organic+"%"} l="Conv. orgánica" tip="convRate"/>
       </div>
       <div style={{display:"flex",gap:8,width:"100%"}}>
-        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"10px 14px",flex:1,textAlign:"center"}}>
+        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"14px 14px",flex:1,textAlign:"center"}}>
           <Tip id="digitalShare"><span style={{fontSize:26,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{dp.seo}%</span></Tip>
           <div style={{fontSize:14,color:"rgba(255,255,255,0.4)",marginTop:2}}>Part. {dp.label}</div>
         </div>
-        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"10px 14px",flex:1,textAlign:"center"}}>
+        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"14px 14px",flex:1,textAlign:"center"}}>
           <Tip id="totalShare"><span style={{fontSize:26,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#1db954"}}>{tp.seo}%</span></Tip>
           <div style={{fontSize:14,color:"rgba(255,255,255,0.4)",marginTop:2}}>Part. {tp.label}</div>
         </div>
@@ -285,7 +285,7 @@ function SRev(){
 
 function StCard({v,l,sub,down,tip}){
   const inner=(
-    <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"10px 14px",flex:1,display:"flex",flexDirection:"column",gap:3,alignItems:"center"}}>
+    <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"14px 14px",flex:1,display:"flex",flexDirection:"column",gap:3,alignItems:"center"}}>
       <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:down?"#ff5555":"#00ff87"}}>{v}</span>
       <span style={{fontSize:14,color:"rgba(255,255,255,0.4)",textTransform:"uppercase",letterSpacing:1}}>{l}</span>
       {sub&&<span style={{fontSize:14,color:down?"#ff5555":"#00ff87"}}>{sub}</span>}
