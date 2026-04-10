@@ -4,7 +4,7 @@ const COUNTRY = "Costa Rica";
 const BRAND = "Gollo";
 const TEAM = "Team Gollo";
 const YEAR = "M26";
-const FLAG = "🇨🇷";
+const FLAG = "CR";
 
 // Recognition config — set hasAward=false for generic encouraging message
 const RECOGNITION = {
