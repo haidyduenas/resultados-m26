@@ -170,7 +170,7 @@ function hc(v) { return v >= 90 ? "#00ff87" : v >= 75 ? "#1db954" : v >= 60 ? "#
 
 const TOTAL = 13;
 
-export default function App() {
+function App() {
   const [s, setS] = useState(0);
   const [k, setK] = useState(0);
   const go = (i) => { setS(i); setK(x => x + 1); };
@@ -692,3 +692,5 @@ const L = {
   lbig: { fontSize: 16, fontWeight: 600, color: "rgba(255,255,255,0.75)" },
   sec: { fontSize: 17, fontWeight: 800, color: "#fff" },
 };
+
+window.app = App;
