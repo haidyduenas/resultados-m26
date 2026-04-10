@@ -8,14 +8,20 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body,#root{height:100%;overflow:hidden}
-.fi{opacity:0;transform:translateY(10px);animation:fi .4s ease forwards}
+.fi{opacity:0;transform:translateY(10px);animation:fi .5s ease forwards}
 @keyframes fi{to{opacity:1;transform:translateY(0)}}
-.hc{opacity:0;transform:scale(.7);animation:hp .25s ease forwards}
+.hc{opacity:0;transform:scale(.7);animation:hp .3s ease forwards}
 @keyframes hp{to{opacity:1;transform:scale(1)}}
-.sd{stroke-dasharray:500;stroke-dashoffset:500;animation:dl 1.3s ease forwards .3s}
+.sd{stroke-dasharray:500;stroke-dashoffset:500;animation:dl 1.5s ease forwards .4s}
 @keyframes dl{to{stroke-dashoffset:0}}
 .pa{display:inline-block;animation:pa 1.5s ease infinite}
 @keyframes pa{0%,100%{opacity:1;transform:translateX(0)}50%{opacity:.4;transform:translateX(6px)}}
+
+/* Tooltip system — never affects layout */
+.tip-wrap{position:relative;display:inline-flex;align-items:center}
+.tip-icon{position:absolute;right:-18px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:7px;background:rgba(255,255,255,0.1);font-size:8px;color:rgba(255,255,255,0.5);cursor:help;font-weight:700;z-index:5;font-family:'Outfit',sans-serif}
+.tip-bubble{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#1a1a2e;border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:8px 12px;font-size:10px;color:rgba(255,255,255,0.85);width:230px;line-height:1.5;z-index:200;text-align:left;box-shadow:0 8px 24px rgba(0,0,0,0.6);pointer-events:none;font-family:'Outfit',sans-serif;font-weight:400}
+.tip-bubble::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#1a1a2e}
 </style>
 </head>
 <body>
@@ -48,7 +54,6 @@ const TIPS = {
   totalShare: "Participación de la venta SEO dentro de la venta total del país (Paid + Orgánico + Venta Asistida).",
   assistedNote: "En M26 se separó la venta asistida del canal SEO. La venta asistida ahora se reporta por separado.",
   nonBrand: "Tráfico de usuarios que NO buscaron el nombre de tu marca. Indica conquista de mercado real.",
-  brand: "Tráfico de usuarios que buscaron directamente el nombre de tu marca.",
   kwTop10: "Keywords que entraron a las primeras 10 posiciones de Google durante el periodo.",
   cwv: "Core Web Vitals: métricas de experiencia de usuario que Google usa como factor de ranking.",
   lcp: "Largest Contentful Paint: tiempo que tarda en cargar el elemento más grande visible. Ideal: ≤ 2.5s.",
@@ -57,8 +62,6 @@ const TIPS = {
   indexation: "Porcentaje de páginas de tu sitio que Google ha incluido en su índice de búsqueda.",
   weightedPos: "Posición promedio en Google ponderada por el volumen de búsqueda de cada keyword. Menor = mejor.",
   sov: "Share of Voice: porcentaje de la visibilidad orgánica total de tu vertical que pertenece a tu sitio.",
-  position: "Posición promedio en la que aparece tu resultado en Google para esa keyword.",
-  conversions: "Número de compras completadas atribuidas a ese producto vía tráfico orgánico.",
   heatmap: "Intensidad relativa de búsqueda por mes (0-100). Permite identificar estacionalidad.",
 };
 
@@ -146,35 +149,33 @@ const fmt = (n) => { if(n>=1e6) return (n/1e6).toFixed(1)+"M"; if(n>=1e3) return
 const fmtUSD = (n) => "$" + fmt(n) + " USD";
 const MONTHS = ["Jul","Ago","Sep","Oct","Nov","Dic","Ene","Feb","Mar","Abr","May","Jun"];
 
+/* ═══ TOOLTIP — absolutely positioned, never pushes layout ═══ */
 function Tip({ id, children }) {
   const [show, setShow] = useState(false);
   const text = TIPS[id];
   if (!text) return children;
   return (
-    <span style={{ position:"relative", display:"inline-flex", alignItems:"center", gap:3 }}
+    <span className="tip-wrap"
       onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)}
-      onClick={()=>setShow(!show)}>
+      onClick={(e)=>{e.stopPropagation();setShow(!show);}}>
       {children}
-      <span style={{ display:"inline-flex", alignItems:"center", justifyContent:"center", width:14, height:14, borderRadius:7, background:"rgba(255,255,255,0.1)", fontSize:8, color:"rgba(255,255,255,0.5)", cursor:"help", flexShrink:0, fontWeight:700 }}>?</span>
-      {show && (
-        <span style={{ position:"absolute", bottom:"calc(100% + 6px)", left:"50%", transform:"translateX(-50%)", background:"#1a1a2e", border:"1px solid rgba(255,255,255,0.15)", borderRadius:8, padding:"8px 12px", fontSize:10, color:"rgba(255,255,255,0.85)", width:220, lineHeight:1.5, zIndex:100, textAlign:"left", boxShadow:"0 8px 24px rgba(0,0,0,0.5)", pointerEvents:"none" }}>
-          {text}
-          <span style={{ position:"absolute", top:"100%", left:"50%", transform:"translateX(-50%)", width:0, height:0, borderLeft:"6px solid transparent", borderRight:"6px solid transparent", borderTop:"6px solid #1a1a2e" }}/>
-        </span>
-      )}
+      <span className="tip-icon">?</span>
+      {show && <span className="tip-bubble">{text}</span>}
     </span>
   );
 }
 
-function AN({ value, duration=1600 }) {
+/* ═══ ANIMATED NUMBER — unified duration ═══ */
+function AN({ value }) {
   const [d, setD] = useState(0);
   const r = useRef();
   useEffect(() => {
     let s = null;
+    const duration = 1800;
     const step = (t) => { if(!s) s=t; const p=Math.min((t-s)/duration,1); setD((1-Math.pow(1-p,3))*value); if(p<1) r.current=requestAnimationFrame(step); };
     r.current = requestAnimationFrame(step);
     return () => cancelAnimationFrame(r.current);
-  }, [value, duration]);
+  }, [value]);
   return React.createElement('span', null, value >= 1000 ? fmt(Math.round(d)) : d.toFixed(1));
 }
 
@@ -201,18 +202,18 @@ function App() {
 
   const slides = [
     React.createElement(Intro,{key:"s0"}),
-    React.createElement(SImp,{key:"s1",k}),
-    React.createElement(SCli,{key:"s2",k}),
-    React.createElement(SRev,{key:"s3",k}),
-    React.createElement(SBrand,{key:"s4",k}),
-    React.createElement(STech,{key:"s5",k}),
-    React.createElement(SSov,{key:"s6",k}),
-    React.createElement(SKw,{key:"s7",k}),
-    React.createElement(SCat,{key:"s8",k}),
-    React.createElement(SProd,{key:"s9",k}),
-    React.createElement(SHeat,{key:"s10",k}),
-    React.createElement(SFinal,{key:"s11",k}),
-    React.createElement(SRecog,{key:"s12",k}),
+    React.createElement(SImp,{key:"s1"+k}),
+    React.createElement(SCli,{key:"s2"+k}),
+    React.createElement(SRev,{key:"s3"+k}),
+    React.createElement(SBrand,{key:"s4"+k}),
+    React.createElement(STech,{key:"s5"+k}),
+    React.createElement(SSov,{key:"s6"+k}),
+    React.createElement(SKw,{key:"s7"+k}),
+    React.createElement(SCat,{key:"s8"+k}),
+    React.createElement(SProd,{key:"s9"+k}),
+    React.createElement(SHeat,{key:"s10"+k}),
+    React.createElement(SFinal,{key:"s11"+k}),
+    React.createElement(SRecog,{key:"s12"+k}),
   ];
 
   return (
@@ -253,7 +254,7 @@ function Intro() {
 }
 
 /* ═══ IMPRESSIONS ═══ */
-function SImp({k:_k}) {
+function SImp() {
   return (
     <div style={L.c}>
       <Tip id="impressions"><p style={L.lb}>Impresiones</p></Tip>
@@ -266,7 +267,7 @@ function SImp({k:_k}) {
 }
 
 /* ═══ CLICKS ═══ */
-function SCli({k:_k}) {
+function SCli() {
   return (
     <div style={L.c}>
       <Tip id="clicks"><p style={L.lb}>Clics orgánicos</p></Tip>
@@ -274,7 +275,7 @@ function SCli({k:_k}) {
       <p style={L.lbig}>clics desde Google</p>
       <Bdg v={DATA.clicks.growth}/>
       <div style={{display:"flex",gap:10,alignItems:"center",background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"7px 16px"}}>
-        <Tip id="ctr"><span style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>CTR promedio</span></Tip>
+        <Tip id="ctr"><span style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>CTR</span></Tip>
         <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace"}}>{DATA.ctr}%</span>
       </div>
       <Spark data={DATA.monthly} dk="cli" c="#1db954"/>
@@ -283,7 +284,7 @@ function SCli({k:_k}) {
 }
 
 /* ═══ REVENUE ═══ */
-function SRev({k:_k}) {
+function SRev() {
   const down = DATA.revenue.growth < 0;
   const dp = DATA.participation.digital;
   const tp = DATA.participation.total;
@@ -303,23 +304,19 @@ function SRev({k:_k}) {
       </Tip>
       <div style={{display:"flex",gap:6,width:"100%",marginTop:2}}>
         <StCard v={fmt(DATA.sales.total)} l="Ventas" sub={DATA.sales.growth+"%"} down/>
-        <Tip id="convRate"><StCard v={DATA.conversionRate.organic+"%"} l="Conv. orgánica"/></Tip>
+        <StCard v={DATA.conversionRate.organic+"%"} l="Conv. orgánica" tip="convRate"/>
       </div>
       <div style={{display:"flex",gap:6,width:"100%"}}>
-        <Tip id="digitalShare">
-          <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"8px 14px",flex:1,textAlign:"center"}}>
-            <div style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{dp.seo}%</div>
-            <div style={{fontSize:8,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>Part. {dp.label}</div>
-            <div style={{fontSize:7,color:"rgba(255,255,255,0.25)",marginTop:2}}>Paid + Orgánico</div>
-          </div>
-        </Tip>
-        <Tip id="totalShare">
-          <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"8px 14px",flex:1,textAlign:"center"}}>
-            <div style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#1db954"}}>{tp.seo}%</div>
-            <div style={{fontSize:8,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>Part. {tp.label}</div>
-            <div style={{fontSize:7,color:"rgba(255,255,255,0.25)",marginTop:2}}>Paid + Org + Asistida</div>
-          </div>
-        </Tip>
+        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"8px 14px",flex:1,textAlign:"center"}}>
+          <Tip id="digitalShare"><span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{dp.seo}%</span></Tip>
+          <div style={{fontSize:8,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginTop:2}}>Part. {dp.label}</div>
+          <div style={{fontSize:7,color:"rgba(255,255,255,0.25)",marginTop:1}}>Paid + Orgánico</div>
+        </div>
+        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"8px 14px",flex:1,textAlign:"center"}}>
+          <Tip id="totalShare"><span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#1db954"}}>{tp.seo}%</span></Tip>
+          <div style={{fontSize:8,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginTop:2}}>Part. {tp.label}</div>
+          <div style={{fontSize:7,color:"rgba(255,255,255,0.25)",marginTop:1}}>Paid + Org + Asistida</div>
+        </div>
       </div>
       <div style={{width:"100%",maxWidth:350,background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"8px 12px"}}>
         <p style={{fontSize:8,color:"rgba(255,255,255,0.25)",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>Conversión por canal</p>
@@ -337,18 +334,20 @@ function SRev({k:_k}) {
   );
 }
 
-function StCard({v,l,sub,down}) {
-  return (
+function StCard({v,l,sub,down,tip}) {
+  const inner = (
     <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"8px 12px",flex:1,display:"flex",flexDirection:"column",gap:2,alignItems:"center"}}>
       <span style={{fontSize:18,fontWeight:800,fontFamily:"'Space Mono',monospace",color:down?"#ff5555":"#00ff87"}}>{v}</span>
       <span style={{fontSize:8,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>{l}</span>
       {sub && <span style={{fontSize:9,color:down?"#ff5555":"#00ff87"}}>{sub}</span>}
     </div>
   );
+  if(tip) return React.createElement(Tip,{id:tip},inner);
+  return inner;
 }
 
 /* ═══ BRAND ═══ */
-function SBrand({k:_k}) {
+function SBrand() {
   const nb=DATA.brandVsNonBrand.nonBrand, b=DATA.brandVsNonBrand.brand;
   return (
     <div style={L.c}>
@@ -369,9 +368,7 @@ function SBrand({k:_k}) {
         </div>
       </div>
       <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"10px 22px",marginTop:10,textAlign:"center"}}>
-        <Tip id="kwTop10">
-          <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{fmt(DATA.newKeywordsTop10.count)}</span>
-        </Tip>
+        <Tip id="kwTop10"><span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{fmt(DATA.newKeywordsTop10.count)}</span></Tip>
         <div style={{fontSize:8,color:"rgba(255,255,255,0.3)",textTransform:"uppercase",letterSpacing:1,marginTop:2}}>Nuevas keywords en Top 10</div>
         <Bdg v={DATA.newKeywordsTop10.growth} small/>
       </div>
@@ -379,20 +376,18 @@ function SBrand({k:_k}) {
   );
 }
 
-/* ═══ TECH HEALTH (CWV FIXED LAYOUT) ═══ */
-function STech({k:_k}) {
+/* ═══ TECH HEALTH ═══ */
+function STech() {
   const idx=DATA.indexation, cwv=DATA.coreWebVitals, wp=DATA.weightedPosition;
   return (
     <div style={L.c}>
       <Tip id="cwv"><p style={L.lb}>Salud técnica</p></Tip>
       <h2 style={L.sec}>Core Web Vitals</h2>
-      {/* CWV cards — FIXED: proper flex row with equal width */}
       <div style={{display:"flex",gap:8,width:"100%",justifyContent:"center"}}>
         <CWVCard l="LCP" v={cwv.lcp+"s"} ok={cwv.lcp<=2.5} tid="lcp"/>
         <CWVCard l="CLS" v={""+cwv.cls} ok={cwv.cls<=0.1} tid="cls"/>
         <CWVCard l="INP" v={cwv.inp+"ms"} ok={cwv.inp<=200} tid="inp"/>
       </div>
-      {/* Indexation */}
       <div style={{width:"100%",marginTop:8}}>
         <Tip id="indexation"><p style={{fontSize:9,color:"rgba(255,255,255,0.3)",marginBottom:4,textTransform:"uppercase",letterSpacing:1,textAlign:"center"}}>Indexación</p></Tip>
         <div style={{display:"flex",gap:8,justifyContent:"center"}}>
@@ -405,12 +400,11 @@ function STech({k:_k}) {
             <div style={{fontSize:7,color:"rgba(255,255,255,0.3)",textTransform:"uppercase"}}>Indexadas</div>
           </div>
         </div>
-        <div style={{height:6,background:"rgba(255,255,255,0.05)",borderRadius:3,marginTop:6,overflow:"hidden",maxWidth:340,margin:"6px auto 0"}}>
+        <div style={{height:6,background:"rgba(255,255,255,0.05)",borderRadius:3,marginTop:6,overflow:"hidden",maxWidth:340,marginLeft:"auto",marginRight:"auto"}}>
           <div style={{height:"100%",width:((idx.indexed/idx.total)*100)+"%",background:"linear-gradient(90deg,#1db954,#00ff87)",borderRadius:3}}/>
         </div>
         <p style={{fontSize:8,color:"rgba(255,255,255,0.25)",marginTop:2,textAlign:"center"}}>{((idx.indexed/idx.total)*100).toFixed(1)}% indexado</p>
       </div>
-      {/* Weighted position */}
       <Tip id="weightedPos">
         <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"8px 24px",marginTop:4,textAlign:"center"}}>
           <div style={{display:"flex",alignItems:"baseline",gap:8,justifyContent:"center"}}>
@@ -424,7 +418,6 @@ function STech({k:_k}) {
   );
 }
 
-/* CWV Card — each takes equal space */
 function CWVCard({l,v,ok,tid}) {
   return (
     <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"10px 8px",flex:1,display:"flex",flexDirection:"column",gap:3,alignItems:"center",borderTop:"3px solid "+(ok?"#00ff87":"#ff5555"),maxWidth:140,minWidth:0}}>
@@ -438,7 +431,7 @@ function CWVCard({l,v,ok,tid}) {
 }
 
 /* ═══ SHARE OF VOICE ═══ */
-function SSov({k:_k}) {
+function SSov() {
   const all = DATA.shareOfVoice.competitors;
   const mx = Math.max(...all.map(a=>a.sov));
   return (
@@ -462,7 +455,7 @@ function SSov({k:_k}) {
 }
 
 /* ═══ TOP 15 KEYWORDS ═══ */
-function SKw({k:_k}) {
+function SKw() {
   const mx = DATA.topKeywords[0].clicks;
   const col1 = DATA.topKeywords.slice(0,8);
   const col2 = DATA.topKeywords.slice(8);
@@ -490,7 +483,7 @@ function KWR({kw,i,mx}) {
         <div style={{fontSize:9,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{kw.keyword}</div>
         <div style={{display:"flex",gap:6,fontSize:7,color:"rgba(255,255,255,0.3)",marginTop:1}}>
           <span>{fmt(kw.clicks)} clics</span>
-          <Tip id="position"><span style={{color:"#1db954"}}>Pos. {kw.position}</span></Tip>
+          <span style={{color:"#1db954"}}>Pos. {kw.position}</span>
         </div>
       </div>
       <div style={{width:36,height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden",flexShrink:0}}>
@@ -500,8 +493,8 @@ function KWR({kw,i,mx}) {
   );
 }
 
-/* ═══ TOP 10 CATEGORIES ═══ */
-function SCat({k:_k}) {
+/* ═══ TOP 10 CATEGORIES — NO tooltips ═══ */
+function SCat() {
   const mx = DATA.topCategories[0].pct;
   return (
     <div style={L.c}>
@@ -533,8 +526,8 @@ function CatRow({cat,i,mx}) {
   );
 }
 
-/* ═══ TOP 10 PRODUCTS ═══ */
-function SProd({k:_k}) {
+/* ═══ TOP 10 PRODUCTS — NO tooltips ═══ */
+function SProd() {
   const mx = DATA.topProducts[0].conv;
   return (
     <div style={L.c}>
@@ -562,14 +555,14 @@ function ProdRow({p,i,mx}) {
         <div style={{flex:1,height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden"}}>
           <div style={{height:"100%",width:((p.conv/mx)*100)+"%",background:"linear-gradient(90deg,#1db954,#00ff87)",borderRadius:2}}/>
         </div>
-        <Tip id="conversions"><span style={{fontSize:9,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.45)",flexShrink:0}}>{fmt(p.conv)}</span></Tip>
+        <span style={{fontSize:9,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.45)",flexShrink:0}}>{fmt(p.conv)} conv.</span>
       </div>
     </div>
   );
 }
 
 /* ═══ HEATMAP ═══ */
-function SHeat({k:_k}) {
+function SHeat() {
   return (
     <div style={{...L.c,maxWidth:560}}>
       <Tip id="heatmap"><p style={L.lb}>Mapa de Calor</p></Tip>
@@ -600,8 +593,8 @@ function SHeat({k:_k}) {
   );
 }
 
-/* ═══ FINAL SUMMARY ═══ */
-function SFinal({k:_k}) {
+/* ═══ FINAL ═══ */
+function SFinal() {
   const stats = [
     {v:fmt(DATA.impressions.total),l:"Impresiones"},
     {v:fmt(DATA.clicks.total),l:"Clics"},
@@ -629,13 +622,13 @@ function SFinal({k:_k}) {
 }
 
 /* ═══ RECOGNITION ═══ */
-function SRecog({k:_k}) {
+function SRecog() {
   const rec = RECOGNITION;
-  const hasAward = rec.hasAward;
+  const has = rec.hasAward;
   return (
     <div style={L.c}>
-      <div style={{fontSize:52}}>{hasAward?"🏆":"🚀"}</div>
-      {hasAward ? (
+      <div style={{fontSize:52}}>{has?"🏆":"🚀"}</div>
+      {has ? (
         <>
           <p style={{fontSize:11,color:"rgba(255,200,50,0.7)",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Reconocimiento</p>
           <h2 style={{fontSize:22,fontWeight:800,lineHeight:1.4,maxWidth:380,textAlign:"center",background:"linear-gradient(135deg,#ffd700,#ffaa00)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>
