@@ -3,23 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEO Wrapped M26 — Gollo Costa Rica</title>
+<title>SEO Wrapped M26 — Costa Rica</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body,#root{height:100%;overflow:hidden}
-.fi{opacity:0;transform:translateY(10px);animation:fi .5s ease forwards}
 @keyframes fi{to{opacity:1;transform:translateY(0)}}
-.hc{opacity:0;transform:scale(.7);animation:hp .3s ease forwards}
-@keyframes hp{to{opacity:1;transform:scale(1)}}
-.sd{stroke-dasharray:500;stroke-dashoffset:500;animation:dl 1.5s ease forwards .4s}
+@keyframes fs{to{opacity:1;transform:scale(1)}}
 @keyframes dl{to{stroke-dashoffset:0}}
-.pa{display:inline-block;animation:pa 1.5s ease infinite}
 @keyframes pa{0%,100%{opacity:1;transform:translateX(0)}50%{opacity:.4;transform:translateX(6px)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+.fi{opacity:0;transform:translateY(12px);animation:fi .45s ease forwards}
+.fs{opacity:0;transform:scale(.85);animation:fs .35s ease forwards}
+.pa{display:inline-block;animation:pa 1.6s ease infinite}
+.sd{stroke-dasharray:600;stroke-dashoffset:600;animation:dl 1.8s ease forwards .3s}
 .tip-wrap{position:relative;display:inline-flex;align-items:center}
-.tip-icon{position:absolute;right:-20px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:8px;background:rgba(255,255,255,0.12);font-size:10px;color:rgba(255,255,255,0.5);cursor:help;font-weight:700;z-index:5;font-family:'Outfit',sans-serif}
-.tip-bubble{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#1a1a2e;border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:10px 14px;font-size:14px;color:rgba(255,255,255,0.9);width:260px;line-height:1.5;z-index:200;text-align:left;box-shadow:0 8px 24px rgba(0,0,0,0.6);pointer-events:none;font-family:'Outfit',sans-serif;font-weight:400}
-.tip-bubble::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#1a1a2e}
+.tip-icon{position:absolute;right:-18px;top:50%;transform:translateY(-50%);width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,0.1);font-size:9px;color:rgba(255,255,255,0.45);cursor:help;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:5}
+.tip-bubble{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#111827;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.85);width:240px;line-height:1.55;z-index:200;text-align:left;box-shadow:0 8px 32px rgba(0,0,0,0.7);pointer-events:none;font-family:'Outfit',sans-serif;font-weight:400}
+.tip-bubble::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#111827}
 </style>
 </head>
 <body>
@@ -28,372 +30,443 @@ html,body,#root{height:100%;overflow:hidden}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
 <script type="text/babel">
-const { useState, useEffect, useRef } = React;
+const {useState,useEffect,useRef,useCallback}=React;
 
-const COUNTRY = "Costa Rica";
-const BRAND = "Gollo";
-const TEAM = "Team Gollo";
-const YEAR = "M26";
-const FLAG = "🇨🇷";
-
-const RECOGNITION = {
-  hasAward: true,
-  awardText: "Gollo es el país con mayor venta orgánica de toda la región en M26.",
-  genericText: "Cada keyword conquistada es un paso más. El equipo tiene todo para hacer de M27 el mejor año de SEO en la historia de {BRAND}.",
+/* ═══════════════════════════════════════════════
+   DATA — COSTA RICA
+   Fuentes: Adobe Analytics + Google Search Console
+   Nota canal: M26 separa venta asistida del SEO
+═══════════════════════════════════════════════ */
+const COUNTRIES = {
+  CR: {
+    name:"Costa Rica", flag:"🇨🇷",
+    brands:{
+      Gollo:{
+        label:"Gollo", color:"#00ff87", colorDim:"rgba(0,255,135,0.15)",
+        impressions:{M25:38004663, M26:62992730, growth:65.8},
+        clicks:     {M25:5129000,  M26:6262497,  growth:22.1},
+        visits:     {M25:5059294,  M26:6475832,  growth:28.0},
+        ctr:9.94,
+        revenue:    {M25:18496238.76, M26:9742429.35, growth:-47.3, asistidaNote:true},
+        orders:     {M25:44148, M26:25356, growth:-42.6},
+        convRate:   {M26:0.394, M25:0.873},
+        avgTicket:  {M26:384.23},
+        partDigital:{M26:48.32}, partTotal:{M26:34.60},
+        nonBrand:50.14, brandPct:49.86,
+        indexation: {indexed:2553816, total:2569406},
+        weightedPos:{M26:2.5, M25:5.2},
+        recognition:{award:true, text:"Gollo CR es el país con mayor venta orgánica de toda la región en M26."},
+        keywords:[
+          {k:"play 5",cl:7076,p:3.1},{k:"iphone 13",cl:6803,p:4.1},
+          {k:"ps5 costa rica",cl:6216,p:3.4},{k:"ps5",cl:5362,p:3.8},
+          {k:"nintendo switch 2",cl:5077,p:5.4},{k:"playstation 5",cl:4722,p:4.8},
+          {k:"nintendo switch",cl:4369,p:5.2},{k:"nintendo switch cr",cl:4237,p:2.4},
+          {k:"iphone 15",cl:3977,p:5.1},{k:"aire acondicionado",cl:3838,p:1.5},
+          {k:"microondas",cl:3815,p:1.4},{k:"honor magic 7 lite",cl:3801,p:4.7},
+          {k:"ps5 costa rica",cl:3683,p:3.1},{k:"samsung a56",cl:3681,p:3.5},
+          {k:"honor 400 lite",cl:3640,p:4.6},
+        ],
+        categories:[
+          {n:"Tecnología",p:49.3},{n:"Línea Blanca",p:32.1},{n:"Muebles",p:11.8},
+          {n:"Electrodomésticos",p:3.1},{n:"Automotriz",p:1.6},
+          {n:"Deportes",p:0.9},{n:"Exclusivos Web",p:0.4},
+          {n:"Salud y Belleza",p:0.3},{n:"Hogar",p:0.3},{n:"Promociones",p:0.2},
+        ],
+        products:[
+          {n:"Televisor TCL 55V6C 55\" 4K Google TV",r:178053.62},
+          {n:"Televisor TCL QLED 65\" 4K 65C6K",r:100254.05},
+          {n:"Pantalla TCL 50S5k QLED 50\" FHD",r:96387.89},
+          {n:"Televisor TCL QLED 65\" 4K 65P8K",r:89152.82},
+          {n:"iPhone 13 4GB + 128GB Midnight",r:89039.23},
+          {n:"Samsung Galaxy S25 Ultra 512GB",r:79594.74},
+          {n:"Samsung S24 Ultra 12GB+256GB",r:72765.22},
+          {n:"Lavadora Frigidaire 44 Lbs",r:70383.82},
+          {n:"Refrigeradora Frigidaire 15 Pies",r:68270.15},
+          {n:"iPhone 16 8GB + 128GB Negro",r:63939.72},
+        ],
+        monthly:[
+          {m:"Abr",i:4516,c:422},{m:"May",i:4665,c:461},{m:"Jun",i:4689,c:463},
+          {m:"Jul",i:5158,c:473},{m:"Ago",i:5177,c:495},{m:"Sep",i:5256,c:538},
+          {m:"Oct",i:5456,c:552},{m:"Nov",i:6329,c:623},{m:"Dic",i:6803,c:702},
+          {m:"Ene",i:4920,c:451},{m:"Feb",i:4787,c:471},{m:"Mar",i:5135,c:501},
+        ],
+      },
+      RSO:{
+        label:"RadioShack", color:"#f97316", colorDim:"rgba(249,115,22,0.15)",
+        // M25 impresiones/clics resaltados = período parcial (ene-mar 2025), no comparables
+        impressions:{M25:null, M26:8339528,  growth:null, partialM25:true},
+        clicks:     {M25:null, M26:315151,   growth:null, partialM25:true},
+        visits:     {M25:242225, M26:243579, growth:0.6},
+        ctr:3.78,
+        revenue:    {M25:78327.64, M26:48863.99, growth:-37.6, asistidaNote:true},
+        orders:     {M25:437, M26:249, growth:-43.0},
+        convRate:   {M26:0.093, M25:0.180},
+        avgTicket:  {M26:196.24},
+        partDigital:{M26:25.79}, partTotal:{M26:25.74},
+        nonBrand:86.67, brandPct:13.33,
+        indexation: {indexed:4900, total:128900},
+        weightedPos:{M26:7.1, M25:null},
+        recognition:{award:false, text:"RadioShack CR tiene el mayor porcentaje de tráfico No Marca de toda la región. Cada búsqueda genérica ganada es una conquista real."},
+        keywords:[
+          {k:"chromecast costa rica",cl:859,p:7.1},{k:"audifonos inalambricos",cl:733,p:5.7},
+          {k:"nintendo switch costa rica",cl:727,p:8.3},{k:"meta quest 3 cr",cl:584,p:5.2},
+          {k:"chromecast",cl:541,p:7.5},{k:"microfono inalambrico",cl:540,p:3.8},
+          {k:"baterias recargables",cl:409,p:2.0},{k:"walkie talkie",cl:395,p:3.3},
+          {k:"parlantes",cl:364,p:4.3},{k:"trituradora de papel",cl:356,p:4.6},
+          {k:"nintendo switch oled cr",cl:344,p:8.4},{k:"lector firma digital",cl:334,p:3.9},
+          {k:"bateria portatil",cl:307,p:3.8},{k:"tcl costa rica",cl:292,p:4.8},
+          {k:"puntero laser costa rica",cl:290,p:1.2},
+        ],
+        categories:[
+          {n:"Tecnología",p:97.5},{n:"Telefonía",p:0.6},{n:"Ferretería",p:0.5},
+          {n:"Salud y Belleza",p:0.4},{n:"Hogar",p:0.2},{n:"Promociones",p:0.2},
+          {n:"Muebles",p:0.2},{n:"Gift Card",p:0.1},{n:"Envío Rápido",p:0.1},{n:"Audio",p:0.1},
+        ],
+        products:[
+          {n:"iPhone 17 Pro Max 12GB+256GB Cosmic Orange",r:3292.36},
+          {n:"Consola PlayStation 5 Digital Core HW 2015",r:3117.11},
+          {n:"Laptop HP 32GB SSD 1TB OMEN 17-DB",r:1889.84},
+          {n:"iPhone 15 Pro 8GB + 256GB Negro",r:1817.82},
+          {n:"Parlante JBL PartyBox Stage 320",r:1637.56},
+          {n:"Samsung Galaxy S25 Ultra 512GB Titan Blue",r:1547.82},
+          {n:"Samsung Galaxy S25 Ultra 512GB Titan Black",r:1527.08},
+          {n:"iPhone 16 Pro Max 8GB+256GB Black Titanium",r:1439.86},
+          {n:"Laptop Asus Zenbook 14 AMD Ryzen AI 7",r:1286.14},
+          {n:"Laptop HP 15-fc0276la 16GB SSD 1TB",r:607.83},
+        ],
+        monthly:[
+          {m:"Abr",i:521,c:19},{m:"May",i:558,c:21},{m:"Jun",i:572,c:22},
+          {m:"Jul",i:612,c:23},{m:"Ago",i:658,c:25},{m:"Sep",i:701,c:27},
+          {m:"Oct",i:745,c:28},{m:"Nov",i:820,c:31},{m:"Dic",i:895,c:34},
+          {m:"Ene",i:614,c:23},{m:"Feb",i:591,c:22},{m:"Mar",i:653,c:25},
+        ],
+      }
+    }
+  }
 };
 
-const TIPS = {
-  impressions: "Veces que una página de tu sitio apareció en los resultados de Google.",
-  clicks: "Veces que un usuario hizo clic en tu resultado en Google.",
-  ctr: "Click-Through Rate: clics ÷ impresiones × 100.",
-  organicRevenue: "Ingresos por usuarios que llegaron vía búsqueda orgánica.",
-  convRate: "Porcentaje de visitas orgánicas que terminaron en compra.",
-  digitalShare: "Participación SEO en la venta digital (Paid + Orgánico).",
-  totalShare: "Participación SEO en la venta total (Paid + Orgánico + Asistida).",
-  assistedNote: "En M26 se separó la venta asistida del canal SEO.",
-  nonBrand: "Tráfico de usuarios que NO buscaron tu marca. Indica conquista de mercado.",
-  kwTop10: "Keywords que entraron al Top 10 de Google durante el periodo.",
-  cwv: "Métricas de experiencia de usuario que Google usa como factor de ranking.",
-  lcp: "Tiempo de carga del elemento más grande. Ideal: ≤ 2.5s.",
-  cls: "Cuánto se mueve el contenido al cargar. Ideal: ≤ 0.1.",
-  inp: "Tiempo de respuesta a interacciones. Ideal: ≤ 200ms.",
-  indexation: "Páginas de tu sitio incluidas en el índice de Google.",
-  weightedPos: "Posición en Google ponderada por volumen de búsqueda. Menor = mejor.",
-  sov: "Porcentaje de visibilidad orgánica de tu vertical que te pertenece.",
-  heatmap: "Intensidad de búsqueda por mes (0-100). Identifica estacionalidad.",
-};
+/* ═══ UTILS ═══ */
+const fmt=(n)=>{if(n===null||n===undefined)return"—";if(n>=1e6)return(n/1e6).toFixed(1)+"M";if(n>=1e3)return(n/1e3).toFixed(1)+"K";return n.toLocaleString("en-US")};
+const fmtUSD=(n)=>"$"+fmt(n);
+const fmtPct=(n,dec=1)=>n===null?"—":n.toFixed(dec)+"%";
 
-const DATA = {
-  impressions: { total: 32480000, growth: 28.6 },
-  clicks: { total: 2210000, growth: 35.2 },
-  visits: { total: 1940000, growth: 24.1 },
-  sales: { total: 94200, growth: -18.4 },
-  ctr: 6.81,
-  participation: {
-    digital: { seo: 38.2, label: "Venta Digital" },
-    total: { seo: 11.3, label: "Venta Total" },
-  },
-  revenue: { total: 4850000, currency: "USD", growth: -12.7 },
-  conversionRate: { organic: 4.86, paidSearch: 3.41, direct: 5.10 },
-  brandVsNonBrand: { brand: 28, nonBrand: 72 },
-  indexation: { total: 35600, indexed: 24800 },
-  coreWebVitals: { lcp: 2.4, cls: 0.12, inp: 185 },
-  weightedPosition: { current: 9.1, previous: 12.6 },
-  shareOfVoice: { competitors: [
-    { name: "Gollo", sov: 15.2, own: true },
-    { name: "Comp. A", sov: 24.8 },
-    { name: "Comp. B", sov: 18.1 },
-    { name: "Comp. C", sov: 10.5 },
-    { name: "Otros", sov: 31.4 },
-  ]},
-  newKeywordsTop10: { count: 1264, growth: 48.3 },
-  topKeywords: [
-    { keyword: "tienda de electrodomésticos", clicks: 62400, pos: 2.3 },
-    { keyword: "refrigeradoras en oferta", clicks: 51200, pos: 1.9 },
-    { keyword: "televisores smart tv", clicks: 45800, pos: 2.8 },
-    { keyword: "lavadoras baratas", clicks: 38600, pos: 3.1 },
-    { keyword: "cocinas de gas", clicks: 34100, pos: 1.6 },
-    { keyword: "aires acondicionados", clicks: 30800, pos: 4.2 },
-    { keyword: "celulares samsung", clicks: 28400, pos: 3.5 },
-    { keyword: "microondas precio", clicks: 25100, pos: 2.1 },
-    { keyword: "laptops baratas", clicks: 22800, pos: 5.1 },
-    { keyword: "ofertas electrodomésticos", clicks: 20600, pos: 2.7 },
-    { keyword: "licuadoras industriales", clicks: 18200, pos: 3.9 },
-    { keyword: "hornos eléctricos", clicks: 16800, pos: 2.4 },
-    { keyword: "tablets samsung", clicks: 15100, pos: 4.8 },
-    { keyword: "secadoras de ropa", clicks: 13600, pos: 3.2 },
-    { keyword: "parlantes bluetooth", clicks: 12200, pos: 5.6 },
-  ],
-  topCategories: [
-    { name: "Línea Blanca", pct: 28.4 },
-    { name: "Electrónica", pct: 22.1 },
-    { name: "Tecnología", pct: 16.8 },
-    { name: "Climatización", pct: 10.2 },
-    { name: "Pequeños Electro", pct: 8.5 },
-    { name: "Audio", pct: 5.1 },
-    { name: "Cocina", pct: 3.8 },
-    { name: "Hogar", pct: 2.6 },
-    { name: "Gaming", pct: 1.5 },
-    { name: "Accesorios", pct: 1.0 },
-  ],
-  topProducts: [
-    { name: 'Refri Samsung 14ft', conv: 3120 },
-    { name: 'Smart TV LG 55" 4K', conv: 2840 },
-    { name: "Lavadora Whirlpool 38lb", conv: 2510 },
-    { name: "Aire Carrier 12K BTU", conv: 2180 },
-    { name: "Cocina Mabe 6 quem.", conv: 1920 },
-    { name: "Samsung Galaxy A15", conv: 1680 },
-    { name: 'Laptop HP 15" i5', conv: 1440 },
-    { name: "Microondas Panasonic", conv: 1210 },
-    { name: "Horno Oster 42L", conv: 980 },
-    { name: "Parlante JBL Flip 6", conv: 860 },
-  ],
-  heatmapKeywords: [
-    { keyword: "refrigeradoras", vals: [65,60,72,78,85,80,62,75,88,92,95,100] },
-    { keyword: "smart tv", vals: [70,68,62,58,55,52,48,65,72,80,90,98] },
-    { keyword: "lavadoras", vals: [55,58,65,70,75,68,60,72,80,85,78,62] },
-    { keyword: "aires acond.", vals: [40,45,55,65,80,92,98,85,70,55,42,38] },
-    { keyword: "celulares", vals: [72,68,65,60,58,55,52,68,75,82,88,95] },
-  ],
-  monthly: [
-    {m:"Jul",imp:2400,cli:155},{m:"Ago",imp:2650,cli:172},{m:"Sep",imp:2800,cli:188},
-    {m:"Oct",imp:3100,cli:210},{m:"Nov",imp:3400,cli:238},{m:"Dic",imp:3650,cli:252},
-    {m:"Ene",imp:2500,cli:168},{m:"Feb",imp:2600,cli:175},{m:"Mar",imp:2900,cli:195},
-    {m:"Abr",imp:3000,cli:205},{m:"May",imp:3200,cli:218},{m:"Jun",imp:2580,cli:174},
-  ],
-};
-
-const fmt=(n)=>{if(n>=1e6)return(n/1e6).toFixed(1)+"M";if(n>=1e3)return(n/1e3).toFixed(1)+"K";return n.toLocaleString("en-US")};
-const fmtUSD=(n)=>"$"+fmt(n)+" USD";
-const MO=["Jul","Ago","Sep","Oct","Nov","Dic","Ene","Feb","Mar","Abr","May","Jun"];
-
-function Tip({id,children}){
+function Tip({id,label,children}){
   const[show,setShow]=useState(false);
-  const text=TIPS[id];
-  if(!text)return children;
+  const tips={
+    ctr:"Click-Through Rate: clics ÷ impresiones × 100.",
+    conv:"Porcentaje de visitas orgánicas que terminaron en compra.",
+    partDigital:"Participación SEO en la venta digital (Paid + Orgánico).",
+    partTotal:"Participación SEO en la venta total. En M26 incluye venta asistida en el denominador.",
+    nonBrand:"Tráfico de usuarios que NO buscaron tu marca directamente. Indica conquista de mercado.",
+    indexation:"Páginas de tu sitio incluidas en el índice de Google.",
+    weightedPos:"Posición promedio ponderada por volumen de clics. Menor número = mejor posición.",
+    asistida:"En M26 se separó la venta asistida del canal SEO. Las cifras reflejan venta orgánica pura.",
+    partialM25:"Las impresiones/clics M25 de RadioShack corresponden a un período parcial (ene–mar 2025) y no son comparables directamente con M26.",
+  };
+  if(!tips[id])return children;
   return(
-    <span className="tip-wrap" onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)} onClick={e=>{e.stopPropagation();setShow(!show)}}>
+    <span className="tip-wrap" onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)}>
       {children}
       <span className="tip-icon">?</span>
-      {show&&<span className="tip-bubble">{text}</span>}
+      {show&&<span className="tip-bubble">{tips[id]}</span>}
     </span>
   );
 }
 
-function AN({value}){
+function AN({value,decimals=0,prefix="",suffix=""}){
   const[d,setD]=useState(0);const r=useRef();
-  useEffect(()=>{let s=null;const step=(t)=>{if(!s)s=t;const p=Math.min((t-s)/1800,1);setD((1-Math.pow(1-p,3))*value);if(p<1)r.current=requestAnimationFrame(step)};r.current=requestAnimationFrame(step);return()=>cancelAnimationFrame(r.current)},[value]);
-  return React.createElement('span',null,value>=1000?fmt(Math.round(d)):d.toFixed(1));
+  useEffect(()=>{
+    if(value===null||value===undefined){setD(value);return;}
+    let s=null;
+    const step=(t)=>{if(!s)s=t;const p=Math.min((t-s)/1600,1);const v=(1-Math.pow(1-p,3))*value;setD(v);if(p<1)r.current=requestAnimationFrame(step)};
+    r.current=requestAnimationFrame(step);
+    return()=>cancelAnimationFrame(r.current);
+  },[value]);
+  if(d===null||d===undefined)return React.createElement('span',null,'—');
+  const display=decimals>0?d.toFixed(decimals):fmt(Math.round(d));
+  return React.createElement('span',null,prefix+display+suffix);
 }
 
-function hcol(v){return v>=90?"#00ff87":v>=75?"#1db954":v>=60?"#1a8f42":v>=45?"#166b34":v>=30?"#124a26":"#0e2f1a"}
-
-const TOTAL=13;
-
-function App(){
-  const[s,setS]=useState(0);const[k,setK]=useState(0);
-  const go=(i)=>{setS(i);setK(x=>x+1)};
-  const next=()=>s<TOTAL-1&&go(s+1);
-  const prev=()=>s>0&&go(s-1);
-  useEffect(()=>{const h=(e)=>{if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();if(s<TOTAL-1){setS(p=>p+1);setK(p=>p+1)}}if(e.key==="ArrowLeft"){if(s>0){setS(p=>p-1);setK(p=>p+1)}}};window.addEventListener("keydown",h);return()=>window.removeEventListener("keydown",h)},[s]);
-  const tr=useRef(null);
-  const slides=[
-    React.createElement(Intro,{key:"s0"}),
-    React.createElement(SImp,{key:"s1"+k}),React.createElement(SCli,{key:"s2"+k}),
-    React.createElement(SRev,{key:"s3"+k}),React.createElement(SBrand,{key:"s4"+k}),
-    React.createElement(STech,{key:"s5"+k}),React.createElement(SSov,{key:"s6"+k}),
-    React.createElement(SKw,{key:"s7"+k}),React.createElement(SCat,{key:"s8"+k}),
-    React.createElement(SProd,{key:"s9"+k}),React.createElement(SHeat,{key:"s10"+k}),
-    React.createElement(SFinal,{key:"s11"+k}),React.createElement(SRecog,{key:"s12"+k}),
-  ];
+function Bdg({v,label,small}){
+  if(v===null)return null;
+  const pos=v>=0;
   return(
-    <div style={R.root} onTouchStart={e=>{tr.current=e.touches[0].clientX}} onTouchEnd={e=>{if(tr.current===null)return;const d=tr.current-e.changedTouches[0].clientX;if(Math.abs(d)>50){d>0?next():prev()}tr.current=null}}>
-      <div style={R.prog}>{Array.from({length:TOTAL}).map((_,i)=>(<div key={i} onClick={()=>go(i)} style={{height:4,borderRadius:4,transition:"all .4s",cursor:"pointer",background:i<=s?"#00ff87":"rgba(255,255,255,0.1)",flex:i===s?2.5:1}}/>))}</div>
-      <div style={R.wrap} key={k}>{slides[s]}</div>
-      <div style={R.nav}>
-        <button style={{...R.btn,opacity:s===0?.3:1}} onClick={prev} disabled={s===0}>‹ Anterior</button>
-        <span style={R.cnt}>{s+1}/{TOTAL}</span>
-        <button style={{...R.btn,opacity:s===TOTAL-1?.3:1}} onClick={next} disabled={s===TOTAL-1}>Siguiente ›</button>
+    <div style={{display:"inline-flex",alignItems:"center",gap:4,background:pos?"rgba(0,255,135,0.1)":"rgba(255,80,80,0.1)",border:"1px solid "+(pos?"rgba(0,255,135,0.25)":"rgba(255,80,80,0.25)"),borderRadius:20,padding:small?"2px 10px":"4px 14px",fontSize:small?11:13,fontWeight:600,color:pos?"#00ff87":"#ff5050"}}>
+      {pos?"↑":"↓"} {Math.abs(v).toFixed(1)}%{label?" "+label:""}
+    </div>
+  );
+}
+
+function Spark({data,dk,color}){
+  const vals=data.map(d=>d[dk]);
+  const max=Math.max(...vals),min=Math.min(...vals),range=max-min||1;
+  const W=280,H=52;
+  const pts=vals.map((v,i)=>((i/(vals.length-1))*W)+","+((H-((v-min)/range)*(H-4)+2))).join(" ");
+  const uid=dk+color.replace(/[^a-z0-9]/gi,"");
+  return(
+    <svg viewBox={`0 0 ${W} ${H}`} style={{width:"100%",maxWidth:320,height:52,marginTop:4}} xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id={uid} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".2"/><stop offset="100%" stopColor={color} stopOpacity="0"/></linearGradient></defs>
+      <polygon points={`0,${H} ${pts} ${W},${H}`} fill={`url(#${uid})`}/>
+      <polyline points={pts} fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="sd"/>
+    </svg>
+  );
+}
+
+/* ═══════════════════════════════════════════════
+   COUNTRY SELECTOR
+═══════════════════════════════════════════════ */
+function CountrySelector({onSelect}){
+  return(
+    <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100%",gap:24,padding:24}}>
+      <div style={{textAlign:"center"}}>
+        <p style={{fontFamily:"'Space Mono',monospace",fontSize:11,letterSpacing:4,color:"rgba(255,255,255,0.3)",textTransform:"uppercase",marginBottom:10}}>SEO Wrapped</p>
+        <h1 style={{fontSize:42,fontWeight:900,color:"#fff",lineHeight:1,letterSpacing:-1}}>M26</h1>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.4)",marginTop:6,fontWeight:300}}>Selecciona un país para comenzar</p>
+      </div>
+      <div style={{display:"flex",flexWrap:"wrap",gap:14,justifyContent:"center",maxWidth:480}}>
+        {Object.entries(COUNTRIES).map(([code,c])=>(
+          <button key={code} onClick={()=>onSelect(code)}
+            style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:16,padding:"18px 28px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:8,transition:"all .2s",minWidth:140}}
+            onMouseEnter={e=>{e.currentTarget.style.background="rgba(0,255,135,0.08)";e.currentTarget.style.borderColor="rgba(0,255,135,0.35)"}}
+            onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,0.04)";e.currentTarget.style.borderColor="rgba(255,255,255,0.1)"}}>
+            <span style={{fontSize:36}}>{c.flag}</span>
+            <span style={{fontSize:15,fontWeight:700,color:"#fff"}}>{c.name}</span>
+            <span style={{fontSize:11,color:"rgba(255,255,255,0.35)",fontFamily:"'Space Mono',monospace"}}>{Object.keys(c.brands).join(" · ")}</span>
+          </button>
+        ))}
       </div>
     </div>
   );
 }
 
-/* ═══ INTRO ═══ */
-function Intro(){
+/* ═══════════════════════════════════════════════
+   BRAND TABS
+═══════════════════════════════════════════════ */
+function BrandTabs({brands,active,onSwitch}){
   return(
-    <div style={L.c}>
-      <div style={{fontSize:56}}>{FLAG}</div>
-      <p style={{fontSize:20,fontWeight:300,color:"rgba(255,255,255,0.65)",marginTop:4}}>¡Pura vida {TEAM}! 👋</p>
-      <p style={{fontSize:14,color:"rgba(255,255,255,0.4)",letterSpacing:4,textTransform:"uppercase",fontWeight:300}}>Tu resumen SEO del año</p>
-      <h1 style={{fontSize:52,fontWeight:900,lineHeight:1,color:"#fff",letterSpacing:-1}}>{BRAND}</h1>
-      <h2 style={{fontSize:38,fontWeight:900,lineHeight:1,background:"linear-gradient(135deg,#00ff87,#1db954)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>SEO Wrapped</h2>
-      <p style={{fontFamily:"'Space Mono',monospace",fontSize:28,fontWeight:700,color:"#00ff87",opacity:.8}}>{YEAR}</p>
-      <p style={{fontSize:18,fontWeight:300,color:"rgba(255,255,255,0.5)"}}>{COUNTRY}</p>
-      <div style={{marginTop:20,fontSize:14,color:"rgba(255,255,255,0.3)"}}>
+    <div style={{display:"flex",gap:6,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:4,flexShrink:0}}>
+      {brands.map(b=>{
+        const bData=Object.values(COUNTRIES).flatMap(c=>Object.entries(c.brands)).find(([k])=>k===b)?.[1];
+        const isActive=b===active;
+        return(
+          <button key={b} onClick={()=>onSwitch(b)}
+            style={{background:isActive?(bData?.colorDim||"rgba(255,255,255,0.08)"):"transparent",border:isActive?`1px solid ${bData?.color||"rgba(255,255,255,0.2)"}30`:"1px solid transparent",borderRadius:9,padding:"5px 16px",cursor:"pointer",fontSize:13,fontWeight:isActive?700:400,color:isActive:(bData?.color||"#fff"):"rgba(255,255,255,0.4)",transition:"all .2s",fontFamily:"'Outfit',sans-serif",whiteSpace:"nowrap"}}>
+            {bData?.label||b}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════
+   SLIDES
+═══════════════════════════════════════════════ */
+
+function SlideIntro({country,brands,activeBrand,onSwitch}){
+  const cData=COUNTRIES[country];
+  const bData=cData.brands[activeBrand];
+  return(
+    <div style={S.center}>
+      <div style={{fontSize:52}}>{cData.flag}</div>
+      <BrandTabs brands={Object.keys(cData.brands)} active={activeBrand} onSwitch={onSwitch}/>
+      <p style={{fontSize:14,color:"rgba(255,255,255,0.35)",letterSpacing:3,textTransform:"uppercase",fontWeight:300}}>Tu resumen SEO del año</p>
+      <h1 style={{fontSize:50,fontWeight:900,lineHeight:1,color:"#fff",letterSpacing:-1}}>{bData.label}</h1>
+      <h2 style={{fontSize:36,fontWeight:900,lineHeight:1,background:`linear-gradient(135deg,${bData.color},${bData.color}99)`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>SEO Wrapped</h2>
+      <p style={{fontFamily:"'Space Mono',monospace",fontSize:24,fontWeight:700,color:bData.color,opacity:.75}}>M26</p>
+      <p style={{fontSize:16,fontWeight:300,color:"rgba(255,255,255,0.4)"}}>{cData.name}</p>
+      <div style={{marginTop:12,fontSize:13,color:"rgba(255,255,255,0.25)"}}>
         <span className="pa">→</span> Desliza para comenzar
       </div>
     </div>
   );
 }
 
-/* ═══ IMPRESSIONS ═══ */
-function SImp(){
+function SlideImpressions({bd}){
+  const hasGrowth=bd.impressions.growth!==null;
   return(
-    <div style={L.c}>
-      <Tip id="impressions"><p style={L.lb}>Impresiones</p></Tip>
-      <h2 style={L.mega}><AN value={DATA.impressions.total}/></h2>
-      <p style={L.lbig}>apariciones en Google</p>
-      <Bdg v={DATA.impressions.growth}/>
-      <Spark data={DATA.monthly} dk="imp" c="#00ff87"/>
+    <div style={S.center}>
+      {bd.impressions.partialM25&&(
+        <Tip id="partialM25">
+          <div style={S.warnBadge}>⚠️ M25 período parcial — crecimiento no comparable</div>
+        </Tip>
+      )}
+      <p style={S.label}>Impresiones en Google</p>
+      <h2 style={{...S.mega,color:bd.color}}><AN value={bd.impressions.M26}/></h2>
+      <p style={S.lbig}>apariciones en búsquedas</p>
+      {hasGrowth&&<Bdg v={bd.impressions.growth} label="vs M25"/>}
+      {!hasGrowth&&<div style={{...S.pill,color:"rgba(255,255,255,0.35)"}}>M25: dato parcial</div>}
+      <Spark data={bd.monthly} dk="i" color={bd.color}/>
+      {bd.impressions.M25&&<p style={{fontSize:12,color:"rgba(255,255,255,0.25)",marginTop:2}}>M25: {fmt(bd.impressions.M25)}</p>}
     </div>
   );
 }
 
-/* ═══ CLICKS ═══ */
-function SCli(){
+function SlideClicks({bd}){
+  const hasGrowth=bd.clicks.growth!==null;
   return(
-    <div style={L.c}>
-      <Tip id="clicks"><p style={L.lb}>Clics orgánicos</p></Tip>
-      <h2 style={L.mega}><AN value={DATA.clicks.total}/></h2>
-      <p style={L.lbig}>clics desde Google</p>
-      <Bdg v={DATA.clicks.growth}/>
-      <div style={{display:"flex",gap:12,alignItems:"center",background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"10px 20px"}}>
-        <Tip id="ctr"><span style={{fontSize:14,color:"rgba(255,255,255,0.5)"}}>CTR</span></Tip>
-        <span style={{fontSize:26,fontWeight:800,fontFamily:"'Space Mono',monospace"}}>{DATA.ctr}%</span>
-      </div>
-      <Spark data={DATA.monthly} dk="cli" c="#1db954"/>
-    </div>
-  );
-}
-
-/* ═══ REVENUE ═══ */
-function SRev(){
-  const down=DATA.revenue.growth<0;
-  const dp=DATA.participation.digital,tp=DATA.participation.total;
-  return(
-    <div style={L.c}>
-      <Tip id="organicRevenue"><p style={L.lb}>Ingresos orgánicos</p></Tip>
-      <h2 style={{...L.mega,fontSize:44}}>{fmtUSD(DATA.revenue.total)}</h2>
-      <div style={{background:down?"rgba(255,85,85,0.1)":"rgba(0,255,135,0.1)",border:"1px solid "+(down?"rgba(255,85,85,0.25)":"rgba(0,255,135,0.2)"),borderRadius:16,padding:"5px 14px",fontSize:14,fontWeight:600,color:down?"#ff5555":"#00ff87"}}>
-        {down?"↓":"↑"} {Math.abs(DATA.revenue.growth)}% vs M25
-      </div>
-      <Tip id="assistedNote">
-        <div style={{background:"rgba(255,200,50,0.06)",border:"1px solid rgba(255,200,50,0.12)",borderRadius:10,padding:"8px 14px",maxWidth:500}}>
-          <p style={{fontSize:14,color:"rgba(255,200,50,0.85)",lineHeight:1.4,textAlign:"left"}}>
-            ⚠️ En M26 se separó la venta asistida. Cifras reflejan venta orgánica pura.
-          </p>
+    <div style={S.center}>
+      {bd.clicks.partialM25&&(
+        <Tip id="partialM25">
+          <div style={S.warnBadge}>⚠️ M25 período parcial — crecimiento no comparable</div>
+        </Tip>
+      )}
+      <p style={S.label}>Clics orgánicos</p>
+      <h2 style={{...S.mega,color:bd.color}}><AN value={bd.clicks.M26}/></h2>
+      <p style={S.lbig}>clics desde Google</p>
+      {hasGrowth&&<Bdg v={bd.clicks.growth} label="vs M25"/>}
+      {!hasGrowth&&<div style={{...S.pill,color:"rgba(255,255,255,0.35)"}}>M25: dato parcial</div>}
+      <Tip id="ctr">
+        <div style={{...S.statPill,borderColor:`${bd.color}30`}}>
+          <span style={{fontSize:12,color:"rgba(255,255,255,0.4)"}}>CTR</span>
+          <span style={{fontSize:28,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.ctr}%</span>
         </div>
       </Tip>
-      <div style={{display:"flex",gap:8,width:"100%"}}>
-        <StCard v={fmt(DATA.sales.total)} l="Ventas" sub={DATA.sales.growth+"%"} down/>
-        <StCard v={DATA.conversionRate.organic+"%"} l="Conv. orgánica" tip="convRate"/>
-      </div>
-      <div style={{display:"flex",gap:8,width:"100%"}}>
-        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"14px 14px",flex:1,textAlign:"center"}}>
-          <Tip id="digitalShare"><span style={{fontSize:26,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{dp.seo}%</span></Tip>
-          <div style={{fontSize:14,color:"rgba(255,255,255,0.4)",marginTop:2}}>Part. {dp.label}</div>
-        </div>
-        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"14px 14px",flex:1,textAlign:"center"}}>
-          <Tip id="totalShare"><span style={{fontSize:26,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#1db954"}}>{tp.seo}%</span></Tip>
-          <div style={{fontSize:14,color:"rgba(255,255,255,0.4)",marginTop:2}}>Part. {tp.label}</div>
-        </div>
-      </div>
+      <Spark data={bd.monthly} dk="c" color={bd.color}/>
     </div>
   );
 }
 
-function StCard({v,l,sub,down,tip}){
-  const inner=(
-    <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"34px 14px",flex:1,display:"flex",flexDirection:"column",gap:3,alignItems:"center"}}>
-      <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:down?"#ff5555":"#00ff87"}}>{v}</span>
-      <span style={{fontSize:14,color:"rgba(255,255,255,0.4)",textTransform:"uppercase",letterSpacing:1}}>{l}</span>
-      {sub&&<span style={{fontSize:14,color:down?"#ff5555":"#00ff87"}}>{sub}</span>}
-    </div>
-  );
-  if(tip)return React.createElement(Tip,{id:tip},inner);
-  return inner;
-}
-
-/* ═══ BRAND ═══ */
-function SBrand(){
-  const nb=DATA.brandVsNonBrand.nonBrand,b=DATA.brandVsNonBrand.brand;
+function SlideRevenue({bd}){
+  const down=bd.revenue.growth<0;
   return(
-    <div style={L.c}>
-      <Tip id="nonBrand"><p style={L.lb}>Tráfico No Marca</p></Tip>
-      <h2 style={{...L.mega,fontSize:72}}>{nb}%</h2>
-      <p style={L.lbig}>es búsqueda NO marca</p>
-      <p style={{fontSize:14,color:"rgba(255,255,255,0.45)",maxWidth:360,lineHeight:1.5}}>
-        Conquista real: {nb}% de los clics vienen de personas que NO buscaron "{BRAND}".
+    <div style={S.center}>
+      <p style={S.label}>Ingresos orgánicos</p>
+      <h2 style={{fontSize:38,fontWeight:900,color:down?"#ff5050":"#00ff87",fontFamily:"'Space Mono',monospace",lineHeight:1,margin:"4px 0"}}>
+        <AN value={bd.revenue.M26} prefix="$" suffix=" USD"/>
+      </h2>
+      <Bdg v={bd.revenue.growth} label="vs M25"/>
+      {bd.revenue.asistidaNote&&(
+        <Tip id="asistida">
+          <div style={S.warnBadge}>⚠️ M26: venta asistida excluida del canal SEO</div>
+        </Tip>
+      )}
+      <div style={{display:"flex",gap:8,width:"100%",justifyContent:"center",flexWrap:"wrap"}}>
+        <div style={S.microCard}>
+          <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.orders.growth<0?"#ff5050":bd.color}}>{fmt(bd.orders.M26)}</span>
+          <span style={S.microLabel}>Órdenes</span>
+          <Bdg v={bd.orders.growth} small/>
+        </div>
+        <Tip id="conv">
+          <div style={S.microCard}>
+            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.convRate.M26}%</span>
+            <span style={S.microLabel}>Conv. orgánica</span>
+          </div>
+        </Tip>
+      </div>
+      <div style={{display:"flex",gap:8,width:"100%",justifyContent:"center",flexWrap:"wrap"}}>
+        <Tip id="partDigital">
+          <div style={S.microCard}>
+            <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.partDigital.M26}%</span>
+            <span style={S.microLabel}>Part. Digital</span>
+          </div>
+        </Tip>
+        <Tip id="partTotal">
+          <div style={S.microCard}>
+            <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.partTotal.M26}%</span>
+            <span style={S.microLabel}>Part. Total</span>
+          </div>
+        </Tip>
+      </div>
+    </div>
+  );
+}
+
+function SlideBrand({bd}){
+  const nb=bd.nonBrand, b=bd.brandPct;
+  return(
+    <div style={S.center}>
+      <Tip id="nonBrand">
+        <p style={S.label}>Tráfico No Marca</p>
+      </Tip>
+      <h2 style={{...S.mega,fontSize:68,color:bd.color}}><AN value={nb} decimals={1} suffix="%"/></h2>
+      <p style={S.lbig}>de búsquedas NO son de marca</p>
+      <p style={{fontSize:13,color:"rgba(255,255,255,0.4)",maxWidth:340,lineHeight:1.5,textAlign:"center"}}>
+        Usuarios que NO buscaron "{bd.label}" pero llegaron igual. Conquista real de mercado.
       </p>
-      <div style={{width:"100%",maxWidth:360,marginTop:10}}>
-        <div style={{display:"flex",borderRadius:12,overflow:"hidden",height:32}}>
-          <div style={{width:nb+"%",background:"linear-gradient(90deg,#1db954,#00ff87)",display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <span style={{fontSize:14,fontWeight:700,color:"#0a0a0a"}}>No Marca {nb}%</span>
+      <div style={{width:"100%",maxWidth:360}}>
+        <div style={{display:"flex",borderRadius:10,overflow:"hidden",height:28,marginBottom:6}}>
+          <div style={{width:nb+"%",background:`linear-gradient(90deg,${bd.color}99,${bd.color})`,display:"flex",alignItems:"center",justifyContent:"center"}}>
+            <span style={{fontSize:12,fontWeight:700,color:"#000"}}>No Marca {nb.toFixed(1)}%</span>
           </div>
-          <div style={{width:b+"%",background:"rgba(255,255,255,0.07)",display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <span style={{fontSize:14,fontWeight:600,color:"rgba(255,255,255,0.4)"}}>Marca {b}%</span>
+          <div style={{flex:1,background:"rgba(255,255,255,0.06)",display:"flex",alignItems:"center",justifyContent:"center"}}>
+            <span style={{fontSize:12,color:"rgba(255,255,255,0.35)"}}>Marca {b.toFixed(1)}%</span>
           </div>
         </div>
-      </div>
-      <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"12px 24px",marginTop:10,textAlign:"center"}}>
-        <Tip id="kwTop10"><span style={{fontSize:28,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{fmt(DATA.newKeywordsTop10.count)}</span></Tip>
-        <div style={{fontSize:14,color:"rgba(255,255,255,0.4)",marginTop:3}}>Nuevas keywords en Top 10</div>
-        <Bdg v={DATA.newKeywordsTop10.growth} small/>
       </div>
     </div>
   );
 }
 
-/* ═══ TECH ═══ */
-function STech(){
-  const idx=DATA.indexation,cwv=DATA.coreWebVitals,wp=DATA.weightedPosition;
+function SlideTech({bd}){
+  const idx=bd.indexation, wp=bd.weightedPos;
+  const idxPct=(idx.indexed/idx.total*100).toFixed(1);
   return(
-    <div style={L.c}>
-      <Tip id="cwv"><p style={L.lb}>Salud técnica</p></Tip>
-      <h2 style={L.sec}>Core Web Vitals</h2>
-      <div style={{display:"flex",gap:10,width:"100%",justifyContent:"center"}}>
-        <CWVCard l="LCP" v={cwv.lcp+"s"} ok={cwv.lcp<=2.5} tid="lcp"/>
-        <CWVCard l="CLS" v={""+cwv.cls} ok={cwv.cls<=0.1} tid="cls"/>
-        <CWVCard l="INP" v={cwv.inp+"ms"} ok={cwv.inp<=200} tid="inp"/>
-      </div>
-      <div style={{width:"100%",marginTop:8}}>
-        <Tip id="indexation"><p style={{fontSize:14,color:"rgba(255,255,255,0.4)",marginBottom:6,textTransform:"uppercase",letterSpacing:1,textAlign:"center"}}>Indexación</p></Tip>
-        <div style={{display:"flex",gap:10,justifyContent:"center"}}>
-          <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"10px 18px",flex:1,maxWidth:170,textAlign:"center"}}>
-            <div style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.65)"}}>{fmt(idx.total)}</div>
-            <div style={{fontSize:14,color:"rgba(255,255,255,0.35)"}}>Total</div>
+    <div style={S.center}>
+      <p style={S.label}>Salud técnica</p>
+
+      <div style={{width:"100%",maxWidth:380}}>
+        <Tip id="indexation">
+          <p style={{fontSize:12,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginBottom:8,textAlign:"center"}}>Indexación</p>
+        </Tip>
+        <div style={{display:"flex",gap:8,justifyContent:"center"}}>
+          <div style={S.microCard}>
+            <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.6)"}}>{fmt(idx.total)}</span>
+            <span style={S.microLabel}>URLs totales</span>
           </div>
-          <div style={{background:"rgba(255,255,255,0.05)",borderRadius:10,padding:"10px 18px",flex:1,maxWidth:170,textAlign:"center"}}>
-            <div style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{fmt(idx.indexed)}</div>
-            <div style={{fontSize:14,color:"rgba(255,255,255,0.35)"}}>Indexadas</div>
+          <div style={S.microCard}>
+            <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{fmt(idx.indexed)}</span>
+            <span style={S.microLabel}>Indexadas</span>
           </div>
         </div>
-        <div style={{height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,marginTop:8,overflow:"hidden",maxWidth:360,marginLeft:"auto",marginRight:"auto"}}>
-          <div style={{height:"100%",width:((idx.indexed/idx.total)*100)+"%",background:"linear-gradient(90deg,#1db954,#00ff87)",borderRadius:4}}/>
+        <div style={{height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,marginTop:10,overflow:"hidden",maxWidth:360,marginLeft:"auto",marginRight:"auto"}}>
+          <div style={{height:"100%",width:idxPct+"%",background:`linear-gradient(90deg,${bd.color}88,${bd.color})`,borderRadius:4,transition:"width 1s ease"}}/>
         </div>
-        <p style={{fontSize:14,color:"rgba(255,255,255,0.3)",marginTop:3,textAlign:"center"}}>{((idx.indexed/idx.total)*100).toFixed(1)}% indexado</p>
+        <p style={{fontSize:12,color:"rgba(255,255,255,0.3)",textAlign:"center",marginTop:4}}>{idxPct}% indexado</p>
       </div>
+
       <Tip id="weightedPos">
-        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"10px 28px",marginTop:4,textAlign:"center"}}>
-          <div style={{display:"flex",alignItems:"baseline",gap:10,justifyContent:"center"}}>
-            <span style={{fontSize:32,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{wp.current}</span>
-            <span style={{fontSize:16,color:"rgba(255,255,255,0.35)"}}>← {wp.previous}</span>
+        <div style={{...S.microCard,padding:"14px 28px",marginTop:4}}>
+          <div style={{display:"flex",alignItems:"baseline",gap:12,justifyContent:"center"}}>
+            <span style={{fontSize:40,fontWeight:900,fontFamily:"'Space Mono',monospace",color:bd.color}}>#{wp.M26}</span>
+            {wp.M25&&<span style={{fontSize:16,color:"rgba(255,255,255,0.3)"}}>vs #{wp.M25} M25</span>}
           </div>
-          <span style={{fontSize:14,color:"rgba(255,255,255,0.35)"}}>Posición ponderada</span>
+          <span style={{fontSize:12,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>Posición ponderada</span>
         </div>
       </Tip>
+
+      <div style={{background:"rgba(255,200,50,0.06)",border:"1px solid rgba(255,200,50,0.1)",borderRadius:10,padding:"8px 16px",maxWidth:360}}>
+        <p style={{fontSize:12,color:"rgba(255,200,50,0.7)",lineHeight:1.5,textAlign:"center"}}>
+          ⏳ Core Web Vitals pendientes — fuente: Lighthouse / CrUX
+        </p>
+      </div>
     </div>
   );
 }
 
-function CWVCard({l,v,ok,tid}){
+function SlideKeywords({bd}){
+  const kws=bd.keywords.slice(0,15);
+  const mx=kws[0]?.cl||1;
+  const col1=kws.slice(0,8), col2=kws.slice(8);
   return(
-    <div style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"12px 10px",flex:1,display:"flex",flexDirection:"column",gap:4,alignItems:"center",borderTop:"3px solid "+(ok?"#00ff87":"#ff5555"),maxWidth:150,minWidth:0}}>
-      <Tip id={tid}><span style={{fontSize:14,color:"rgba(255,255,255,0.4)",textTransform:"uppercase",letterSpacing:1,fontWeight:600}}>{l}</span></Tip>
-      <span style={{fontSize:26,fontWeight:800,fontFamily:"'Space Mono',monospace",color:ok?"#00ff87":"#ff5555"}}>{v}</span>
-      <span style={{fontSize:14,color:ok?"#00ff87":"#ff5555",fontWeight:600}}>{ok?"✓ Bueno":"✗ Mejorar"}</span>
-    </div>
-  );
-}
-
-/* ═══ SOV ═══ */
-function SSov(){
-  const all=DATA.shareOfVoice.competitors;
-  const mx=Math.max(...all.map(a=>a.sov));
-  return(
-    <div style={L.c}>
-      <Tip id="sov"><p style={L.lb}>Share of Voice Orgánico</p></Tip>
-      <h2 style={L.sec}>¿Quién domina la vertical?</h2>
-      <div style={{width:"100%",display:"flex",flexDirection:"column",gap:10,marginTop:8}}>
-        {all.map((c,i)=>(
-          <div key={i} style={{display:"flex",alignItems:"center",gap:10}} className="fi">
-            <span style={{fontSize:14,color:c.own?"#00ff87":"rgba(255,255,255,0.45)",width:80,textAlign:"right",fontWeight:c.own?700:400}}>{c.name}</span>
-            <div style={{flex:1,height:26,background:"rgba(255,255,255,0.04)",borderRadius:6,overflow:"hidden"}}>
-              <div style={{height:"100%",width:((c.sov/mx)*100)+"%",background:c.own?"linear-gradient(90deg,#1db954,#00ff87)":"rgba(255,255,255,0.08)",borderRadius:6,display:"flex",alignItems:"center",paddingLeft:10}}>
-                <span style={{fontSize:14,fontWeight:700,fontFamily:"'Space Mono',monospace",color:c.own?"#0a0a0a":"rgba(255,255,255,0.5)"}}>{c.sov}%</span>
+    <div style={{...S.center,maxWidth:660}}>
+      <p style={S.label}>Keywords más fuertes</p>
+      <h2 style={S.sec}>Top {kws.length} Keywords</h2>
+      <div style={{display:"flex",gap:8,width:"100%"}}>
+        {[col1,col2].map((col,ci)=>(
+          <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:4}}>
+            {col.map((kw,i)=>(
+              <div key={i} style={{display:"flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"5px 8px"}} className="fi">
+                <span style={{fontFamily:"'Space Mono',monospace",fontSize:11,fontWeight:700,color:bd.color,minWidth:26,textAlign:"center"}}>#{ci*8+i+1}</span>
+                <div style={{flex:1,minWidth:0}}>
+                  <div style={{fontSize:12,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{kw.k}</div>
+                  <div style={{display:"flex",gap:8,fontSize:11,color:"rgba(255,255,255,0.35)",marginTop:1}}>
+                    <span>{fmt(kw.cl)}</span>
+                    <span style={{color:bd.color}}>pos.{kw.p}</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         ))}
       </div>
@@ -401,162 +474,91 @@ function SSov(){
   );
 }
 
-/* ═══ TOP 15 KW — 2 columns ═══ */
-function SKw(){
-  const mx=DATA.topKeywords[0].clicks;
-  const c1=DATA.topKeywords.slice(0,8),c2=DATA.topKeywords.slice(8);
+function SlideCategories({bd}){
+  const cats=bd.categories;
+  const col1=cats.slice(0,5), col2=cats.slice(5);
+  const mx=cats[0]?.p||1;
   return(
-    <div style={{...L.c,maxWidth:680}}>
-      <p style={L.lb}>Keywords más fuertes</p>
-      <h2 style={L.sec}>Top 15 Keywords</h2>
+    <div style={S.center}>
+      <p style={S.label}>Categorías que más brillaron</p>
+      <h2 style={S.sec}>Top 10 Categorías · Revenue</h2>
       <div style={{display:"flex",gap:8,width:"100%"}}>
-        <div style={{flex:1,display:"flex",flexDirection:"column",gap:4}}>
-          {c1.map((kw,i)=><KWR key={i} kw={kw} i={i} mx={mx}/>)}
-        </div>
-        <div style={{flex:1,display:"flex",flexDirection:"column",gap:4}}>
-          {c2.map((kw,i)=><KWR key={i+8} kw={kw} i={i+8} mx={mx}/>)}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function KWR({kw,i,mx}){
-  return(
-    <div style={{display:"flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"6px 8px"}} className="fi">
-      <span style={{fontFamily:"'Space Mono',monospace",fontSize:14,fontWeight:700,color:"#00ff87",minWidth:28,textAlign:"center"}}>#{i+1}</span>
-      <div style={{flex:1,minWidth:0}}>
-        <div style={{fontSize:14,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{kw.keyword}</div>
-        <div style={{display:"flex",gap:8,fontSize:14,color:"rgba(255,255,255,0.35)",marginTop:1}}>
-          <span>{fmt(kw.clicks)}</span>
-          <span style={{color:"#1db954"}}>#{kw.pos}</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ═══ TOP 10 CATEGORIES — no tooltips, 2 cols ═══ */
-function SCat(){
-  const mx=DATA.topCategories[0].pct;
-  return(
-    <div style={L.c}>
-      <p style={L.lb}>Categorías que más brillaron</p>
-      <h2 style={L.sec}>Top 10 Categorías</h2>
-      <div style={{width:"100%",display:"flex",gap:8}}>
-        <div style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
-          {DATA.topCategories.slice(0,5).map((cat,i)=><CatRow key={i} cat={cat} i={i} mx={mx}/>)}
-        </div>
-        <div style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
-          {DATA.topCategories.slice(5).map((cat,i)=><CatRow key={i+5} cat={cat} i={i+5} mx={mx}/>)}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CatRow({cat,i,mx}){
-  return(
-    <div style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"8px 12px"}} className="fi">
-      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
-        <span style={{fontSize:14,fontWeight:600,color:"#fff"}}><span style={{color:"#00ff87",fontFamily:"'Space Mono',monospace",marginRight:5}}>#{i+1}</span>{cat.name}</span>
-        <span style={{fontSize:14,fontWeight:700,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{cat.pct}%</span>
-      </div>
-      <div style={{height:4,background:"rgba(255,255,255,0.06)",borderRadius:3,overflow:"hidden"}}>
-        <div style={{height:"100%",width:((cat.pct/mx)*100)+"%",background:"linear-gradient(90deg,#1db954,#00ff87)",borderRadius:3}}/>
-      </div>
-    </div>
-  );
-}
-
-/* ═══ TOP 10 PRODUCTS — no tooltips, 2 cols ═══ */
-function SProd(){
-  const mx=DATA.topProducts[0].conv;
-  return(
-    <div style={L.c}>
-      <p style={L.lb}>Productos estrella del SEO</p>
-      <h2 style={L.sec}>Top 10 Productos</h2>
-      <div style={{width:"100%",display:"flex",gap:8}}>
-        <div style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
-          {DATA.topProducts.slice(0,5).map((p,i)=><ProdRow key={i} p={p} i={i} mx={mx}/>)}
-        </div>
-        <div style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
-          {DATA.topProducts.slice(5).map((p,i)=><ProdRow key={i+5} p={p} i={i+5} mx={mx}/>)}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ProdRow({p,i,mx}){
-  return(
-    <div style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"8px 12px"}} className="fi">
-      <div style={{fontSize:14,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",marginBottom:4}}>
-        <span style={{color:"#00ff87",fontFamily:"'Space Mono',monospace",marginRight:5}}>#{i+1}</span>{p.name}
-      </div>
-      <div style={{display:"flex",alignItems:"center",gap:8}}>
-        <div style={{flex:1,height:4,background:"rgba(255,255,255,0.06)",borderRadius:3,overflow:"hidden"}}>
-          <div style={{height:"100%",width:((p.conv/mx)*100)+"%",background:"linear-gradient(90deg,#1db954,#00ff87)",borderRadius:3}}/>
-        </div>
-        <span style={{fontSize:14,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.5)",flexShrink:0}}>{fmt(p.conv)}</span>
-      </div>
-    </div>
-  );
-}
-
-/* ═══ HEATMAP ═══ */
-function SHeat(){
-  return(
-    <div style={{...L.c,maxWidth:640}}>
-      <Tip id="heatmap"><p style={L.lb}>Mapa de Calor</p></Tip>
-      <h2 style={L.sec}>Estacionalidad de búsqueda</h2>
-      <div style={{width:"100%",overflowX:"auto"}}>
-        <div style={{display:"grid",gridTemplateColumns:"110px repeat(12,1fr)",gap:3,minWidth:520}}>
-          <div/>
-          {MO.map(m=><div key={m} style={{fontSize:14,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.4)",textAlign:"center"}}>{m}</div>)}
-          {DATA.heatmapKeywords.map((row,ri)=>(
-            <React.Fragment key={ri}>
-              <div style={{fontSize:14,color:"rgba(255,255,255,0.5)",display:"flex",alignItems:"center",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{row.keyword}</div>
-              {row.vals.map((v,ci)=>(
-                <div key={ci} className="hc" style={{background:hcol(v),borderRadius:4,aspectRatio:"1",display:"flex",alignItems:"center",justifyContent:"center",animationDelay:((ri*12+ci)*.02)+"s",minHeight:28}}
-                  title={row.keyword+" — "+MO[ci]+": "+v}>
-                  <span style={{fontSize:14,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.7)",fontWeight:700}}>{v}</span>
+        {[col1,col2].map((col,ci)=>(
+          <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
+            {col.map((cat,i)=>(
+              <div key={i} style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"7px 10px"}} className="fi">
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}}>
+                  <span style={{fontSize:12,fontWeight:600,color:"#fff"}}>
+                    <span style={{color:bd.color,fontFamily:"'Space Mono',monospace",marginRight:4}}>#{ci*5+i+1}</span>
+                    {cat.n}
+                  </span>
+                  <span style={{fontSize:12,fontWeight:700,fontFamily:"'Space Mono',monospace",color:bd.color}}>{cat.p}%</span>
                 </div>
-              ))}
-            </React.Fragment>
-          ))}
-        </div>
-        <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:4,marginTop:8}}>
-          <span style={{fontSize:14,color:"rgba(255,255,255,0.3)"}}>Baja</span>
-          {[10,30,45,60,75,90].map(v=><div key={v} style={{width:16,height:10,borderRadius:3,background:hcol(v)}}/>)}
-          <span style={{fontSize:14,color:"rgba(255,255,255,0.3)"}}>Alta</span>
-        </div>
+                <div style={{height:4,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}>
+                  <div style={{height:"100%",width:((cat.p/mx)*100)+"%",background:`linear-gradient(90deg,${bd.color}70,${bd.color})`,borderRadius:3}}/>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-/* ═══ FINAL ═══ */
-function SFinal(){
+function SlideProducts({bd}){
+  const prods=bd.products;
+  const mx=prods[0]?.r||1;
+  const col1=prods.slice(0,5), col2=prods.slice(5);
+  return(
+    <div style={S.center}>
+      <p style={S.label}>Productos estrella del SEO</p>
+      <h2 style={S.sec}>Top 10 Productos · Revenue</h2>
+      <div style={{display:"flex",gap:8,width:"100%"}}>
+        {[col1,col2].map((col,ci)=>(
+          <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
+            {col.map((p,i)=>(
+              <div key={i} style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"7px 10px"}} className="fi">
+                <div style={{fontSize:12,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",marginBottom:3}}>
+                  <span style={{color:bd.color,fontFamily:"'Space Mono',monospace",marginRight:4}}>#{ci*5+i+1}</span>
+                  {p.n}
+                </div>
+                <div style={{display:"flex",alignItems:"center",gap:8}}>
+                  <div style={{flex:1,height:4,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}>
+                    <div style={{height:"100%",width:((p.r/mx)*100)+"%",background:`linear-gradient(90deg,${bd.color}70,${bd.color})`,borderRadius:3}}/>
+                  </div>
+                  <span style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.4)",flexShrink:0}}>{fmtUSD(p.r)}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SlideSummary({bd,country}){
+  const cData=COUNTRIES[country];
   const stats=[
-    {v:fmt(DATA.impressions.total),l:"Impresiones"},
-    {v:fmt(DATA.clicks.total),l:"Clics"},
-    {v:fmtUSD(DATA.revenue.total),l:"Revenue"},
-    {v:DATA.conversionRate.organic+"%",l:"Conversión"},
-    {v:DATA.participation.digital.seo+"%",l:"Part. Digital"},
-    {v:fmt(DATA.newKeywordsTop10.count),l:"Nuevas KWs Top 10"},
+    {v:fmt(bd.impressions.M26),  l:"Impresiones"},
+    {v:fmt(bd.clicks.M26),       l:"Clics"},
+    {v:"$"+fmt(bd.revenue.M26),  l:"Revenue"},
+    {v:bd.convRate.M26+"%",      l:"Conversión"},
+    {v:bd.partDigital.M26+"%",   l:"Part. Digital"},
+    {v:bd.nonBrand.toFixed(1)+"%",l:"No Marca"},
   ];
   return(
-    <div style={L.c}>
-      <div style={{fontSize:48}}>📊</div>
-      <h2 style={{fontSize:24,fontWeight:800,lineHeight:1.3,maxWidth:400,background:"linear-gradient(135deg,#00ff87,#1db954)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",textAlign:"center"}}>
-        {BRAND} {COUNTRY} — {YEAR}
+    <div style={S.center}>
+      <div style={{fontSize:44}}>📊</div>
+      <h2 style={{fontSize:20,fontWeight:800,lineHeight:1.4,maxWidth:360,background:`linear-gradient(135deg,${bd.color},${bd.color}80)`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",textAlign:"center"}}>
+        {bd.label} {cData.name} — M26
       </h2>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,marginTop:10,width:"100%"}}>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,width:"100%"}}>
         {stats.map((s,i)=>(
-          <div key={i} style={{background:"rgba(255,255,255,0.05)",borderRadius:12,padding:"10px 8px",display:"flex",flexDirection:"column",gap:3,alignItems:"center"}}>
-            <span style={{fontSize:18,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"#00ff87"}}>{s.v}</span>
-            <span style={{fontSize:14,color:"rgba(255,255,255,0.4)",textTransform:"uppercase",letterSpacing:1,textAlign:"center"}}>{s.l}</span>
+          <div key={i} style={{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 8px",display:"flex",flexDirection:"column",gap:3,alignItems:"center",border:`1px solid ${bd.color}15`}}>
+            <span style={{fontSize:17,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{s.v}</span>
+            <span style={{fontSize:10,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,textAlign:"center"}}>{s.l}</span>
           </div>
         ))}
       </div>
@@ -564,70 +566,163 @@ function SFinal(){
   );
 }
 
-/* ═══ RECOGNITION ═══ */
-function SRecog(){
-  const rec=RECOGNITION;const has=rec.hasAward;
+function SlideRecognition({bd}){
+  const{award,text}=bd.recognition;
   return(
-    <div style={L.c}>
-      <div style={{fontSize:56}}>{has?"🏆":"🚀"}</div>
-      {has?(
+    <div style={S.center}>
+      <div style={{fontSize:52,animation:"pulse 2s ease infinite"}}>{award?"🏆":"🚀"}</div>
+      {award?(
         <>
-          <p style={{fontSize:14,color:"rgba(255,200,50,0.7)",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Reconocimiento</p>
-          <h2 style={{fontSize:24,fontWeight:800,lineHeight:1.4,maxWidth:400,textAlign:"center",background:"linear-gradient(135deg,#ffd700,#ffaa00)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>{rec.awardText}</h2>
-          <div style={{width:60,height:2,background:"linear-gradient(90deg,transparent,#ffd700,transparent)",marginTop:10}}/>
+          <p style={{fontSize:12,color:"rgba(255,200,50,0.65)",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Reconocimiento M26</p>
+          <h2 style={{fontSize:22,fontWeight:800,lineHeight:1.5,maxWidth:380,textAlign:"center",background:"linear-gradient(135deg,#ffd700,#ffb300)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>{text}</h2>
+          <div style={{width:50,height:2,background:"linear-gradient(90deg,transparent,#ffd700,transparent)",marginTop:8}}/>
         </>
       ):(
         <>
-          <p style={{fontSize:14,color:"rgba(255,255,255,0.45)",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Mirando al futuro</p>
-          <h2 style={{fontSize:20,fontWeight:600,lineHeight:1.5,maxWidth:380,textAlign:"center",color:"rgba(255,255,255,0.75)"}}>{rec.genericText.replace("{BRAND}",BRAND)}</h2>
+          <p style={{fontSize:12,color:`${bd.color}99`,textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Destacado M26</p>
+          <h2 style={{fontSize:18,fontWeight:600,lineHeight:1.6,maxWidth:360,textAlign:"center",color:"rgba(255,255,255,0.75)"}}>{text}</h2>
         </>
       )}
-      <p style={{marginTop:18,fontSize:18,fontWeight:600,color:"rgba(255,255,255,0.55)"}}>¡Gracias {TEAM}! 💪</p>
-      <p style={{fontSize:14,color:"rgba(255,255,255,0.3)"}}>Preparados para M27</p>
+      <p style={{marginTop:16,fontSize:16,fontWeight:600,color:"rgba(255,255,255,0.45)"}}>¡Gracias {bd.label} CR! 💪</p>
+      <p style={{fontSize:13,color:"rgba(255,255,255,0.25)"}}>Preparados para M27</p>
     </div>
   );
 }
 
-/* ═══ SHARED ═══ */
-function Bdg({v,small}){
+/* ═══════════════════════════════════════════════
+   MAIN APP
+═══════════════════════════════════════════════ */
+const SLIDE_LABELS=[
+  "Inicio","Impresiones","Clics","Revenue","No Marca","Técnico","Keywords","Categorías","Productos","Resumen","Reconocimiento"
+];
+const TOTAL=SLIDE_LABELS.length;
+
+function App(){
+  const[country,setCountry]=useState(null);
+  const[brand,setBrand]=useState(null);
+  const[slide,setSlide]=useState(0);
+  const[animKey,setAnimKey]=useState(0);
+  const touchRef=useRef(null);
+
+  const go=useCallback((i)=>{setSlide(i);setAnimKey(k=>k+1)},[]);
+  const next=useCallback(()=>slide<TOTAL-1&&go(slide+1),[slide,go]);
+  const prev=useCallback(()=>slide>0&&go(slide-1),[slide,go]);
+
+  const selectCountry=(code)=>{
+    setCountry(code);
+    const firstBrand=Object.keys(COUNTRIES[code].brands)[0];
+    setBrand(firstBrand);
+    setSlide(0);
+    setAnimKey(0);
+  };
+
+  const switchBrand=(b)=>{setBrand(b);setAnimKey(k=>k+1)};
+
+  useEffect(()=>{
+    const h=(e)=>{
+      if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();next();}
+      if(e.key==="ArrowLeft"){prev();}
+      if(e.key==="Escape"&&country){setCountry(null);setBrand(null);setSlide(0);}
+    };
+    window.addEventListener("keydown",h);
+    return()=>window.removeEventListener("keydown",h);
+  },[next,prev,country]);
+
+  // Country selector
+  if(!country){
+    return(
+      <div style={R.root}>
+        <CountrySelector onSelect={selectCountry}/>
+      </div>
+    );
+  }
+
+  const cData=COUNTRIES[country];
+  const bd=cData.brands[brand];
+  const brands=Object.keys(cData.brands);
+
+  const slides=[
+    <SlideIntro key={`intro-${animKey}`} country={country} brands={brands} activeBrand={brand} onSwitch={switchBrand}/>,
+    <SlideImpressions key={`imp-${animKey}`} bd={bd}/>,
+    <SlideClicks key={`cli-${animKey}`} bd={bd}/>,
+    <SlideRevenue key={`rev-${animKey}`} bd={bd}/>,
+    <SlideBrand key={`brand-${animKey}`} bd={bd}/>,
+    <SlideTech key={`tech-${animKey}`} bd={bd}/>,
+    <SlideKeywords key={`kw-${animKey}`} bd={bd}/>,
+    <SlideCategories key={`cat-${animKey}`} bd={bd}/>,
+    <SlideProducts key={`prod-${animKey}`} bd={bd}/>,
+    <SlideSummary key={`sum-${animKey}`} bd={bd} country={country}/>,
+    <SlideRecognition key={`rec-${animKey}`} bd={bd}/>,
+  ];
+
   return(
-    <div style={{background:"rgba(0,255,135,0.1)",border:"1px solid rgba(0,255,135,0.2)",borderRadius:16,padding:small?"3px 10px":"5px 14px",fontSize:small?14:15,fontWeight:600,color:"#00ff87",marginTop:small?4:0}}>
-      ↑ {v}% vs M25
+    <div style={R.root}
+      onTouchStart={e=>{touchRef.current=e.touches[0].clientX}}
+      onTouchEnd={e=>{
+        if(touchRef.current===null)return;
+        const d=touchRef.current-e.changedTouches[0].clientX;
+        if(Math.abs(d)>50){d>0?next():prev();}
+        touchRef.current=null;
+      }}>
+
+      {/* Top bar */}
+      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"10px 14px 0",flexShrink:0,gap:8}}>
+        <button onClick={()=>{setCountry(null);setBrand(null);setSlide(0);}}
+          style={{background:"none",border:"none",color:"rgba(255,255,255,0.3)",cursor:"pointer",fontSize:18,padding:0,lineHeight:1}}>
+          ←
+        </button>
+        <div style={{flex:1,display:"flex",gap:3}}>
+          {SLIDE_LABELS.map((_,i)=>(
+            <div key={i} onClick={()=>go(i)}
+              style={{height:3,borderRadius:3,cursor:"pointer",background:i<=slide?bd.color:"rgba(255,255,255,0.08)",flex:i===slide?2.5:1,transition:"all .3s"}}/>
+          ))}
+        </div>
+        {brands.length>1&&(
+          <BrandTabs brands={brands} active={brand} onSwitch={switchBrand}/>
+        )}
+      </div>
+
+      {/* Slide label */}
+      <div style={{textAlign:"center",padding:"4px 0",flexShrink:0}}>
+        <span style={{fontSize:10,color:"rgba(255,255,255,0.2)",letterSpacing:2,textTransform:"uppercase",fontFamily:"'Space Mono',monospace"}}>
+          {cData.flag} {bd.label} · {SLIDE_LABELS[slide]}
+        </span>
+      </div>
+
+      {/* Slide area */}
+      <div style={R.wrap} key={animKey}>
+        {slides[slide]}
+      </div>
+
+      {/* Nav */}
+      <div style={R.nav}>
+        <button style={{...R.btn,opacity:slide===0?.25:1}} onClick={prev} disabled={slide===0}>‹ Anterior</button>
+        <span style={R.cnt}>{slide+1}/{TOTAL}</span>
+        <button style={{...R.btn,opacity:slide===TOTAL-1?.25:1}} onClick={next} disabled={slide===TOTAL-1}>Siguiente ›</button>
+      </div>
     </div>
   );
 }
 
-function Spark({data,dk,c}){
-  const vals=data.map(d=>d[dk]);
-  const max=Math.max(...vals),min=Math.min(...vals),range=max-min||1;
-  const w=260,h=55;
-  const pts=vals.map((v,i)=>(i/(vals.length-1))*w+","+(h-((v-min)/range)*h)).join(" ");
-  return(
-    <svg viewBox={"0 0 "+w+" "+h} style={{width:260,height:55,marginTop:6}} xmlns="http://www.w3.org/2000/svg">
-      <defs><linearGradient id={"g-"+dk} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={c} stopOpacity=".25"/><stop offset="100%" stopColor={c} stopOpacity="0"/></linearGradient></defs>
-      <polygon points={"0,"+h+" "+pts+" "+w+","+h} fill={"url(#g-"+dk+")"}/>
-      <polyline points={pts} fill="none" stroke={c} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="sd"/>
-    </svg>
-  );
-}
-
+/* ═══ SHARED STYLES ═══ */
 const R={
-  root:{fontFamily:"'Outfit',sans-serif",background:"linear-gradient(160deg,#0a0a0a 0%,#0d1f12 40%,#0a0a0a 100%)",height:"100vh",color:"#fff",display:"flex",flexDirection:"column",overflow:"hidden",userSelect:"none"},
-  prog:{display:"flex",gap:3,padding:"12px 16px 0",flexShrink:0},
-  wrap:{flex:1,display:"flex",alignItems:"center",justifyContent:"center",padding:"8px 20px 4px",overflow:"hidden"},
-  nav:{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 16px 16px",flexShrink:0},
-  btn:{background:"none",border:"1px solid rgba(255,255,255,0.12)",color:"#fff",fontFamily:"'Outfit',sans-serif",fontSize:14,padding:"6px 16px",borderRadius:20,cursor:"pointer"},
-  cnt:{fontSize:14,color:"rgba(255,255,255,0.3)",fontFamily:"'Space Mono',monospace"},
+  root:{fontFamily:"'Outfit',sans-serif",background:"linear-gradient(160deg,#080808 0%,#0d1a0f 45%,#080808 100%)",height:"100vh",color:"#fff",display:"flex",flexDirection:"column",overflow:"hidden",userSelect:"none"},
+  wrap:{flex:1,display:"flex",alignItems:"center",justifyContent:"center",padding:"6px 16px 4px",overflow:"hidden"},
+  nav:{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 14px 12px",flexShrink:0},
+  btn:{background:"none",border:"1px solid rgba(255,255,255,0.1)",color:"#fff",fontFamily:"'Outfit',sans-serif",fontSize:13,padding:"5px 14px",borderRadius:20,cursor:"pointer"},
+  cnt:{fontSize:12,color:"rgba(255,255,255,0.25)",fontFamily:"'Space Mono',monospace"},
 };
-
-const L={
-  c:{display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",gap:6,width:"100%",maxWidth:500,animation:"fi .5s ease"},
-  sub:{fontSize:14,color:"rgba(255,255,255,0.4)",letterSpacing:4,textTransform:"uppercase",fontWeight:300},
-  hero:{fontSize:52,fontWeight:900,lineHeight:1,color:"#fff",letterSpacing:-1},
-  lb:{fontSize:14,color:"rgba(255,255,255,0.45)",letterSpacing:2,textTransform:"uppercase",fontWeight:400,margin:0},
-  mega:{fontSize:56,fontWeight:900,color:"#00ff87",fontFamily:"'Space Mono',monospace",lineHeight:1,margin:"4px 0"},
-  lbig:{fontSize:20,fontWeight:600,color:"rgba(255,255,255,0.8)"},
-  sec:{fontSize:22,fontWeight:800,color:"#fff"},
+const S={
+  center:{display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",gap:8,width:"100%",maxWidth:500,animation:"fi .45s ease"},
+  label:{fontSize:12,color:"rgba(255,255,255,0.4)",letterSpacing:2.5,textTransform:"uppercase",fontWeight:400,margin:0},
+  mega:{fontSize:52,fontWeight:900,fontFamily:"'Space Mono',monospace",lineHeight:1,margin:"2px 0"},
+  lbig:{fontSize:18,fontWeight:600,color:"rgba(255,255,255,0.75)"},
+  sec:{fontSize:20,fontWeight:800,color:"#fff"},
+  pill:{background:"rgba(255,255,255,0.05)",borderRadius:20,padding:"3px 12px",fontSize:12},
+  statPill:{display:"flex",flexDirection:"column",gap:2,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 24px",border:"1px solid rgba(255,255,255,0.06)"},
+  microCard:{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"12px 16px",display:"flex",flexDirection:"column",gap:3,alignItems:"center",border:"1px solid rgba(255,255,255,0.05)"},
+  microLabel:{fontSize:10,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1},
+  warnBadge:{background:"rgba(255,200,50,0.06)",border:"1px solid rgba(255,200,50,0.12)",borderRadius:8,padding:"5px 12px",fontSize:11,color:"rgba(255,200,50,0.75)",lineHeight:1.4},
 };
 
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
