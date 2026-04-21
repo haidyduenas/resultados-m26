@@ -248,9 +248,10 @@ function BrandTabs({brands,active,onSwitch}){
       {brands.map(b=>{
         const bData=Object.values(COUNTRIES).flatMap(c=>Object.entries(c.brands)).find(([k])=>k===b)?.[1];
         const isActive=b===active;
+        const activeColor = bData?.color || "#00ff87";
         return(
           <button key={b} onClick={()=>onSwitch(b)}
-            style={{background:isActive?(bData?.colorDim||"rgba(255,255,255,0.08)"):"transparent",border:isActive?`1px solid ${bData?.color||"rgba(255,255,255,0.2)"}30`:"1px solid transparent",borderRadius:9,padding:"5px 16px",cursor:"pointer",fontSize:13,fontWeight:isActive?700:400,color:isActive:(bData?.color||"#fff"):"rgba(255,255,255,0.4)",transition:"all .2s",fontFamily:"'Outfit',sans-serif",whiteSpace:"nowrap"}}>
+            style={{background:isActive?(bData?.colorDim||"rgba(255,255,255,0.08)"):"transparent",border:isActive?"1px solid rgba(255,255,255,0.15)":"1px solid transparent",borderRadius:9,padding:"5px 16px",cursor:"pointer",fontSize:13,fontWeight:isActive?700:400,color:isActive?activeColor:"rgba(255,255,255,0.4)",transition:"all .2s",fontFamily:"'Outfit',sans-serif",whiteSpace:"nowrap"}}>
             {bData?.label||b}
           </button>
         );
@@ -272,7 +273,7 @@ function SlideIntro({country,brands,activeBrand,onSwitch}){
       <BrandTabs brands={Object.keys(cData.brands)} active={activeBrand} onSwitch={onSwitch}/>
       <p style={{fontSize:14,color:"rgba(255,255,255,0.35)",letterSpacing:3,textTransform:"uppercase",fontWeight:300}}>Tu resumen SEO del año</p>
       <h1 style={{fontSize:50,fontWeight:900,lineHeight:1,color:"#fff",letterSpacing:-1}}>{bData.label}</h1>
-      <h2 style={{fontSize:36,fontWeight:900,lineHeight:1,background:`linear-gradient(135deg,${bData.color},${bData.color}99)`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>SEO Wrapped</h2>
+      <h2 style={{fontSize:36,fontWeight:900,lineHeight:1,background:"linear-gradient(135deg,"+bData.color+","+bData.color+"99)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>SEO Wrapped</h2>
       <p style={{fontFamily:"'Space Mono',monospace",fontSize:24,fontWeight:700,color:bData.color,opacity:.75}}>M26</p>
       <p style={{fontSize:16,fontWeight:300,color:"rgba(255,255,255,0.4)"}}>{cData.name}</p>
       <div style={{marginTop:12,fontSize:13,color:"rgba(255,255,255,0.25)"}}>
@@ -317,7 +318,7 @@ function SlideClicks({bd}){
       {hasGrowth&&<Bdg v={bd.clicks.growth} label="vs M25"/>}
       {!hasGrowth&&<div style={{...S.pill,color:"rgba(255,255,255,0.35)"}}>M25: dato parcial</div>}
       <Tip id="ctr">
-        <div style={{...S.statPill,borderColor:`${bd.color}30`}}>
+        <div style={{...S.statPill,borderColor:bd.color+"30"}}>
           <span style={{fontSize:12,color:"rgba(255,255,255,0.4)"}}>CTR</span>
           <span style={{fontSize:28,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.ctr}%</span>
         </div>
@@ -386,7 +387,7 @@ function SlideBrand({bd}){
       </p>
       <div style={{width:"100%",maxWidth:360}}>
         <div style={{display:"flex",borderRadius:10,overflow:"hidden",height:28,marginBottom:6}}>
-          <div style={{width:nb+"%",background:`linear-gradient(90deg,${bd.color}99,${bd.color})`,display:"flex",alignItems:"center",justifyContent:"center"}}>
+          <div style={{width:nb+"%",background:"linear-gradient(90deg,"+bd.color+"99,"+bd.color+")",display:"flex",alignItems:"center",justifyContent:"center"}}>
             <span style={{fontSize:12,fontWeight:700,color:"#000"}}>No Marca {nb.toFixed(1)}%</span>
           </div>
           <div style={{flex:1,background:"rgba(255,255,255,0.06)",display:"flex",alignItems:"center",justifyContent:"center"}}>
@@ -420,7 +421,7 @@ function SlideTech({bd}){
           </div>
         </div>
         <div style={{height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,marginTop:10,overflow:"hidden",maxWidth:360,marginLeft:"auto",marginRight:"auto"}}>
-          <div style={{height:"100%",width:idxPct+"%",background:`linear-gradient(90deg,${bd.color}88,${bd.color})`,borderRadius:4,transition:"width 1s ease"}}/>
+          <div style={{height:"100%",width:idxPct+"%",background:"linear-gradient(90deg,"+bd.color+"88,"+bd.color+")",borderRadius:4,transition:"width 1s ease"}}/>
         </div>
         <p style={{fontSize:12,color:"rgba(255,255,255,0.3)",textAlign:"center",marginTop:4}}>{idxPct}% indexado</p>
       </div>
@@ -495,7 +496,7 @@ function SlideCategories({bd}){
                   <span style={{fontSize:12,fontWeight:700,fontFamily:"'Space Mono',monospace",color:bd.color}}>{cat.p}%</span>
                 </div>
                 <div style={{height:4,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}>
-                  <div style={{height:"100%",width:((cat.p/mx)*100)+"%",background:`linear-gradient(90deg,${bd.color}70,${bd.color})`,borderRadius:3}}/>
+                  <div style={{height:"100%",width:((cat.p/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:3}}/>
                 </div>
               </div>
             ))}
@@ -525,7 +526,7 @@ function SlideProducts({bd}){
                 </div>
                 <div style={{display:"flex",alignItems:"center",gap:8}}>
                   <div style={{flex:1,height:4,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}>
-                    <div style={{height:"100%",width:((p.r/mx)*100)+"%",background:`linear-gradient(90deg,${bd.color}70,${bd.color})`,borderRadius:3}}/>
+                    <div style={{height:"100%",width:((p.r/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:3}}/>
                   </div>
                   <span style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.4)",flexShrink:0}}>{fmtUSD(p.r)}</span>
                 </div>
@@ -551,12 +552,12 @@ function SlideSummary({bd,country}){
   return(
     <div style={S.center}>
       <div style={{fontSize:44}}>📊</div>
-      <h2 style={{fontSize:20,fontWeight:800,lineHeight:1.4,maxWidth:360,background:`linear-gradient(135deg,${bd.color},${bd.color}80)`,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",textAlign:"center"}}>
+      <h2 style={{fontSize:20,fontWeight:800,lineHeight:1.4,maxWidth:360,background:"linear-gradient(135deg,"+bd.color+","+bd.color+"80)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",textAlign:"center"}}>
         {bd.label} {cData.name} — M26
       </h2>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,width:"100%"}}>
         {stats.map((s,i)=>(
-          <div key={i} style={{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 8px",display:"flex",flexDirection:"column",gap:3,alignItems:"center",border:`1px solid ${bd.color}15`}}>
+          <div key={i} style={{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 8px",display:"flex",flexDirection:"column",gap:3,alignItems:"center",border:"1px solid "+bd.color+"15"}}>
             <span style={{fontSize:17,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{s.v}</span>
             <span style={{fontSize:10,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,textAlign:"center"}}>{s.l}</span>
           </div>
@@ -579,7 +580,7 @@ function SlideRecognition({bd}){
         </>
       ):(
         <>
-          <p style={{fontSize:12,color:`${bd.color}99`,textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Destacado M26</p>
+          <p style={{fontSize:12,color:bd.color+"99",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Destacado M26</p>
           <h2 style={{fontSize:18,fontWeight:600,lineHeight:1.6,maxWidth:360,textAlign:"center",color:"rgba(255,255,255,0.75)"}}>{text}</h2>
         </>
       )}
