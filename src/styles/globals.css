@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Outfit', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #f4f4f5;
+  background: linear-gradient(160deg, #080808, #0d1a0f, #080808);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid #ffffff80;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+@keyframes seoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes seoFadeInSlow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes seoSparkDraw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes seoBarGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.fade-in {
+  animation: seoFadeIn 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.fade-in-slow {
+  animation: seoFadeInSlow 1.2s ease-out both;
+}
+
+.fade-in-d1 {
+  animation-delay: 0.1s;
+}
+.fade-in-d2 {
+  animation-delay: 0.2s;
+}
+.fade-in-d3 {
+  animation-delay: 0.35s;
+}
+.fade-in-d4 {
+  animation-delay: 0.5s;
+}
+.fade-in-d5 {
+  animation-delay: 0.7s;
+}

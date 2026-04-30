@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Content *)",
+      "PowerShell(Get-ChildItem -Recurse -File \"C:\\\\Users\\\\haidy_duenas\\\\Documents\\\\seo-wrapped\\\\src\" | Select-Object @{n='Path';e={$_.FullName.Replace\\('C:\\\\Users\\\\haidy_duenas\\\\Documents\\\\seo-wrapped\\\\',''\\)}} | Sort-Object Path | Format-Table -AutoSize | Out-String)",
+      "PowerShell(npm install *)",
+      "PowerShell(npm run *)"
+    ]
+  }
+}
