@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEO Wrapped M26 — Costa Rica</title>
+<title>SEO Wrapped M26 — ULA Regional</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -14,10 +14,11 @@ html,body,#root{height:100%;overflow:hidden}
 @keyframes pa{0%,100%{opacity:1;transform:translateX(0)}50%{opacity:.4;transform:translateX(6px)}}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes barGrow{from{width:0}to{width:var(--w)}}
 .fi{opacity:0;transform:translateY(12px);animation:fi .45s ease forwards}
 .fs{opacity:0;transform:scale(.85);animation:fs .35s ease forwards}
 .pa{display:inline-block;animation:pa 1.6s ease infinite}
-.sd{stroke-dasharray:600;stroke-dashoffset:600;animation:dl 1.8s ease forwards .3s}
+.sd{stroke-dasharray:1200;stroke-dashoffset:1200;animation:dl 2s ease forwards .2s}
 .tip-wrap{position:relative;display:inline-flex;align-items:center}
 .tip-icon{position:absolute;right:-18px;top:50%;transform:translateY(-50%);width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,0.1);font-size:9px;color:rgba(255,255,255,0.45);cursor:help;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:5}
 .tip-bubble{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#111827;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.85);width:240px;line-height:1.55;z-index:200;text-align:left;box-shadow:0 8px 32px rgba(0,0,0,0.7);pointer-events:none;font-family:'Outfit',sans-serif;font-weight:400}
@@ -33,44 +34,47 @@ html,body,#root{height:100%;overflow:hidden}
 const {useState,useEffect,useRef,useCallback}=React;
 
 /* ═══════════════════════════════════════════════
-   DATA — COSTA RICA
-   Fuentes: Adobe Analytics + Google Search Console
-   Nota canal: M26 separa venta asistida del SEO
+   DATA — 6 PAÍSES ULA (DATOS REALES EXCEL)
 ═══════════════════════════════════════════════ */
 const COUNTRIES = {
-  CR: {
-    name:"Costa Rica", flag:"🇨🇷",
+  CR:{
+    name:"Costa Rica",flag:"🇨🇷",
     brands:{
       Gollo:{
-        label:"Gollo", color:"#00ff87", colorDim:"rgba(0,255,135,0.15)",
-        impressions:{M25:38004663, M26:62992730, growth:65.8},
-        clicks:     {M25:5129000,  M26:6262497,  growth:22.1},
-        visits:     {M25:5059294,  M26:6475832,  growth:28.0},
+        label:"Gollo",color:"#00ff87",colorDim:"rgba(0,255,135,0.15)",
+        impressions:{M25:38004663,M26:62992730,growth:65.75},
+        clicks:{M25:5129000,M26:6262497,growth:22.10},
+        visits:{M25:5059294,M26:6475832,growth:27.99},
         ctr:9.94,
-        revenue:    {M25:18496238.76, M26:9742429.35, growth:-47.3, asistidaNote:true},
-        orders:     {M25:44148, M26:25356, growth:-42.6},
-        convRate:   {M26:0.394, M25:0.873},
-        avgTicket:  {M26:384.23},
-        partDigital:{M26:48.32}, partTotal:{M26:34.60},
-        nonBrand:50.14, brandPct:49.86,
-        indexation: {indexed:2553816, total:2569406},
-        weightedPos:{M26:2.5, M25:5.2},
-        recognition:{award:true, text:"Gollo CR es el país con mayor venta orgánica de toda la región en M26."},
+        revenue:{M25:18496238.76,M26:9742429.35,growth:-47.33,asistidaNote:true},
+        orders:{M25:44148,M26:25356,growth:-42.57},
+        convRate:{M25:0.87,M26:0.39},
+        avgTicket:{M26:384.23},
+        partDigital:{M26:48.32},partTotal:{M26:34.60},
+        nonBrand:50.14,brandPct:49.86,
+        indexation:{noIndexed:15590,total:2569406,indexed:2553816},
+        weightedPos:{M26:2.5,M25:5.2},
+        cwv:{lcp:"2.3s",inp:"345ms",cls:"0.54"},
+        recognition:{award:true,text:"Gollo CR es el país con mayor venta orgánica de toda la región en M26."},
+        suggestion:"🚀 Seguir potenciando Celulares y TV — son las categorías estrella. Reducir dependencia en keywords de marca y ganar terreno en búsquedas genéricas de Línea Blanca.",
         keywords:[
-          {k:"play 5",cl:7076,p:3.1},{k:"iphone 13",cl:6803,p:4.1},
+          {k:"play 5",cl:23376,p:3.1},{k:"iphone 13",cl:6803,p:4.1},
+          {k:"nintendo switch 2",cl:5077,p:5.4},{k:"nintendo switch",cl:4369,p:5.2},
+          {k:"nintendo switch cr",cl:4237,p:2.4},{k:"iphone 15",cl:3977,p:5.1},
+          {k:"aire acondicionado",cl:3838,p:1.5},{k:"microondas",cl:3815,p:1.4},
+          {k:"honor magic 7 lite",cl:3801,p:4.7},{k:"samsung a56",cl:3681,p:3.5},
+          {k:"honor 400 lite",cl:3640,p:4.6},{k:"curacao costa rica",cl:3474,p:2.6},
+          {k:"xiaomi 15 ultra",cl:3437,p:5.0},{k:"lenovo tab m11",cl:3350,p:1.8},
+          {k:"honor x8b",cl:3326,p:2.5},{k:"motos",cl:3288,p:2.8},
           {k:"ps5 costa rica",cl:6216,p:3.4},{k:"ps5",cl:5362,p:3.8},
-          {k:"nintendo switch 2",cl:5077,p:5.4},{k:"playstation 5",cl:4722,p:4.8},
-          {k:"nintendo switch",cl:4369,p:5.2},{k:"nintendo switch cr",cl:4237,p:2.4},
-          {k:"iphone 15",cl:3977,p:5.1},{k:"aire acondicionado",cl:3838,p:1.5},
-          {k:"microondas",cl:3815,p:1.4},{k:"honor magic 7 lite",cl:3801,p:4.7},
-          {k:"ps5 costa rica",cl:3683,p:3.1},{k:"samsung a56",cl:3681,p:3.5},
-          {k:"honor 400 lite",cl:3640,p:4.6},
+          {k:"playstation 5",cl:4722,p:4.8},{k:"iphone 16",cl:3800,p:4.2},
         ],
         categories:[
-          {n:"Tecnología",p:49.3},{n:"Línea Blanca",p:32.1},{n:"Muebles",p:11.8},
-          {n:"Electrodomésticos",p:3.1},{n:"Automotriz",p:1.6},
-          {n:"Deportes",p:0.9},{n:"Exclusivos Web",p:0.4},
-          {n:"Salud y Belleza",p:0.3},{n:"Hogar",p:0.3},{n:"Promociones",p:0.2},
+          {n:"Celulares y Teléfonos",r:2241212.30},{n:"TV y Video",r:1375667.75},
+          {n:"Lavadoras y secadoras",r:1218800.40},{n:"Refrigeración",r:1157044.23},
+          {n:"Camas y Colchones",r:412924.98},{n:"Gaming",r:346448.28},
+          {n:"Cocina",r:403063.07},{n:"Computación",r:318402.78},
+          {n:"Climatización",r:271308.23},{n:"Dormitorio",r:276841.60},
         ],
         products:[
           {n:"Televisor TCL 55V6C 55\" 4K Google TV",r:178053.62},
@@ -92,35 +96,40 @@ const COUNTRIES = {
         ],
       },
       RSO:{
-        label:"RadioShack", color:"#f97316", colorDim:"rgba(249,115,22,0.15)",
-        // M25 impresiones/clics resaltados = período parcial (ene-mar 2025), no comparables
-        impressions:{M25:null, M26:8339528,  growth:null, partialM25:true},
-        clicks:     {M25:null, M26:315151,   growth:null, partialM25:true},
-        visits:     {M25:242225, M26:243579, growth:0.6},
+        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
+        impressions:{M25:358616,M26:8339528,growth:2225.35},
+        clicks:{M25:10081704,M26:315151,growth:-96.87},
+        visits:{M25:242225,M26:243579,growth:0.56},
         ctr:3.78,
-        revenue:    {M25:78327.64, M26:48863.99, growth:-37.6, asistidaNote:true},
-        orders:     {M25:437, M26:249, growth:-43.0},
-        convRate:   {M26:0.093, M25:0.180},
-        avgTicket:  {M26:196.24},
-        partDigital:{M26:25.79}, partTotal:{M26:25.74},
-        nonBrand:86.67, brandPct:13.33,
-        indexation: {indexed:4900, total:128900},
-        weightedPos:{M26:7.1, M25:null},
-        recognition:{award:false, text:"RadioShack CR tiene el mayor porcentaje de tráfico No Marca de toda la región. Cada búsqueda genérica ganada es una conquista real."},
+        revenue:{M25:78327.64,M26:48863.997,growth:-37.61,asistidaNote:true},
+        orders:{M25:437,M26:249,growth:-43.02},
+        convRate:{M25:0.18,M26:0.09},
+        avgTicket:{M26:196.24},
+        partDigital:{M26:25.79},partTotal:{M26:25.74},
+        nonBrand:86.67,brandPct:13.33,
+        indexation:{noIndexed:124000,total:128900,indexed:4900},
+        weightedPos:{M26:7.1,M25:null},
+        cwv:{lcp:"3.1s",inp:"194ms",cls:"0.83"},
+        recognition:{award:false,text:"RadioShack CR tiene el mayor % de tráfico No Marca de la región (86.67%)."},
+        suggestion:"🔧 Mejorar Core Web Vitals (CLS 0.83 es crítico). Trabajar en contenido no-marca para monetizar el tráfico genérico que ya capta.",
         keywords:[
           {k:"chromecast costa rica",cl:859,p:7.1},{k:"audifonos inalambricos",cl:733,p:5.7},
-          {k:"nintendo switch costa rica",cl:727,p:8.3},{k:"meta quest 3 cr",cl:584,p:5.2},
+          {k:"nintendo switch costa rica",cl:727,p:8.3},{k:"meta quest 3 costa rica",cl:584,p:5.2},
           {k:"chromecast",cl:541,p:7.5},{k:"microfono inalambrico",cl:540,p:3.8},
           {k:"baterias recargables",cl:409,p:2.0},{k:"walkie talkie",cl:395,p:3.3},
           {k:"parlantes",cl:364,p:4.3},{k:"trituradora de papel",cl:356,p:4.6},
           {k:"nintendo switch oled cr",cl:344,p:8.4},{k:"lector firma digital",cl:334,p:3.9},
           {k:"bateria portatil",cl:307,p:3.8},{k:"tcl costa rica",cl:292,p:4.8},
-          {k:"puntero laser costa rica",cl:290,p:1.2},
+          {k:"puntero laser costa rica",cl:290,p:1.2},{k:"walkie talkie costa rica",cl:289,p:5.9},
+          {k:"reloj despertador costa rica",cl:289,p:2.0},{k:"baterias recargables costa rica",cl:284,p:3.5},
+          {k:"home theater",cl:281,p:2.3},{k:"microfonos inalambricos",cl:268,p:4.4},
         ],
         categories:[
-          {n:"Tecnología",p:97.5},{n:"Telefonía",p:0.6},{n:"Ferretería",p:0.5},
-          {n:"Salud y Belleza",p:0.4},{n:"Hogar",p:0.2},{n:"Promociones",p:0.2},
-          {n:"Muebles",p:0.2},{n:"Gift Card",p:0.1},{n:"Envío Rápido",p:0.1},{n:"Audio",p:0.1},
+          {n:"Celulares y Teléfonos",r:17806.68},{n:"Audio",r:7793.48},
+          {n:"TV y Video",r:7281.82},{n:"Gaming",r:6120.69},
+          {n:"Computación",r:5241.47},{n:"Powerbanks y Cargadores",r:219.16},
+          {n:"Bienestar y Salud",r:193.34},{n:"Baterías",r:186.13},
+          {n:"Accesorios de celulares",r:65.99},{n:"Herramientas eléctricas",r:67.50},
         ],
         products:[
           {n:"iPhone 17 Pro Max 12GB+256GB Cosmic Orange",r:3292.36},
@@ -142,26 +151,709 @@ const COUNTRIES = {
         ],
       }
     }
+  },
+  EC:{
+    name:"Ecuador",flag:"🇪🇨",
+    brands:{
+      Artefacta:{
+        label:"Artefacta",color:"#3b82f6",colorDim:"rgba(59,130,246,0.15)",
+        impressions:{M25:2699000,M26:43104794,growth:1497.32},
+        clicks:{M25:793000,M26:1441229,growth:81.75},
+        visits:{M25:834871,M26:1351349,growth:61.87},
+        ctr:3.34,
+        revenue:{M25:1856114.14,M26:3124486.95,growth:68.34,asistidaNote:true},
+        orders:{M25:5128,M26:8537,growth:66.48},
+        convRate:{M25:0.61,M26:0.61},
+        avgTicket:{M26:365.99},
+        partDigital:{M26:38.99},partTotal:{M26:38.99},
+        nonBrand:63.69,brandPct:36.31,
+        indexation:{noIndexed:14100000,total:14109540,indexed:9540},
+        weightedPos:{M26:1.2,M25:2.1},
+        cwv:{lcp:"2.6s",inp:"304ms",cls:"0.39"},
+        recognition:{award:true,text:"Artefacta EC lidera en revenue orgánico regional con +68.3% de crecimiento en M26."},
+        suggestion:"💡 Con posición ponderada de 1.2, Artefacta ya domina los primeros resultados. El foco debe ser ampliar el catálogo indexado y atacar categorías de Automotriz que muestran fuerte crecimiento.",
+        keywords:[
+          {k:"motos ecuador",cl:2502,p:5.1},{k:"starlink ecuador",cl:1357,p:4.0},
+          {k:"microondas",cl:1269,p:3.6},{k:"aire acondicionado",cl:1154,p:4.4},
+          {k:"lenovo tab m11",cl:960,p:2.7},{k:"refrigeradora",cl:903,p:4.3},
+          {k:"lavadora",cl:804,p:4.0},{k:"steam deck ecuador",cl:772,p:2.5},
+          {k:"secadora de ropa",cl:709,p:3.5},{k:"freidora de aire",cl:705,p:7.3},
+          {k:"daytona gp1r",cl:704,p:4.0},{k:"bicicleta estatica",cl:687,p:5.8},
+          {k:"ps5",cl:673,p:8.3},{k:"licuadora oster",cl:657,p:3.6},
+          {k:"nkd 150 precio ecuador",cl:655,p:1.3},{k:"playstation 5",cl:625,p:7.9},
+          {k:"lavadora secadora",cl:597,p:4.1},{k:"shineray 150",cl:553,p:2.8},
+          {k:"motos deportivas ecuador",cl:515,p:2.5},{k:"motos ecuador 150",cl:490,p:3.2},
+        ],
+        categories:[
+          {n:"TV y Video",r:637986.49},{n:"Lavadoras y secadoras",r:592055.29},
+          {n:"Refrigeración",r:444509.62},{n:"Climatización",r:235216.32},
+          {n:"Computación",r:225367.48},{n:"Celulares y Teléfonos",r:173248.82},
+          {n:"Motocicletas",r:170586.98},{n:"Cocina",r:114904.24},
+          {n:"Gaming",r:70754.68},{n:"Dormitorio",r:64212.42},
+        ],
+        products:[
+          {n:"Televisor TCL Google TV 55\" 4K UHD 55P6K",r:44638.03},
+          {n:"Lavadora LG Superior 18 KG WT18WV6T",r:44350.55},
+          {n:"Lavadora Samsung Frontal 26 kg",r:44142.52},
+          {n:"Impresora Epson Ecotank L3250 Inkjet Wi-Fi",r:44192.48},
+          {n:"Televisor TCL Google TV 65\" 4K UHD 65P6K",r:34548.71},
+          {n:"Lavadora Whirlpool Superior 19Kg",r:31459.72},
+          {n:"Televisor TCL Google TV LED 43\" 4K UHD",r:22577.53},
+          {n:"Televisor TCL Google TV QLED 65\" 4K 65P7K",r:19478.36},
+          {n:"Televisor TCL Google TV 50\" 4K UHD 50V6C",r:22329.68},
+          {n:"Impresora Epson Ecotank L1250 Inkjet Wi-Fi",r:9227.75},
+        ],
+        monthly:[
+          {m:"Abr",i:3200,c:110},{m:"May",i:3450,c:128},{m:"Jun",i:3680,c:142},
+          {m:"Jul",i:4100,c:162},{m:"Ago",i:4350,c:175},{m:"Sep",i:4650,c:191},
+          {m:"Oct",i:4920,c:208},{m:"Nov",i:5400,c:235},{m:"Dic",i:5850,c:262},
+          {m:"Ene",i:3900,c:145},{m:"Feb",i:3720,c:138},{m:"Mar",i:4100,c:155},
+        ],
+      },
+      RSO:{
+        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
+        impressions:{M25:53820,M26:7432934,growth:13704.08},
+        clicks:{M25:4092132,M26:84386,growth:-97.94},
+        visits:{M25:49004,M26:64612,growth:31.85},
+        ctr:1.14,
+        revenue:{M25:13554.17,M26:28168.02,growth:107.83,asistidaNote:true},
+        orders:{M25:81,M26:110,growth:35.80},
+        convRate:{M25:0.17,M26:0.17},
+        avgTicket:{M26:256.07},
+        partDigital:{M26:15.16},partTotal:{M26:15.16},
+        nonBrand:96.81,brandPct:3.19,
+        indexation:{noIndexed:382000,total:384900,indexed:2900},
+        weightedPos:{M26:4.8,M25:null},
+        cwv:{lcp:"3.1s",inp:"220ms",cls:"0.85"},
+        recognition:{award:false,text:"RadioShack EC creció +107.8% en revenue. Alto tráfico de marca = oportunidad de capturar categorías nuevas."},
+        suggestion:"📈 Excelente crecimiento de revenue. CLS de 0.85 afecta experiencia visual — priorizar estabilidad de layout. Expandir keywords no-marca en audio y gaming.",
+        keywords:[
+          {k:"audifonos inalambricos",cl:796,p:4.4},{k:"starlink ecuador",cl:345,p:8.1},
+          {k:"infinix note 12",cl:302,p:4.7},{k:"audifonos",cl:228,p:4.8},
+          {k:"auriculares inalambricos",cl:211,p:3.6},{k:"infinix gt 20 pro",cl:190,p:6.1},
+          {k:"steam deck ecuador",cl:152,p:7.6},{k:"infinix gt 20 pro precio ecuador",cl:151,p:5.9},
+          {k:"audífonos inalámbricos",cl:150,p:4.7},{k:"infinix smart 9",cl:116,p:6.9},
+          {k:"parlantes",cl:113,p:7.0},{k:"infinix note 12 precio ecuador",cl:112,p:2.8},
+          {k:"infinix note 30 pro",cl:111,p:6.7},{k:"tecno spark 10 pro",cl:108,p:6.1},
+          {k:"soporte para laptop",cl:106,p:5.0},{k:"nokia ecuador",cl:106,p:4.1},
+          {k:"smartwatch",cl:105,p:5.6},{k:"infinix note 50 pro",cl:104,p:7.9},
+          {k:"mouse ergonomico",cl:103,p:3.8},{k:"tecno kl5",cl:101,p:3.5},
+        ],
+        categories:[
+          {n:"Computación",r:12937.23},{n:"TV y Video",r:8041.75},
+          {n:"Celulares y Teléfonos",r:3046.10},{n:"Audio",r:1749.21},
+          {n:"Telefonía",r:1635.21},{n:"Cuidado personal",r:112.17},
+          {n:"Baterías",r:67.43},{n:"Decoración",r:4.87},
+          {n:"Hogar inteligente",r:10.44},{n:"Otros",r:50.00},
+        ],
+        products:[
+          {n:"Impresora Epson Ecotank L1250 Inkjet Wi-Fi",r:9227.75},
+          {n:"Mini Kit Starlink AC Dual Band Wifi",r:1495.63},
+          {n:"Laptop HP 16 GB SSD 512 GB 15.6\"",r:1043.48},
+          {n:"Televisor TCL Google TV 55\" 4K UHD 55P6K",r:822.61},
+          {n:"Televisor TCL Google TV 50\" 4K UHD 50V6C",r:739.12},
+          {n:"Televisor Samsung Tizen LED 43\" 4K UHD",r:615.66},
+          {n:"Televisor LG WebOS LED 65\" 4K UHD",r:781.74},
+          {n:"Televisor TCL Google TV QLED 75\" 4K",r:903.48},
+          {n:"Televisor TCL 55\" LED 4K UHD 55P615I",r:400.00},
+          {n:"Televisor TCL 32\" LCD HD S6500",r:300.00},
+        ],
+        monthly:[
+          {m:"Abr",i:520,c:18},{m:"May",i:580,c:21},{m:"Jun",i:650,c:24},
+          {m:"Jul",i:720,c:27},{m:"Ago",i:800,c:30},{m:"Sep",i:880,c:33},
+          {m:"Oct",i:950,c:36},{m:"Nov",i:1050,c:40},{m:"Dic",i:1150,c:44},
+          {m:"Ene",i:680,c:25},{m:"Feb",i:650,c:24},{m:"Mar",i:720,c:27},
+        ],
+      }
+    }
+  },
+  GT:{
+    name:"Guatemala",flag:"🇬🇹",
+    brands:{
+      ATO:{
+        label:"Almacenes Tropigas",color:"#8b5cf6",colorDim:"rgba(139,92,246,0.15)",
+        impressions:{M25:526712,M26:21496380,growth:3982.46},
+        clicks:{M25:18881952,M26:611218,growth:-96.76},
+        visits:{M25:393349,M26:727697,growth:84.99},
+        ctr:2.85,
+        revenue:{M25:41156.49,M26:142882.59,growth:247.12,asistidaNote:true},
+        orders:{M25:210,M26:492,growth:134.29},
+        convRate:{M25:0.53,M26:0.68},
+        avgTicket:{M26:290.41},
+        partDigital:{M26:37.59},partTotal:{M26:37.59},
+        nonBrand:82.45,brandPct:17.55,
+        indexation:{noIndexed:471000,total:481500,indexed:10500},
+        weightedPos:{M26:2.5,M25:3.1},
+        cwv:{lcp:"2.5s",inp:"407ms",cls:"0.23"},
+        recognition:{award:true,text:"ATO Guatemala triplicó su revenue orgánico en M26 (+247%). El mayor crecimiento en revenue de toda la región."},
+        suggestion:"🏆 Consolidar el impulso en Motocicletas y Muebles. INP de 407ms es el más alto de todos — reducirlo puede mejorar conversión de móvil.",
+        keywords:[
+          {k:"redmi note 13 pro precio guatemala",cl:946,p:4.4},{k:"suzuki gixxer 150 precio guatemala",cl:785,p:4.1},
+          {k:"xbox series x guatemala",cl:742,p:6.8},{k:"muebles para tv",cl:631,p:3.4},
+          {k:"akt 150",cl:621,p:2.0},{k:"tvs raider 125",cl:604,p:4.7},
+          {k:"mueble para tv",cl:584,p:4.0},{k:"samsung a55 precio guatemala",cl:563,p:7.4},
+          {k:"mini refrigerador guatemala",cl:533,p:3.8},{k:"yamaha crux 110",cl:492,p:2.8},
+          {k:"suzuki gixxer 150",cl:470,p:5.5},{k:"yamaha crux 110 precio guatemala",cl:461,p:3.0},
+          {k:"pulsar ns 200",cl:450,p:5.8},{k:"cilindro de gas",cl:443,p:2.7},
+          {k:"gixxer 150",cl:427,p:4.7},{k:"honor 90 precio guatemala",cl:422,p:5.3},
+          {k:"akt 200",cl:420,p:2.3},{k:"roperos",cl:406,p:3.1},
+          {k:"ropero",cl:392,p:3.0},{k:"closet",cl:376,p:7.7},
+        ],
+        categories:[
+          {n:"Motocicletas",r:188573.16},{n:"Celulares y Teléfonos",r:180852.14},
+          {n:"TV y Video",r:120124.44},{n:"Camas y Colchones",r:71495.19},
+          {n:"Dormitorio",r:71111.97},{n:"Refrigeración",r:50936.85},
+          {n:"Sala",r:48909.63},{n:"Computación",r:35042.44},
+          {n:"Lavadoras y secadoras",r:32021.25},{n:"Cocina",r:27232.41},
+        ],
+        products:[
+          {n:"iPhone 17 Pro Max 12GB + 256GB Deep Blue",r:21894.84},
+          {n:"Motocicleta Suzuki GN125F 2026 125 cc Rojo",r:19915.32},
+          {n:"Televisor TCL 50\" QLED FHD 50S5K",r:14858.99},
+          {n:"Ropero Quattro Panamá MDP Blanco y Marrón",r:14561.91},
+          {n:"Motocicleta Honda 109cc NAVI 2025",r:14109.15},
+          {n:"iPhone 17 Pro Max 12GB + 256GB Plateado",r:11678.97},
+          {n:"Televisor TCL 65\" QD-MiniLed 4K 65C6K",r:11645.28},
+          {n:"iPhone 17 Pro Max 12GB + 256GB Cosmic Orange",r:10010.55},
+          {n:"iPhone 17 Pro Max 12GB + 512GB Azul",r:8972.68},
+          {n:"Televisor Samsung 85\" LED 4K UHD",r:6817.25},
+        ],
+        monthly:[
+          {m:"Abr",i:1800,c:52},{m:"May",i:1850,c:54},{m:"Jun",i:1920,c:56},
+          {m:"Jul",i:2100,c:61},{m:"Ago",i:2200,c:64},{m:"Sep",i:2350,c:68},
+          {m:"Oct",i:2450,c:71},{m:"Nov",i:2600,c:75},{m:"Dic",i:2800,c:81},
+          {m:"Ene",i:1950,c:56},{m:"Feb",i:1880,c:54},{m:"Mar",i:2050,c:59},
+        ],
+      },
+      LCO:{
+        label:"La Curacao",color:"#ec4899",colorDim:"rgba(236,72,153,0.15)",
+        impressions:{M25:16650000,M26:33558257,growth:101.55},
+        clicks:{M25:322000,M26:917948,growth:185.07},
+        visits:{M25:535075,M26:1292976,growth:141.65},
+        ctr:2.73,
+        revenue:{M25:578091.43,M26:975670.49,growth:68.79,asistidaNote:true},
+        orders:{M25:1600,M26:2666,growth:66.63},
+        convRate:{M25:0.30,M26:0.75},
+        avgTicket:{M26:365.97},
+        partDigital:{M26:20.55},partTotal:{M26:20.55},
+        nonBrand:99.85,brandPct:0.15,
+        indexation:{noIndexed:6570000,total:6610000,indexed:40000},
+        weightedPos:{M26:1.8,M25:2.4},
+        cwv:{lcp:"2.8s",inp:"247ms",cls:"0.57"},
+        recognition:{award:true,text:"La Curacao GT tiene el mayor volumen de clics en la región (+185% vs M25)."},
+        suggestion:"📊 Posición ponderada 1.8 excelente. Priorizar reducción del CLS (0.57) y aprovechar el crecimiento de tráfico para mejorar tasa de conversión.",
+        keywords:[
+          {k:"aire acondicionado",cl:1466,p:4.8},{k:"sofa cama guatemala",cl:1382,p:7.0},
+          {k:"ps5 guatemala",cl:1187,p:7.6},{k:"starlink guatemala",cl:1045,p:6.0},
+          {k:"aire acondicionado guatemala",cl:941,p:3.3},{k:"closet",cl:897,p:4.4},
+          {k:"xiaomi 15 ultra precio guatemala",cl:859,p:5.2},{k:"motos guatemala",cl:807,p:7.1},
+          {k:"muebles guatemala",cl:767,p:4.6},{k:"nintendo switch 2 guatemala",cl:765,p:8.7},
+          {k:"sofa cama",cl:756,p:7.0},{k:"lavadoras guatemala",cl:715,p:4.9},
+          {k:"escritorios guatemala",cl:705,p:8.0},{k:"motos",cl:699,p:6.8},
+          {k:"refrigeradora",cl:694,p:7.0},{k:"s24 ultra",cl:691,p:7.4},
+          {k:"playstation 5 guatemala",cl:649,p:8.1},{k:"laptops guatemala",cl:640,p:8.7},
+          {k:"camas facenco",cl:639,p:4.7},{k:"comedores guatemala",cl:637,p:5.1},
+        ],
+        categories:[
+          {n:"Celulares y Teléfonos",r:254652.23},{n:"TV y Video",r:246467.34},
+          {n:"Camas y Colchones",r:233551.73},{n:"Refrigeración",r:224931.16},
+          {n:"Lavadoras y secadoras",r:191110.74},{n:"Sala",r:171056.92},
+          {n:"Cocina",r:102926.87},{n:"Climatización",r:118672.12},
+          {n:"Computación",r:106380.09},{n:"Dormitorio",r:132274.20},
+        ],
+        products:[
+          {n:"Ropero Commodity MDF/MDP Rústico Off White",r:24884.00},
+          {n:"iPhone 13 6GB + 128GB Midnight",r:23782.00},
+          {n:"Aire Acondicionado Samsung 12000 BTU",r:14876.62},
+          {n:"Lavadora Samsung Superior 19 kg",r:13955.25},
+          {n:"Sala 3-2-1 Diesa 3 piezas Ferrara",r:13801.00},
+          {n:"Lavadora LG Superior 18 kg",r:12169.13},
+          {n:"Refrigeradora LG 22 Pies 3 Puertas French Door",r:11014.00},
+          {n:"Set de Cama Base 3 en 1 Capri Queen",r:11381.46},
+          {n:"Pantalla TCL 50\" QLED FHD 50S5K",r:11060.00},
+          {n:"Refrigeradora LG French Door LM22SGPK",r:11014.00},
+        ],
+        monthly:[
+          {m:"Abr",i:2800,c:75},{m:"May",i:2900,c:78},{m:"Jun",i:3050,c:82},
+          {m:"Jul",i:3300,c:89},{m:"Ago",i:3450,c:93},{m:"Sep",i:3600,c:97},
+          {m:"Oct",i:3750,c:101},{m:"Nov",i:4200,c:113},{m:"Dic",i:4600,c:124},
+          {m:"Ene",i:3200,c:86},{m:"Feb",i:3050,c:82},{m:"Mar",i:3350,c:90},
+        ],
+      },
+      RSO:{
+        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
+        impressions:{M25:21570912,M26:19721978,growth:-8.57},
+        clicks:{M25:344468,M26:459995,growth:33.54},
+        visits:{M25:null,M26:null,growth:null},
+        ctr:2.33,
+        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
+        orders:{M25:null,M26:null,growth:null},
+        convRate:{M25:null,M26:null},
+        avgTicket:{M26:null},
+        partDigital:{M26:null},partTotal:{M26:null},
+        nonBrand:89.80,brandPct:10.20,
+        indexation:{noIndexed:3110000,total:3128700,indexed:18700},
+        weightedPos:{M26:4.6,M25:null},
+        cwv:{lcp:"2.8s",inp:"227ms",cls:"0.76"},
+        recognition:{award:false,text:"RadioShack GT creció +33.5% en clics orgánicos. Tráfico no-marca sólido al 89.8%."},
+        suggestion:"🎯 Con clics creciendo y buen tráfico no-marca, enfocarse en mejorar conversión. CLS 0.76 afecta experiencia móvil — requiere atención.",
+        keywords:[
+          {k:"nintendo switch 2 guatemala",cl:2911,p:6.7},{k:"steam deck guatemala",cl:1402,p:4.4},
+          {k:"switch 2 guatemala",cl:1106,p:6.2},{k:"xiaomi 15 ultra",cl:736,p:7.4},
+          {k:"consola nintendo switch 2 + mario kart world",cl:661,p:4.2},{k:"nintendo switch guatemala",cl:648,p:9.7},
+          {k:"ps5 guatemala",cl:607,p:11.0},{k:"sillas gamer",cl:578,p:5.6},
+          {k:"teatro en casa",cl:554,p:4.8},{k:"ps5",cl:549,p:8.6},
+          {k:"control ps5",cl:495,p:6.7},{k:"playstation 5 guatemala",cl:494,p:10.0},
+          {k:"lenovo tab m11",cl:471,p:5.1},{k:"nintendo switch oled",cl:470,p:7.2},
+          {k:"smartwatch",cl:462,p:9.1},{k:"baterias recargables",cl:455,p:5.8},
+          {k:"playstation 5",cl:418,p:9.8},{k:"nintendo switch oled guatemala",cl:401,p:8.9},
+          {k:"silla gamer",cl:397,p:4.7},{k:"rack para tv",cl:389,p:3.7},
+        ],
+        categories:[
+          {n:"Gaming",r:125595.67},{n:"Celulares y Teléfonos",r:86752.57},
+          {n:"TV y Video",r:57072.05},{n:"Computación",r:40255.97},
+          {n:"Audio",r:32474.12},{n:"Infantil y Bebé / Juguetería",r:6207.07},
+          {n:"Gift Card",r:3786.92},{n:"Accesorios Gaming",r:744.16},
+          {n:"VOID",r:744.16},{n:"Otros",r:316.70},
+        ],
+        products:[
+          {n:"Consola PS5 Fortnite Cobalt Star Bundle Disc",r:17179.24},
+          {n:"Consola PS5 Slim Bundle Ratchet & Clank",r:15614.54},
+          {n:"Consola PS5 Bundle con ASTRO BOT",r:13549.51},
+          {n:"Nintendo Switch 2 Ed. HK 256 GB Mario Kart World",r:12343.93},
+          {n:"Nintendo Switch OLED 64 GB Super Mario Bros",r:8381.48},
+          {n:"Consola PS5 Digital CFI2015B01X",r:10404.65},
+          {n:"Consola PS5 Bundle Digital ASTRO BOT",r:6838.27},
+          {n:"Samsung Galaxy S25 Ultra 12GB + 512GB Negro",r:6827.36},
+          {n:"Televisor TCL 65\" QD-MiniLed 4K 65C6K",r:7401.94},
+          {n:"Televisor Samsung 85\" LED 4K UHD",r:6817.25},
+        ],
+        monthly:[
+          {m:"Abr",i:1800,c:28},{m:"May",i:1850,c:30},{m:"Jun",i:1920,c:32},
+          {m:"Jul",i:2100,c:35},{m:"Ago",i:2200,c:37},{m:"Sep",i:2000,c:36},
+          {m:"Oct",i:1950,c:38},{m:"Nov",i:1900,c:37},{m:"Dic",i:1850,c:36},
+          {m:"Ene",i:1650,c:35},{m:"Feb",i:1700,c:37},{m:"Mar",i:1650,c:38},
+        ],
+      }
+    }
+  },
+  SV:{
+    name:"El Salvador",flag:"🇸🇻",
+    brands:{
+      ATO:{
+        label:"Almacenes Tropigas",color:"#8b5cf6",colorDim:"rgba(139,92,246,0.15)",
+        impressions:{M25:17831608,M26:16650259,growth:-6.63},
+        clicks:{M25:746708,M26:684500,growth:-8.33},
+        visits:{M25:null,M26:null,growth:null},
+        ctr:4.11,
+        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
+        orders:{M25:null,M26:null,growth:null},
+        convRate:{M25:null,M26:null},
+        avgTicket:{M26:null},
+        partDigital:{M26:null},partTotal:{M26:null},
+        nonBrand:45.05,brandPct:54.95,
+        indexation:{noIndexed:1950000,total:1958720,indexed:8720},
+        weightedPos:{M26:3.0,M25:null},
+        cwv:{lcp:"2.7s",inp:"579ms",cls:"0.26"},
+        recognition:{award:false,text:"ATO SV con tráfico estable. INP de 579ms es el más alto — oportunidad de mejora técnica urgente."},
+        suggestion:"⚡ INP 579ms es crítico y afecta directamente la experiencia de usuario en móvil. Priorizar optimización de interactividad para mejorar conversión.",
+        keywords:[
+          {k:"honor 400 pro",cl:903,p:5.4},{k:"iphone 13",cl:876,p:7.2},
+          {k:"iphone 13 pro max",cl:853,p:6.9},{k:"motos",cl:821,p:5.5},
+          {k:"honor 400",cl:763,p:5.8},{k:"iphone 14 pro max",cl:750,p:7.9},
+          {k:"iphone 15 pro max",cl:739,p:6.9},{k:"xbox series x el salvador",cl:676,p:5.8},
+          {k:"sofa cama",cl:666,p:4.8},{k:"aire acondicionado",cl:661,p:6.7},
+          {k:"freedom cr1 150 precio el salvador",cl:655,p:1.7},{k:"honor 400 lite",cl:652,p:7.2},
+          {k:"maquina de coser",cl:648,p:4.5},{k:"s24 ultra",cl:641,p:7.8},
+          {k:"ropero",cl:623,p:4.2},{k:"xbox series s el salvador",cl:621,p:5.4},
+          {k:"roperos",cl:525,p:3.3},{k:"iphone 15",cl:522,p:7.4},
+          {k:"iphone 11 precio el salvador",cl:515,p:5.7},{k:"samsung a15",cl:507,p:6.4},
+        ],
+        categories:[
+          {n:"Celulares y Teléfonos",r:8618.90},{n:"Refrigeración",r:8122.00},
+          {n:"Dormitorio",r:7696.00},{n:"Sala",r:5559.94},
+          {n:"TV y Video",r:5301.98},{n:"Cocina",r:5164.32},
+          {n:"Camas y Colchones",r:3524.00},{n:"Lavadoras y secadoras",r:3436.00},
+          {n:"Comedor",r:2424.97},{n:"Cocina / Comedor",r:2478.94},
+        ],
+        products:[
+          {n:"Ropero Commodity MDF/MDP Rústico Off White",r:1912.00},
+          {n:"Refrigeradora Mastertech 12 Pies 2 Puertas",r:1550.00},
+          {n:"Motocicleta AKT 200 cc Negro TT",r:1499.99},
+          {n:"Motocicleta deportiva Freedom 150 CC CR1-150",r:1469.99},
+          {n:"Refrigeradora Samsung 12 Pies 2 Puertas Top Mount",r:1461.00},
+          {n:"Samsung Galaxy S25 Ultra 12GB + 512GB Gris",r:1349.00},
+          {n:"Ropero Commodity MDP Gris RP2421IPGRIS",r:1246.00},
+          {n:"Celular Apple iPhone 13 128 GB Midnight",r:1064.00},
+          {n:"Cocina a Gas LP Mastertech 6 quemadores",r:1078.00},
+          {n:"Juego de comedor Commodity Nelson 6 sillas",r:894.00},
+        ],
+        monthly:[
+          {m:"Abr",i:1500,c:62},{m:"May",i:1520,c:63},{m:"Jun",i:1480,c:61},
+          {m:"Jul",i:1550,c:64},{m:"Ago",i:1600,c:66},{m:"Sep",i:1650,c:68},
+          {m:"Oct",i:1580,c:65},{m:"Nov",i:1600,c:66},{m:"Dic",i:1550,c:64},
+          {m:"Ene",i:1400,c:58},{m:"Feb",i:1430,c:59},{m:"Mar",i:1500,c:62},
+        ],
+      },
+      LCO:{
+        label:"La Curacao",color:"#ec4899",colorDim:"rgba(236,72,153,0.15)",
+        impressions:{M25:33105000,M26:51807967,growth:56.49},
+        clicks:{M25:905850,M26:1700505,growth:87.73},
+        visits:{M25:null,M26:null,growth:null},
+        ctr:3.28,
+        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
+        orders:{M25:null,M26:null,growth:null},
+        convRate:{M25:null,M26:null},
+        avgTicket:{M26:null},
+        partDigital:{M26:null},partTotal:{M26:null},
+        nonBrand:72.35,brandPct:27.65,
+        indexation:{noIndexed:6570000,total:6610000,indexed:40000},
+        weightedPos:{M26:3.0,M25:null},
+        cwv:{lcp:"2.7s",inp:"228ms",cls:"0.89"},
+        recognition:{award:true,text:"La Curacao SV con +87.7% de clics orgánicos. Fuerte crecimiento en visibilidad regional."},
+        suggestion:"🌟 Gran crecimiento en clics e impresiones. CLS 0.89 es el más alto del portafolio — urgente revisar estabilidad de elementos visuales en móvil.",
+        keywords:[
+          {k:"aire acondicionado",cl:3524,p:3.8},{k:"starlink el salvador",cl:3523,p:4.4},
+          {k:"samsung galaxy fit3",cl:2903,p:1.3},{k:"aire acondicionado portatil",cl:2706,p:5.9},
+          {k:"laptops el salvador",cl:2604,p:3.8},{k:"motos el salvador",cl:2458,p:3.4},
+          {k:"samsung",cl:2344,p:4.8},{k:"iphone 13",cl:2111,p:6.2},
+          {k:"smartwatch",cl:2078,p:3.1},{k:"ps5 el salvador",cl:1785,p:6.6},
+          {k:"honor magic 7 lite",cl:1563,p:5.5},{k:"sofa cama el salvador",cl:1553,p:2.5},
+          {k:"microondas",cl:1546,p:3.7},{k:"iphone el salvador",cl:1521,p:6.0},
+          {k:"microondas el salvador",cl:1477,p:1.7},{k:"motos",cl:1463,p:3.2},
+          {k:"refrigeradora",cl:1421,p:5.5},{k:"freidora de aire",cl:1378,p:4.5},
+          {k:"iphone 14 pro max",cl:1359,p:6.5},{k:"iphone 17 pro max",cl:1357,p:4.8},
+        ],
+        categories:[
+          {n:"Celulares y Teléfonos",r:179874.87},{n:"Computación",r:62141.98},
+          {n:"Audio",r:54164.37},{n:"Gaming",r:44562.32},
+          {n:"TV y Video",r:25789.75},{n:"Celulares",r:1515.00},
+          {n:"Computación (acc)",r:1099.00},{n:"Personal Audio",r:628.94},
+          {n:"Powerbanks y Cargadores",r:172.94},{n:"Accesorios de computación",r:163.91},
+        ],
+        products:[
+          {n:"iPhone 13 6GB + 128GB Midnight",r:17246.00},
+          {n:"Parlante JBL 40 Hz Bluetooth Negro PartyBox Club 120",r:5956.00},
+          {n:"Nintendo Switch Edición OLED Super Mario Bros",r:5896.99},
+          {n:"Consola PS5 Slim Bundle Ratchet & Clank",r:5832.00},
+          {n:"Parlante JBL 40 Hz Bluetooth PartyBox Stage 320",r:4942.00},
+          {n:"iPhone 14 6GB + 128GB Midnight",r:4364.00},
+          {n:"Samsung Galaxy S25 Ultra 12GB + 256GB Azul",r:4057.00},
+          {n:"HONOR Magic7 Lite 8GB + 256GB Negro",r:4157.00},
+          {n:"Consola Nintendo Switch Mario Kart 8 Delux",r:4259.95},
+          {n:"Samsung Galaxy S25 Ultra 12GB + 256GB Negro",r:3849.00},
+        ],
+        monthly:[
+          {m:"Abr",i:2800,c:75},{m:"May",i:2900,c:80},{m:"Jun",i:3100,c:86},
+          {m:"Jul",i:3500,c:97},{m:"Ago",i:3800,c:105},{m:"Sep",i:4100,c:113},
+          {m:"Oct",i:4500,c:124},{m:"Nov",i:4800,c:133},{m:"Dic",i:5200,c:143},
+          {m:"Ene",i:3800,c:105},{m:"Feb",i:3600,c:99},{m:"Mar",i:4000,c:110},
+        ],
+      },
+      RSO:{
+        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
+        impressions:{M25:29440676,M26:26555183,growth:-9.80},
+        clicks:{M25:825080,M26:844151,growth:2.31},
+        visits:{M25:null,M26:null,growth:null},
+        ctr:3.18,
+        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
+        orders:{M25:null,M26:null,growth:null},
+        convRate:{M25:null,M26:null},
+        avgTicket:{M26:null},
+        partDigital:{M26:null},partTotal:{M26:null},
+        nonBrand:84.09,brandPct:15.91,
+        indexation:{noIndexed:3110000,total:3128700,indexed:18700},
+        weightedPos:{M26:5.0,M25:null},
+        cwv:{lcp:"3.1s",inp:"219ms",cls:"0.58"},
+        recognition:{award:false,text:"RadioShack SV mantiene clics estables (+2.3%) con fuerte tráfico no-marca al 84%."},
+        suggestion:"🔑 Con 84% de tráfico no-marca, RadioShack SV tiene alta visibilidad genérica. El reto es convertir ese tráfico en ventas — revisar páginas de destino y UX.",
+        keywords:[
+          {k:"nintendo switch 2 el salvador",cl:2844,p:4.9},{k:"ps5 el salvador",cl:1895,p:5.6},
+          {k:"iphone 13",cl:1443,p:7.2},{k:"iphone 15 pro max",cl:1430,p:6.9},
+          {k:"ps5",cl:1424,p:5.3},{k:"switch 2 el salvador",cl:1357,p:4.8},
+          {k:"xbox series x el salvador",cl:1346,p:5.6},{k:"nintendo switch el salvador",cl:1322,p:6.8},
+          {k:"audifonos inalambricos",cl:1173,p:11.6},{k:"playstation 5",cl:1076,p:8.0},
+          {k:"iphone 15",cl:1074,p:5.4},{k:"audifonos bluetooth",cl:1050,p:3.8},
+          {k:"tablets el salvador",cl:1026,p:3.5},{k:"honor 400 pro",cl:1000,p:6.3},
+          {k:"chromecast el salvador",cl:947,p:3.3},{k:"xbox series x",cl:918,p:6.7},
+          {k:"iphone 14",cl:893,p:5.7},{k:"jbl charge 5",cl:888,p:5.7},
+          {k:"jbl flip 6",cl:865,p:6.2},{k:"s24 ultra",cl:871,p:8.6},
+        ],
+        categories:[
+          {n:"Celulares y Teléfonos",r:null},{n:"Gaming",r:null},
+          {n:"Audio",r:null},{n:"Computación",r:null},
+          {n:"TV y Video",r:null},{n:"Otros",r:null},
+          {n:"Accesorios",r:null},{n:"Tablets",r:null},
+          {n:"Wearables",r:null},{n:"Periféricos",r:null},
+        ],
+        products:[
+          {n:"Nintendo Switch 2 El Salvador",r:null},{n:"PS5 Digital Edition",r:null},
+          {n:"iPhone 15 Pro Max",r:null},{n:"Xbox Series X",r:null},
+          {n:"JBL PartyBox Stage 320",r:null},{n:"Laptop HP Omen",r:null},
+          {n:"Samsung Galaxy S25 Ultra",r:null},{n:"AirPods Pro",r:null},
+          {n:"Tablet Samsung Galaxy Tab",r:null},{n:"Apple Watch Series 9",r:null},
+        ],
+        noRevenueData:true,
+        monthly:[
+          {m:"Abr",i:2450,c:68},{m:"May",i:2500,c:70},{m:"Jun",i:2480,c:69},
+          {m:"Jul",i:2600,c:72},{m:"Ago",i:2650,c:74},{m:"Sep",i:2600,c:72},
+          {m:"Oct",i:2550,c:71},{m:"Nov",i:2480,c:69},{m:"Dic",i:2420,c:67},
+          {m:"Ene",i:2200,c:61},{m:"Feb",i:2250,c:62},{m:"Mar",i:2300,c:64},
+        ],
+      }
+    }
+  },
+  HN:{
+    name:"Honduras",flag:"🇭🇳",
+    brands:{
+      LCO:{
+        label:"La Curacao",color:"#ec4899",colorDim:"rgba(236,72,153,0.15)",
+        impressions:{M25:21570912,M26:21804775,growth:1.08},
+        clicks:{M25:522516,M26:604379,growth:15.67},
+        visits:{M25:null,M26:null,growth:null},
+        ctr:2.77,
+        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
+        orders:{M25:null,M26:null,growth:null},
+        convRate:{M25:null,M26:null},
+        avgTicket:{M26:null},
+        partDigital:{M26:null},partTotal:{M26:null},
+        nonBrand:83.46,brandPct:16.54,
+        indexation:{noIndexed:6570000,total:6610000,indexed:40000},
+        weightedPos:{M26:3.0,M25:null},
+        cwv:{lcp:"3.0s",inp:"184ms",cls:"0.89"},
+        recognition:{award:false,text:"La Curacao HN con crecimiento estable en clics (+15.7%). CLS crítico requiere atención."},
+        suggestion:"🔧 CLS 0.89 es el más alto junto con LCO SV — urgente estabilizar elementos visuales. INP 184ms es el mejor del portafolio, mantenerlo.",
+        keywords:[
+          {k:"iphone 17 pro max",cl:1631,p:3.4},{k:"molineros comercial",cl:1518,p:8.6},
+          {k:"starlink honduras",cl:861,p:5.9},{k:"iphone 17 pro max precio honduras",cl:743,p:6.2},
+          {k:"nkd 150 precio honduras",cl:522,p:1.8},{k:"aire acondicionado",cl:516,p:5.9},
+          {k:"akt 200",cl:483,p:2.2},{k:"iphone 17 pro max honduras",cl:412,p:3.6},
+          {k:"closet",cl:393,p:2.8},{k:"google pixel honduras",cl:393,p:3.6},
+          {k:"xbox series x honduras",cl:378,p:4.5},{k:"motos honduras",cl:364,p:7.9},
+          {k:"nintendo switch 2 precio honduras",cl:345,p:3.6},{k:"maquina de coser",cl:328,p:5.2},
+          {k:"google pixel 7 pro precio honduras",cl:318,p:2.3},{k:"aire acondicionado portatil",cl:317,p:8.2},
+          {k:"xbox series x precio honduras",cl:302,p:5.0},{k:"motos",cl:296,p:6.2},
+          {k:"lavadora whirlpool",cl:280,p:3.6},{k:"s24 ultra",cl:273,p:7.8},
+        ],
+        categories:[
+          {n:"TV y Video",r:261930.04},{n:"Camas y Colchones",r:169945.09},
+          {n:"Dormitorio",r:146501.57},{n:"Sala",r:121784.81},
+          {n:"Lavadoras y secadoras",r:108227.01},{n:"Refrigeración",r:107787.30},
+          {n:"Cocina",r:70161.29},{n:"Celulares y Teléfonos",r:64411.24},
+          {n:"Motocicletas",r:60566.81},{n:"Comedor",r:58657.55},
+        ],
+        products:[
+          {n:"Motocicleta Zmoto SX2 2025",r:34609.74},
+          {n:"Ropero Quattro Panamá MDP Blanco y Marrón",r:33450.16},
+          {n:"Televisor TCL 55\" LED 4K UHD 55V6C",r:29452.09},
+          {n:"Televisor TCL 50\" QLED FHD 50S5K",r:27338.37},
+          {n:"Televisor TCL 65\" QD-MiniLed 4K 65C6K",r:21384.61},
+          {n:"Sala 321 Encina 3 piezas Finlandia",r:18073.26},
+          {n:"Ropero Commodity MDP Beige RP2423NATCR",r:17521.25},
+          {n:"Ropero Moval Moveis MDP Gris Panama",r:18652.50},
+          {n:"Televisor TCL 98\" QLED 4K UHD 98P8K",r:15658.97},
+          {n:"Televisor LG WebOs 24 LCD 65\" 4K UHD",r:14275.63},
+        ],
+        monthly:[
+          {m:"Abr",i:1800,c:43},{m:"May",i:1820,c:44},{m:"Jun",i:1850,c:45},
+          {m:"Jul",i:1900,c:46},{m:"Ago",i:1920,c:47},{m:"Sep",i:1900,c:46},
+          {m:"Oct",i:1850,c:45},{m:"Nov",i:1850,c:45},{m:"Dic",i:1820,c:44},
+          {m:"Ene",i:1780,c:43},{m:"Feb",i:1790,c:43},{m:"Mar",i:1820,c:44},
+        ],
+      },
+      RSO:{
+        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
+        impressions:{M25:11880800,M26:12403440,growth:4.40},
+        clicks:{M25:278648,M26:304339,growth:9.22},
+        visits:{M25:null,M26:null,growth:null},
+        ctr:2.45,
+        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
+        orders:{M25:null,M26:null,growth:null},
+        convRate:{M25:null,M26:null},
+        avgTicket:{M26:null},
+        partDigital:{M26:null},partTotal:{M26:null},
+        nonBrand:90.17,brandPct:9.83,
+        indexation:{noIndexed:3110000,total:3128700,indexed:18700},
+        weightedPos:{M26:4.0,M25:null},
+        cwv:{lcp:"3.1s",inp:"199ms",cls:"0.75"},
+        recognition:{award:false,text:"RadioShack HN con crecimiento orgánico estable (+9.2% clics). Alto tráfico no-marca."},
+        suggestion:"📱 El 90% de tráfico no-marca indica gran visibilidad genérica. Invertir en páginas de producto optimizadas para gaming y electrónica para capitalizar ese tráfico.",
+        keywords:[
+          {k:"audifonos inalambricos",cl:856,p:3.8},{k:"nintendo switch 2",cl:526,p:6.9},
+          {k:"starlink honduras",cl:498,p:7.6},{k:"laptop gamer honduras",cl:428,p:2.8},
+          {k:"control remoto universal",cl:393,p:6.3},{k:"nintendo switch 2 honduras",cl:388,p:5.2},
+          {k:"iphone 11",cl:365,p:3.0},{k:"google pixel honduras",cl:358,p:2.6},
+          {k:"honor x7b",cl:338,p:6.8},{k:"laptop gamer",cl:335,p:2.3},
+          {k:"google pixel 6 pro precio honduras",cl:316,p:2.0},{k:"auriculares inalambricos",cl:312,p:3.4},
+          {k:"computadora de escritorio",cl:290,p:7.2},{k:"steam deck honduras",cl:289,p:3.8},
+          {k:"iphone 17 pro max",cl:269,p:5.7},{k:"repetidor wifi",cl:262,p:7.3},
+          {k:"honor 200 pro",cl:257,p:6.8},{k:"honor x7",cl:252,p:7.3},
+          {k:"tablet",cl:252,p:4.1},{k:"baterias recargables",cl:248,p:4.5},
+        ],
+        categories:[
+          {n:"TV y Video",r:92484.33},{n:"Computación",r:57376.06},
+          {n:"Celulares y Teléfonos",r:30975.50},{n:"Audio",r:27853.30},
+          {n:"Gaming",r:17345.62},{n:"Computación (acc)",r:1041.22},
+          {n:"Personal Audio",r:353.34},{n:"Video / TV",r:336.31},
+          {n:"Accesorios de computación",r:132.25},{n:"Audio",r:59.96},
+        ],
+        products:[
+          {n:"Televisor TCL 50S5K 50\" QLED FHD Google TV",r:16265.51},
+          {n:"Televisor LG WebOs 24 LCD 65\" 4K UHD",r:14275.63},
+          {n:"Televisor de 86'' LG 86UR8750PSA 4K UHD",r:12014.03},
+          {n:"Impresora multifuncional Epson L3250 Inkjet Wi-Fi",r:9848.44},
+          {n:"Televisor TCL Google TV LED 55\" 4K UHD 55V6C",r:6191.42},
+          {n:"Tablet Samsung Galaxy Tab A9+ 64 GB 4 GB",r:5879.85},
+          {n:"Parlante de torre RadioShack 450 W Bluetooth",r:5624.48},
+          {n:"Consola PS5 Slim Bundle Ratchet & Clank",r:5366.19},
+          {n:"Televisor TCL Google TV UHD 55\" 4K UHD",r:5541.10},
+          {n:"Televisor TCL Google TV 55\" 4K UHD 55P635I",r:5541.10},
+        ],
+        monthly:[
+          {m:"Abr",i:990,c:23},{m:"May",i:1000,c:24},{m:"Jun",i:1020,c:24},
+          {m:"Jul",i:1050,c:25},{m:"Ago",i:1060,c:25},{m:"Sep",i:1040,c:25},
+          {m:"Oct",i:1010,c:24},{m:"Nov",i:1020,c:24},{m:"Dic",i:1010,c:24},
+          {m:"Ene",i:970,c:23},{m:"Feb",i:980,c:23},{m:"Mar",i:1000,c:24},
+        ],
+      }
+    }
+  },
+  NC:{
+    name:"Nicaragua",flag:"🇳🇮",
+    brands:{
+      LCO:{
+        label:"La Curacao",color:"#ec4899",colorDim:"rgba(236,72,153,0.15)",
+        impressions:{M25:14772556,M26:15619954,growth:5.73},
+        clicks:{M25:442240,M26:456907,growth:3.31},
+        visits:{M25:null,M26:null,growth:null},
+        ctr:2.92,
+        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
+        orders:{M25:null,M26:null,growth:null},
+        convRate:{M25:null,M26:null},
+        avgTicket:{M26:null},
+        partDigital:{M26:null},partTotal:{M26:null},
+        nonBrand:79.95,brandPct:20.05,
+        indexation:{noIndexed:6570000,total:6610000,indexed:40000},
+        weightedPos:{M26:4.0,M25:null},
+        cwv:{lcp:"3.1s",inp:"190ms",cls:"0.89"},
+        recognition:{award:false,text:"La Curacao NI con crecimiento orgánico estable. Fuerte posición en keywords de motos (AKT)."},
+        suggestion:"🏍️ Las keywords de motos AKT dominan el tráfico orgánico. Aprovechar esta intención para capturar categorías complementarias. CLS 0.89 requiere corrección urgente.",
+        keywords:[
+          {k:"starlink nicaragua",cl:1030,p:3.5},{k:"akt 150",cl:1007,p:1.8},
+          {k:"akt 200 precio nicaragua",cl:735,p:2.5},{k:"akt 200",cl:722,p:1.4},
+          {k:"akt 150 precio nicaragua",cl:662,p:3.0},{k:"aire acondicionado",cl:598,p:3.6},
+          {k:"akt cs3 150 precio nicaragua",cl:478,p:3.3},{k:"akt ttr 200 precio nicaragua",cl:413,p:3.0},
+          {k:"moto akt 150 precio nicaragua",cl:405,p:1.5},{k:"nkd 150 precio nicaragua",cl:404,p:3.0},
+          {k:"akt 150 montañera",cl:401,p:1.1},{k:"akt cyclone 150",cl:388,p:1.5},
+          {k:"akt cyclone 150 precio nicaragua",cl:370,p:4.1},{k:"moto akt 150",cl:299,p:1.5},
+          {k:"aire acondicionado portatil",cl:295,p:5.0},{k:"akt 125",cl:281,p:2.4},
+          {k:"iphone nicaragua",cl:276,p:4.5},{k:"el verdugo nicaragua",cl:262,p:6.3},
+          {k:"akt",cl:226,p:5.7},{k:"freidora de aire",cl:226,p:4.2},
+        ],
+        categories:[
+          {n:"Refrigeración",r:79823.52},{n:"TV y Video",r:63515.23},
+          {n:"Lavadoras y secadoras",r:56855.98},{n:"Camas y Colchones",r:54034.05},
+          {n:"Climatización",r:34215.54},{n:"Cocina",r:33221.32},
+          {n:"Sala",r:25191.98},{n:"Dormitorio",r:18458.82},
+          {n:"Celulares y Teléfonos",r:null},{n:"Comedor",r:10356.38},
+        ],
+        products:[
+          {n:"Set de Cama Facenco Queen Ortopédico Plus",r:13140.51},
+          {n:"Aire Acondicionado LG Frío 12,000 BTU VX121C1",r:11589.00},
+          {n:"Refrigeradora Samsung 11 Pies 2 Puertas Top Mount",r:5556.06},
+          {n:"Refrigeradora LG 22 Pies 3 Puertas French Door",r:4917.40},
+          {n:"Refrigeradora Samsung 14 Pies 2 Puertas Top Mount",r:4780.32},
+          {n:"Refrigeradora Frigidaire 15.4 Pies Side by Side",r:4412.69},
+          {n:"Televisor TCL 75\" LED 4K UHD 75P755I",r:5218.53},
+          {n:"Refrigeradora Whirlpool 9 Pies 2 Puertas Top Mount",r:4188.41},
+          {n:"Aire Acondicionado LG Dual Inverter 12,000 BTU",r:4098.11},
+          {n:"Televisor TCL 55\" LED 4K UHD 55P615I",r:1040.62},
+        ],
+        monthly:[
+          {m:"Abr",i:1230,c:37},{m:"May",i:1250,c:37},{m:"Jun",i:1280,c:38},
+          {m:"Jul",i:1310,c:39},{m:"Ago",i:1320,c:39},{m:"Sep",i:1300,c:39},
+          {m:"Oct",i:1280,c:38},{m:"Nov",i:1290,c:39},{m:"Dic",i:1270,c:38},
+          {m:"Ene",i:1220,c:37},{m:"Feb",i:1230,c:37},{m:"Mar",i:1250,c:38},
+        ],
+      },
+      RSO:{
+        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
+        impressions:{M25:7391372,M26:8635382,growth:16.83},
+        clicks:{M25:143456,M26:276818,growth:92.97},
+        visits:{M25:null,M26:null,growth:null},
+        ctr:3.21,
+        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
+        orders:{M25:null,M26:null,growth:null},
+        convRate:{M25:null,M26:null},
+        avgTicket:{M26:null},
+        partDigital:{M26:null},partTotal:{M26:null},
+        nonBrand:55.88,brandPct:44.12,
+        indexation:{noIndexed:3110000,total:3128700,indexed:18700},
+        weightedPos:{M26:4.0,M25:null},
+        cwv:{lcp:"2.7s",inp:"190ms",cls:"0.82"},
+        recognition:{award:false,text:"RadioShack NI con +93% de clics — el mayor crecimiento de clics de RSO en la región."},
+        suggestion:"🚀 Excelente crecimiento de clics (+93%). Aprovechar el momentum para expandir categorías de gaming y electrónica que ya tienen tracción orgánica.",
+        keywords:[
+          {k:"smartwatch",cl:420,p:2.6},{k:"audifonos inalambricos",cl:336,p:2.8},
+          {k:"power bank",cl:278,p:1.7},{k:"samsung s23 ultra precio nicaragua",cl:269,p:4.4},
+          {k:"ps5 nicaragua",cl:259,p:5.9},{k:"play 5 precio nicaragua",cl:247,p:3.7},
+          {k:"repetidor wifi",cl:241,p:3.3},{k:"nintendo switch precio nicaragua",cl:240,p:4.4},
+          {k:"infinix note 40 pro precio nicaragua",cl:235,p:1.6},{k:"laptop gamer",cl:232,p:2.7},
+          {k:"infinix note 40 pro",cl:221,p:7.3},{k:"ps5 precio nicaragua",cl:218,p:4.0},
+          {k:"repetidor wifi nicaragua",cl:216,p:3.5},{k:"auriculares inalambricos",cl:215,p:3.4},
+          {k:"nintendo switch nicaragua",cl:214,p:4.9},{k:"playstation 5 precio nicaragua",cl:211,p:3.8},
+          {k:"playstation 5 nicaragua",cl:208,p:6.2},{k:"laptop gamer nicaragua",cl:195,p:4.9},
+          {k:"infinix note 40 pro precio",cl:189,p:7.1},{k:"laptop gamer",cl:232,p:2.7},
+        ],
+        categories:[
+          {n:"Computación",r:19823.98},{n:"TV y Video",r:12951.64},
+          {n:"Audio",r:11547.49},{n:"Gaming",r:11482.86},
+          {n:"Celulares y Teléfonos",r:5316.72},{n:"Iluminación y Electricidad",r:719.32},
+          {n:"Oficina",r:273.93},{n:"Personal Audio",r:273.60},
+          {n:"Audio (inst.)",r:218.89},{n:"Accesorios Gaming",r:262.72},
+        ],
+        products:[
+          {n:"Laptop Gaming HP 16GB M.2 512GB Victus Omen",r:2602.54},
+          {n:"Silla gaming RadioShack Con luces Negro y gris",r:1506.53},
+          {n:"Laptop Lenovo 8 GB SSD 256 GB Yoga Slim 7",r:1396.89},
+          {n:"Laptop Acer Nitro V Intel Core i5 16 GB 1 TB",r:994.43},
+          {n:"Laptop Acer AN51558740H Gaming 16 GB 512 GB",r:1205.13},
+          {n:"Televisor TCL 55\" LED 4K UHD 55P735",r:931.03},
+          {n:"Silla Gaming Basic RadioShack Negro y Gris",r:1150.42},
+          {n:"Parlante portátil RadioShack 160 W Bluetooth",r:975.90},
+          {n:"Televisor TCL 55\" LED 4K UHD 55P615I",r:1040.62},
+          {n:"Televisor TCL 32\" LCD HD S6500",r:800.00},
+        ],
+        monthly:[
+          {m:"Abr",i:615,c:12},{m:"May",i:625,c:12},{m:"Jun",i:650,c:13},
+          {m:"Jul",i:700,c:14},{m:"Ago",i:720,c:14},{m:"Sep",i:710,c:14},
+          {m:"Oct",i:720,c:14},{m:"Nov",i:740,c:15},{m:"Dic",i:750,c:15},
+          {m:"Ene",i:700,c:14},{m:"Feb",i:710,c:14},{m:"Mar",i:730,c:14},
+        ],
+      }
+    }
   }
 };
 
 /* ═══ UTILS ═══ */
-const fmt=(n)=>{if(n===null||n===undefined)return"—";if(n>=1e6)return(n/1e6).toFixed(1)+"M";if(n>=1e3)return(n/1e3).toFixed(1)+"K";return n.toLocaleString("en-US")};
-const fmtUSD=(n)=>"$"+fmt(n);
-const fmtPct=(n,dec=1)=>n===null?"—":n.toFixed(dec)+"%";
+const fmt=(n)=>{if(n===null||n===undefined)return"—";if(n>=1e6)return(n/1e6).toFixed(1)+"M";if(n>=1e3)return(n/1e3).toFixed(1)+"K";return Math.round(n).toLocaleString("en-US")};
+const fmtUSD=(n)=>n===null||n===undefined?"—":"$"+fmt(n);
+const p2=(v)=>v===null||v===undefined?"—":parseFloat(v).toFixed(2)+"%";
 
-function Tip({id,label,children}){
+function Tip({id,children}){
   const[show,setShow]=useState(false);
   const tips={
     ctr:"Click-Through Rate: clics ÷ impresiones × 100.",
     conv:"Porcentaje de visitas orgánicas que terminaron en compra.",
     partDigital:"Participación SEO en la venta digital (Paid + Orgánico).",
-    partTotal:"Participación SEO en la venta total. En M26 incluye venta asistida en el denominador.",
+    partTotal:"Participación SEO en la venta total. M26 incluye venta asistida en el denominador.",
     nonBrand:"Tráfico de usuarios que NO buscaron tu marca directamente. Indica conquista de mercado.",
     indexation:"Páginas de tu sitio incluidas en el índice de Google.",
-    weightedPos:"Posición promedio ponderada por volumen de clics. Menor número = mejor posición.",
+    weightedPos:"Posición promedio ponderada por volumen de clics. Menor = mejor.",
     asistida:"En M26 se separó la venta asistida del canal SEO. Las cifras reflejan venta orgánica pura.",
-    partialM25:"Las impresiones/clics M25 de RadioShack corresponden a un período parcial (ene–mar 2025) y no son comparables directamente con M26.",
+    lcp:"Largest Contentful Paint: tiempo que tarda en cargar el elemento principal. Meta: < 2.5s",
+    inp:"Interaction to Next Paint: respuesta a interacciones del usuario. Meta: < 200ms",
+    cls:"Cumulative Layout Shift: estabilidad visual. Meta: < 0.1",
   };
   if(!tips[id])return children;
   return(
@@ -188,42 +880,76 @@ function AN({value,decimals=0,prefix="",suffix=""}){
 }
 
 function Bdg({v,label,small}){
-  if(v===null)return null;
+  if(v===null||v===undefined)return <span style={{fontSize:small?11:13,color:"rgba(255,255,255,0.3)"}}>Sin dato M25</span>;
   const pos=v>=0;
   return(
     <div style={{display:"inline-flex",alignItems:"center",gap:4,background:pos?"rgba(0,255,135,0.1)":"rgba(255,80,80,0.1)",border:"1px solid "+(pos?"rgba(0,255,135,0.25)":"rgba(255,80,80,0.25)"),borderRadius:20,padding:small?"2px 10px":"4px 14px",fontSize:small?11:13,fontWeight:600,color:pos?"#00ff87":"#ff5050"}}>
-      {pos?"↑":"↓"} {Math.abs(v).toFixed(1)}%{label?" "+label:""}
+      {pos?"↑":"↓"} {Math.abs(v).toFixed(2)}%{label?" "+label:""}
     </div>
   );
 }
 
-function Spark({data,dk,color}){
+/* Sparkline + trend line animada */
+function Spark({data,dk,color,showTrend=true}){
   const vals=data.map(d=>d[dk]);
   const max=Math.max(...vals),min=Math.min(...vals),range=max-min||1;
-  const W=280,H=52;
-  const pts=vals.map((v,i)=>((i/(vals.length-1))*W)+","+((H-((v-min)/range)*(H-4)+2))).join(" ");
+  const W=300,H=60;
+  const xStep=W/(vals.length-1);
+  const pts=vals.map((v,i)=>[i*xStep,(H-((v-min)/range)*(H-8)+4)]);
+  const ptStr=pts.map(p=>p[0]+","+p[1]).join(" ");
   const uid=dk+color.replace(/[^a-z0-9]/gi,"");
+  // Trend line (linear regression)
+  const n=vals.length;
+  const xm=(n-1)/2;
+  const ym=vals.reduce((a,b)=>a+b,0)/n;
+  const slope=vals.reduce((s,v,i)=>s+(i-xm)*(v-ym),0)/vals.reduce((s,_,i)=>s+(i-xm)**2,0)||0;
+  const y0=(H-((ym-slope*xm-min)/range)*(H-8)+4);
+  const y1=(H-((ym+slope*(n-1-xm)-min)/range)*(H-8)+4);
   return(
-    <svg viewBox={`0 0 ${W} ${H}`} style={{width:"100%",maxWidth:320,height:52,marginTop:4}} xmlns="http://www.w3.org/2000/svg">
-      <defs><linearGradient id={uid} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".2"/><stop offset="100%" stopColor={color} stopOpacity="0"/></linearGradient></defs>
-      <polygon points={`0,${H} ${pts} ${W},${H}`} fill={`url(#${uid})`}/>
-      <polyline points={pts} fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="sd"/>
+    <svg viewBox={`0 0 ${W} ${H}`} style={{width:"100%",maxWidth:340,height:60,marginTop:4}} xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id={uid} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".25"/><stop offset="100%" stopColor={color} stopOpacity="0"/></linearGradient></defs>
+      <polygon points={`0,${H} ${ptStr} ${W},${H}`} fill={`url(#${uid})`}/>
+      <polyline points={ptStr} fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="sd" style={{"--dash":"1200"}}/>
+      {showTrend&&<line x1="0" y1={y0} x2={W} y2={y1} stroke={color} strokeWidth="1.5" strokeDasharray="5,4" opacity="0.55" className="sd"/>}
+      {pts.map((p,i)=>i===pts.length-1&&<circle key={i} cx={p[0]} cy={p[1]} r="4" fill={color} stroke="#000" strokeWidth="1.5"/>)}
     </svg>
   );
 }
 
-/* ═══════════════════════════════════════════════
-   COUNTRY SELECTOR
-═══════════════════════════════════════════════ */
+/* Bar chart animado M25 vs M26 */
+function BarChart({M25,M26,label,color}){
+  const[anim,setAnim]=useState(false);
+  useEffect(()=>{setTimeout(()=>setAnim(true),100)},[]);
+  const mx=Math.max(M25||0,M26||0)||1;
+  const pct=(v)=>v?((v/mx)*100).toFixed(1)+"%":"0%";
+  return(
+    <div style={{width:"100%",maxWidth:360}}>
+      <p style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginBottom:6,textAlign:"center"}}>{label}</p>
+      {[{v:M25,l:"M25",c:"rgba(255,255,255,0.2)"},{v:M26,l:"M26",c:color}].map(({v,l,c})=>(
+        <div key={l} style={{marginBottom:6}}>
+          <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
+            <span style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>{l}</span>
+            <span style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.6)"}}>{fmt(v)}</span>
+          </div>
+          <div style={{height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,overflow:"hidden"}}>
+            <div style={{height:"100%",width:anim?pct(v):"0%",background:c,borderRadius:4,transition:"width 1.2s cubic-bezier(0.4,0,0.2,1)"}}/>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ═══ COUNTRY SELECTOR ═══ */
 function CountrySelector({onSelect}){
   return(
     <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100%",gap:24,padding:24}}>
       <div style={{textAlign:"center"}}>
         <p style={{fontFamily:"'Space Mono',monospace",fontSize:11,letterSpacing:4,color:"rgba(255,255,255,0.3)",textTransform:"uppercase",marginBottom:10}}>SEO Wrapped</p>
         <h1 style={{fontSize:42,fontWeight:900,color:"#fff",lineHeight:1,letterSpacing:-1}}>M26</h1>
-        <p style={{fontSize:16,color:"rgba(255,255,255,0.4)",marginTop:6,fontWeight:300}}>Selecciona un país para comenzar</p>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.4)",marginTop:6,fontWeight:300}}>Región ULA · Selecciona un país</p>
       </div>
-      <div style={{display:"flex",flexWrap:"wrap",gap:14,justifyContent:"center",maxWidth:480}}>
+      <div style={{display:"flex",flexWrap:"wrap",gap:14,justifyContent:"center",maxWidth:700}}>
         {Object.entries(COUNTRIES).map(([code,c])=>(
           <button key={code} onClick={()=>onSelect(code)}
             style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:16,padding:"18px 28px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:8,transition:"all .2s",minWidth:140}}
@@ -239,19 +965,15 @@ function CountrySelector({onSelect}){
   );
 }
 
-/* ═══════════════════════════════════════════════
-   BRAND TABS
-═══════════════════════════════════════════════ */
-function BrandTabs({brands,active,onSwitch}){
+function BrandTabs({brands,active,onSwitch,country}){
   return(
     <div style={{display:"flex",gap:6,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:4,flexShrink:0}}>
       {brands.map(b=>{
-        const bData=Object.values(COUNTRIES).flatMap(c=>Object.entries(c.brands)).find(([k])=>k===b)?.[1];
+        const bData=COUNTRIES[country]?.brands[b];
         const isActive=b===active;
-        const activeColor = bData?.color || "#00ff87";
         return(
           <button key={b} onClick={()=>onSwitch(b)}
-            style={{background:isActive?(bData?.colorDim||"rgba(255,255,255,0.08)"):"transparent",border:isActive?"1px solid rgba(255,255,255,0.15)":"1px solid transparent",borderRadius:9,padding:"5px 16px",cursor:"pointer",fontSize:13,fontWeight:isActive?700:400,color:isActive?activeColor:"rgba(255,255,255,0.4)",transition:"all .2s",fontFamily:"'Outfit',sans-serif",whiteSpace:"nowrap"}}>
+            style={{background:isActive?(bData?.colorDim||"rgba(255,255,255,0.08)"):"transparent",border:isActive?"1px solid rgba(255,255,255,0.15)":"1px solid transparent",borderRadius:9,padding:"5px 16px",cursor:"pointer",fontSize:12,fontWeight:isActive?700:400,color:isActive?(bData?.color||"#00ff87"):"rgba(255,255,255,0.4)",transition:"all .2s",fontFamily:"'Outfit',sans-serif",whiteSpace:"nowrap"}}>
             {bData?.label||b}
           </button>
         );
@@ -260,138 +982,151 @@ function BrandTabs({brands,active,onSwitch}){
   );
 }
 
-/* ═══════════════════════════════════════════════
-   SLIDES
-═══════════════════════════════════════════════ */
-
+/* ═══ SLIDES ═══ */
 function SlideIntro({country,brands,activeBrand,onSwitch}){
   const cData=COUNTRIES[country];
   const bData=cData.brands[activeBrand];
   return(
     <div style={S.center}>
       <div style={{fontSize:52}}>{cData.flag}</div>
-      <BrandTabs brands={Object.keys(cData.brands)} active={activeBrand} onSwitch={onSwitch}/>
+      <BrandTabs brands={brands} active={activeBrand} onSwitch={onSwitch} country={country}/>
       <p style={{fontSize:14,color:"rgba(255,255,255,0.35)",letterSpacing:3,textTransform:"uppercase",fontWeight:300}}>Tu resumen SEO del año</p>
-      <h1 style={{fontSize:50,fontWeight:900,lineHeight:1,color:"#fff",letterSpacing:-1}}>{bData.label}</h1>
-      <h2 style={{fontSize:36,fontWeight:900,lineHeight:1,background:"linear-gradient(135deg,"+bData.color+","+bData.color+"99)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>SEO Wrapped</h2>
-      <p style={{fontFamily:"'Space Mono',monospace",fontSize:24,fontWeight:700,color:bData.color,opacity:.75}}>M26</p>
+      <h1 style={{fontSize:48,fontWeight:900,lineHeight:1,color:"#fff",letterSpacing:-1}}>{bData.label}</h1>
+      <h2 style={{fontSize:34,fontWeight:900,lineHeight:1,background:"linear-gradient(135deg,"+bData.color+","+bData.color+"99)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>SEO Wrapped</h2>
+      <p style={{fontFamily:"'Space Mono',monospace",fontSize:22,fontWeight:700,color:bData.color,opacity:.75}}>M26</p>
       <p style={{fontSize:16,fontWeight:300,color:"rgba(255,255,255,0.4)"}}>{cData.name}</p>
-      <div style={{marginTop:12,fontSize:13,color:"rgba(255,255,255,0.25)"}}>
-        <span className="pa">→</span> Desliza para comenzar
-      </div>
+      <div style={{marginTop:12,fontSize:13,color:"rgba(255,255,255,0.25)"}}><span className="pa">→</span> Desliza para comenzar</div>
     </div>
   );
 }
 
 function SlideImpressions({bd}){
-  const hasGrowth=bd.impressions.growth!==null;
   return(
     <div style={S.center}>
-      {bd.impressions.partialM25&&(
-        <Tip id="partialM25">
-          <div style={S.warnBadge}>⚠️ M25 período parcial — crecimiento no comparable</div>
-        </Tip>
-      )}
       <p style={S.label}>Impresiones en Google</p>
       <h2 style={{...S.mega,color:bd.color}}><AN value={bd.impressions.M26}/></h2>
       <p style={S.lbig}>apariciones en búsquedas</p>
-      {hasGrowth&&<Bdg v={bd.impressions.growth} label="vs M25"/>}
-      {!hasGrowth&&<div style={{...S.pill,color:"rgba(255,255,255,0.35)"}}>M25: dato parcial</div>}
+      <Bdg v={bd.impressions.growth} label="vs M25"/>
+      <BarChart M25={bd.impressions.M25} M26={bd.impressions.M26} label="Impresiones M25 vs M26" color={bd.color}/>
       <Spark data={bd.monthly} dk="i" color={bd.color}/>
-      {bd.impressions.M25&&<p style={{fontSize:12,color:"rgba(255,255,255,0.25)",marginTop:2}}>M25: {fmt(bd.impressions.M25)}</p>}
+      <p style={{fontSize:11,color:"rgba(255,255,255,0.25)",marginTop:2}}>Tendencia mensual con línea de proyección</p>
     </div>
   );
 }
 
 function SlideClicks({bd}){
-  const hasGrowth=bd.clicks.growth!==null;
   return(
     <div style={S.center}>
-      {bd.clicks.partialM25&&(
-        <Tip id="partialM25">
-          <div style={S.warnBadge}>⚠️ M25 período parcial — crecimiento no comparable</div>
-        </Tip>
-      )}
       <p style={S.label}>Clics orgánicos</p>
       <h2 style={{...S.mega,color:bd.color}}><AN value={bd.clicks.M26}/></h2>
       <p style={S.lbig}>clics desde Google</p>
-      {hasGrowth&&<Bdg v={bd.clicks.growth} label="vs M25"/>}
-      {!hasGrowth&&<div style={{...S.pill,color:"rgba(255,255,255,0.35)"}}>M25: dato parcial</div>}
+      <Bdg v={bd.clicks.growth} label="vs M25"/>
       <Tip id="ctr">
-        <div style={{...S.statPill,borderColor:bd.color+"30"}}>
+        <div style={{...S.statPill,borderColor:bd.color+"30",marginTop:4}}>
           <span style={{fontSize:12,color:"rgba(255,255,255,0.4)"}}>CTR</span>
-          <span style={{fontSize:28,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.ctr}%</span>
+          <span style={{fontSize:26,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.ctr}%</span>
         </div>
       </Tip>
+      <BarChart M25={bd.clicks.M25} M26={bd.clicks.M26} label="Clics M25 vs M26" color={bd.color}/>
       <Spark data={bd.monthly} dk="c" color={bd.color}/>
     </div>
   );
 }
 
-function SlideRevenue({bd}){
-  const down=bd.revenue.growth<0;
+function SlideVisits({bd}){
+  const hasVisits=bd.visits.M26!==null;
   return(
     <div style={S.center}>
-      <p style={S.label}>Ingresos orgánicos</p>
-      <h2 style={{fontSize:38,fontWeight:900,color:down?"#ff5050":"#00ff87",fontFamily:"'Space Mono',monospace",lineHeight:1,margin:"4px 0"}}>
-        <AN value={bd.revenue.M26} prefix="$" suffix=" USD"/>
-      </h2>
-      <Bdg v={bd.revenue.growth} label="vs M25"/>
-      {bd.revenue.asistidaNote&&(
-        <Tip id="asistida">
-          <div style={S.warnBadge}>⚠️ M26: venta asistida excluida del canal SEO</div>
-        </Tip>
+      <p style={S.label}>Visitas orgánicas</p>
+      {hasVisits?(
+        <h2 style={{...S.mega,color:bd.color}}><AN value={bd.visits.M26}/></h2>
+      ):(
+        <h2 style={{...S.mega,fontSize:32,color:"rgba(255,255,255,0.3)"}}>Sin dato</h2>
       )}
-      <div style={{display:"flex",gap:8,width:"100%",justifyContent:"center",flexWrap:"wrap"}}>
+      <p style={S.lbig}>usuarios únicos desde Google</p>
+      <Bdg v={bd.visits.growth} label="vs M25"/>
+      {hasVisits&&<BarChart M25={bd.visits.M25} M26={bd.visits.M26} label="Visitas M25 vs M26" color={bd.color}/>}
+      {hasVisits&&<Spark data={bd.monthly} dk="c" color={bd.color}/>}
+      {!hasVisits&&<p style={{fontSize:12,color:"rgba(255,255,255,0.35)",maxWidth:300,textAlign:"center"}}>Visitas disponibles en Adobe Analytics. Dato pendiente de cruce con BigQuery.</p>}
+    </div>
+  );
+}
+
+function SlideRevenue({bd}){
+  const hasRev=bd.revenue.M26!==null;
+  const down=hasRev&&bd.revenue.growth<0;
+  return(
+    <div style={S.center}>
+      <p style={S.label}>Venta SEO M26</p>
+      {hasRev?(
+        <h2 style={{fontSize:36,fontWeight:900,color:down?"#ff5050":bd.color,fontFamily:"'Space Mono',monospace",lineHeight:1,margin:"4px 0"}}>
+          <AN value={bd.revenue.M26} prefix="$" suffix=" USD"/>
+        </h2>
+      ):(
+        <div style={{...S.microCard,padding:"14px 28px",marginBottom:4}}>
+          <span style={{fontSize:14,color:"rgba(255,255,255,0.4)"}}>Revenue sin dato disponible</span>
+        </div>
+      )}
+      {hasRev&&<Bdg v={bd.revenue.growth} label="vs M25"/>}
+      {bd.revenue.asistidaNote&&<Tip id="asistida"><div style={S.warnBadge}>⚠️ M26: venta asistida excluida del canal SEO</div></Tip>}
+      <div style={{display:"flex",gap:8,width:"100%",justifyContent:"center",flexWrap:"wrap",marginTop:8}}>
         <div style={S.microCard}>
-          <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.orders.growth<0?"#ff5050":bd.color}}>{fmt(bd.orders.M26)}</span>
-          <span style={S.microLabel}>Órdenes</span>
-          <Bdg v={bd.orders.growth} small/>
+          <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.orders.M26!==null?(bd.orders.growth!==null&&bd.orders.growth<0?"#ff5050":bd.color):"rgba(255,255,255,0.3)"}}>{bd.orders.M26!==null?fmt(bd.orders.M26):"—"}</span>
+          <span style={S.microLabel}>Órdenes M26</span>
+          {bd.orders.growth!==null&&<Bdg v={bd.orders.growth} small/>}
         </div>
         <Tip id="conv">
           <div style={S.microCard}>
-            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.convRate.M26}%</span>
-            <span style={S.microLabel}>Conv. orgánica</span>
+            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.convRate.M26!==null?bd.color:"rgba(255,255,255,0.3)"}}>{bd.convRate.M26!==null?bd.convRate.M26.toFixed(2)+"%":"—"}</span>
+            <span style={S.microLabel}>Conv. M26</span>
+          </div>
+        </Tip>
+        <Tip id="conv">
+          <div style={S.microCard}>
+            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.4)"}}>{bd.convRate.M25!==null&&bd.convRate.M25!==undefined?bd.convRate.M25.toFixed(2)+"%":"—"}</span>
+            <span style={S.microLabel}>Conv. M25</span>
           </div>
         </Tip>
       </div>
       <div style={{display:"flex",gap:8,width:"100%",justifyContent:"center",flexWrap:"wrap"}}>
         <Tip id="partDigital">
           <div style={S.microCard}>
-            <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.partDigital.M26}%</span>
+            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.partDigital.M26!==null?bd.color:"rgba(255,255,255,0.3)"}}>{bd.partDigital.M26!==null?bd.partDigital.M26.toFixed(2)+"%":"—"}</span>
             <span style={S.microLabel}>Part. Digital</span>
           </div>
         </Tip>
         <Tip id="partTotal">
           <div style={S.microCard}>
-            <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.partTotal.M26}%</span>
+            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.partTotal.M26!==null?bd.color:"rgba(255,255,255,0.3)"}}>{bd.partTotal.M26!==null?bd.partTotal.M26.toFixed(2)+"%":"—"}</span>
             <span style={S.microLabel}>Part. Total</span>
           </div>
         </Tip>
+        <div style={S.microCard}>
+          <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.avgTicket.M26?("$"+bd.avgTicket.M26.toFixed(2)):"—"}</span>
+          <span style={S.microLabel}>Ticket Prom.</span>
+        </div>
       </div>
     </div>
   );
 }
 
 function SlideBrand({bd}){
-  const nb=bd.nonBrand, b=bd.brandPct;
+  const nb=bd.nonBrand,b=bd.brandPct;
   return(
     <div style={S.center}>
-      <Tip id="nonBrand">
-        <p style={S.label}>Tráfico No Marca</p>
-      </Tip>
-      <h2 style={{...S.mega,fontSize:68,color:bd.color}}><AN value={nb} decimals={1} suffix="%"/></h2>
+      <Tip id="nonBrand"><p style={S.label}>Tráfico No Marca</p></Tip>
+      <h2 style={{...S.mega,fontSize:66,color:bd.color}}><AN value={nb} decimals={2} suffix="%"/></h2>
       <p style={S.lbig}>de búsquedas NO son de marca</p>
       <p style={{fontSize:13,color:"rgba(255,255,255,0.4)",maxWidth:340,lineHeight:1.5,textAlign:"center"}}>
         Usuarios que NO buscaron "{bd.label}" pero llegaron igual. Conquista real de mercado.
       </p>
       <div style={{width:"100%",maxWidth:360}}>
         <div style={{display:"flex",borderRadius:10,overflow:"hidden",height:28,marginBottom:6}}>
-          <div style={{width:nb+"%",background:"linear-gradient(90deg,"+bd.color+"99,"+bd.color+")",display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <span style={{fontSize:12,fontWeight:700,color:"#000"}}>No Marca {nb.toFixed(1)}%</span>
+          <div style={{width:nb+"%",background:"linear-gradient(90deg,"+bd.color+"99,"+bd.color+")",display:"flex",alignItems:"center",justifyContent:"center",minWidth:nb>5?"auto":"0px"}}>
+            {nb>8&&<span style={{fontSize:12,fontWeight:700,color:"#000"}}>No Marca {nb.toFixed(2)}%</span>}
           </div>
           <div style={{flex:1,background:"rgba(255,255,255,0.06)",display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <span style={{fontSize:12,color:"rgba(255,255,255,0.35)"}}>Marca {b.toFixed(1)}%</span>
+            <span style={{fontSize:12,color:"rgba(255,255,255,0.35)"}}>Marca {b.toFixed(2)}%</span>
           </div>
         </div>
       </div>
@@ -399,71 +1134,96 @@ function SlideBrand({bd}){
   );
 }
 
+function cwvColor(metric,val){
+  const v=parseFloat(val);
+  if(isNaN(v))return"rgba(255,255,255,0.4)";
+  if(metric==="lcp")return v<=2.5?"#00ff87":v<=4?"#fbbf24":"#ff5050";
+  if(metric==="inp")return v<=200?"#00ff87":v<=500?"#fbbf24":"#ff5050";
+  if(metric==="cls")return v<=0.1?"#00ff87":v<=0.25?"#fbbf24":"#ff5050";
+  return"rgba(255,255,255,0.4)";
+}
+
 function SlideTech({bd}){
-  const idx=bd.indexation, wp=bd.weightedPos;
-  const idxPct=(idx.indexed/idx.total*100).toFixed(1);
+  const idx=bd.indexation,wp=bd.weightedPos,cwv=bd.cwv;
+  const idxPct=idx.total>0?(idx.indexed/idx.total*100).toFixed(2):0;
+  const idxLabel=idx.indexed>0?fmt(idx.indexed)+" indexadas":"Baja indexación";
   return(
     <div style={S.center}>
-      <p style={S.label}>Salud técnica</p>
-
-      <div style={{width:"100%",maxWidth:380}}>
+      <p style={S.label}>Salud técnica · SEO</p>
+      <div style={{width:"100%",maxWidth:380,display:"flex",flexDirection:"column",gap:10}}>
+        {/* Indexación */}
         <Tip id="indexation">
-          <p style={{fontSize:12,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginBottom:8,textAlign:"center"}}>Indexación</p>
+          <p style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginBottom:4,textAlign:"center"}}>Indexación</p>
         </Tip>
         <div style={{display:"flex",gap:8,justifyContent:"center"}}>
           <div style={S.microCard}>
-            <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.6)"}}>{fmt(idx.total)}</span>
+            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.5)"}}>{fmt(idx.total)}</span>
             <span style={S.microLabel}>URLs totales</span>
           </div>
-          <div style={S.microCard}>
-            <span style={{fontSize:22,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{fmt(idx.indexed)}</span>
+          <div style={{...S.microCard,background:bd.color+"15",borderColor:bd.color+"30"}}>
+            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{fmt(idx.indexed)}</span>
             <span style={S.microLabel}>Indexadas</span>
           </div>
         </div>
-        <div style={{height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,marginTop:10,overflow:"hidden",maxWidth:360,marginLeft:"auto",marginRight:"auto"}}>
+        <div style={{height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,overflow:"hidden"}}>
           <div style={{height:"100%",width:idxPct+"%",background:"linear-gradient(90deg,"+bd.color+"88,"+bd.color+")",borderRadius:4,transition:"width 1s ease"}}/>
         </div>
-        <p style={{fontSize:12,color:"rgba(255,255,255,0.3)",textAlign:"center",marginTop:4}}>{idxPct}% indexado</p>
-      </div>
+        <p style={{fontSize:12,color:"rgba(255,255,255,0.3)",textAlign:"center"}}>{idxPct}% indexado</p>
 
-      <Tip id="weightedPos">
-        <div style={{...S.microCard,padding:"14px 28px",marginTop:4}}>
-          <div style={{display:"flex",alignItems:"baseline",gap:12,justifyContent:"center"}}>
-            <span style={{fontSize:40,fontWeight:900,fontFamily:"'Space Mono',monospace",color:bd.color}}>#{wp.M26}</span>
-            {wp.M25&&<span style={{fontSize:16,color:"rgba(255,255,255,0.3)"}}>vs #{wp.M25} M25</span>}
+        {/* Posición ponderada */}
+        <Tip id="weightedPos">
+          <div style={{...S.microCard,padding:"10px 24px"}}>
+            <div style={{display:"flex",alignItems:"baseline",gap:12,justifyContent:"center"}}>
+              <span style={{fontSize:36,fontWeight:900,fontFamily:"'Space Mono',monospace",color:bd.color}}>#{wp.M26}</span>
+              {wp.M25&&<span style={{fontSize:15,color:"rgba(255,255,255,0.3)"}}>vs #{wp.M25} M25</span>}
+            </div>
+            <span style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>Posición ponderada</span>
           </div>
-          <span style={{fontSize:12,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>Posición ponderada</span>
-        </div>
-      </Tip>
+        </Tip>
 
-      <div style={{background:"rgba(255,200,50,0.06)",border:"1px solid rgba(255,200,50,0.1)",borderRadius:10,padding:"8px 16px",maxWidth:360}}>
-        <p style={{fontSize:12,color:"rgba(255,200,50,0.7)",lineHeight:1.5,textAlign:"center"}}>
-          ⏳ Core Web Vitals pendientes — fuente: Lighthouse / CrUX
-        </p>
+        {/* Core Web Vitals */}
+        {cwv&&(
+          <div style={{background:"rgba(255,255,255,0.03)",borderRadius:12,padding:"10px 14px",border:"1px solid rgba(255,255,255,0.06)"}}>
+            <p style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginBottom:8,textAlign:"center"}}>Core Web Vitals · CrUX</p>
+            <div style={{display:"flex",gap:8,justifyContent:"center"}}>
+              {[{k:"lcp",v:cwv.lcp,label:"LCP"},{k:"inp",v:cwv.inp,label:"INP"},{k:"cls",v:cwv.cls,label:"CLS"}].map(({k,v,label})=>(
+                <Tip key={k} id={k}>
+                  <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:3,background:"rgba(0,0,0,0.2)",borderRadius:10,padding:"8px 14px",border:"1px solid "+cwvColor(k,v)+"40"}}>
+                    <span style={{fontSize:16,fontWeight:800,fontFamily:"'Space Mono',monospace",color:cwvColor(k,v)}}>{v}</span>
+                    <span style={{fontSize:10,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>{label}</span>
+                  </div>
+                </Tip>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
 function SlideKeywords({bd}){
-  const kws=bd.keywords.slice(0,15);
+  const kws=bd.keywords.slice(0,20);
   const mx=kws[0]?.cl||1;
-  const col1=kws.slice(0,8), col2=kws.slice(8);
+  const col1=kws.slice(0,10),col2=kws.slice(10);
   return(
-    <div style={{...S.center,maxWidth:660}}>
-      <p style={S.label}>Keywords más fuertes</p>
-      <h2 style={S.sec}>Top {kws.length} Keywords</h2>
-      <div style={{display:"flex",gap:8,width:"100%"}}>
+    <div style={{...S.center,maxWidth:680}}>
+      <p style={S.label}>Keywords No Marca · Top clics</p>
+      <h2 style={S.sec}>Top 20 Keywords</h2>
+      <div style={{display:"flex",gap:6,width:"100%"}}>
         {[col1,col2].map((col,ci)=>(
-          <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:4}}>
+          <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:3}}>
             {col.map((kw,i)=>(
-              <div key={i} style={{display:"flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"5px 8px"}} className="fi">
-                <span style={{fontFamily:"'Space Mono',monospace",fontSize:11,fontWeight:700,color:bd.color,minWidth:26,textAlign:"center"}}>#{ci*8+i+1}</span>
+              <div key={i} style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.03)",borderRadius:7,padding:"4px 7px"}} className="fi">
+                <span style={{fontFamily:"'Space Mono',monospace",fontSize:10,fontWeight:700,color:bd.color,minWidth:22,textAlign:"center"}}>#{ci*10+i+1}</span>
                 <div style={{flex:1,minWidth:0}}>
-                  <div style={{fontSize:12,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{kw.k}</div>
-                  <div style={{display:"flex",gap:8,fontSize:11,color:"rgba(255,255,255,0.35)",marginTop:1}}>
-                    <span>{fmt(kw.cl)}</span>
-                    <span style={{color:bd.color}}>pos.{kw.p}</span>
+                  <div style={{height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden",marginBottom:2}}>
+                    <div style={{height:"100%",width:((kw.cl/mx)*100)+"%",background:bd.color,borderRadius:2}}/>
+                  </div>
+                  <div style={{fontSize:11,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{kw.k}</div>
+                  <div style={{display:"flex",gap:6,fontSize:10,color:"rgba(255,255,255,0.35)"}}>
+                    <span>{fmt(kw.cl)} cl</span>
+                    <span style={{color:bd.color+"99"}}>pos.{kw.p}</span>
                   </div>
                 </div>
               </div>
@@ -476,27 +1236,27 @@ function SlideKeywords({bd}){
 }
 
 function SlideCategories({bd}){
-  const cats=bd.categories;
-  const col1=cats.slice(0,5), col2=cats.slice(5);
-  const mx=cats[0]?.p||1;
+  const cats=bd.categories.filter(c=>c.r!==null&&c.r!==undefined).slice(0,10);
+  const mx=cats[0]?.r||1;
+  const col1=cats.slice(0,5),col2=cats.slice(5);
   return(
     <div style={S.center}>
-      <p style={S.label}>Categorías que más brillaron</p>
-      <h2 style={S.sec}>Top 10 Categorías · Revenue</h2>
+      <p style={S.label}>Categorías · Revenue SEO</p>
+      <h2 style={S.sec}>Top 10 Categorías (Cat. 2)</h2>
       <div style={{display:"flex",gap:8,width:"100%"}}>
         {[col1,col2].map((col,ci)=>(
           <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
             {col.map((cat,i)=>(
               <div key={i} style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"7px 10px"}} className="fi">
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}}>
-                  <span style={{fontSize:12,fontWeight:600,color:"#fff"}}>
-                    <span style={{color:bd.color,fontFamily:"'Space Mono',monospace",marginRight:4}}>#{ci*5+i+1}</span>
+                  <span style={{fontSize:11,fontWeight:600,color:"#fff",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>
+                    <span style={{color:bd.color,fontFamily:"'Space Mono',monospace",marginRight:4,fontWeight:700,fontSize:10}}>#{ci*5+i+1}</span>
                     {cat.n}
                   </span>
-                  <span style={{fontSize:12,fontWeight:700,fontFamily:"'Space Mono',monospace",color:bd.color}}>{cat.p}%</span>
+                  <span style={{fontSize:11,fontWeight:700,fontFamily:"'Space Mono',monospace",color:bd.color,minWidth:28,textAlign:"right",flexShrink:0,marginLeft:4}}>{fmtUSD(cat.r)}</span>
                 </div>
                 <div style={{height:4,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}>
-                  <div style={{height:"100%",width:((cat.p/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:3}}/>
+                  <div style={{height:"100%",width:((cat.r/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:3,transition:"width .8s ease"}}/>
                 </div>
               </div>
             ))}
@@ -508,9 +1268,19 @@ function SlideCategories({bd}){
 }
 
 function SlideProducts({bd}){
-  const prods=bd.products;
+  if(bd.noRevenueData){
+    return(
+      <div style={S.center}>
+        <p style={S.label}>Productos estrella del SEO</p>
+        <div style={{fontSize:40}}>📦</div>
+        <p style={{fontSize:16,color:"rgba(255,255,255,0.45)",textAlign:"center",maxWidth:320}}>Revenue por producto no disponible en esta vista.</p>
+        <p style={{fontSize:13,color:"rgba(255,255,255,0.25)",textAlign:"center",maxWidth:300}}>Los datos de revenue por SKU están pendientes de cruce con Adobe Analytics.</p>
+      </div>
+    );
+  }
+  const prods=bd.products.filter(p=>p.r!==null);
   const mx=prods[0]?.r||1;
-  const col1=prods.slice(0,5), col2=prods.slice(5);
+  const col1=prods.slice(0,5),col2=prods.slice(5);
   return(
     <div style={S.center}>
       <p style={S.label}>Productos estrella del SEO</p>
@@ -519,16 +1289,16 @@ function SlideProducts({bd}){
         {[col1,col2].map((col,ci)=>(
           <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
             {col.map((p,i)=>(
-              <div key={i} style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"7px 10px"}} className="fi">
-                <div style={{fontSize:12,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",marginBottom:3}}>
-                  <span style={{color:bd.color,fontFamily:"'Space Mono',monospace",marginRight:4}}>#{ci*5+i+1}</span>
+              <div key={i} style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"6px 9px"}} className="fi">
+                <div style={{fontSize:11,fontWeight:600,color:"#fff",overflow:"hidden",textOverflow:"ellipsis",display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",marginBottom:3,lineHeight:1.3}}>
+                  <span style={{color:bd.color,fontFamily:"'Space Mono',monospace",marginRight:3,fontSize:10}}>#{ci*5+i+1}</span>
                   {p.n}
                 </div>
-                <div style={{display:"flex",alignItems:"center",gap:8}}>
-                  <div style={{flex:1,height:4,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}>
-                    <div style={{height:"100%",width:((p.r/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:3}}/>
+                <div style={{display:"flex",alignItems:"center",gap:6}}>
+                  <div style={{flex:1,height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden"}}>
+                    <div style={{height:"100%",width:((p.r/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:2}}/>
                   </div>
-                  <span style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.4)",flexShrink:0}}>{fmtUSD(p.r)}</span>
+                  <span style={{fontSize:10,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.4)",flexShrink:0}}>{fmtUSD(p.r)}</span>
                 </div>
               </div>
             ))}
@@ -542,27 +1312,49 @@ function SlideProducts({bd}){
 function SlideSummary({bd,country}){
   const cData=COUNTRIES[country];
   const stats=[
-    {v:fmt(bd.impressions.M26),  l:"Impresiones"},
-    {v:fmt(bd.clicks.M26),       l:"Clics"},
-    {v:"$"+fmt(bd.revenue.M26),  l:"Revenue"},
-    {v:bd.convRate.M26+"%",      l:"Conversión"},
-    {v:bd.partDigital.M26+"%",   l:"Part. Digital"},
-    {v:bd.nonBrand.toFixed(1)+"%",l:"No Marca"},
+    {v:fmt(bd.impressions.M26),l:"Impresiones"},
+    {v:fmt(bd.clicks.M26),l:"Clics"},
+    {v:bd.revenue.M26!==null?("$"+fmt(bd.revenue.M26)):"—",l:"Revenue SEO"},
+    {v:bd.convRate.M26!==null?bd.convRate.M26.toFixed(2)+"%":"—",l:"Conv. M26"},
+    {v:bd.partDigital.M26!==null?bd.partDigital.M26.toFixed(2)+"%":"—",l:"Part. Digital"},
+    {v:bd.nonBrand.toFixed(2)+"%",l:"No Marca"},
+    {v:bd.orders.M26!==null?fmt(bd.orders.M26):"—",l:"Órdenes M26"},
+    {v:"#"+bd.weightedPos.M26,l:"Pos. Ponderada"},
+    {v:bd.cwv?.lcp||"—",l:"LCP"},
+    {v:bd.cwv?.inp||"—",l:"INP"},
+    {v:bd.cwv?.cls||"—",l:"CLS"},
+    {v:bd.ctr+"%",l:"CTR"},
   ];
   return(
     <div style={S.center}>
-      <div style={{fontSize:44}}>📊</div>
-      <h2 style={{fontSize:20,fontWeight:800,lineHeight:1.4,maxWidth:360,background:"linear-gradient(135deg,"+bd.color+","+bd.color+"80)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",textAlign:"center"}}>
+      <div style={{fontSize:40}}>📊</div>
+      <h2 style={{fontSize:18,fontWeight:800,lineHeight:1.4,maxWidth:360,background:"linear-gradient(135deg,"+bd.color+","+bd.color+"80)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",textAlign:"center"}}>
         {bd.label} {cData.name} — M26
       </h2>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,width:"100%"}}>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6,width:"100%"}}>
         {stats.map((s,i)=>(
-          <div key={i} style={{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 8px",display:"flex",flexDirection:"column",gap:3,alignItems:"center",border:"1px solid "+bd.color+"15"}}>
-            <span style={{fontSize:17,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{s.v}</span>
-            <span style={{fontSize:10,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,textAlign:"center"}}>{s.l}</span>
+          <div key={i} style={{background:"rgba(255,255,255,0.04)",borderRadius:10,padding:"8px 6px",display:"flex",flexDirection:"column",gap:2,alignItems:"center",border:"1px solid "+bd.color+"15"}}>
+            <span style={{fontSize:14,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color,textAlign:"center",lineHeight:1.1}}>{s.v}</span>
+            <span style={{fontSize:9,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,textAlign:"center"}}>{s.l}</span>
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function SlideMessage({bd,country}){
+  const cData=COUNTRIES[country];
+  return(
+    <div style={S.center}>
+      <div style={{fontSize:48,animation:"pulse 2s ease infinite"}}>💬</div>
+      <p style={{fontSize:12,color:bd.color+"99",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Sugerencia Estratégica M27</p>
+      <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid "+bd.color+"25",borderRadius:16,padding:"20px 24px",maxWidth:420,marginTop:4}}>
+        <p style={{fontSize:15,fontWeight:500,lineHeight:1.65,color:"rgba(255,255,255,0.82)",textAlign:"center"}}>{bd.suggestion}</p>
+      </div>
+      <div style={{width:48,height:2,background:"linear-gradient(90deg,transparent,"+bd.color+",transparent)",marginTop:12}}/>
+      <p style={{marginTop:8,fontSize:14,fontWeight:600,color:"rgba(255,255,255,0.35)"}}>¡Adelante {bd.label} {cData.name}! 💪</p>
+      <p style={{fontSize:12,color:"rgba(255,255,255,0.2)"}}>Preparados para superar M26</p>
     </div>
   );
 }
@@ -575,27 +1367,21 @@ function SlideRecognition({bd}){
       {award?(
         <>
           <p style={{fontSize:12,color:"rgba(255,200,50,0.65)",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Reconocimiento M26</p>
-          <h2 style={{fontSize:22,fontWeight:800,lineHeight:1.5,maxWidth:380,textAlign:"center",background:"linear-gradient(135deg,#ffd700,#ffb300)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>{text}</h2>
+          <h2 style={{fontSize:20,fontWeight:800,lineHeight:1.5,maxWidth:380,textAlign:"center",background:"linear-gradient(135deg,#ffd700,#ffb300)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>{text}</h2>
           <div style={{width:50,height:2,background:"linear-gradient(90deg,transparent,#ffd700,transparent)",marginTop:8}}/>
         </>
       ):(
         <>
           <p style={{fontSize:12,color:bd.color+"99",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Destacado M26</p>
-          <h2 style={{fontSize:18,fontWeight:600,lineHeight:1.6,maxWidth:360,textAlign:"center",color:"rgba(255,255,255,0.75)"}}>{text}</h2>
+          <h2 style={{fontSize:17,fontWeight:600,lineHeight:1.6,maxWidth:360,textAlign:"center",color:"rgba(255,255,255,0.75)"}}>{text}</h2>
         </>
       )}
-      <p style={{marginTop:16,fontSize:16,fontWeight:600,color:"rgba(255,255,255,0.45)"}}>¡Gracias {bd.label} CR! 💪</p>
-      <p style={{fontSize:13,color:"rgba(255,255,255,0.25)"}}>Preparados para M27</p>
     </div>
   );
 }
 
-/* ═══════════════════════════════════════════════
-   MAIN APP
-═══════════════════════════════════════════════ */
-const SLIDE_LABELS=[
-  "Inicio","Impresiones","Clics","Revenue","No Marca","Técnico","Keywords","Categorías","Productos","Resumen","Reconocimiento"
-];
+/* ═══ MAIN APP ═══ */
+const SLIDE_LABELS=["Inicio","Impresiones","Clics","Visitas","Revenue","No Marca","Técnico","Keywords","Categorías","Productos","Resumen","Mensaje","Reconocimiento"];
 const TOTAL=SLIDE_LABELS.length;
 
 function App(){
@@ -613,10 +1399,8 @@ function App(){
     setCountry(code);
     const firstBrand=Object.keys(COUNTRIES[code].brands)[0];
     setBrand(firstBrand);
-    setSlide(0);
-    setAnimKey(0);
+    setSlide(0);setAnimKey(0);
   };
-
   const switchBrand=(b)=>{setBrand(b);setAnimKey(k=>k+1)};
 
   useEffect(()=>{
@@ -629,13 +1413,8 @@ function App(){
     return()=>window.removeEventListener("keydown",h);
   },[next,prev,country]);
 
-  // Country selector
   if(!country){
-    return(
-      <div style={R.root}>
-        <CountrySelector onSelect={selectCountry}/>
-      </div>
-    );
+    return(<div style={R.root}><CountrySelector onSelect={selectCountry}/></div>);
   }
 
   const cData=COUNTRIES[country];
@@ -646,6 +1425,7 @@ function App(){
     <SlideIntro key={`intro-${animKey}`} country={country} brands={brands} activeBrand={brand} onSwitch={switchBrand}/>,
     <SlideImpressions key={`imp-${animKey}`} bd={bd}/>,
     <SlideClicks key={`cli-${animKey}`} bd={bd}/>,
+    <SlideVisits key={`vis-${animKey}`} bd={bd}/>,
     <SlideRevenue key={`rev-${animKey}`} bd={bd}/>,
     <SlideBrand key={`brand-${animKey}`} bd={bd}/>,
     <SlideTech key={`tech-${animKey}`} bd={bd}/>,
@@ -653,6 +1433,7 @@ function App(){
     <SlideCategories key={`cat-${animKey}`} bd={bd}/>,
     <SlideProducts key={`prod-${animKey}`} bd={bd}/>,
     <SlideSummary key={`sum-${animKey}`} bd={bd} country={country}/>,
+    <SlideMessage key={`msg-${animKey}`} bd={bd} country={country}/>,
     <SlideRecognition key={`rec-${animKey}`} bd={bd}/>,
   ];
 
@@ -665,13 +1446,10 @@ function App(){
         if(Math.abs(d)>50){d>0?next():prev();}
         touchRef.current=null;
       }}>
-
       {/* Top bar */}
       <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"10px 14px 0",flexShrink:0,gap:8}}>
         <button onClick={()=>{setCountry(null);setBrand(null);setSlide(0);}}
-          style={{background:"none",border:"none",color:"rgba(255,255,255,0.3)",cursor:"pointer",fontSize:18,padding:0,lineHeight:1}}>
-          ←
-        </button>
+          style={{background:"none",border:"none",color:"rgba(255,255,255,0.3)",cursor:"pointer",fontSize:18,padding:0,lineHeight:1}}>←</button>
         <div style={{flex:1,display:"flex",gap:3}}>
           {SLIDE_LABELS.map((_,i)=>(
             <div key={i} onClick={()=>go(i)}
@@ -679,22 +1457,17 @@ function App(){
           ))}
         </div>
         {brands.length>1&&(
-          <BrandTabs brands={brands} active={brand} onSwitch={switchBrand}/>
+          <BrandTabs brands={brands} active={brand} onSwitch={switchBrand} country={country}/>
         )}
       </div>
-
       {/* Slide label */}
       <div style={{textAlign:"center",padding:"4px 0",flexShrink:0}}>
         <span style={{fontSize:10,color:"rgba(255,255,255,0.2)",letterSpacing:2,textTransform:"uppercase",fontFamily:"'Space Mono',monospace"}}>
           {cData.flag} {bd.label} · {SLIDE_LABELS[slide]}
         </span>
       </div>
-
       {/* Slide area */}
-      <div style={R.wrap} key={animKey}>
-        {slides[slide]}
-      </div>
-
+      <div style={R.wrap} key={animKey}>{slides[slide]}</div>
       {/* Nav */}
       <div style={R.nav}>
         <button style={{...R.btn,opacity:slide===0?.25:1}} onClick={prev} disabled={slide===0}>‹ Anterior</button>
@@ -717,11 +1490,11 @@ const S={
   center:{display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",gap:8,width:"100%",maxWidth:500,animation:"fi .45s ease"},
   label:{fontSize:12,color:"rgba(255,255,255,0.4)",letterSpacing:2.5,textTransform:"uppercase",fontWeight:400,margin:0},
   mega:{fontSize:52,fontWeight:900,fontFamily:"'Space Mono',monospace",lineHeight:1,margin:"2px 0"},
-  lbig:{fontSize:18,fontWeight:600,color:"rgba(255,255,255,0.75)"},
-  sec:{fontSize:20,fontWeight:800,color:"#fff"},
+  lbig:{fontSize:17,fontWeight:600,color:"rgba(255,255,255,0.75)"},
+  sec:{fontSize:18,fontWeight:800,color:"#fff"},
   pill:{background:"rgba(255,255,255,0.05)",borderRadius:20,padding:"3px 12px",fontSize:12},
-  statPill:{display:"flex",flexDirection:"column",gap:2,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 24px",border:"1px solid rgba(255,255,255,0.06)"},
-  microCard:{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"12px 16px",display:"flex",flexDirection:"column",gap:3,alignItems:"center",border:"1px solid rgba(255,255,255,0.05)"},
+  statPill:{display:"flex",flexDirection:"column",gap:2,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"8px 22px",border:"1px solid rgba(255,255,255,0.06)"},
+  microCard:{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 14px",display:"flex",flexDirection:"column",gap:3,alignItems:"center",border:"1px solid rgba(255,255,255,0.05)"},
   microLabel:{fontSize:10,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1},
   warnBadge:{background:"rgba(255,200,50,0.06)",border:"1px solid rgba(255,200,50,0.12)",borderRadius:8,padding:"5px 12px",fontSize:11,color:"rgba(255,200,50,0.75)",lineHeight:1.4},
 };
