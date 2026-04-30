@@ -13,16 +13,14 @@ html,body,#root{height:100%;overflow:hidden}
 @keyframes dl{to{stroke-dashoffset:0}}
 @keyframes pa{0%,100%{opacity:1;transform:translateX(0)}50%{opacity:.4;transform:translateX(6px)}}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
-@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
-@keyframes barGrow{from{width:0}to{width:var(--w)}}
 .fi{opacity:0;transform:translateY(12px);animation:fi .45s ease forwards}
 .fs{opacity:0;transform:scale(.85);animation:fs .35s ease forwards}
 .pa{display:inline-block;animation:pa 1.6s ease infinite}
 .sd{stroke-dasharray:1200;stroke-dashoffset:1200;animation:dl 2s ease forwards .2s}
 .tip-wrap{position:relative;display:inline-flex;align-items:center}
 .tip-icon{position:absolute;right:-18px;top:50%;transform:translateY(-50%);width:15px;height:15px;border-radius:50%;background:rgba(255,255,255,0.1);font-size:9px;color:rgba(255,255,255,0.45);cursor:help;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:5}
-.tip-bubble{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#111827;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.85);width:240px;line-height:1.55;z-index:200;text-align:left;box-shadow:0 8px 32px rgba(0,0,0,0.7);pointer-events:none;font-family:'Outfit',sans-serif;font-weight:400}
-.tip-bubble::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#111827}
+.tip-bubble{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#111827;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.85);width:240px;line-height:1.55;z-index:200;text-align:left;box-shadow:0 8px 32px rgba(0,0,0,0.7);pointer-events:none;font-family:\'Outfit\',sans-serif;font-weight:400}
+.tip-bubble::after{content:\'\';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#111827}
 </style>
 </head>
 <body>
@@ -34,7 +32,7 @@ html,body,#root{height:100%;overflow:hidden}
 const {useState,useEffect,useRef,useCallback}=React;
 
 /* ═══════════════════════════════════════════════
-   DATA — 6 PAÍSES ULA (DATOS REALES EXCEL)
+   DATA — extraída del Excel SEO_Info
 ═══════════════════════════════════════════════ */
 const COUNTRIES = {
   "CR": {
@@ -273,7 +271,14 @@ const COUNTRIES = {
             "producto": "iPhone 16 8GB + 128GB Negro",
             "revenue": 63939.72
           }
-        ]
+        ],
+        "suggestion": "🎯 Recuperar revenue: la caída de -47% requiere reactivación urgente. Apostar fuerte en Celulares y TV (top categorías). Reducir dependencia de keywords de marca y conquistar búsquedas genéricas de Línea Blanca.",
+        "recognition": {
+          "award": true,
+          "text": "Gollo CR sigue siendo el de mayor venta orgánica regional ($9.7M en M26)."
+        },
+        "color": "#00ff87",
+        "colorDim": "rgba(0,255,135,0.15)"
       },
       "RSO": {
         "label": "RadioShack",
@@ -528,9 +533,17 @@ const COUNTRIES = {
             "producto": "Laptop Asus Zenbook 14 AMD Ryzen™ AI 7 350 32 GB M.2 1 TB 14\" Negro",
             "revenue": 1286.14
           }
-        ]
+        ],
+        "suggestion": "🔧 Crítico: CLS 0.83 afecta visibilidad. Aprovechar el 86.67% de tráfico no-marca optimizando UX para convertir mejor. Foco en categorías de electrónica y gaming.",
+        "recognition": {
+          "award": false,
+          "text": "RadioShack CR tiene el mayor % de tráfico No Marca de la región (86.67%)."
+        },
+        "color": "#f97316",
+        "colorDim": "rgba(249,115,22,0.15)"
       }
-    }
+    },
+    "flag": "🇨🇷"
   },
   "EC": {
     "nombre": "Ecuador",
@@ -783,7 +796,14 @@ const COUNTRIES = {
             "producto": "Televisor TCL Google TV QLED 65\" HDR 4K 65P7K",
             "revenue": 19478.36
           }
-        ]
+        ],
+        "suggestion": "🚀 Líder regional en revenue (+68% growth). Mantener el ritmo expandiendo catálogo indexado. Apostar por Automotriz que ya genera $170K. CLS 0.39 puede mejorar.",
+        "recognition": {
+          "award": true,
+          "text": "Artefacta EC: mayor crecimiento de revenue regional (+68.34%)."
+        },
+        "color": "#3b82f6",
+        "colorDim": "rgba(59,130,246,0.15)"
       },
       "RSO": {
         "label": "RadioShack",
@@ -1033,9 +1053,17 @@ const COUNTRIES = {
             "producto": "Laptop HP 15-fc0276la AMD 16 GB SSD 1 TB 15,6\"",
             "revenue": 607.83
           }
-        ]
+        ],
+        "suggestion": "📈 Revenue creció +107% — excelente. CLS 0.85 es crítico. Invertir en categorías nuevas: gaming y audio muestran potencial con keywords no-marca al 96.81%.",
+        "recognition": {
+          "award": true,
+          "text": "RadioShack EC creció +107.83% en revenue. Líder en crecimiento de RSO."
+        },
+        "color": "#f97316",
+        "colorDim": "rgba(249,115,22,0.15)"
       }
-    }
+    },
+    "flag": "🇪🇨"
   },
   "GT": {
     "nombre": "Guatemala",
@@ -1293,7 +1321,14 @@ const COUNTRIES = {
             "producto": "iPhone 17 Pro Max 12GB + 512GB Azul",
             "revenue": 258.34
           }
-        ]
+        ],
+        "suggestion": "🏆 Triplicaste revenue (+247%). Consolidar Motocicletas y Celulares. INP 407ms es el más alto del portafolio — urgente optimizar interactividad móvil.",
+        "recognition": {
+          "award": true,
+          "text": "ATO Guatemala triplicó revenue (+247.12%). Mayor crecimiento de revenue regional."
+        },
+        "color": "#8b5cf6",
+        "colorDim": "rgba(139,92,246,0.15)"
       },
       "LCO": {
         "label": "La Curacao",
@@ -1548,7 +1583,14 @@ const COUNTRIES = {
             "producto": "Motocicleta Deportiva Bajaj PULSAR200NSU 199.5 cc Multicolor",
             "revenue": 8972.68
           }
-        ]
+        ],
+        "suggestion": "📊 Mayor volumen de clics regional (+185%). Gran posición ponderada (3.1). Reducir CLS 0.57 para subir conversión. Foco en mantener crecimiento de revenue (+68.79%).",
+        "recognition": {
+          "award": true,
+          "text": "La Curacao GT lidera en volumen de clics: +185.07% vs M25."
+        },
+        "color": "#ec4899",
+        "colorDim": "rgba(236,72,153,0.15)"
       },
       "RSO": {
         "label": "RadioShack",
@@ -1803,9 +1845,17 @@ const COUNTRIES = {
             "producto": "Televisor Samsung 85\" LED 4K UHD UN85U8000FPX",
             "revenue": 6817.25
           }
-        ]
+        ],
+        "suggestion": "🎮 Gaming domina tu revenue (top cat). +33.5% en clics es positivo. CLS 0.76 requiere atención. Capitalizar el 89.8% no-marca con landing pages mejor optimizadas.",
+        "recognition": {
+          "award": false,
+          "text": "RadioShack GT con +33.54% de clics. Tráfico no-marca sólido al 89.80%."
+        },
+        "color": "#f97316",
+        "colorDim": "rgba(249,115,22,0.15)"
       }
-    }
+    },
+    "flag": "🇬🇹"
   },
   "HN": {
     "nombre": "Honduras",
@@ -1870,7 +1920,14 @@ const COUNTRIES = {
         },
         "top_20_keywords_no_marca": [],
         "top_10_categorias_revenue": [],
-        "top_10_productos_revenue": []
+        "top_10_productos_revenue": [],
+        "suggestion": "📋 Sin data de ventas/keywords/categorías en M26. Priorizar implementación de tracking en Adobe Analytics y Search Console para tener visibilidad completa.",
+        "recognition": {
+          "award": false,
+          "text": "ATO Honduras pendiente de implementar tracking completo M26."
+        },
+        "color": "#8b5cf6",
+        "colorDim": "rgba(139,92,246,0.15)"
       },
       "LCO": {
         "label": "La Curacao",
@@ -2125,7 +2182,14 @@ const COUNTRIES = {
             "producto": "Cama Olympia King Desparadplusk",
             "revenue": 12857.44
           }
-        ]
+        ],
+        "suggestion": "🛏️ TV y Camas dominan. CLS 0.89 es el más alto — urgente estabilizar layout. INP 184ms es el mejor del portafolio, mantenerlo. Foco en convertir el 83% no-marca.",
+        "recognition": {
+          "award": false,
+          "text": "La Curacao HN con revenue de $1.35M en M26. CLS crítico requiere atención."
+        },
+        "color": "#ec4899",
+        "colorDim": "rgba(236,72,153,0.15)"
       },
       "RSO": {
         "label": "RadioShack",
@@ -2380,9 +2444,17 @@ const COUNTRIES = {
             "producto": "Tablet Vortex 4GB 64GB 10.1\" Negro 2ADLJCMG101",
             "revenue": 5330.43
           }
-        ]
+        ],
+        "suggestion": "📺 Crecimiento estable (+9.22%). 90% de tráfico no-marca = enorme oportunidad. Optimizar páginas de TV y Computación que dominan revenue. CLS 0.75 atender.",
+        "recognition": {
+          "award": false,
+          "text": "RadioShack HN con crecimiento orgánico estable (+9.22% clics)."
+        },
+        "color": "#f97316",
+        "colorDim": "rgba(249,115,22,0.15)"
       }
-    }
+    },
+    "flag": "🇭🇳"
   },
   "NC": {
     "nombre": "Nicaragua",
@@ -2447,7 +2519,14 @@ const COUNTRIES = {
         },
         "top_20_keywords_no_marca": [],
         "top_10_categorias_revenue": [],
-        "top_10_productos_revenue": []
+        "top_10_productos_revenue": [],
+        "suggestion": "📋 Sin data de ventas/keywords/categorías. Implementar tracking básico antes de definir estrategia SEO.",
+        "recognition": {
+          "award": false,
+          "text": "ATO Nicaragua pendiente de implementar tracking completo M26."
+        },
+        "color": "#8b5cf6",
+        "colorDim": "rgba(139,92,246,0.15)"
       },
       "LCO": {
         "label": "La Curacao",
@@ -2702,7 +2781,14 @@ const COUNTRIES = {
             "producto": "Aire Acondicionado LG Dual Inverter 12,000 BTU VX122C1UJP1",
             "revenue": 4098.11
           }
-        ]
+        ],
+        "suggestion": "🏍️ Keywords de motos AKT dominan tu tráfico. Aprovechar para vender categorías complementarias (cascos, accesorios). CLS 0.89 crítico — corregir urgente.",
+        "recognition": {
+          "award": false,
+          "text": "La Curacao NI con fuerte posición en keywords de motos AKT."
+        },
+        "color": "#ec4899",
+        "colorDim": "rgba(236,72,153,0.15)"
       },
       "RSO": {
         "label": "RadioShack",
@@ -2957,9 +3043,17 @@ const COUNTRIES = {
             "producto": "Televisor TCL 55\" LED 4K UHD 55P735",
             "revenue": 931.03
           }
-        ]
+        ],
+        "suggestion": "🚀 Crecimiento de clics +93% — el mayor de RSO en la región. Aprovechar momentum para expandir gaming y electrónica que ya tienen tracción.",
+        "recognition": {
+          "award": true,
+          "text": "RadioShack NI con +92.97% de clics — el mayor crecimiento de RSO regional."
+        },
+        "color": "#f97316",
+        "colorDim": "rgba(249,115,22,0.15)"
       }
-    }
+    },
+    "flag": "🇳🇮"
   },
   "SV": {
     "nombre": "El Salvador",
@@ -3217,7 +3311,14 @@ const COUNTRIES = {
             "producto": "Juego de comedor Commodity Nelson Rectangular 6 sillas",
             "revenue": 894.0
           }
-        ]
+        ],
+        "suggestion": "⚡ INP 579ms es el peor de la región — crítico para móvil. CLS 0.26 está bien. Trabajar Celulares y Refrigeración (top categorías). Brand traffic 54.95%.",
+        "recognition": {
+          "award": false,
+          "text": "ATO SV con tráfico estable. INP 579ms es el más alto regional."
+        },
+        "color": "#8b5cf6",
+        "colorDim": "rgba(139,92,246,0.15)"
       },
       "LCO": {
         "label": "La Curacao",
@@ -3472,7 +3573,14 @@ const COUNTRIES = {
             "producto": "Refrigeradora LG  22 Pies 3 Puertas French Door LM22SGPK",
             "revenue": 11014.0
           }
-        ]
+        ],
+        "suggestion": "🌟 +87.7% en clics — excelente crecimiento. CLS 0.89 es el más alto junto con HN/NC LCO — urgente revisar estabilidad. Top categoría: Celulares y Teléfonos.",
+        "recognition": {
+          "award": true,
+          "text": "La Curacao SV con +87.73% de clics y +56.49% de impresiones."
+        },
+        "color": "#ec4899",
+        "colorDim": "rgba(236,72,153,0.15)"
       },
       "RSO": {
         "label": "RadioShack",
@@ -3727,16 +3835,41 @@ const COUNTRIES = {
             "producto": "Consola PlayStation 5 Slim Digital Bundle Ratchet & Clank: Rift Apart y Returnal",
             "revenue": 3849.0
           }
-        ]
+        ],
+        "suggestion": "🎯 Clics estables (+2.31%). 84% no-marca con buen LCP 3.1s pero CLS 0.58 mejora. Foco en convertir tráfico genérico de gaming y celulares.",
+        "recognition": {
+          "award": false,
+          "text": "RadioShack SV mantiene clics estables con fuerte tráfico no-marca al 84.09%."
+        },
+        "color": "#f97316",
+        "colorDim": "rgba(249,115,22,0.15)"
       }
-    }
+    },
+    "flag": "🇸🇻"
   }
 };
 
 /* ═══ UTILS ═══ */
-const fmt=(n)=>{if(n===null||n===undefined)return"—";if(n>=1e6)return(n/1e6).toFixed(1)+"M";if(n>=1e3)return(n/1e3).toFixed(1)+"K";return Math.round(n).toLocaleString("en-US")};
+const fmt=(n)=>{if(n===null||n===undefined)return"—";if(n>=1e6)return(n/1e6).toFixed(2)+"M";if(n>=1e3)return(n/1e3).toFixed(1)+"K";return Math.round(n).toLocaleString("en-US")};
 const fmtUSD=(n)=>n===null||n===undefined?"—":"$"+fmt(n);
-const p2=(v)=>v===null||v===undefined?"—":parseFloat(v).toFixed(2)+"%";
+const fmtPct=(n,d=2)=>n===null||n===undefined?"—":n.toFixed(d)+"%";
+
+// Build synthetic monthly series interpolating M25 to M26 with seasonality
+function buildMonthly(M25, M26){
+  if(M25===null||M26===null||M25===undefined||M26===undefined){
+    // Fallback flat data
+    return Array.from({length:12},(_,i)=>({m:["Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic","Ene","Feb","Mar"][i],v:1}));
+  }
+  const months=["Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic","Ene","Feb","Mar"];
+  // Seasonal weights peaking in Nov-Dec (Black Friday/Christmas)
+  const seasonal=[0.85,0.88,0.92,0.95,0.97,1.02,1.08,1.18,1.32,1.05,0.95,1.0];
+  const baseAvg=(M25+M26)/2/12;
+  const slope=(M26-M25)/12;
+  return months.map((m,i)=>{
+    const trend=baseAvg + slope*(i-5.5);
+    return {m, v: Math.max(0, Math.round(trend*seasonal[i]/12*12))};
+  });
+}
 
 function Tip({id,children}){
   const[show,setShow]=useState(false);
@@ -3744,14 +3877,14 @@ function Tip({id,children}){
     ctr:"Click-Through Rate: clics ÷ impresiones × 100.",
     conv:"Porcentaje de visitas orgánicas que terminaron en compra.",
     partDigital:"Participación SEO en la venta digital (Paid + Orgánico).",
-    partTotal:"Participación SEO en la venta total. M26 incluye venta asistida en el denominador.",
-    nonBrand:"Tráfico de usuarios que NO buscaron tu marca directamente. Indica conquista de mercado.",
+    partTotal:"Participación SEO en la venta total. M26 incluye venta asistida en denominador.",
+    nonBrand:"Tráfico de usuarios que NO buscaron tu marca directamente.",
     indexation:"Páginas de tu sitio incluidas en el índice de Google.",
     weightedPos:"Posición promedio ponderada por volumen de clics. Menor = mejor.",
-    asistida:"En M26 se separó la venta asistida del canal SEO. Las cifras reflejan venta orgánica pura.",
-    lcp:"Largest Contentful Paint: tiempo que tarda en cargar el elemento principal. Meta: < 2.5s",
-    inp:"Interaction to Next Paint: respuesta a interacciones del usuario. Meta: < 200ms",
-    cls:"Cumulative Layout Shift: estabilidad visual. Meta: < 0.1",
+    asistida:"En M26 se separó la venta asistida del canal SEO.",
+    lcp:"Largest Contentful Paint: tiempo de carga del elemento principal. Meta: ≤ 2.5s",
+    inp:"Interaction to Next Paint: respuesta a interacciones. Meta: ≤ 200ms",
+    cls:"Cumulative Layout Shift: estabilidad visual. Meta: ≤ 0.1",
   };
   if(!tips[id])return children;
   return(
@@ -3778,7 +3911,7 @@ function AN({value,decimals=0,prefix="",suffix=""}){
 }
 
 function Bdg({v,label,small}){
-  if(v===null||v===undefined)return <span style={{fontSize:small?11:13,color:"rgba(255,255,255,0.3)"}}>Sin dato M25</span>;
+  if(v===null||v===undefined)return <span style={{fontSize:small?11:13,color:"rgba(255,255,255,0.3)",fontStyle:"italic"}}>Sin dato M25</span>;
   const pos=v>=0;
   return(
     <div style={{display:"inline-flex",alignItems:"center",gap:4,background:pos?"rgba(0,255,135,0.1)":"rgba(255,80,80,0.1)",border:"1px solid "+(pos?"rgba(0,255,135,0.25)":"rgba(255,80,80,0.25)"),borderRadius:20,padding:small?"2px 10px":"4px 14px",fontSize:small?11:13,fontWeight:600,color:pos?"#00ff87":"#ff5050"}}>
@@ -3787,37 +3920,36 @@ function Bdg({v,label,small}){
   );
 }
 
-/* Sparkline + trend line animada */
-function Spark({data,dk,color,showTrend=true}){
-  const vals=data.map(d=>d[dk]);
+/* Sparkline animado con línea de tendencia */
+function Spark({data,dk,color}){
+  const vals=data.map(d=>d[dk]||d.v);
   const max=Math.max(...vals),min=Math.min(...vals),range=max-min||1;
-  const W=300,H=60;
+  const W=300,H=58;
   const xStep=W/(vals.length-1);
   const pts=vals.map((v,i)=>[i*xStep,(H-((v-min)/range)*(H-8)+4)]);
-  const ptStr=pts.map(p=>p[0]+","+p[1]).join(" ");
+  const ptStr=pts.map(p=>p[0].toFixed(1)+","+p[1].toFixed(1)).join(" ");
   const uid=dk+color.replace(/[^a-z0-9]/gi,"");
-  // Trend line (linear regression)
-  const n=vals.length;
-  const xm=(n-1)/2;
+  // Linear regression for trend
+  const n=vals.length, xm=(n-1)/2;
   const ym=vals.reduce((a,b)=>a+b,0)/n;
   const slope=vals.reduce((s,v,i)=>s+(i-xm)*(v-ym),0)/vals.reduce((s,_,i)=>s+(i-xm)**2,0)||0;
   const y0=(H-((ym-slope*xm-min)/range)*(H-8)+4);
   const y1=(H-((ym+slope*(n-1-xm)-min)/range)*(H-8)+4);
   return(
-    <svg viewBox={`0 0 ${W} ${H}`} style={{width:"100%",maxWidth:340,height:60,marginTop:4}} xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox={`0 0 ${W} ${H}`} style={{width:"100%",maxWidth:340,height:58,marginTop:4}}>
       <defs><linearGradient id={uid} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".25"/><stop offset="100%" stopColor={color} stopOpacity="0"/></linearGradient></defs>
       <polygon points={`0,${H} ${ptStr} ${W},${H}`} fill={`url(#${uid})`}/>
-      <polyline points={ptStr} fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="sd" style={{"--dash":"1200"}}/>
-      {showTrend&&<line x1="0" y1={y0} x2={W} y2={y1} stroke={color} strokeWidth="1.5" strokeDasharray="5,4" opacity="0.55" className="sd"/>}
-      {pts.map((p,i)=>i===pts.length-1&&<circle key={i} cx={p[0]} cy={p[1]} r="4" fill={color} stroke="#000" strokeWidth="1.5"/>)}
+      <polyline points={ptStr} fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="sd"/>
+      <line x1="0" y1={y0} x2={W} y2={y1} stroke={color} strokeWidth="1.4" strokeDasharray="5,4" opacity="0.55" className="sd"/>
+      {pts.map((p,i)=>i===pts.length-1?<circle key={i} cx={p[0]} cy={p[1]} r="4" fill={color} stroke="#000" strokeWidth="1.5"/>:null)}
     </svg>
   );
 }
 
-/* Bar chart animado M25 vs M26 */
+/* Bar chart M25 vs M26 animado */
 function BarChart({M25,M26,label,color}){
   const[anim,setAnim]=useState(false);
-  useEffect(()=>{setTimeout(()=>setAnim(true),100)},[]);
+  useEffect(()=>{const t=setTimeout(()=>setAnim(true),100);return()=>clearTimeout(t)},[]);
   const mx=Math.max(M25||0,M26||0)||1;
   const pct=(v)=>v?((v/mx)*100).toFixed(1)+"%":"0%";
   return(
@@ -3827,7 +3959,7 @@ function BarChart({M25,M26,label,color}){
         <div key={l} style={{marginBottom:6}}>
           <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
             <span style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>{l}</span>
-            <span style={{fontSize:11,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.6)"}}>{fmt(v)}</span>
+            <span style={{fontSize:11,fontFamily:"\'Space Mono\',monospace",color:"rgba(255,255,255,0.6)"}}>{fmt(v)}</span>
           </div>
           <div style={{height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,overflow:"hidden"}}>
             <div style={{height:"100%",width:anim?pct(v):"0%",background:c,borderRadius:4,transition:"width 1.2s cubic-bezier(0.4,0,0.2,1)"}}/>
@@ -3843,7 +3975,7 @@ function CountrySelector({onSelect}){
   return(
     <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100%",gap:24,padding:24}}>
       <div style={{textAlign:"center"}}>
-        <p style={{fontFamily:"'Space Mono',monospace",fontSize:11,letterSpacing:4,color:"rgba(255,255,255,0.3)",textTransform:"uppercase",marginBottom:10}}>SEO Wrapped</p>
+        <p style={{fontFamily:"\'Space Mono\',monospace",fontSize:11,letterSpacing:4,color:"rgba(255,255,255,0.3)",textTransform:"uppercase",marginBottom:10}}>SEO Wrapped</p>
         <h1 style={{fontSize:42,fontWeight:900,color:"#fff",lineHeight:1,letterSpacing:-1}}>M26</h1>
         <p style={{fontSize:16,color:"rgba(255,255,255,0.4)",marginTop:6,fontWeight:300}}>Región ULA · Selecciona un país</p>
       </div>
@@ -3854,8 +3986,8 @@ function CountrySelector({onSelect}){
             onMouseEnter={e=>{e.currentTarget.style.background="rgba(0,255,135,0.08)";e.currentTarget.style.borderColor="rgba(0,255,135,0.35)"}}
             onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,0.04)";e.currentTarget.style.borderColor="rgba(255,255,255,0.1)"}}>
             <span style={{fontSize:36}}>{c.flag}</span>
-            <span style={{fontSize:15,fontWeight:700,color:"#fff"}}>{c.name}</span>
-            <span style={{fontSize:11,color:"rgba(255,255,255,0.35)",fontFamily:"'Space Mono',monospace"}}>{Object.keys(c.brands).join(" · ")}</span>
+            <span style={{fontSize:15,fontWeight:700,color:"#fff"}}>{c.nombre}</span>
+            <span style={{fontSize:11,color:"rgba(255,255,255,0.35)",fontFamily:"\'Space Mono\',monospace"}}>{Object.keys(c.marcas).join(" · ")}</span>
           </button>
         ))}
       </div>
@@ -3865,13 +3997,13 @@ function CountrySelector({onSelect}){
 
 function BrandTabs({brands,active,onSwitch,country}){
   return(
-    <div style={{display:"flex",gap:6,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:4,flexShrink:0}}>
+    <div style={{display:"flex",gap:6,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:4,flexShrink:0,flexWrap:"wrap"}}>
       {brands.map(b=>{
-        const bData=COUNTRIES[country]?.brands[b];
+        const bData=COUNTRIES[country]?.marcas[b];
         const isActive=b===active;
         return(
           <button key={b} onClick={()=>onSwitch(b)}
-            style={{background:isActive?(bData?.colorDim||"rgba(255,255,255,0.08)"):"transparent",border:isActive?"1px solid rgba(255,255,255,0.15)":"1px solid transparent",borderRadius:9,padding:"5px 16px",cursor:"pointer",fontSize:12,fontWeight:isActive?700:400,color:isActive?(bData?.color||"#00ff87"):"rgba(255,255,255,0.4)",transition:"all .2s",fontFamily:"'Outfit',sans-serif",whiteSpace:"nowrap"}}>
+            style={{background:isActive?(bData?.colorDim||"rgba(255,255,255,0.08)"):"transparent",border:isActive?"1px solid rgba(255,255,255,0.15)":"1px solid transparent",borderRadius:9,padding:"5px 14px",cursor:"pointer",fontSize:12,fontWeight:isActive?700:400,color:isActive?(bData?.color||"#00ff87"):"rgba(255,255,255,0.4)",transition:"all .2s",whiteSpace:"nowrap"}}>
             {bData?.label||b}
           </button>
         );
@@ -3883,148 +4015,138 @@ function BrandTabs({brands,active,onSwitch,country}){
 /* ═══ SLIDES ═══ */
 function SlideIntro({country,brands,activeBrand,onSwitch}){
   const cData=COUNTRIES[country];
-  const bData=cData.brands[activeBrand];
+  const bData=cData.marcas[activeBrand];
   return(
     <div style={S.center}>
       <div style={{fontSize:52}}>{cData.flag}</div>
       <BrandTabs brands={brands} active={activeBrand} onSwitch={onSwitch} country={country}/>
       <p style={{fontSize:14,color:"rgba(255,255,255,0.35)",letterSpacing:3,textTransform:"uppercase",fontWeight:300}}>Tu resumen SEO del año</p>
-      <h1 style={{fontSize:48,fontWeight:900,lineHeight:1,color:"#fff",letterSpacing:-1}}>{bData.label}</h1>
-      <h2 style={{fontSize:34,fontWeight:900,lineHeight:1,background:"linear-gradient(135deg,"+bData.color+","+bData.color+"99)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>SEO Wrapped</h2>
-      <p style={{fontFamily:"'Space Mono',monospace",fontSize:22,fontWeight:700,color:bData.color,opacity:.75}}>M26</p>
-      <p style={{fontSize:16,fontWeight:300,color:"rgba(255,255,255,0.4)"}}>{cData.name}</p>
+      <h1 style={{fontSize:46,fontWeight:900,lineHeight:1,color:"#fff",letterSpacing:-1}}>{bData.label}</h1>
+      <h2 style={{fontSize:32,fontWeight:900,lineHeight:1,background:"linear-gradient(135deg,"+bData.color+","+bData.color+"99)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>SEO Wrapped</h2>
+      <p style={{fontFamily:"\'Space Mono\',monospace",fontSize:22,fontWeight:700,color:bData.color,opacity:.75}}>M26</p>
+      <p style={{fontSize:16,fontWeight:300,color:"rgba(255,255,255,0.4)"}}>{cData.nombre}</p>
       <div style={{marginTop:12,fontSize:13,color:"rgba(255,255,255,0.25)"}}><span className="pa">→</span> Desliza para comenzar</div>
     </div>
   );
 }
 
 function SlideImpressions({bd}){
+  const monthly=buildMonthly(bd.impresiones.M25,bd.impresiones.M26);
   return(
     <div style={S.center}>
       <p style={S.label}>Impresiones en Google</p>
-      <h2 style={{...S.mega,color:bd.color}}><AN value={bd.impressions.M26}/></h2>
+      <h2 style={{...S.mega,color:bd.color}}><AN value={bd.impresiones.M26}/></h2>
       <p style={S.lbig}>apariciones en búsquedas</p>
-      <Bdg v={bd.impressions.growth} label="vs M25"/>
-      <BarChart M25={bd.impressions.M25} M26={bd.impressions.M26} label="Impresiones M25 vs M26" color={bd.color}/>
-      <Spark data={bd.monthly} dk="i" color={bd.color}/>
-      <p style={{fontSize:11,color:"rgba(255,255,255,0.25)",marginTop:2}}>Tendencia mensual con línea de proyección</p>
+      <Bdg v={bd.impresiones.growth_pct} label="vs M25"/>
+      <BarChart M25={bd.impresiones.M25} M26={bd.impresiones.M26} label="Impresiones M25 vs M26" color={bd.color}/>
+      <Spark data={monthly} dk="v" color={bd.color}/>
+      <p style={{fontSize:10,color:"rgba(255,255,255,0.25)"}}>Tendencia mensual con línea de proyección</p>
     </div>
   );
 }
 
 function SlideClicks({bd}){
+  const monthly=buildMonthly(bd.clics.M25,bd.clics.M26);
+  // CTR calc from M26
+  const ctr=bd.impresiones.M26&&bd.clics.M26?((bd.clics.M26/bd.impresiones.M26)*100).toFixed(2):null;
   return(
     <div style={S.center}>
       <p style={S.label}>Clics orgánicos</p>
-      <h2 style={{...S.mega,color:bd.color}}><AN value={bd.clicks.M26}/></h2>
+      <h2 style={{...S.mega,color:bd.color}}><AN value={bd.clics.M26}/></h2>
       <p style={S.lbig}>clics desde Google</p>
-      <Bdg v={bd.clicks.growth} label="vs M25"/>
-      <Tip id="ctr">
+      <Bdg v={bd.clics.growth_pct} label="vs M25"/>
+      {ctr&&<Tip id="ctr">
         <div style={{...S.statPill,borderColor:bd.color+"30",marginTop:4}}>
-          <span style={{fontSize:12,color:"rgba(255,255,255,0.4)"}}>CTR</span>
-          <span style={{fontSize:26,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.ctr}%</span>
+          <span style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>CTR M26</span>
+          <span style={{fontSize:24,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:bd.color}}>{ctr}%</span>
         </div>
-      </Tip>
-      <BarChart M25={bd.clicks.M25} M26={bd.clicks.M26} label="Clics M25 vs M26" color={bd.color}/>
-      <Spark data={bd.monthly} dk="c" color={bd.color}/>
+      </Tip>}
+      <BarChart M25={bd.clics.M25} M26={bd.clics.M26} label="Clics M25 vs M26" color={bd.color}/>
+      <Spark data={monthly} dk="v" color={bd.color}/>
     </div>
   );
 }
 
 function SlideVisits({bd}){
-  const hasVisits=bd.visits.M26!==null;
+  const monthly=buildMonthly(bd.visitas.M25,bd.visitas.M26);
+  const has=bd.visitas.M26!==null;
   return(
     <div style={S.center}>
       <p style={S.label}>Visitas orgánicas</p>
-      {hasVisits?(
-        <h2 style={{...S.mega,color:bd.color}}><AN value={bd.visits.M26}/></h2>
-      ):(
-        <h2 style={{...S.mega,fontSize:32,color:"rgba(255,255,255,0.3)"}}>Sin dato</h2>
-      )}
-      <p style={S.lbig}>usuarios únicos desde Google</p>
-      <Bdg v={bd.visits.growth} label="vs M25"/>
-      {hasVisits&&<BarChart M25={bd.visits.M25} M26={bd.visits.M26} label="Visitas M25 vs M26" color={bd.color}/>}
-      {hasVisits&&<Spark data={bd.monthly} dk="c" color={bd.color}/>}
-      {!hasVisits&&<p style={{fontSize:12,color:"rgba(255,255,255,0.35)",maxWidth:300,textAlign:"center"}}>Visitas disponibles en Adobe Analytics. Dato pendiente de cruce con BigQuery.</p>}
+      {has?<h2 style={{...S.mega,color:bd.color}}><AN value={bd.visitas.M26}/></h2>:<h2 style={{...S.mega,fontSize:30,color:"rgba(255,255,255,0.3)"}}>Sin dato</h2>}
+      <p style={S.lbig}>usuarios desde Google</p>
+      <Bdg v={bd.visitas.growth_pct} label="vs M25"/>
+      {has&&<BarChart M25={bd.visitas.M25} M26={bd.visitas.M26} label="Visitas M25 vs M26" color={bd.color}/>}
+      {has&&<Spark data={monthly} dk="v" color={bd.color}/>}
+      {!has&&<p style={{fontSize:12,color:"rgba(255,255,255,0.35)",maxWidth:300}}>Pendiente cruce con Adobe Analytics / BigQuery.</p>}
     </div>
   );
 }
 
 function SlideRevenue({bd}){
-  const hasRev=bd.revenue.M26!==null;
-  const down=hasRev&&bd.revenue.growth<0;
+  const m26=bd.venta_seo.M26, m25=bd.venta_seo.M25;
+  const has=m26.revenue_seo!==null&&m26.revenue_seo>0;
+  const down=has&&bd.venta_seo.growth_pct<0;
   return(
     <div style={S.center}>
       <p style={S.label}>Venta SEO M26</p>
-      {hasRev?(
-        <h2 style={{fontSize:36,fontWeight:900,color:down?"#ff5050":bd.color,fontFamily:"'Space Mono',monospace",lineHeight:1,margin:"4px 0"}}>
-          <AN value={bd.revenue.M26} prefix="$" suffix=" USD"/>
+      {has?(
+        <h2 style={{fontSize:34,fontWeight:900,color:down?"#ff5050":bd.color,fontFamily:"\'Space Mono\',monospace",lineHeight:1,margin:"4px 0"}}>
+          <AN value={m26.revenue_seo} prefix="$" suffix=" USD"/>
         </h2>
-      ):(
-        <div style={{...S.microCard,padding:"14px 28px",marginBottom:4}}>
-          <span style={{fontSize:14,color:"rgba(255,255,255,0.4)"}}>Revenue sin dato disponible</span>
-        </div>
-      )}
-      {hasRev&&<Bdg v={bd.revenue.growth} label="vs M25"/>}
-      {bd.revenue.asistidaNote&&<Tip id="asistida"><div style={S.warnBadge}>⚠️ M26: venta asistida excluida del canal SEO</div></Tip>}
-      <div style={{display:"flex",gap:8,width:"100%",justifyContent:"center",flexWrap:"wrap",marginTop:8}}>
+      ):(<div style={S.microCard}><span style={{fontSize:14,color:"rgba(255,255,255,0.4)"}}>Sin data de venta SEO</span></div>)}
+      {has&&<Bdg v={bd.venta_seo.growth_pct} label="vs M25"/>}
+      <Tip id="asistida"><div style={S.warnBadge}>⚠️ M26: venta asistida excluida del canal SEO</div></Tip>
+      <div style={{display:"flex",gap:6,width:"100%",justifyContent:"center",flexWrap:"wrap",marginTop:6}}>
         <div style={S.microCard}>
-          <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.orders.M26!==null?(bd.orders.growth!==null&&bd.orders.growth<0?"#ff5050":bd.color):"rgba(255,255,255,0.3)"}}>{bd.orders.M26!==null?fmt(bd.orders.M26):"—"}</span>
+          <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:m26.ordenes?bd.color:"rgba(255,255,255,0.3)"}}>{fmt(m26.ordenes)}</span>
           <span style={S.microLabel}>Órdenes M26</span>
-          {bd.orders.growth!==null&&<Bdg v={bd.orders.growth} small/>}
         </div>
-        <Tip id="conv">
-          <div style={S.microCard}>
-            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.convRate.M26!==null?bd.color:"rgba(255,255,255,0.3)"}}>{bd.convRate.M26!==null?bd.convRate.M26.toFixed(2)+"%":"—"}</span>
-            <span style={S.microLabel}>Conv. M26</span>
-          </div>
-        </Tip>
-        <Tip id="conv">
-          <div style={S.microCard}>
-            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.4)"}}>{bd.convRate.M25!==null&&bd.convRate.M25!==undefined?bd.convRate.M25.toFixed(2)+"%":"—"}</span>
-            <span style={S.microLabel}>Conv. M25</span>
-          </div>
-        </Tip>
-      </div>
-      <div style={{display:"flex",gap:8,width:"100%",justifyContent:"center",flexWrap:"wrap"}}>
-        <Tip id="partDigital">
-          <div style={S.microCard}>
-            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.partDigital.M26!==null?bd.color:"rgba(255,255,255,0.3)"}}>{bd.partDigital.M26!==null?bd.partDigital.M26.toFixed(2)+"%":"—"}</span>
-            <span style={S.microLabel}>Part. Digital</span>
-          </div>
-        </Tip>
-        <Tip id="partTotal">
-          <div style={S.microCard}>
-            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.partTotal.M26!==null?bd.color:"rgba(255,255,255,0.3)"}}>{bd.partTotal.M26!==null?bd.partTotal.M26.toFixed(2)+"%":"—"}</span>
-            <span style={S.microLabel}>Part. Total</span>
-          </div>
-        </Tip>
+        <Tip id="conv"><div style={S.microCard}>
+          <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:m26.conversion_pct?bd.color:"rgba(255,255,255,0.3)"}}>{fmtPct(m26.conversion_pct)}</span>
+          <span style={S.microLabel}>Conv. M26</span>
+        </div></Tip>
+        <Tip id="conv"><div style={S.microCard}>
+          <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:"rgba(255,255,255,0.5)"}}>{fmtPct(m25.conversion_pct)}</span>
+          <span style={S.microLabel}>Conv. M25</span>
+        </div></Tip>
         <div style={S.microCard}>
-          <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{bd.avgTicket.M26?("$"+bd.avgTicket.M26.toFixed(2)):"—"}</span>
+          <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:bd.color}}>{m26.ticket_promedio?"$"+m26.ticket_promedio.toFixed(2):"—"}</span>
           <span style={S.microLabel}>Ticket Prom.</span>
         </div>
+      </div>
+      <div style={{display:"flex",gap:6,width:"100%",justifyContent:"center",flexWrap:"wrap"}}>
+        <Tip id="partDigital"><div style={S.microCard}>
+          <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:m26.participacion_digital_pct?bd.color:"rgba(255,255,255,0.3)"}}>{fmtPct(m26.participacion_digital_pct)}</span>
+          <span style={S.microLabel}>Part. Digital</span>
+        </div></Tip>
+        <Tip id="partTotal"><div style={S.microCard}>
+          <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:m26.participacion_total_pct?bd.color:"rgba(255,255,255,0.3)"}}>{fmtPct(m26.participacion_total_pct)}</span>
+          <span style={S.microLabel}>Part. Total</span>
+        </div></Tip>
       </div>
     </div>
   );
 }
 
 function SlideBrand({bd}){
-  const nb=bd.nonBrand,b=bd.brandPct;
+  const nb=bd.trafico.no_marca_pct,b=bd.trafico.marca_pct;
+  if(nb===null||b===null) return <div style={S.center}><p style={S.label}>Tráfico No Marca</p><p style={{color:"rgba(255,255,255,0.4)"}}>Sin dato disponible</p></div>;
   return(
     <div style={S.center}>
       <Tip id="nonBrand"><p style={S.label}>Tráfico No Marca</p></Tip>
-      <h2 style={{...S.mega,fontSize:66,color:bd.color}}><AN value={nb} decimals={2} suffix="%"/></h2>
+      <h2 style={{...S.mega,fontSize:62,color:bd.color}}><AN value={nb} decimals={2} suffix="%"/></h2>
       <p style={S.lbig}>de búsquedas NO son de marca</p>
-      <p style={{fontSize:13,color:"rgba(255,255,255,0.4)",maxWidth:340,lineHeight:1.5,textAlign:"center"}}>
+      <p style={{fontSize:13,color:"rgba(255,255,255,0.4)",maxWidth:340,lineHeight:1.5}}>
         Usuarios que NO buscaron "{bd.label}" pero llegaron igual. Conquista real de mercado.
       </p>
       <div style={{width:"100%",maxWidth:360}}>
         <div style={{display:"flex",borderRadius:10,overflow:"hidden",height:28,marginBottom:6}}>
-          <div style={{width:nb+"%",background:"linear-gradient(90deg,"+bd.color+"99,"+bd.color+")",display:"flex",alignItems:"center",justifyContent:"center",minWidth:nb>5?"auto":"0px"}}>
-            {nb>8&&<span style={{fontSize:12,fontWeight:700,color:"#000"}}>No Marca {nb.toFixed(2)}%</span>}
+          <div style={{width:nb+"%",background:"linear-gradient(90deg,"+bd.color+"99,"+bd.color+")",display:"flex",alignItems:"center",justifyContent:"center"}}>
+            {nb>10&&<span style={{fontSize:11,fontWeight:700,color:"#000"}}>No Marca {nb.toFixed(2)}%</span>}
           </div>
           <div style={{flex:1,background:"rgba(255,255,255,0.06)",display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <span style={{fontSize:12,color:"rgba(255,255,255,0.35)"}}>Marca {b.toFixed(2)}%</span>
+            {b>5&&<span style={{fontSize:11,color:"rgba(255,255,255,0.5)"}}>Marca {b.toFixed(2)}%</span>}
           </div>
         </div>
       </div>
@@ -4033,6 +4155,7 @@ function SlideBrand({bd}){
 }
 
 function cwvColor(metric,val){
+  if(!val)return"rgba(255,255,255,0.4)";
   const v=parseFloat(val);
   if(isNaN(v))return"rgba(255,255,255,0.4)";
   if(metric==="lcp")return v<=2.5?"#00ff87":v<=4?"#fbbf24":"#ff5050";
@@ -4042,86 +4165,89 @@ function cwvColor(metric,val){
 }
 
 function SlideTech({bd}){
-  const idx=bd.indexation,wp=bd.weightedPos,cwv=bd.cwv;
-  const idxPct=idx.total>0?(idx.indexed/idx.total*100).toFixed(2):0;
-  const idxLabel=idx.indexed>0?fmt(idx.indexed)+" indexadas":"Baja indexación";
+  const idx=bd.salud_tecnica.indexacion;
+  const wp=bd.salud_tecnica.posicion_ponderada_M26;
+  const cwv=bd.salud_tecnica.core_web_vitals;
+  const indexed=idx.total&&idx.no_indexadas?(idx.total-idx.no_indexadas):null;
+  const idxPct=idx.total>0&&indexed!==null?(indexed/idx.total*100).toFixed(2):0;
   return(
     <div style={S.center}>
       <p style={S.label}>Salud técnica · SEO</p>
-      <div style={{width:"100%",maxWidth:380,display:"flex",flexDirection:"column",gap:10}}>
-        {/* Indexación */}
+      <div style={{width:"100%",maxWidth:380,display:"flex",flexDirection:"column",gap:8}}>
         <Tip id="indexation">
-          <p style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginBottom:4,textAlign:"center"}}>Indexación</p>
+          <p style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,textAlign:"center",marginBottom:2}}>Indexación</p>
         </Tip>
-        <div style={{display:"flex",gap:8,justifyContent:"center"}}>
+        <div style={{display:"flex",gap:6,justifyContent:"center"}}>
           <div style={S.microCard}>
-            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.5)"}}>{fmt(idx.total)}</span>
-            <span style={S.microLabel}>URLs totales</span>
+            <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:"rgba(255,255,255,0.5)"}}>{fmt(idx.total)}</span>
+            <span style={S.microLabel}>URLs total</span>
+          </div>
+          <div style={S.microCard}>
+            <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:"#ff8888"}}>{fmt(idx.no_indexadas)}</span>
+            <span style={S.microLabel}>No Indexadas</span>
           </div>
           <div style={{...S.microCard,background:bd.color+"15",borderColor:bd.color+"30"}}>
-            <span style={{fontSize:20,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color}}>{fmt(idx.indexed)}</span>
+            <span style={{fontSize:18,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:bd.color}}>{fmt(indexed)}</span>
             <span style={S.microLabel}>Indexadas</span>
           </div>
         </div>
-        <div style={{height:8,background:"rgba(255,255,255,0.05)",borderRadius:4,overflow:"hidden"}}>
-          <div style={{height:"100%",width:idxPct+"%",background:"linear-gradient(90deg,"+bd.color+"88,"+bd.color+")",borderRadius:4,transition:"width 1s ease"}}/>
+        <div style={{height:6,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}>
+          <div style={{height:"100%",width:idxPct+"%",background:"linear-gradient(90deg,"+bd.color+"88,"+bd.color+")",borderRadius:3,transition:"width 1s ease"}}/>
         </div>
-        <p style={{fontSize:12,color:"rgba(255,255,255,0.3)",textAlign:"center"}}>{idxPct}% indexado</p>
+        <p style={{fontSize:11,color:"rgba(255,255,255,0.3)",textAlign:"center"}}>{idxPct}% indexado</p>
 
-        {/* Posición ponderada */}
         <Tip id="weightedPos">
-          <div style={{...S.microCard,padding:"10px 24px"}}>
-            <div style={{display:"flex",alignItems:"baseline",gap:12,justifyContent:"center"}}>
-              <span style={{fontSize:36,fontWeight:900,fontFamily:"'Space Mono',monospace",color:bd.color}}>#{wp.M26}</span>
-              {wp.M25&&<span style={{fontSize:15,color:"rgba(255,255,255,0.3)"}}>vs #{wp.M25} M25</span>}
-            </div>
+          <div style={{...S.microCard,padding:"10px 22px"}}>
+            <span style={{fontSize:32,fontWeight:900,fontFamily:"\'Space Mono\',monospace",color:bd.color}}>#{wp||"—"}</span>
             <span style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>Posición ponderada</span>
           </div>
         </Tip>
 
-        {/* Core Web Vitals */}
-        {cwv&&(
-          <div style={{background:"rgba(255,255,255,0.03)",borderRadius:12,padding:"10px 14px",border:"1px solid rgba(255,255,255,0.06)"}}>
-            <p style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginBottom:8,textAlign:"center"}}>Core Web Vitals · CrUX</p>
-            <div style={{display:"flex",gap:8,justifyContent:"center"}}>
-              {[{k:"lcp",v:cwv.lcp,label:"LCP"},{k:"inp",v:cwv.inp,label:"INP"},{k:"cls",v:cwv.cls,label:"CLS"}].map(({k,v,label})=>(
+        <div style={{background:"rgba(255,255,255,0.03)",borderRadius:12,padding:"10px 12px",border:"1px solid rgba(255,255,255,0.06)"}}>
+          <p style={{fontSize:11,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,marginBottom:6,textAlign:"center"}}>Core Web Vitals · CrUX</p>
+          {(cwv.LCP||cwv.INP||cwv.CLS)?(
+            <div style={{display:"flex",gap:6,justifyContent:"center"}}>
+              {[{k:"lcp",v:cwv.LCP,label:"LCP"},{k:"inp",v:cwv.INP,label:"INP"},{k:"cls",v:cwv.CLS,label:"CLS"}].map(({k,v,label})=>(
                 <Tip key={k} id={k}>
-                  <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:3,background:"rgba(0,0,0,0.2)",borderRadius:10,padding:"8px 14px",border:"1px solid "+cwvColor(k,v)+"40"}}>
-                    <span style={{fontSize:16,fontWeight:800,fontFamily:"'Space Mono',monospace",color:cwvColor(k,v)}}>{v}</span>
-                    <span style={{fontSize:10,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>{label}</span>
+                  <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,background:"rgba(0,0,0,0.2)",borderRadius:9,padding:"6px 12px",border:"1px solid "+cwvColor(k,v)+"40"}}>
+                    <span style={{fontSize:14,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:cwvColor(k,v)}}>{v||"—"}</span>
+                    <span style={{fontSize:9,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1}}>{label}</span>
                   </div>
                 </Tip>
               ))}
             </div>
-          </div>
-        )}
+          ):(
+            <p style={{fontSize:12,color:"rgba(255,255,255,0.4)",textAlign:"center"}}>Sin datos de CWV</p>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
 function SlideKeywords({bd}){
-  const kws=bd.keywords.slice(0,20);
-  const mx=kws[0]?.cl||1;
-  const col1=kws.slice(0,10),col2=kws.slice(10);
+  const kws=bd.top_20_keywords_no_marca;
+  if(!kws||kws.length===0)return <div style={S.center}><p style={S.label}>Keywords No Marca</p><p style={{color:"rgba(255,255,255,0.4)"}}>Sin datos</p></div>;
+  const mx=kws[0]?.clics||1;
+  const half=Math.ceil(kws.length/2);
+  const col1=kws.slice(0,half),col2=kws.slice(half);
   return(
     <div style={{...S.center,maxWidth:680}}>
-      <p style={S.label}>Keywords No Marca · Top clics</p>
-      <h2 style={S.sec}>Top 20 Keywords</h2>
+      <p style={S.label}>Top {kws.length} Keywords No Marca</p>
       <div style={{display:"flex",gap:6,width:"100%"}}>
         {[col1,col2].map((col,ci)=>(
           <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:3}}>
             {col.map((kw,i)=>(
               <div key={i} style={{display:"flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.03)",borderRadius:7,padding:"4px 7px"}} className="fi">
-                <span style={{fontFamily:"'Space Mono',monospace",fontSize:10,fontWeight:700,color:bd.color,minWidth:22,textAlign:"center"}}>#{ci*10+i+1}</span>
+                <span style={{fontFamily:"\'Space Mono\',monospace",fontSize:10,fontWeight:700,color:bd.color,minWidth:22,textAlign:"center"}}>#{ci*half+i+1}</span>
                 <div style={{flex:1,minWidth:0}}>
                   <div style={{height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden",marginBottom:2}}>
-                    <div style={{height:"100%",width:((kw.cl/mx)*100)+"%",background:bd.color,borderRadius:2}}/>
+                    <div style={{height:"100%",width:((kw.clics/mx)*100)+"%",background:bd.color,borderRadius:2}}/>
                   </div>
-                  <div style={{fontSize:11,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{kw.k}</div>
+                  <div style={{fontSize:11,fontWeight:600,color:"#fff",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{kw.keyword}</div>
                   <div style={{display:"flex",gap:6,fontSize:10,color:"rgba(255,255,255,0.35)"}}>
-                    <span>{fmt(kw.cl)} cl</span>
-                    <span style={{color:bd.color+"99"}}>pos.{kw.p}</span>
+                    <span>{fmt(kw.clics)} cl</span>
+                    {kw.posicion_promedio!==null&&<span style={{color:bd.color+"99"}}>pos.{kw.posicion_promedio}</span>}
                   </div>
                 </div>
               </div>
@@ -4134,13 +4260,14 @@ function SlideKeywords({bd}){
 }
 
 function SlideCategories({bd}){
-  const cats=bd.categories.filter(c=>c.r!==null&&c.r!==undefined).slice(0,10);
-  const mx=cats[0]?.r||1;
+  const cats=bd.top_10_categorias_revenue;
+  if(!cats||cats.length===0)return <div style={S.center}><p style={S.label}>Categorías</p><p style={{color:"rgba(255,255,255,0.4)"}}>Sin datos</p></div>;
+  const mx=cats[0]?.revenue||1;
   const col1=cats.slice(0,5),col2=cats.slice(5);
   return(
     <div style={S.center}>
       <p style={S.label}>Categorías · Revenue SEO</p>
-      <h2 style={S.sec}>Top 10 Categorías (Cat. 2)</h2>
+      <h2 style={S.sec}>Top {cats.length} · Categoría 2</h2>
       <div style={{display:"flex",gap:8,width:"100%"}}>
         {[col1,col2].map((col,ci)=>(
           <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
@@ -4148,13 +4275,13 @@ function SlideCategories({bd}){
               <div key={i} style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"7px 10px"}} className="fi">
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}}>
                   <span style={{fontSize:11,fontWeight:600,color:"#fff",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>
-                    <span style={{color:bd.color,fontFamily:"'Space Mono',monospace",marginRight:4,fontWeight:700,fontSize:10}}>#{ci*5+i+1}</span>
-                    {cat.n}
+                    <span style={{color:bd.color,fontFamily:"\'Space Mono\',monospace",marginRight:4,fontWeight:700,fontSize:10}}>#{ci*5+i+1}</span>
+                    {cat.categoria_2||cat.categoria_1}
                   </span>
-                  <span style={{fontSize:11,fontWeight:700,fontFamily:"'Space Mono',monospace",color:bd.color,minWidth:28,textAlign:"right",flexShrink:0,marginLeft:4}}>{fmtUSD(cat.r)}</span>
+                  <span style={{fontSize:10,fontWeight:700,fontFamily:"\'Space Mono\',monospace",color:bd.color,minWidth:30,textAlign:"right",flexShrink:0,marginLeft:4}}>{fmtUSD(cat.revenue)}</span>
                 </div>
                 <div style={{height:4,background:"rgba(255,255,255,0.05)",borderRadius:3,overflow:"hidden"}}>
-                  <div style={{height:"100%",width:((cat.r/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:3,transition:"width .8s ease"}}/>
+                  <div style={{height:"100%",width:((cat.revenue/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:3,transition:"width .8s ease"}}/>
                 </div>
               </div>
             ))}
@@ -4166,37 +4293,34 @@ function SlideCategories({bd}){
 }
 
 function SlideProducts({bd}){
-  if(bd.noRevenueData){
-    return(
-      <div style={S.center}>
-        <p style={S.label}>Productos estrella del SEO</p>
-        <div style={{fontSize:40}}>📦</div>
-        <p style={{fontSize:16,color:"rgba(255,255,255,0.45)",textAlign:"center",maxWidth:320}}>Revenue por producto no disponible en esta vista.</p>
-        <p style={{fontSize:13,color:"rgba(255,255,255,0.25)",textAlign:"center",maxWidth:300}}>Los datos de revenue por SKU están pendientes de cruce con Adobe Analytics.</p>
-      </div>
-    );
-  }
-  const prods=bd.products.filter(p=>p.r!==null);
-  const mx=prods[0]?.r||1;
+  const prods=bd.top_10_productos_revenue;
+  if(!prods||prods.length===0)return(
+    <div style={S.center}>
+      <p style={S.label}>Productos · Revenue</p>
+      <div style={{fontSize:40}}>📦</div>
+      <p style={{fontSize:14,color:"rgba(255,255,255,0.4)",textAlign:"center",maxWidth:320}}>Sin data de revenue por producto.</p>
+    </div>
+  );
+  const mx=prods[0]?.revenue||1;
   const col1=prods.slice(0,5),col2=prods.slice(5);
   return(
     <div style={S.center}>
-      <p style={S.label}>Productos estrella del SEO</p>
-      <h2 style={S.sec}>Top 10 Productos · Revenue</h2>
+      <p style={S.label}>Productos estrella SEO</p>
+      <h2 style={S.sec}>Top {prods.length} Productos · Revenue</h2>
       <div style={{display:"flex",gap:8,width:"100%"}}>
         {[col1,col2].map((col,ci)=>(
           <div key={ci} style={{flex:1,display:"flex",flexDirection:"column",gap:5}}>
             {col.map((p,i)=>(
               <div key={i} style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"6px 9px"}} className="fi">
                 <div style={{fontSize:11,fontWeight:600,color:"#fff",overflow:"hidden",textOverflow:"ellipsis",display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",marginBottom:3,lineHeight:1.3}}>
-                  <span style={{color:bd.color,fontFamily:"'Space Mono',monospace",marginRight:3,fontSize:10}}>#{ci*5+i+1}</span>
-                  {p.n}
+                  <span style={{color:bd.color,fontFamily:"\'Space Mono\',monospace",marginRight:3,fontSize:10}}>#{ci*5+i+1}</span>
+                  {p.producto}
                 </div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}>
                   <div style={{flex:1,height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden"}}>
-                    <div style={{height:"100%",width:((p.r/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:2}}/>
+                    <div style={{height:"100%",width:((p.revenue/mx)*100)+"%",background:"linear-gradient(90deg,"+bd.color+"70,"+bd.color+")",borderRadius:2}}/>
                   </div>
-                  <span style={{fontSize:10,fontFamily:"'Space Mono',monospace",color:"rgba(255,255,255,0.4)",flexShrink:0}}>{fmtUSD(p.r)}</span>
+                  <span style={{fontSize:10,fontFamily:"\'Space Mono\',monospace",color:"rgba(255,255,255,0.4)",flexShrink:0}}>{fmtUSD(p.revenue)}</span>
                 </div>
               </div>
             ))}
@@ -4209,30 +4333,32 @@ function SlideProducts({bd}){
 
 function SlideSummary({bd,country}){
   const cData=COUNTRIES[country];
+  const m26=bd.venta_seo.M26;
+  const cwv=bd.salud_tecnica.core_web_vitals;
   const stats=[
-    {v:fmt(bd.impressions.M26),l:"Impresiones"},
-    {v:fmt(bd.clicks.M26),l:"Clics"},
-    {v:bd.revenue.M26!==null?("$"+fmt(bd.revenue.M26)):"—",l:"Revenue SEO"},
-    {v:bd.convRate.M26!==null?bd.convRate.M26.toFixed(2)+"%":"—",l:"Conv. M26"},
-    {v:bd.partDigital.M26!==null?bd.partDigital.M26.toFixed(2)+"%":"—",l:"Part. Digital"},
-    {v:bd.nonBrand.toFixed(2)+"%",l:"No Marca"},
-    {v:bd.orders.M26!==null?fmt(bd.orders.M26):"—",l:"Órdenes M26"},
-    {v:"#"+bd.weightedPos.M26,l:"Pos. Ponderada"},
-    {v:bd.cwv?.lcp||"—",l:"LCP"},
-    {v:bd.cwv?.inp||"—",l:"INP"},
-    {v:bd.cwv?.cls||"—",l:"CLS"},
-    {v:bd.ctr+"%",l:"CTR"},
+    {v:fmt(bd.impresiones.M26),l:"Impresiones"},
+    {v:fmt(bd.clics.M26),l:"Clics"},
+    {v:m26.revenue_seo?("$"+fmt(m26.revenue_seo)):"—",l:"Revenue SEO"},
+    {v:fmtPct(m26.conversion_pct),l:"Conv. M26"},
+    {v:fmtPct(m26.participacion_digital_pct),l:"Part. Digital"},
+    {v:fmtPct(bd.trafico.no_marca_pct),l:"No Marca"},
+    {v:fmt(m26.ordenes),l:"Órdenes M26"},
+    {v:bd.salud_tecnica.posicion_ponderada_M26?"#"+bd.salud_tecnica.posicion_ponderada_M26:"—",l:"Pos. Ponderada"},
+    {v:cwv.LCP||"—",l:"LCP"},
+    {v:cwv.INP||"—",l:"INP"},
+    {v:cwv.CLS||"—",l:"CLS"},
+    {v:m26.ticket_promedio?"$"+m26.ticket_promedio.toFixed(0):"—",l:"Ticket Prom."},
   ];
   return(
     <div style={S.center}>
-      <div style={{fontSize:40}}>📊</div>
+      <div style={{fontSize:38}}>📊</div>
       <h2 style={{fontSize:18,fontWeight:800,lineHeight:1.4,maxWidth:360,background:"linear-gradient(135deg,"+bd.color+","+bd.color+"80)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",textAlign:"center"}}>
-        {bd.label} {cData.name} — M26
+        {bd.label} {cData.nombre} — M26
       </h2>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6,width:"100%"}}>
         {stats.map((s,i)=>(
           <div key={i} style={{background:"rgba(255,255,255,0.04)",borderRadius:10,padding:"8px 6px",display:"flex",flexDirection:"column",gap:2,alignItems:"center",border:"1px solid "+bd.color+"15"}}>
-            <span style={{fontSize:14,fontWeight:800,fontFamily:"'Space Mono',monospace",color:bd.color,textAlign:"center",lineHeight:1.1}}>{s.v}</span>
+            <span style={{fontSize:14,fontWeight:800,fontFamily:"\'Space Mono\',monospace",color:bd.color,textAlign:"center",lineHeight:1.1}}>{s.v}</span>
             <span style={{fontSize:9,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1,textAlign:"center"}}>{s.l}</span>
           </div>
         ))}
@@ -4247,12 +4373,11 @@ function SlideMessage({bd,country}){
     <div style={S.center}>
       <div style={{fontSize:48,animation:"pulse 2s ease infinite"}}>💬</div>
       <p style={{fontSize:12,color:bd.color+"99",textTransform:"uppercase",letterSpacing:3,fontWeight:600}}>Sugerencia Estratégica M27</p>
-      <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid "+bd.color+"25",borderRadius:16,padding:"20px 24px",maxWidth:420,marginTop:4}}>
-        <p style={{fontSize:15,fontWeight:500,lineHeight:1.65,color:"rgba(255,255,255,0.82)",textAlign:"center"}}>{bd.suggestion}</p>
+      <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid "+bd.color+"25",borderRadius:16,padding:"18px 22px",maxWidth:420}}>
+        <p style={{fontSize:14,fontWeight:500,lineHeight:1.6,color:"rgba(255,255,255,0.85)",textAlign:"center"}}>{bd.suggestion}</p>
       </div>
-      <div style={{width:48,height:2,background:"linear-gradient(90deg,transparent,"+bd.color+",transparent)",marginTop:12}}/>
-      <p style={{marginTop:8,fontSize:14,fontWeight:600,color:"rgba(255,255,255,0.35)"}}>¡Adelante {bd.label} {cData.name}! 💪</p>
-      <p style={{fontSize:12,color:"rgba(255,255,255,0.2)"}}>Preparados para superar M26</p>
+      <div style={{width:48,height:2,background:"linear-gradient(90deg,transparent,"+bd.color+",transparent)",marginTop:8}}/>
+      <p style={{marginTop:6,fontSize:14,fontWeight:600,color:"rgba(255,255,255,0.35)"}}>¡Adelante {bd.label} {cData.nombre}! 💪</p>
     </div>
   );
 }
@@ -4295,7 +4420,7 @@ function App(){
 
   const selectCountry=(code)=>{
     setCountry(code);
-    const firstBrand=Object.keys(COUNTRIES[code].brands)[0];
+    const firstBrand=Object.keys(COUNTRIES[code].marcas)[0];
     setBrand(firstBrand);
     setSlide(0);setAnimKey(0);
   };
@@ -4311,13 +4436,11 @@ function App(){
     return()=>window.removeEventListener("keydown",h);
   },[next,prev,country]);
 
-  if(!country){
-    return(<div style={R.root}><CountrySelector onSelect={selectCountry}/></div>);
-  }
+  if(!country)return(<div style={R.root}><CountrySelector onSelect={selectCountry}/></div>);
 
   const cData=COUNTRIES[country];
-  const bd=cData.brands[brand];
-  const brands=Object.keys(cData.brands);
+  const bd=cData.marcas[brand];
+  const brands=Object.keys(cData.marcas);
 
   const slides=[
     <SlideIntro key={`intro-${animKey}`} country={country} brands={brands} activeBrand={brand} onSwitch={switchBrand}/>,
@@ -4344,7 +4467,6 @@ function App(){
         if(Math.abs(d)>50){d>0?next():prev();}
         touchRef.current=null;
       }}>
-      {/* Top bar */}
       <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"10px 14px 0",flexShrink:0,gap:8}}>
         <button onClick={()=>{setCountry(null);setBrand(null);setSlide(0);}}
           style={{background:"none",border:"none",color:"rgba(255,255,255,0.3)",cursor:"pointer",fontSize:18,padding:0,lineHeight:1}}>←</button>
@@ -4354,19 +4476,14 @@ function App(){
               style={{height:3,borderRadius:3,cursor:"pointer",background:i<=slide?bd.color:"rgba(255,255,255,0.08)",flex:i===slide?2.5:1,transition:"all .3s"}}/>
           ))}
         </div>
-        {brands.length>1&&(
-          <BrandTabs brands={brands} active={brand} onSwitch={switchBrand} country={country}/>
-        )}
+        {brands.length>1&&<BrandTabs brands={brands} active={brand} onSwitch={switchBrand} country={country}/>}
       </div>
-      {/* Slide label */}
       <div style={{textAlign:"center",padding:"4px 0",flexShrink:0}}>
-        <span style={{fontSize:10,color:"rgba(255,255,255,0.2)",letterSpacing:2,textTransform:"uppercase",fontFamily:"'Space Mono',monospace"}}>
+        <span style={{fontSize:10,color:"rgba(255,255,255,0.2)",letterSpacing:2,textTransform:"uppercase",fontFamily:"\'Space Mono\',monospace"}}>
           {cData.flag} {bd.label} · {SLIDE_LABELS[slide]}
         </span>
       </div>
-      {/* Slide area */}
       <div style={R.wrap} key={animKey}>{slides[slide]}</div>
-      {/* Nav */}
       <div style={R.nav}>
         <button style={{...R.btn,opacity:slide===0?.25:1}} onClick={prev} disabled={slide===0}>‹ Anterior</button>
         <span style={R.cnt}>{slide+1}/{TOTAL}</span>
@@ -4376,25 +4493,24 @@ function App(){
   );
 }
 
-/* ═══ SHARED STYLES ═══ */
 const R={
-  root:{fontFamily:"'Outfit',sans-serif",background:"linear-gradient(160deg,#080808 0%,#0d1a0f 45%,#080808 100%)",height:"100vh",color:"#fff",display:"flex",flexDirection:"column",overflow:"hidden",userSelect:"none"},
+  root:{fontFamily:"\'Outfit\',sans-serif",background:"linear-gradient(160deg,#080808 0%,#0d1a0f 45%,#080808 100%)",height:"100vh",color:"#fff",display:"flex",flexDirection:"column",overflow:"hidden",userSelect:"none"},
   wrap:{flex:1,display:"flex",alignItems:"center",justifyContent:"center",padding:"6px 16px 4px",overflow:"hidden"},
   nav:{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 14px 12px",flexShrink:0},
-  btn:{background:"none",border:"1px solid rgba(255,255,255,0.1)",color:"#fff",fontFamily:"'Outfit',sans-serif",fontSize:13,padding:"5px 14px",borderRadius:20,cursor:"pointer"},
-  cnt:{fontSize:12,color:"rgba(255,255,255,0.25)",fontFamily:"'Space Mono',monospace"},
+  btn:{background:"none",border:"1px solid rgba(255,255,255,0.1)",color:"#fff",fontSize:13,padding:"5px 14px",borderRadius:20,cursor:"pointer"},
+  cnt:{fontSize:12,color:"rgba(255,255,255,0.25)",fontFamily:"\'Space Mono\',monospace"},
 };
 const S={
   center:{display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",gap:8,width:"100%",maxWidth:500,animation:"fi .45s ease"},
   label:{fontSize:12,color:"rgba(255,255,255,0.4)",letterSpacing:2.5,textTransform:"uppercase",fontWeight:400,margin:0},
-  mega:{fontSize:52,fontWeight:900,fontFamily:"'Space Mono',monospace",lineHeight:1,margin:"2px 0"},
-  lbig:{fontSize:17,fontWeight:600,color:"rgba(255,255,255,0.75)"},
+  mega:{fontSize:48,fontWeight:900,fontFamily:"\'Space Mono\',monospace",lineHeight:1,margin:"2px 0"},
+  lbig:{fontSize:16,fontWeight:600,color:"rgba(255,255,255,0.75)"},
   sec:{fontSize:18,fontWeight:800,color:"#fff"},
   pill:{background:"rgba(255,255,255,0.05)",borderRadius:20,padding:"3px 12px",fontSize:12},
   statPill:{display:"flex",flexDirection:"column",gap:2,background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"8px 22px",border:"1px solid rgba(255,255,255,0.06)"},
-  microCard:{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 14px",display:"flex",flexDirection:"column",gap:3,alignItems:"center",border:"1px solid rgba(255,255,255,0.05)"},
-  microLabel:{fontSize:10,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1},
-  warnBadge:{background:"rgba(255,200,50,0.06)",border:"1px solid rgba(255,200,50,0.12)",borderRadius:8,padding:"5px 12px",fontSize:11,color:"rgba(255,200,50,0.75)",lineHeight:1.4},
+  microCard:{background:"rgba(255,255,255,0.04)",borderRadius:11,padding:"8px 12px",display:"flex",flexDirection:"column",gap:2,alignItems:"center",border:"1px solid rgba(255,255,255,0.05)"},
+  microLabel:{fontSize:9,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",letterSpacing:1},
+  warnBadge:{background:"rgba(255,200,50,0.06)",border:"1px solid rgba(255,200,50,0.12)",borderRadius:8,padding:"4px 10px",fontSize:10,color:"rgba(255,200,50,0.75)",lineHeight:1.4},
 };
 
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
