@@ -37,799 +37,3697 @@ const {useState,useEffect,useRef,useCallback}=React;
    DATA — 6 PAÍSES ULA (DATOS REALES EXCEL)
 ═══════════════════════════════════════════════ */
 const COUNTRIES = {
-  CR:{
-    name:"Costa Rica",flag:"🇨🇷",
-    brands:{
-      Gollo:{
-        label:"Gollo",color:"#00ff87",colorDim:"rgba(0,255,135,0.15)",
-        impressions:{M25:38004663,M26:62992730,growth:65.75},
-        clicks:{M25:5129000,M26:6262497,growth:22.10},
-        visits:{M25:5059294,M26:6475832,growth:27.99},
-        ctr:9.94,
-        revenue:{M25:18496238.76,M26:9742429.35,growth:-47.33,asistidaNote:true},
-        orders:{M25:44148,M26:25356,growth:-42.57},
-        convRate:{M25:0.87,M26:0.39},
-        avgTicket:{M26:384.23},
-        partDigital:{M26:48.32},partTotal:{M26:34.60},
-        nonBrand:50.14,brandPct:49.86,
-        indexation:{noIndexed:15590,total:2569406,indexed:2553816},
-        weightedPos:{M26:2.5,M25:5.2},
-        cwv:{lcp:"2.3s",inp:"345ms",cls:"0.54"},
-        recognition:{award:true,text:"Gollo CR es el país con mayor venta orgánica de toda la región en M26."},
-        suggestion:"🚀 Seguir potenciando Celulares y TV — son las categorías estrella. Reducir dependencia en keywords de marca y ganar terreno en búsquedas genéricas de Línea Blanca.",
-        keywords:[
-          {k:"play 5",cl:23376,p:3.1},{k:"iphone 13",cl:6803,p:4.1},
-          {k:"nintendo switch 2",cl:5077,p:5.4},{k:"nintendo switch",cl:4369,p:5.2},
-          {k:"nintendo switch cr",cl:4237,p:2.4},{k:"iphone 15",cl:3977,p:5.1},
-          {k:"aire acondicionado",cl:3838,p:1.5},{k:"microondas",cl:3815,p:1.4},
-          {k:"honor magic 7 lite",cl:3801,p:4.7},{k:"samsung a56",cl:3681,p:3.5},
-          {k:"honor 400 lite",cl:3640,p:4.6},{k:"curacao costa rica",cl:3474,p:2.6},
-          {k:"xiaomi 15 ultra",cl:3437,p:5.0},{k:"lenovo tab m11",cl:3350,p:1.8},
-          {k:"honor x8b",cl:3326,p:2.5},{k:"motos",cl:3288,p:2.8},
-          {k:"ps5 costa rica",cl:6216,p:3.4},{k:"ps5",cl:5362,p:3.8},
-          {k:"playstation 5",cl:4722,p:4.8},{k:"iphone 16",cl:3800,p:4.2},
+  "CR": {
+    "nombre": "Costa Rica",
+    "marcas": {
+      "Gollo": {
+        "label": "Gollo",
+        "impresiones": {
+          "M25": 38004663,
+          "M26": 62992730,
+          "growth_pct": 65.75
+        },
+        "clics": {
+          "M25": 5129000,
+          "M26": 6262497,
+          "growth_pct": 22.1
+        },
+        "visitas": {
+          "M25": 5059294,
+          "M26": 6475832,
+          "growth_pct": 28.0
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 18496238.76,
+            "ordenes": 44148,
+            "conversion_pct": 0.87,
+            "ticket_promedio": 418.96,
+            "add_to_cart_pct": 2.57,
+            "revenue_digital_total": 35818723.74,
+            "revenue_total_ecommerce": 35818723.74,
+            "participacion_digital_pct": 51.64,
+            "participacion_total_pct": 51.64
+          },
+          "M26": {
+            "revenue_seo": 9742429.35,
+            "ordenes": 25356,
+            "conversion_pct": 0.39,
+            "ticket_promedio": 384.23,
+            "add_to_cart_pct": 4.01,
+            "revenue_digital_total": 20162405.39,
+            "revenue_total_ecommerce": 28159358.44,
+            "participacion_digital_pct": 48.32,
+            "participacion_total_pct": 34.6
+          },
+          "growth_pct": -47.33
+        },
+        "trafico": {
+          "marca_pct": 49.86,
+          "no_marca_pct": 50.14
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 15589,
+            "total": 2569405
+          },
+          "posicion_ponderada_M26": 2.5,
+          "core_web_vitals": {
+            "LCP": "2.3s",
+            "INP": "345ms",
+            "CLS": "0.54"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "play 5",
+            "clics": 23376,
+            "posicion_promedio": 3.1
+          },
+          {
+            "keyword": "iphone 13",
+            "clics": 6803,
+            "posicion_promedio": 4.1
+          },
+          {
+            "keyword": "nintendo switch 2",
+            "clics": 5077,
+            "posicion_promedio": 5.4
+          },
+          {
+            "keyword": "nintendo switch",
+            "clics": 4369,
+            "posicion_promedio": 5.2
+          },
+          {
+            "keyword": "nintendo switch costa rica",
+            "clics": 4237,
+            "posicion_promedio": 2.4
+          },
+          {
+            "keyword": "iphone 15",
+            "clics": 3977,
+            "posicion_promedio": 5.1
+          },
+          {
+            "keyword": "aire acondicionado",
+            "clics": 3838,
+            "posicion_promedio": 1.5
+          },
+          {
+            "keyword": "microondas",
+            "clics": 3815,
+            "posicion_promedio": 1.4
+          },
+          {
+            "keyword": "honor magic 7 lite",
+            "clics": 3801,
+            "posicion_promedio": 4.7
+          },
+          {
+            "keyword": "samsung a56",
+            "clics": 3681,
+            "posicion_promedio": 3.5
+          },
+          {
+            "keyword": "honor 400 lite",
+            "clics": 3640,
+            "posicion_promedio": 4.6
+          },
+          {
+            "keyword": "curacao costa rica",
+            "clics": 3474,
+            "posicion_promedio": 2.6
+          },
+          {
+            "keyword": "xiaomi 15 ultra",
+            "clics": 3437,
+            "posicion_promedio": 5.0
+          },
+          {
+            "keyword": "lenovo tab m11",
+            "clics": 3350,
+            "posicion_promedio": 1.8
+          },
+          {
+            "keyword": "honor x8b",
+            "clics": 3326,
+            "posicion_promedio": 2.5
+          },
+          {
+            "keyword": "motos",
+            "clics": 3288,
+            "posicion_promedio": 2.8
+          }
         ],
-        categories:[
-          {n:"Celulares y Teléfonos",r:2241212.30},{n:"TV y Video",r:1375667.75},
-          {n:"Lavadoras y secadoras",r:1218800.40},{n:"Refrigeración",r:1157044.23},
-          {n:"Camas y Colchones",r:412924.98},{n:"Gaming",r:346448.28},
-          {n:"Cocina",r:403063.07},{n:"Computación",r:318402.78},
-          {n:"Climatización",r:271308.23},{n:"Dormitorio",r:276841.60},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 2241212.3
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 1375667.75
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Lavadoras y secadoras",
+            "revenue": 1218800.4
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Refrigeración",
+            "revenue": 1157044.23
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Camas y Colchones",
+            "revenue": 412924.98
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Cocina",
+            "revenue": 403063.07
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Gaming",
+            "revenue": 346448.28
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 318402.78
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Dormitorio",
+            "revenue": 276841.6
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Climatización",
+            "revenue": 271308.23
+          }
         ],
-        products:[
-          {n:"Televisor TCL 55V6C 55\" 4K Google TV",r:178053.62},
-          {n:"Televisor TCL QLED 65\" 4K 65C6K",r:100254.05},
-          {n:"Pantalla TCL 50S5k QLED 50\" FHD",r:96387.89},
-          {n:"Televisor TCL QLED 65\" 4K 65P8K",r:89152.82},
-          {n:"iPhone 13 4GB + 128GB Midnight",r:89039.23},
-          {n:"Samsung Galaxy S25 Ultra 512GB",r:79594.74},
-          {n:"Samsung S24 Ultra 12GB+256GB",r:72765.22},
-          {n:"Lavadora Frigidaire 44 Lbs",r:70383.82},
-          {n:"Refrigeradora Frigidaire 15 Pies",r:68270.15},
-          {n:"iPhone 16 8GB + 128GB Negro",r:63939.72},
-        ],
-        monthly:[
-          {m:"Abr",i:4516,c:422},{m:"May",i:4665,c:461},{m:"Jun",i:4689,c:463},
-          {m:"Jul",i:5158,c:473},{m:"Ago",i:5177,c:495},{m:"Sep",i:5256,c:538},
-          {m:"Oct",i:5456,c:552},{m:"Nov",i:6329,c:623},{m:"Dic",i:6803,c:702},
-          {m:"Ene",i:4920,c:451},{m:"Feb",i:4787,c:471},{m:"Mar",i:5135,c:501},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Televisor TCL 55V6C Google TV LED 55\" 4K UHD",
+            "revenue": 178053.62
+          },
+          {
+            "producto": "Televisor TCL Google TV QLED 65\" 4K UHD 65C6K",
+            "revenue": 100254.05
+          },
+          {
+            "producto": "Pantalla TCL 50S5k 50\" QLED 50\" FHD Google TV",
+            "revenue": 96387.88
+          },
+          {
+            "producto": "Televisor TCL Google TV QLED 65\" 4K UHD 65P8K",
+            "revenue": 89152.82
+          },
+          {
+            "producto": "iPhone 13 4GB + 128GB Midnight",
+            "revenue": 89039.23
+          },
+          {
+            "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Titanium Black",
+            "revenue": 79594.74
+          },
+          {
+            "producto": "Samsung S24 Ultra  12GB + 256GB Titanium Black",
+            "revenue": 72765.22
+          },
+          {
+            "producto": "Lavadora Frigidaire FWAB20J4EBGUW Carga superior 44 Libras",
+            "revenue": 70383.82
+          },
+          {
+            "producto": "Refrigeradora Frigidaire 15 Pies 2 Puertas Side by Side FRSA15K2HVG",
+            "revenue": 68270.15
+          },
+          {
+            "producto": "iPhone 16 8GB + 128GB Negro",
+            "revenue": 63939.72
+          }
+        ]
       },
-      RSO:{
-        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
-        impressions:{M25:358616,M26:8339528,growth:2225.35},
-        clicks:{M25:10081704,M26:315151,growth:-96.87},
-        visits:{M25:242225,M26:243579,growth:0.56},
-        ctr:3.78,
-        revenue:{M25:78327.64,M26:48863.997,growth:-37.61,asistidaNote:true},
-        orders:{M25:437,M26:249,growth:-43.02},
-        convRate:{M25:0.18,M26:0.09},
-        avgTicket:{M26:196.24},
-        partDigital:{M26:25.79},partTotal:{M26:25.74},
-        nonBrand:86.67,brandPct:13.33,
-        indexation:{noIndexed:124000,total:128900,indexed:4900},
-        weightedPos:{M26:7.1,M25:null},
-        cwv:{lcp:"3.1s",inp:"194ms",cls:"0.83"},
-        recognition:{award:false,text:"RadioShack CR tiene el mayor % de tráfico No Marca de la región (86.67%)."},
-        suggestion:"🔧 Mejorar Core Web Vitals (CLS 0.83 es crítico). Trabajar en contenido no-marca para monetizar el tráfico genérico que ya capta.",
-        keywords:[
-          {k:"chromecast costa rica",cl:859,p:7.1},{k:"audifonos inalambricos",cl:733,p:5.7},
-          {k:"nintendo switch costa rica",cl:727,p:8.3},{k:"meta quest 3 costa rica",cl:584,p:5.2},
-          {k:"chromecast",cl:541,p:7.5},{k:"microfono inalambrico",cl:540,p:3.8},
-          {k:"baterias recargables",cl:409,p:2.0},{k:"walkie talkie",cl:395,p:3.3},
-          {k:"parlantes",cl:364,p:4.3},{k:"trituradora de papel",cl:356,p:4.6},
-          {k:"nintendo switch oled cr",cl:344,p:8.4},{k:"lector firma digital",cl:334,p:3.9},
-          {k:"bateria portatil",cl:307,p:3.8},{k:"tcl costa rica",cl:292,p:4.8},
-          {k:"puntero laser costa rica",cl:290,p:1.2},{k:"walkie talkie costa rica",cl:289,p:5.9},
-          {k:"reloj despertador costa rica",cl:289,p:2.0},{k:"baterias recargables costa rica",cl:284,p:3.5},
-          {k:"home theater",cl:281,p:2.3},{k:"microfonos inalambricos",cl:268,p:4.4},
+      "RSO": {
+        "label": "RadioShack",
+        "impresiones": {
+          "M25": 358616,
+          "M26": 8339528,
+          "growth_pct": 2225.48
+        },
+        "clics": {
+          "M25": 10081704,
+          "M26": 315151,
+          "growth_pct": -96.87
+        },
+        "visitas": {
+          "M25": 242225,
+          "M26": 243579,
+          "growth_pct": 0.56
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 78327.64,
+            "ordenes": 437,
+            "conversion_pct": 0.18,
+            "ticket_promedio": 179.24,
+            "add_to_cart_pct": 2.65,
+            "revenue_digital_total": 159305.97,
+            "revenue_total_ecommerce": 159305.97,
+            "participacion_digital_pct": 49.17,
+            "participacion_total_pct": 49.17
+          },
+          "M26": {
+            "revenue_seo": 48864.0,
+            "ordenes": 249,
+            "conversion_pct": 0.09,
+            "ticket_promedio": 196.24,
+            "add_to_cart_pct": 3.86,
+            "revenue_digital_total": 189497.05,
+            "revenue_total_ecommerce": 189872.71,
+            "participacion_digital_pct": 25.79,
+            "participacion_total_pct": 25.74
+          },
+          "growth_pct": -37.62
+        },
+        "trafico": {
+          "marca_pct": 13.33,
+          "no_marca_pct": 86.67
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 124000,
+            "total": 128900
+          },
+          "posicion_ponderada_M26": 7.1,
+          "core_web_vitals": {
+            "LCP": "3.1s",
+            "INP": "194ms",
+            "CLS": "0.83"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "chromecast costa rica",
+            "clics": 859,
+            "posicion_promedio": 7.1
+          },
+          {
+            "keyword": "audifonos inalambricos",
+            "clics": 733,
+            "posicion_promedio": 5.7
+          },
+          {
+            "keyword": "nintendo switch costa rica",
+            "clics": 727,
+            "posicion_promedio": 8.3
+          },
+          {
+            "keyword": "meta quest 3 costa rica",
+            "clics": 584,
+            "posicion_promedio": 5.2
+          },
+          {
+            "keyword": "chromecast",
+            "clics": 541,
+            "posicion_promedio": 7.5
+          },
+          {
+            "keyword": "microfono inalambrico",
+            "clics": 540,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "baterias recargables",
+            "clics": 409,
+            "posicion_promedio": 2.0
+          },
+          {
+            "keyword": "walkie talkie",
+            "clics": 395,
+            "posicion_promedio": 3.3
+          },
+          {
+            "keyword": "parlantes",
+            "clics": 364,
+            "posicion_promedio": 4.3
+          },
+          {
+            "keyword": "trituradora de papel",
+            "clics": 356,
+            "posicion_promedio": 4.6
+          },
+          {
+            "keyword": "nintendo switch oled costa rica",
+            "clics": 344,
+            "posicion_promedio": 8.4
+          },
+          {
+            "keyword": "lector de firma digital",
+            "clics": 334,
+            "posicion_promedio": 3.9
+          },
+          {
+            "keyword": "bateria portatil",
+            "clics": 307,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "tcl costa rica",
+            "clics": 292,
+            "posicion_promedio": 4.8
+          },
+          {
+            "keyword": "puntero laser costa rica",
+            "clics": 290,
+            "posicion_promedio": 1.2
+          },
+          {
+            "keyword": "walkie talkie costa rica",
+            "clics": 289,
+            "posicion_promedio": 5.9
+          },
+          {
+            "keyword": "reloj despertador costa rica",
+            "clics": 289,
+            "posicion_promedio": 2.0
+          },
+          {
+            "keyword": "baterias recargables costa rica",
+            "clics": 284,
+            "posicion_promedio": 3.5
+          },
+          {
+            "keyword": "home theater",
+            "clics": 281,
+            "posicion_promedio": 2.3
+          },
+          {
+            "keyword": "microfonos inalambricos",
+            "clics": 268,
+            "posicion_promedio": 4.4
+          }
         ],
-        categories:[
-          {n:"Celulares y Teléfonos",r:17806.68},{n:"Audio",r:7793.48},
-          {n:"TV y Video",r:7281.82},{n:"Gaming",r:6120.69},
-          {n:"Computación",r:5241.47},{n:"Powerbanks y Cargadores",r:219.16},
-          {n:"Bienestar y Salud",r:193.34},{n:"Baterías",r:186.13},
-          {n:"Accesorios de celulares",r:65.99},{n:"Herramientas eléctricas",r:67.50},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 17806.68
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Audio",
+            "revenue": 7793.48
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 7281.82
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Gaming",
+            "revenue": 6120.69
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 5241.47
+          },
+          {
+            "categoria_1": "Telefonía",
+            "categoria_2": "Powerbanks y Cargadores",
+            "revenue": 219.16
+          },
+          {
+            "categoria_1": "Salud y Belleza",
+            "categoria_2": "Bienestar y Salud",
+            "revenue": 193.34
+          },
+          {
+            "categoria_1": "Ferretería",
+            "categoria_2": "Baterías",
+            "revenue": 186.13
+          },
+          {
+            "categoria_1": "Ferretería",
+            "categoria_2": "Herramientas eléctricas",
+            "revenue": 67.5
+          },
+          {
+            "categoria_1": "Telefonía",
+            "categoria_2": "Accesorios de celulares",
+            "revenue": 65.99
+          }
         ],
-        products:[
-          {n:"iPhone 17 Pro Max 12GB+256GB Cosmic Orange",r:3292.36},
-          {n:"Consola PlayStation 5 Digital Core HW 2015",r:3117.11},
-          {n:"Laptop HP 32GB SSD 1TB OMEN 17-DB",r:1889.84},
-          {n:"iPhone 15 Pro 8GB + 256GB Negro",r:1817.82},
-          {n:"Parlante JBL PartyBox Stage 320",r:1637.56},
-          {n:"Samsung Galaxy S25 Ultra 512GB Titan Blue",r:1547.82},
-          {n:"Samsung Galaxy S25 Ultra 512GB Titan Black",r:1527.08},
-          {n:"iPhone 16 Pro Max 8GB+256GB Black Titanium",r:1439.86},
-          {n:"Laptop Asus Zenbook 14 AMD Ryzen AI 7",r:1286.14},
-          {n:"Laptop HP 15-fc0276la 16GB SSD 1TB",r:607.83},
-        ],
-        monthly:[
-          {m:"Abr",i:521,c:19},{m:"May",i:558,c:21},{m:"Jun",i:572,c:22},
-          {m:"Jul",i:612,c:23},{m:"Ago",i:658,c:25},{m:"Sep",i:701,c:27},
-          {m:"Oct",i:745,c:28},{m:"Nov",i:820,c:31},{m:"Dic",i:895,c:34},
-          {m:"Ene",i:614,c:23},{m:"Feb",i:591,c:22},{m:"Mar",i:653,c:25},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "iPhone 17 Pro Max 12GB + 256GB Cosmic Orange",
+            "revenue": 3292.36
+          },
+          {
+            "producto": "Consola PlayStation 5 Digital Core HW 2015",
+            "revenue": 3117.11
+          },
+          {
+            "producto": "Laptop HP 32 GB SSD 1 TB OMEN 17-DB0009LA",
+            "revenue": 1889.84
+          },
+          {
+            "producto": "iPhone 15 Pro 8GB + 256GB Negro",
+            "revenue": 1817.82
+          },
+          {
+            "producto": "iPhone 17 Pro Max 12GB + 256GB Plateado",
+            "revenue": 1673.81
+          },
+          {
+            "producto": "Parlante JBL 40 Hz-20 kHz Bluetooth Negro JBLPBSTAGE320AM",
+            "revenue": 1637.56
+          },
+          {
+            "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Titanium Blue",
+            "revenue": 1547.82
+          },
+          {
+            "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Titanium Black",
+            "revenue": 1527.08
+          },
+          {
+            "producto": "iPhone 16 Pro Max 8GB + 256GB Black Titanium",
+            "revenue": 1439.86
+          },
+          {
+            "producto": "Laptop Asus Zenbook 14 AMD Ryzen™ AI 7 350 32 GB M.2 1 TB 14\" Negro",
+            "revenue": 1286.14
+          }
+        ]
       }
     }
   },
-  EC:{
-    name:"Ecuador",flag:"🇪🇨",
-    brands:{
-      Artefacta:{
-        label:"Artefacta",color:"#3b82f6",colorDim:"rgba(59,130,246,0.15)",
-        impressions:{M25:2699000,M26:43104794,growth:1497.32},
-        clicks:{M25:793000,M26:1441229,growth:81.75},
-        visits:{M25:834871,M26:1351349,growth:61.87},
-        ctr:3.34,
-        revenue:{M25:1856114.14,M26:3124486.95,growth:68.34,asistidaNote:true},
-        orders:{M25:5128,M26:8537,growth:66.48},
-        convRate:{M25:0.61,M26:0.61},
-        avgTicket:{M26:365.99},
-        partDigital:{M26:38.99},partTotal:{M26:38.99},
-        nonBrand:63.69,brandPct:36.31,
-        indexation:{noIndexed:14100000,total:14109540,indexed:9540},
-        weightedPos:{M26:1.2,M25:2.1},
-        cwv:{lcp:"2.6s",inp:"304ms",cls:"0.39"},
-        recognition:{award:true,text:"Artefacta EC lidera en revenue orgánico regional con +68.3% de crecimiento en M26."},
-        suggestion:"💡 Con posición ponderada de 1.2, Artefacta ya domina los primeros resultados. El foco debe ser ampliar el catálogo indexado y atacar categorías de Automotriz que muestran fuerte crecimiento.",
-        keywords:[
-          {k:"motos ecuador",cl:2502,p:5.1},{k:"starlink ecuador",cl:1357,p:4.0},
-          {k:"microondas",cl:1269,p:3.6},{k:"aire acondicionado",cl:1154,p:4.4},
-          {k:"lenovo tab m11",cl:960,p:2.7},{k:"refrigeradora",cl:903,p:4.3},
-          {k:"lavadora",cl:804,p:4.0},{k:"steam deck ecuador",cl:772,p:2.5},
-          {k:"secadora de ropa",cl:709,p:3.5},{k:"freidora de aire",cl:705,p:7.3},
-          {k:"daytona gp1r",cl:704,p:4.0},{k:"bicicleta estatica",cl:687,p:5.8},
-          {k:"ps5",cl:673,p:8.3},{k:"licuadora oster",cl:657,p:3.6},
-          {k:"nkd 150 precio ecuador",cl:655,p:1.3},{k:"playstation 5",cl:625,p:7.9},
-          {k:"lavadora secadora",cl:597,p:4.1},{k:"shineray 150",cl:553,p:2.8},
-          {k:"motos deportivas ecuador",cl:515,p:2.5},{k:"motos ecuador 150",cl:490,p:3.2},
+  "EC": {
+    "nombre": "Ecuador",
+    "marcas": {
+      "Artefacta": {
+        "label": "Artefacta",
+        "impresiones": {
+          "M25": 2699000,
+          "M26": 43104794,
+          "growth_pct": 1497.07
+        },
+        "clics": {
+          "M25": 793000,
+          "M26": 1441229,
+          "growth_pct": 81.74
+        },
+        "visitas": {
+          "M25": 834871,
+          "M26": 1351349,
+          "growth_pct": 61.86
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 1856114.14,
+            "ordenes": 5128,
+            "conversion_pct": 0.61,
+            "ticket_promedio": 361.96,
+            "add_to_cart_pct": 1.38,
+            "revenue_digital_total": 5760507.44,
+            "revenue_total_ecommerce": 5760507.44,
+            "participacion_digital_pct": 32.22,
+            "participacion_total_pct": 32.22
+          },
+          "M26": {
+            "revenue_seo": 3124486.95,
+            "ordenes": 8537,
+            "conversion_pct": 0.43,
+            "ticket_promedio": 365.99,
+            "add_to_cart_pct": 3.71,
+            "revenue_digital_total": 8013754.65,
+            "revenue_total_ecommerce": 8013754.65,
+            "participacion_digital_pct": 38.99,
+            "participacion_total_pct": 38.99
+          },
+          "growth_pct": 68.33
+        },
+        "trafico": {
+          "marca_pct": 36.31,
+          "no_marca_pct": 63.69
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 14100000,
+            "total": 14109540
+          },
+          "posicion_ponderada_M26": 3.7,
+          "core_web_vitals": {
+            "LCP": "2.6s",
+            "INP": "304ms",
+            "CLS": "0.39"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "motos ecuador",
+            "clics": 2502,
+            "posicion_promedio": 5.1
+          },
+          {
+            "keyword": "starlink ecuador",
+            "clics": 1357,
+            "posicion_promedio": 4.0
+          },
+          {
+            "keyword": "microondas",
+            "clics": 1269,
+            "posicion_promedio": 3.6
+          },
+          {
+            "keyword": "aire acondicionado",
+            "clics": 1154,
+            "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "lenovo tab m11",
+            "clics": 960,
+            "posicion_promedio": 2.7
+          },
+          {
+            "keyword": "refrigeradora",
+            "clics": 903,
+            "posicion_promedio": 4.3
+          },
+          {
+            "keyword": "lavadora",
+            "clics": 804,
+            "posicion_promedio": 4.0
+          },
+          {
+            "keyword": "steam deck ecuador",
+            "clics": 772,
+            "posicion_promedio": 2.5
+          },
+          {
+            "keyword": "secadora de ropa",
+            "clics": 709,
+            "posicion_promedio": 3.5
+          },
+          {
+            "keyword": "freidora de aire",
+            "clics": 705,
+            "posicion_promedio": 7.3
+          },
+          {
+            "keyword": "daytona gp1r",
+            "clics": 704,
+            "posicion_promedio": 4.0
+          },
+          {
+            "keyword": "bicicleta estatica",
+            "clics": 687,
+            "posicion_promedio": 5.8
+          },
+          {
+            "keyword": "ps5",
+            "clics": 673,
+            "posicion_promedio": 8.3
+          },
+          {
+            "keyword": "licuadora oster",
+            "clics": 657,
+            "posicion_promedio": 3.6
+          },
+          {
+            "keyword": "nkd 150 precio ecuador",
+            "clics": 655,
+            "posicion_promedio": 1.3
+          },
+          {
+            "keyword": "playstation 5",
+            "clics": 625,
+            "posicion_promedio": 7.9
+          },
+          {
+            "keyword": "lavadora secadora",
+            "clics": 597,
+            "posicion_promedio": 4.1
+          },
+          {
+            "keyword": "shineray 150",
+            "clics": 553,
+            "posicion_promedio": 2.8
+          },
+          {
+            "keyword": "motos deportivas ecuador",
+            "clics": 515,
+            "posicion_promedio": 2.5
+          }
         ],
-        categories:[
-          {n:"TV y Video",r:637986.49},{n:"Lavadoras y secadoras",r:592055.29},
-          {n:"Refrigeración",r:444509.62},{n:"Climatización",r:235216.32},
-          {n:"Computación",r:225367.48},{n:"Celulares y Teléfonos",r:173248.82},
-          {n:"Motocicletas",r:170586.98},{n:"Cocina",r:114904.24},
-          {n:"Gaming",r:70754.68},{n:"Dormitorio",r:64212.42},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 637986.49
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Lavadoras y secadoras",
+            "revenue": 592055.29
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Refrigeración",
+            "revenue": 444509.62
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Climatización",
+            "revenue": 235216.32
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 225367.48
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 173248.82
+          },
+          {
+            "categoria_1": "Automotriz",
+            "categoria_2": "Motocicletas",
+            "revenue": 170586.98
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Cocina",
+            "revenue": 114904.24
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Gaming",
+            "revenue": 70754.68
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Dormitorio",
+            "revenue": 64212.42
+          }
         ],
-        products:[
-          {n:"Televisor TCL Google TV 55\" 4K UHD 55P6K",r:44638.03},
-          {n:"Lavadora LG Superior 18 KG WT18WV6T",r:44350.55},
-          {n:"Lavadora Samsung Frontal 26 kg",r:44142.52},
-          {n:"Impresora Epson Ecotank L3250 Inkjet Wi-Fi",r:44192.48},
-          {n:"Televisor TCL Google TV 65\" 4K UHD 65P6K",r:34548.71},
-          {n:"Lavadora Whirlpool Superior 19Kg",r:31459.72},
-          {n:"Televisor TCL Google TV LED 43\" 4K UHD",r:22577.53},
-          {n:"Televisor TCL Google TV QLED 65\" 4K 65P7K",r:19478.36},
-          {n:"Televisor TCL Google TV 50\" 4K UHD 50V6C",r:22329.68},
-          {n:"Impresora Epson Ecotank L1250 Inkjet Wi-Fi",r:9227.75},
-        ],
-        monthly:[
-          {m:"Abr",i:3200,c:110},{m:"May",i:3450,c:128},{m:"Jun",i:3680,c:142},
-          {m:"Jul",i:4100,c:162},{m:"Ago",i:4350,c:175},{m:"Sep",i:4650,c:191},
-          {m:"Oct",i:4920,c:208},{m:"Nov",i:5400,c:235},{m:"Dic",i:5850,c:262},
-          {m:"Ene",i:3900,c:145},{m:"Feb",i:3720,c:138},{m:"Mar",i:4100,c:155},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Televisor TCL Google TV 55\" 4K UHD 55P6K",
+            "revenue": 44638.03
+          },
+          {
+            "producto": "Lavadora LG Superior 18 KG WT18WV6T",
+            "revenue": 44350.55
+          },
+          {
+            "producto": "Impresora multifuncional Epson Inkjet Wi-Fi Negro EcoTank L3250",
+            "revenue": 44192.48
+          },
+          {
+            "producto": "Lavadora Samsung Frontal 26 kg WF26DG8250AVAP",
+            "revenue": 44142.52
+          },
+          {
+            "producto": "Televisor TCL Google TV 65\" 4K UHD 65P6K",
+            "revenue": 34548.71
+          },
+          {
+            "producto": "Lavadora Whirlpool Superior 19Kg 7MWTW1904LM",
+            "revenue": 31459.72
+          },
+          {
+            "producto": "Lavadora Eléctrica Samsung Superior 21 Kg WA21CG6746BDAP",
+            "revenue": 27985.9
+          },
+          {
+            "producto": "Televisor TCL Google TV LED 43\" 4K UHD 43V6C",
+            "revenue": 22577.53
+          },
+          {
+            "producto": "PlayStation 5 Slim Digital 1 TB Gran Turismo 7 y Astro Bot",
+            "revenue": 22329.68
+          },
+          {
+            "producto": "Televisor TCL Google TV QLED 65\" HDR 4K 65P7K",
+            "revenue": 19478.36
+          }
+        ]
       },
-      RSO:{
-        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
-        impressions:{M25:53820,M26:7432934,growth:13704.08},
-        clicks:{M25:4092132,M26:84386,growth:-97.94},
-        visits:{M25:49004,M26:64612,growth:31.85},
-        ctr:1.14,
-        revenue:{M25:13554.17,M26:28168.02,growth:107.83,asistidaNote:true},
-        orders:{M25:81,M26:110,growth:35.80},
-        convRate:{M25:0.17,M26:0.17},
-        avgTicket:{M26:256.07},
-        partDigital:{M26:15.16},partTotal:{M26:15.16},
-        nonBrand:96.81,brandPct:3.19,
-        indexation:{noIndexed:382000,total:384900,indexed:2900},
-        weightedPos:{M26:4.8,M25:null},
-        cwv:{lcp:"3.1s",inp:"220ms",cls:"0.85"},
-        recognition:{award:false,text:"RadioShack EC creció +107.8% en revenue. Alto tráfico de marca = oportunidad de capturar categorías nuevas."},
-        suggestion:"📈 Excelente crecimiento de revenue. CLS de 0.85 afecta experiencia visual — priorizar estabilidad de layout. Expandir keywords no-marca en audio y gaming.",
-        keywords:[
-          {k:"audifonos inalambricos",cl:796,p:4.4},{k:"starlink ecuador",cl:345,p:8.1},
-          {k:"infinix note 12",cl:302,p:4.7},{k:"audifonos",cl:228,p:4.8},
-          {k:"auriculares inalambricos",cl:211,p:3.6},{k:"infinix gt 20 pro",cl:190,p:6.1},
-          {k:"steam deck ecuador",cl:152,p:7.6},{k:"infinix gt 20 pro precio ecuador",cl:151,p:5.9},
-          {k:"audífonos inalámbricos",cl:150,p:4.7},{k:"infinix smart 9",cl:116,p:6.9},
-          {k:"parlantes",cl:113,p:7.0},{k:"infinix note 12 precio ecuador",cl:112,p:2.8},
-          {k:"infinix note 30 pro",cl:111,p:6.7},{k:"tecno spark 10 pro",cl:108,p:6.1},
-          {k:"soporte para laptop",cl:106,p:5.0},{k:"nokia ecuador",cl:106,p:4.1},
-          {k:"smartwatch",cl:105,p:5.6},{k:"infinix note 50 pro",cl:104,p:7.9},
-          {k:"mouse ergonomico",cl:103,p:3.8},{k:"tecno kl5",cl:101,p:3.5},
+      "RSO": {
+        "label": "RadioShack",
+        "impresiones": {
+          "M25": 53820,
+          "M26": 7432934,
+          "growth_pct": 13710.73
+        },
+        "clics": {
+          "M25": 4092132,
+          "M26": 84386,
+          "growth_pct": -97.94
+        },
+        "visitas": {
+          "M25": 49004,
+          "M26": 64612,
+          "growth_pct": 31.85
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 13554.17,
+            "ordenes": 81,
+            "conversion_pct": 0.17,
+            "ticket_promedio": 167.34,
+            "add_to_cart_pct": 2.21,
+            "revenue_digital_total": 83229.48,
+            "revenue_total_ecommerce": 83229.48,
+            "participacion_digital_pct": 16.29,
+            "participacion_total_pct": 16.29
+          },
+          "M26": {
+            "revenue_seo": 28168.02,
+            "ordenes": 110,
+            "conversion_pct": 0.07,
+            "ticket_promedio": 256.07,
+            "add_to_cart_pct": 2.14,
+            "revenue_digital_total": 185817.44,
+            "revenue_total_ecommerce": 185817.44,
+            "participacion_digital_pct": 15.16,
+            "participacion_total_pct": 15.16
+          },
+          "growth_pct": 107.82
+        },
+        "trafico": {
+          "marca_pct": 3.19,
+          "no_marca_pct": 96.81
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 382000,
+            "total": 384900
+          },
+          "posicion_ponderada_M26": 7.2,
+          "core_web_vitals": {
+            "LCP": "3.1s",
+            "INP": "220ms",
+            "CLS": "0.85"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "audifonos inalambricos",
+            "clics": 796,
+            "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "starlink ecuador",
+            "clics": 345,
+            "posicion_promedio": 8.1
+          },
+          {
+            "keyword": "infinix note 12",
+            "clics": 302,
+            "posicion_promedio": 4.7
+          },
+          {
+            "keyword": "audifonos",
+            "clics": 228,
+            "posicion_promedio": 4.8
+          },
+          {
+            "keyword": "auriculares inalambricos",
+            "clics": 211,
+            "posicion_promedio": 3.6
+          },
+          {
+            "keyword": "infinix gt 20 pro",
+            "clics": 190,
+            "posicion_promedio": 6.1
+          },
+          {
+            "keyword": "steam deck ecuador",
+            "clics": 152,
+            "posicion_promedio": 7.6
+          },
+          {
+            "keyword": "infinix gt 20 pro precio ecuador",
+            "clics": 151,
+            "posicion_promedio": 5.9
+          },
+          {
+            "keyword": "audífonos inalámbricos",
+            "clics": 150,
+            "posicion_promedio": 4.7
+          },
+          {
+            "keyword": "infinix smart 9",
+            "clics": 116,
+            "posicion_promedio": 6.9
+          },
+          {
+            "keyword": "parlantes",
+            "clics": 113,
+            "posicion_promedio": 7.0
+          },
+          {
+            "keyword": "infinix note 12 precio ecuador",
+            "clics": 112,
+            "posicion_promedio": 2.8
+          },
+          {
+            "keyword": "infinix note 30 pro",
+            "clics": 111,
+            "posicion_promedio": 6.7
+          },
+          {
+            "keyword": "tecno spark 10 pro",
+            "clics": 108,
+            "posicion_promedio": 6.1
+          },
+          {
+            "keyword": "soporte para laptop",
+            "clics": 106,
+            "posicion_promedio": 5.0
+          },
+          {
+            "keyword": "nokia ecuador",
+            "clics": 106,
+            "posicion_promedio": 4.1
+          },
+          {
+            "keyword": "smartwatch",
+            "clics": 105,
+            "posicion_promedio": 5.6
+          },
+          {
+            "keyword": "infinix note 50 pro",
+            "clics": 104,
+            "posicion_promedio": 7.9
+          },
+          {
+            "keyword": "mouse ergonomico",
+            "clics": 103,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "tecno kl5",
+            "clics": 101,
+            "posicion_promedio": 3.5
+          }
         ],
-        categories:[
-          {n:"Computación",r:12937.23},{n:"TV y Video",r:8041.75},
-          {n:"Celulares y Teléfonos",r:3046.10},{n:"Audio",r:1749.21},
-          {n:"Telefonía",r:1635.21},{n:"Cuidado personal",r:112.17},
-          {n:"Baterías",r:67.43},{n:"Decoración",r:4.87},
-          {n:"Hogar inteligente",r:10.44},{n:"Otros",r:50.00},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 12937.23
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 8041.75
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 3046.1
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Audio",
+            "revenue": 1749.21
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Telefonía",
+            "revenue": 1635.21
+          },
+          {
+            "categoria_1": "Salud y Belleza",
+            "categoria_2": "Cuidado personal",
+            "revenue": 112.17
+          },
+          {
+            "categoria_1": "Ferretería",
+            "categoria_2": "Baterías",
+            "revenue": 67.43
+          },
+          {
+            "categoria_1": "Ferretería",
+            "categoria_2": "Hogar inteligente",
+            "revenue": 10.44
+          },
+          {
+            "categoria_1": "Hogar",
+            "categoria_2": "Decoración",
+            "revenue": 4.87
+          }
         ],
-        products:[
-          {n:"Impresora Epson Ecotank L1250 Inkjet Wi-Fi",r:9227.75},
-          {n:"Mini Kit Starlink AC Dual Band Wifi",r:1495.63},
-          {n:"Laptop HP 16 GB SSD 512 GB 15.6\"",r:1043.48},
-          {n:"Televisor TCL Google TV 55\" 4K UHD 55P6K",r:822.61},
-          {n:"Televisor TCL Google TV 50\" 4K UHD 50V6C",r:739.12},
-          {n:"Televisor Samsung Tizen LED 43\" 4K UHD",r:615.66},
-          {n:"Televisor LG WebOS LED 65\" 4K UHD",r:781.74},
-          {n:"Televisor TCL Google TV QLED 75\" 4K",r:903.48},
-          {n:"Televisor TCL 55\" LED 4K UHD 55P615I",r:400.00},
-          {n:"Televisor TCL 32\" LCD HD S6500",r:300.00},
-        ],
-        monthly:[
-          {m:"Abr",i:520,c:18},{m:"May",i:580,c:21},{m:"Jun",i:650,c:24},
-          {m:"Jul",i:720,c:27},{m:"Ago",i:800,c:30},{m:"Sep",i:880,c:33},
-          {m:"Oct",i:950,c:36},{m:"Nov",i:1050,c:40},{m:"Dic",i:1150,c:44},
-          {m:"Ene",i:680,c:25},{m:"Feb",i:650,c:24},{m:"Mar",i:720,c:27},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Impresora inalámbrica Epson Ecotank L1250 Inkjet Wi-Fi Negro",
+            "revenue": 9227.75
+          },
+          {
+            "producto": "Mini Kit Starlink AC Dual Band Wifi",
+            "revenue": 1495.63
+          },
+          {
+            "producto": "Laptop HP 16 GB SSD 512 GB 15.6\" Dorado 15-FC0275LA",
+            "revenue": 1043.48
+          },
+          {
+            "producto": "Televisor TCL Google TV QLED 75\" 4K UHD 75P7K",
+            "revenue": 903.48
+          },
+          {
+            "producto": "Xiaomi X7 Pro 12GB + 256GB Amarillo",
+            "revenue": 850.44
+          },
+          {
+            "producto": "Televisor TCL Google TV 55\" 4K UHD 55P6K",
+            "revenue": 822.61
+          },
+          {
+            "producto": "Televisor LG WebOS 24 LED 65\" 4K UHD 65NANO80TSA",
+            "revenue": 781.74
+          },
+          {
+            "producto": "Televisor TCL Google TV 50\" 4K UHD 50V6C",
+            "revenue": 739.12
+          },
+          {
+            "producto": "Televisor Samsung Tizen LED 43\" 4K UHD UN43DU7000PCZE",
+            "revenue": 615.66
+          },
+          {
+            "producto": "Laptop HP 15-fc0276la AMD 16 GB SSD 1 TB 15,6\"",
+            "revenue": 607.83
+          }
+        ]
       }
     }
   },
-  GT:{
-    name:"Guatemala",flag:"🇬🇹",
-    brands:{
-      ATO:{
-        label:"Almacenes Tropigas",color:"#8b5cf6",colorDim:"rgba(139,92,246,0.15)",
-        impressions:{M25:526712,M26:21496380,growth:3982.46},
-        clicks:{M25:18881952,M26:611218,growth:-96.76},
-        visits:{M25:393349,M26:727697,growth:84.99},
-        ctr:2.85,
-        revenue:{M25:41156.49,M26:142882.59,growth:247.12,asistidaNote:true},
-        orders:{M25:210,M26:492,growth:134.29},
-        convRate:{M25:0.53,M26:0.68},
-        avgTicket:{M26:290.41},
-        partDigital:{M26:37.59},partTotal:{M26:37.59},
-        nonBrand:82.45,brandPct:17.55,
-        indexation:{noIndexed:471000,total:481500,indexed:10500},
-        weightedPos:{M26:2.5,M25:3.1},
-        cwv:{lcp:"2.5s",inp:"407ms",cls:"0.23"},
-        recognition:{award:true,text:"ATO Guatemala triplicó su revenue orgánico en M26 (+247%). El mayor crecimiento en revenue de toda la región."},
-        suggestion:"🏆 Consolidar el impulso en Motocicletas y Muebles. INP de 407ms es el más alto de todos — reducirlo puede mejorar conversión de móvil.",
-        keywords:[
-          {k:"redmi note 13 pro precio guatemala",cl:946,p:4.4},{k:"suzuki gixxer 150 precio guatemala",cl:785,p:4.1},
-          {k:"xbox series x guatemala",cl:742,p:6.8},{k:"muebles para tv",cl:631,p:3.4},
-          {k:"akt 150",cl:621,p:2.0},{k:"tvs raider 125",cl:604,p:4.7},
-          {k:"mueble para tv",cl:584,p:4.0},{k:"samsung a55 precio guatemala",cl:563,p:7.4},
-          {k:"mini refrigerador guatemala",cl:533,p:3.8},{k:"yamaha crux 110",cl:492,p:2.8},
-          {k:"suzuki gixxer 150",cl:470,p:5.5},{k:"yamaha crux 110 precio guatemala",cl:461,p:3.0},
-          {k:"pulsar ns 200",cl:450,p:5.8},{k:"cilindro de gas",cl:443,p:2.7},
-          {k:"gixxer 150",cl:427,p:4.7},{k:"honor 90 precio guatemala",cl:422,p:5.3},
-          {k:"akt 200",cl:420,p:2.3},{k:"roperos",cl:406,p:3.1},
-          {k:"ropero",cl:392,p:3.0},{k:"closet",cl:376,p:7.7},
+  "GT": {
+    "nombre": "Guatemala",
+    "marcas": {
+      "ATO": {
+        "label": "Almacenes Tropigas",
+        "impresiones": {
+          "M25": 526712,
+          "M26": 21496380,
+          "growth_pct": 3981.24
+        },
+        "clics": {
+          "M25": 18881952,
+          "M26": 611218,
+          "growth_pct": -96.76
+        },
+        "visitas": {
+          "M25": 393349,
+          "M26": 727697,
+          "growth_pct": 85.0
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 41156.49,
+            "ordenes": 210,
+            "conversion_pct": 0.05,
+            "ticket_promedio": 195.98,
+            "add_to_cart_pct": 1.71,
+            "revenue_digital_total": 131481.07,
+            "revenue_total_ecommerce": 131481.07,
+            "participacion_digital_pct": 31.3,
+            "participacion_total_pct": 31.3
+          },
+          "M26": {
+            "revenue_seo": 142882.59,
+            "ordenes": 492,
+            "conversion_pct": 0.06,
+            "ticket_promedio": 290.41,
+            "add_to_cart_pct": 2.77,
+            "revenue_digital_total": 380065.2,
+            "revenue_total_ecommerce": 402535.74,
+            "participacion_digital_pct": 37.59,
+            "participacion_total_pct": 35.5
+          },
+          "growth_pct": 247.17
+        },
+        "trafico": {
+          "marca_pct": 17.55,
+          "no_marca_pct": 82.45
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 471000,
+            "total": 481500
+          },
+          "posicion_ponderada_M26": 6.6,
+          "core_web_vitals": {
+            "LCP": "2.5s",
+            "INP": "407ms",
+            "CLS": "0.23"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "redmi note 13 pro precio guatemala",
+            "clics": 946,
+            "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "suzuki gixxer 150 precio guatemala",
+            "clics": 785,
+            "posicion_promedio": 4.1
+          },
+          {
+            "keyword": "xbox series x guatemala",
+            "clics": 742,
+            "posicion_promedio": 6.8
+          },
+          {
+            "keyword": "muebles para tv",
+            "clics": 631,
+            "posicion_promedio": 3.4
+          },
+          {
+            "keyword": "akt 150",
+            "clics": 621,
+            "posicion_promedio": 2.0
+          },
+          {
+            "keyword": "tvs raider 125",
+            "clics": 604,
+            "posicion_promedio": 4.7
+          },
+          {
+            "keyword": "mueble para tv",
+            "clics": 584,
+            "posicion_promedio": 4.0
+          },
+          {
+            "keyword": "samsung a55 precio guatemala",
+            "clics": 563,
+            "posicion_promedio": 7.4
+          },
+          {
+            "keyword": "mini refrigerador guatemala",
+            "clics": 533,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "yamaha crux 110",
+            "clics": 492,
+            "posicion_promedio": 2.8
+          },
+          {
+            "keyword": "suzuki gixxer 150",
+            "clics": 470,
+            "posicion_promedio": 5.5
+          },
+          {
+            "keyword": "yamaha crux 110 precio guatemala",
+            "clics": 461,
+            "posicion_promedio": 3.0
+          },
+          {
+            "keyword": "pulsar ns 200",
+            "clics": 450,
+            "posicion_promedio": 5.8
+          },
+          {
+            "keyword": "cilindro de gas",
+            "clics": 443,
+            "posicion_promedio": 2.7
+          },
+          {
+            "keyword": "gixxer 150",
+            "clics": 427,
+            "posicion_promedio": 4.7
+          },
+          {
+            "keyword": "honor 90 precio guatemala",
+            "clics": 422,
+            "posicion_promedio": 5.3
+          },
+          {
+            "keyword": "akt 200",
+            "clics": 420,
+            "posicion_promedio": 2.3
+          },
+          {
+            "keyword": "roperos",
+            "clics": 406,
+            "posicion_promedio": 3.1
+          },
+          {
+            "keyword": "ropero",
+            "clics": 392,
+            "posicion_promedio": 3.0
+          },
+          {
+            "keyword": "closet",
+            "clics": 376,
+            "posicion_promedio": 7.7
+          }
         ],
-        categories:[
-          {n:"Motocicletas",r:188573.16},{n:"Celulares y Teléfonos",r:180852.14},
-          {n:"TV y Video",r:120124.44},{n:"Camas y Colchones",r:71495.19},
-          {n:"Dormitorio",r:71111.97},{n:"Refrigeración",r:50936.85},
-          {n:"Sala",r:48909.63},{n:"Computación",r:35042.44},
-          {n:"Lavadoras y secadoras",r:32021.25},{n:"Cocina",r:27232.41},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 5173.78
+          },
+          {
+            "categoria_1": "Automotriz",
+            "categoria_2": "Motocicletas",
+            "revenue": 2159.82
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Dormitorio",
+            "revenue": 2146.57
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 1138.59
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Refrigeración",
+            "revenue": 1092.33
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Camas y Colchones",
+            "revenue": 930.61
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 812.62
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Sala",
+            "revenue": 758.15
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Lavadoras y secadoras",
+            "revenue": 612.33
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Comedor",
+            "revenue": 512.96
+          }
         ],
-        products:[
-          {n:"iPhone 17 Pro Max 12GB + 256GB Deep Blue",r:21894.84},
-          {n:"Motocicleta Suzuki GN125F 2026 125 cc Rojo",r:19915.32},
-          {n:"Televisor TCL 50\" QLED FHD 50S5K",r:14858.99},
-          {n:"Ropero Quattro Panamá MDP Blanco y Marrón",r:14561.91},
-          {n:"Motocicleta Honda 109cc NAVI 2025",r:14109.15},
-          {n:"iPhone 17 Pro Max 12GB + 256GB Plateado",r:11678.97},
-          {n:"Televisor TCL 65\" QD-MiniLed 4K 65C6K",r:11645.28},
-          {n:"iPhone 17 Pro Max 12GB + 256GB Cosmic Orange",r:10010.55},
-          {n:"iPhone 17 Pro Max 12GB + 512GB Azul",r:8972.68},
-          {n:"Televisor Samsung 85\" LED 4K UHD",r:6817.25},
-        ],
-        monthly:[
-          {m:"Abr",i:1800,c:52},{m:"May",i:1850,c:54},{m:"Jun",i:1920,c:56},
-          {m:"Jul",i:2100,c:61},{m:"Ago",i:2200,c:64},{m:"Sep",i:2350,c:68},
-          {m:"Oct",i:2450,c:71},{m:"Nov",i:2600,c:75},{m:"Dic",i:2800,c:81},
-          {m:"Ene",i:1950,c:56},{m:"Feb",i:1880,c:54},{m:"Mar",i:2050,c:59},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Ropero Quattro Panamá MDP Blanco y Marrón",
+            "revenue": 727.11
+          },
+          {
+            "producto": "iPhone 17 Pro Max 12GB + 256GB Deep Blue",
+            "revenue": 652.97
+          },
+          {
+            "producto": "iPhone 17 Pro Max 12GB + 256GB Plateado",
+            "revenue": 652.79
+          },
+          {
+            "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Azul",
+            "revenue": 532.56
+          },
+          {
+            "producto": "Motocicleta Deportiva Bajaj 160.37cc Multicolor PULSAR160NSUG2025",
+            "revenue": 326.83
+          },
+          {
+            "producto": "Samsung Galaxy S25 Ultra 12GB + 256GB Titanium Black",
+            "revenue": 321.72
+          },
+          {
+            "producto": "Motocicleta Deportiva AKT 149.5CC Multicolor AK150CS3AZUL",
+            "revenue": 301.42
+          },
+          {
+            "producto": "Motocicleta deportiva AKT 149.5 cc Negro CS3 Black Edition 2026",
+            "revenue": 301.31
+          },
+          {
+            "producto": "Motocicleta BAJAJ PULSAR160NS 160 CC Multicolor",
+            "revenue": 273.05
+          },
+          {
+            "producto": "iPhone 17 Pro Max 12GB + 512GB Azul",
+            "revenue": 258.34
+          }
+        ]
       },
-      LCO:{
-        label:"La Curacao",color:"#ec4899",colorDim:"rgba(236,72,153,0.15)",
-        impressions:{M25:16650000,M26:33558257,growth:101.55},
-        clicks:{M25:322000,M26:917948,growth:185.07},
-        visits:{M25:535075,M26:1292976,growth:141.65},
-        ctr:2.73,
-        revenue:{M25:578091.43,M26:975670.49,growth:68.79,asistidaNote:true},
-        orders:{M25:1600,M26:2666,growth:66.63},
-        convRate:{M25:0.30,M26:0.75},
-        avgTicket:{M26:365.97},
-        partDigital:{M26:20.55},partTotal:{M26:20.55},
-        nonBrand:99.85,brandPct:0.15,
-        indexation:{noIndexed:6570000,total:6610000,indexed:40000},
-        weightedPos:{M26:1.8,M25:2.4},
-        cwv:{lcp:"2.8s",inp:"247ms",cls:"0.57"},
-        recognition:{award:true,text:"La Curacao GT tiene el mayor volumen de clics en la región (+185% vs M25)."},
-        suggestion:"📊 Posición ponderada 1.8 excelente. Priorizar reducción del CLS (0.57) y aprovechar el crecimiento de tráfico para mejorar tasa de conversión.",
-        keywords:[
-          {k:"aire acondicionado",cl:1466,p:4.8},{k:"sofa cama guatemala",cl:1382,p:7.0},
-          {k:"ps5 guatemala",cl:1187,p:7.6},{k:"starlink guatemala",cl:1045,p:6.0},
-          {k:"aire acondicionado guatemala",cl:941,p:3.3},{k:"closet",cl:897,p:4.4},
-          {k:"xiaomi 15 ultra precio guatemala",cl:859,p:5.2},{k:"motos guatemala",cl:807,p:7.1},
-          {k:"muebles guatemala",cl:767,p:4.6},{k:"nintendo switch 2 guatemala",cl:765,p:8.7},
-          {k:"sofa cama",cl:756,p:7.0},{k:"lavadoras guatemala",cl:715,p:4.9},
-          {k:"escritorios guatemala",cl:705,p:8.0},{k:"motos",cl:699,p:6.8},
-          {k:"refrigeradora",cl:694,p:7.0},{k:"s24 ultra",cl:691,p:7.4},
-          {k:"playstation 5 guatemala",cl:649,p:8.1},{k:"laptops guatemala",cl:640,p:8.7},
-          {k:"camas facenco",cl:639,p:4.7},{k:"comedores guatemala",cl:637,p:5.1},
+      "LCO": {
+        "label": "La Curacao",
+        "impresiones": {
+          "M25": 16650000,
+          "M26": 33558257,
+          "growth_pct": 101.55
+        },
+        "clics": {
+          "M25": 322000,
+          "M26": 917948,
+          "growth_pct": 185.08
+        },
+        "visitas": {
+          "M25": 535075,
+          "M26": 1292976,
+          "growth_pct": 141.64
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 578091.43,
+            "ordenes": 1600,
+            "conversion_pct": 0.3,
+            "ticket_promedio": 361.31,
+            "add_to_cart_pct": 3.53,
+            "revenue_digital_total": 4614200.03,
+            "revenue_total_ecommerce": 4614258.05,
+            "participacion_digital_pct": 12.53,
+            "participacion_total_pct": 12.53
+          },
+          "M26": {
+            "revenue_seo": 975670.49,
+            "ordenes": 2666,
+            "conversion_pct": 0.23,
+            "ticket_promedio": 365.97,
+            "add_to_cart_pct": 3.18,
+            "revenue_digital_total": 4746937.38,
+            "revenue_total_ecommerce": 5738461.05,
+            "participacion_digital_pct": 20.55,
+            "participacion_total_pct": 17.0
+          },
+          "growth_pct": 68.77
+        },
+        "trafico": {
+          "marca_pct": 15.0,
+          "no_marca_pct": 85.0
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 6570000,
+            "total": 6610000
+          },
+          "posicion_ponderada_M26": 3.1,
+          "core_web_vitals": {
+            "LCP": "2.8s",
+            "INP": "247ms",
+            "CLS": "0.57"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "aire acondicionado",
+            "clics": 1466,
+            "posicion_promedio": 4.8
+          },
+          {
+            "keyword": "sofa cama guatemala",
+            "clics": 1382,
+            "posicion_promedio": 7.0
+          },
+          {
+            "keyword": "ps5 guatemala",
+            "clics": 1187,
+            "posicion_promedio": 7.6
+          },
+          {
+            "keyword": "starlink guatemala",
+            "clics": 1045,
+            "posicion_promedio": 6.0
+          },
+          {
+            "keyword": "aire acondicionado guatemala",
+            "clics": 941,
+            "posicion_promedio": 3.3
+          },
+          {
+            "keyword": "closet",
+            "clics": 897,
+            "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "xiaomi 15 ultra precio guatemala",
+            "clics": 859,
+            "posicion_promedio": 5.2
+          },
+          {
+            "keyword": "motos guatemala",
+            "clics": 807,
+            "posicion_promedio": 7.1
+          },
+          {
+            "keyword": "muebles guatemala",
+            "clics": 767,
+            "posicion_promedio": 4.6
+          },
+          {
+            "keyword": "nintendo switch 2 guatemala",
+            "clics": 765,
+            "posicion_promedio": 8.7
+          },
+          {
+            "keyword": "sofa cama",
+            "clics": 756,
+            "posicion_promedio": 7.0
+          },
+          {
+            "keyword": "lavadoras guatemala",
+            "clics": 715,
+            "posicion_promedio": 4.9
+          },
+          {
+            "keyword": "escritorios guatemala",
+            "clics": 705,
+            "posicion_promedio": 8.0
+          },
+          {
+            "keyword": "motos",
+            "clics": 699,
+            "posicion_promedio": 6.8
+          },
+          {
+            "keyword": "refrigeradora",
+            "clics": 694,
+            "posicion_promedio": 7.0
+          },
+          {
+            "keyword": "s24 ultra",
+            "clics": 691,
+            "posicion_promedio": 7.4
+          },
+          {
+            "keyword": "playstation 5 guatemala",
+            "clics": 649,
+            "posicion_promedio": 8.1
+          },
+          {
+            "keyword": "laptops guatemala",
+            "clics": 640,
+            "posicion_promedio": 8.7
+          },
+          {
+            "keyword": "camas facenco",
+            "clics": 639,
+            "posicion_promedio": 4.7
+          },
+          {
+            "keyword": "comedores guatemala",
+            "clics": 637,
+            "posicion_promedio": 5.1
+          }
         ],
-        categories:[
-          {n:"Celulares y Teléfonos",r:254652.23},{n:"TV y Video",r:246467.34},
-          {n:"Camas y Colchones",r:233551.73},{n:"Refrigeración",r:224931.16},
-          {n:"Lavadoras y secadoras",r:191110.74},{n:"Sala",r:171056.92},
-          {n:"Cocina",r:102926.87},{n:"Climatización",r:118672.12},
-          {n:"Computación",r:106380.09},{n:"Dormitorio",r:132274.20},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Automotriz",
+            "categoria_2": "Motocicletas",
+            "revenue": 188573.16
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 180852.14
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 120124.44
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Camas y Colchones",
+            "revenue": 71495.19
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Dormitorio",
+            "revenue": 71111.97
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Refrigeración",
+            "revenue": 50936.85
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Sala",
+            "revenue": 48909.63
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 35042.44
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Lavadoras y secadoras",
+            "revenue": 32021.25
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Cocina",
+            "revenue": 27232.41
+          }
         ],
-        products:[
-          {n:"Ropero Commodity MDF/MDP Rústico Off White",r:24884.00},
-          {n:"iPhone 13 6GB + 128GB Midnight",r:23782.00},
-          {n:"Aire Acondicionado Samsung 12000 BTU",r:14876.62},
-          {n:"Lavadora Samsung Superior 19 kg",r:13955.25},
-          {n:"Sala 3-2-1 Diesa 3 piezas Ferrara",r:13801.00},
-          {n:"Lavadora LG Superior 18 kg",r:12169.13},
-          {n:"Refrigeradora LG 22 Pies 3 Puertas French Door",r:11014.00},
-          {n:"Set de Cama Base 3 en 1 Capri Queen",r:11381.46},
-          {n:"Pantalla TCL 50\" QLED FHD 50S5K",r:11060.00},
-          {n:"Refrigeradora LG French Door LM22SGPK",r:11014.00},
-        ],
-        monthly:[
-          {m:"Abr",i:2800,c:75},{m:"May",i:2900,c:78},{m:"Jun",i:3050,c:82},
-          {m:"Jul",i:3300,c:89},{m:"Ago",i:3450,c:93},{m:"Sep",i:3600,c:97},
-          {m:"Oct",i:3750,c:101},{m:"Nov",i:4200,c:113},{m:"Dic",i:4600,c:124},
-          {m:"Ene",i:3200,c:86},{m:"Feb",i:3050,c:82},{m:"Mar",i:3350,c:90},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "iPhone 17 Pro Max 12GB + 256GB Deep Blue",
+            "revenue": 21894.84
+          },
+          {
+            "producto": "Motocicleta Suzuki GN125F 2026 125 cc 2026 Rojo",
+            "revenue": 19915.32
+          },
+          {
+            "producto": "Televisor TCL 50\" QLED FHD 50S5K",
+            "revenue": 14858.99
+          },
+          {
+            "producto": "Ropero Quattro Panamá MDPBlanco y Marrón",
+            "revenue": 14561.91
+          },
+          {
+            "producto": "Motocicleta Honda 109cc Multicolor NAVI1102025",
+            "revenue": 14109.15
+          },
+          {
+            "producto": "Televisor TCL 55\" LED 4K UHD 55V6C",
+            "revenue": 12971.47
+          },
+          {
+            "producto": "iPhone 17 Pro Max 12GB + 256GB Plateado",
+            "revenue": 11678.97
+          },
+          {
+            "producto": "Televisor TCL 65\" QD-MiniLed 4K 65C6K",
+            "revenue": 11645.28
+          },
+          {
+            "producto": "iPhone 17 Pro Max 12GB + 256GB Cosmic Orange",
+            "revenue": 10010.55
+          },
+          {
+            "producto": "Motocicleta Deportiva Bajaj PULSAR200NSU 199.5 cc Multicolor",
+            "revenue": 8972.68
+          }
+        ]
       },
-      RSO:{
-        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
-        impressions:{M25:21570912,M26:19721978,growth:-8.57},
-        clicks:{M25:344468,M26:459995,growth:33.54},
-        visits:{M25:null,M26:null,growth:null},
-        ctr:2.33,
-        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
-        orders:{M25:null,M26:null,growth:null},
-        convRate:{M25:null,M26:null},
-        avgTicket:{M26:null},
-        partDigital:{M26:null},partTotal:{M26:null},
-        nonBrand:89.80,brandPct:10.20,
-        indexation:{noIndexed:3110000,total:3128700,indexed:18700},
-        weightedPos:{M26:4.6,M25:null},
-        cwv:{lcp:"2.8s",inp:"227ms",cls:"0.76"},
-        recognition:{award:false,text:"RadioShack GT creció +33.5% en clics orgánicos. Tráfico no-marca sólido al 89.8%."},
-        suggestion:"🎯 Con clics creciendo y buen tráfico no-marca, enfocarse en mejorar conversión. CLS 0.76 afecta experiencia móvil — requiere atención.",
-        keywords:[
-          {k:"nintendo switch 2 guatemala",cl:2911,p:6.7},{k:"steam deck guatemala",cl:1402,p:4.4},
-          {k:"switch 2 guatemala",cl:1106,p:6.2},{k:"xiaomi 15 ultra",cl:736,p:7.4},
-          {k:"consola nintendo switch 2 + mario kart world",cl:661,p:4.2},{k:"nintendo switch guatemala",cl:648,p:9.7},
-          {k:"ps5 guatemala",cl:607,p:11.0},{k:"sillas gamer",cl:578,p:5.6},
-          {k:"teatro en casa",cl:554,p:4.8},{k:"ps5",cl:549,p:8.6},
-          {k:"control ps5",cl:495,p:6.7},{k:"playstation 5 guatemala",cl:494,p:10.0},
-          {k:"lenovo tab m11",cl:471,p:5.1},{k:"nintendo switch oled",cl:470,p:7.2},
-          {k:"smartwatch",cl:462,p:9.1},{k:"baterias recargables",cl:455,p:5.8},
-          {k:"playstation 5",cl:418,p:9.8},{k:"nintendo switch oled guatemala",cl:401,p:8.9},
-          {k:"silla gamer",cl:397,p:4.7},{k:"rack para tv",cl:389,p:3.7},
+      "RSO": {
+        "label": "RadioShack",
+        "impresiones": {
+          "M25": 21570912,
+          "M26": 19721978,
+          "growth_pct": -8.57
+        },
+        "clics": {
+          "M25": 344468,
+          "M26": 459995,
+          "growth_pct": 33.54
+        },
+        "visitas": {
+          "M25": 287831,
+          "M26": 518809,
+          "growth_pct": 80.25
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 313214.9,
+            "ordenes": 1083,
+            "conversion_pct": 0.38,
+            "ticket_promedio": 289.21,
+            "add_to_cart_pct": 2.66,
+            "revenue_digital_total": 1504300.28,
+            "revenue_total_ecommerce": 1508225.97,
+            "participacion_digital_pct": 20.82,
+            "participacion_total_pct": 20.77
+          },
+          "M26": {
+            "revenue_seo": 369939.3,
+            "ordenes": 1368,
+            "conversion_pct": 0.22,
+            "ticket_promedio": 270.42,
+            "add_to_cart_pct": 3.37,
+            "revenue_digital_total": 1604927.05,
+            "revenue_total_ecommerce": 1808572.96,
+            "participacion_digital_pct": 23.05,
+            "participacion_total_pct": 20.45
+          },
+          "growth_pct": 18.11
+        },
+        "trafico": {
+          "marca_pct": 10.2,
+          "no_marca_pct": 89.8
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 3110000,
+            "total": 3128700
+          },
+          "posicion_ponderada_M26": 6.4,
+          "core_web_vitals": {
+            "LCP": "2.8s",
+            "INP": "227ms",
+            "CLS": "0.76"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "nintendo switch 2 guatemala",
+            "clics": 2911,
+            "posicion_promedio": 6.7
+          },
+          {
+            "keyword": "steam deck guatemala",
+            "clics": 1402,
+            "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "switch 2 guatemala",
+            "clics": 1106,
+            "posicion_promedio": 6.2
+          },
+          {
+            "keyword": "xiaomi 15 ultra",
+            "clics": 736,
+            "posicion_promedio": 7.4
+          },
+          {
+            "keyword": "consola nintendo switch 2 + mario kart world",
+            "clics": 661,
+            "posicion_promedio": 4.2
+          },
+          {
+            "keyword": "nintendo switch guatemala",
+            "clics": 648,
+            "posicion_promedio": 9.7
+          },
+          {
+            "keyword": "ps5 guatemala",
+            "clics": 607,
+            "posicion_promedio": 11.0
+          },
+          {
+            "keyword": "sillas gamer",
+            "clics": 578,
+            "posicion_promedio": 5.6
+          },
+          {
+            "keyword": "teatro en casa",
+            "clics": 554,
+            "posicion_promedio": 4.8
+          },
+          {
+            "keyword": "ps5",
+            "clics": 549,
+            "posicion_promedio": 8.6
+          },
+          {
+            "keyword": "control ps5",
+            "clics": 495,
+            "posicion_promedio": 6.7
+          },
+          {
+            "keyword": "playstation 5 guatemala",
+            "clics": 494,
+            "posicion_promedio": 10.0
+          },
+          {
+            "keyword": "lenovo tab m11",
+            "clics": 471,
+            "posicion_promedio": 5.1
+          },
+          {
+            "keyword": "nintendo switch oled",
+            "clics": 470,
+            "posicion_promedio": 7.2
+          },
+          {
+            "keyword": "smartwatch",
+            "clics": 462,
+            "posicion_promedio": 9.1
+          },
+          {
+            "keyword": "baterias recargables",
+            "clics": 455,
+            "posicion_promedio": 5.8
+          },
+          {
+            "keyword": "playstation 5",
+            "clics": 418,
+            "posicion_promedio": 9.8
+          },
+          {
+            "keyword": "nintendo switch oled guatemala",
+            "clics": 401,
+            "posicion_promedio": 8.9
+          },
+          {
+            "keyword": "silla gamer",
+            "clics": 397,
+            "posicion_promedio": 4.7
+          },
+          {
+            "keyword": "rack para tv",
+            "clics": 389,
+            "posicion_promedio": 3.7
+          }
         ],
-        categories:[
-          {n:"Gaming",r:125595.67},{n:"Celulares y Teléfonos",r:86752.57},
-          {n:"TV y Video",r:57072.05},{n:"Computación",r:40255.97},
-          {n:"Audio",r:32474.12},{n:"Infantil y Bebé / Juguetería",r:6207.07},
-          {n:"Gift Card",r:3786.92},{n:"Accesorios Gaming",r:744.16},
-          {n:"VOID",r:744.16},{n:"Otros",r:316.70},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Gaming",
+            "revenue": 125595.67
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 86752.57
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 57072.05
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 40255.97
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Audio",
+            "revenue": 32474.12
+          },
+          {
+            "categoria_1": "Infantil y Bebé",
+            "categoria_2": "Juguetería",
+            "revenue": 6207.07
+          },
+          {
+            "categoria_1": "Gift Card",
+            "categoria_2": "VOID",
+            "revenue": 3786.91
+          },
+          {
+            "categoria_1": "Mundo gamer",
+            "categoria_2": "Consolas y Videojuegos",
+            "revenue": 2334.41
+          },
+          {
+            "categoria_1": "Mundo gamer",
+            "categoria_2": "VOID",
+            "revenue": 744.16
+          },
+          {
+            "categoria_1": "Ferretería",
+            "categoria_2": "Iluminación y Electricidad",
+            "revenue": 316.7
+          }
         ],
-        products:[
-          {n:"Consola PS5 Fortnite Cobalt Star Bundle Disc",r:17179.24},
-          {n:"Consola PS5 Slim Bundle Ratchet & Clank",r:15614.54},
-          {n:"Consola PS5 Bundle con ASTRO BOT",r:13549.51},
-          {n:"Nintendo Switch 2 Ed. HK 256 GB Mario Kart World",r:12343.93},
-          {n:"Nintendo Switch OLED 64 GB Super Mario Bros",r:8381.48},
-          {n:"Consola PS5 Digital CFI2015B01X",r:10404.65},
-          {n:"Consola PS5 Bundle Digital ASTRO BOT",r:6838.27},
-          {n:"Samsung Galaxy S25 Ultra 12GB + 512GB Negro",r:6827.36},
-          {n:"Televisor TCL 65\" QD-MiniLed 4K 65C6K",r:7401.94},
-          {n:"Televisor Samsung 85\" LED 4K UHD",r:6817.25},
-        ],
-        monthly:[
-          {m:"Abr",i:1800,c:28},{m:"May",i:1850,c:30},{m:"Jun",i:1920,c:32},
-          {m:"Jul",i:2100,c:35},{m:"Ago",i:2200,c:37},{m:"Sep",i:2000,c:36},
-          {m:"Oct",i:1950,c:38},{m:"Nov",i:1900,c:37},{m:"Dic",i:1850,c:36},
-          {m:"Ene",i:1650,c:35},{m:"Feb",i:1700,c:37},{m:"Mar",i:1650,c:38},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Consola de videojuegos PlayStation 5 Fortnite Cobalt Star Bundle Disc Edition",
+            "revenue": 17179.24
+          },
+          {
+            "producto": "Consola PlayStation 5 Slim Bundle Ratchet & Clank: Rift Apart y Returnal",
+            "revenue": 15614.54
+          },
+          {
+            "producto": "Consola PlayStation 5 Bundle con ASTRO BOT y Gran Turismo 7 1000038893",
+            "revenue": 13549.51
+          },
+          {
+            "producto": "Nintendo Switch 2 Edición HK 256 GB Mario Kart World",
+            "revenue": 12343.93
+          },
+          {
+            "producto": "Consola PlayStation 5 Digital CFI2015B01X",
+            "revenue": 10404.65
+          },
+          {
+            "producto": "Nintendo Switch Edición OLED 64 GB HRGSKAASD Super Mario Bros™ Wonder",
+            "revenue": 8381.48
+          },
+          {
+            "producto": "Televisor TCL 65\" QD-MiniLed 4K 65C6K",
+            "revenue": 7401.94
+          },
+          {
+            "producto": "Consola PlayStation 5 Bundle Digital con ASTRO BOT y Gran Turismo 7 1000038898",
+            "revenue": 6838.27
+          },
+          {
+            "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Negro",
+            "revenue": 6827.36
+          },
+          {
+            "producto": "Televisor Samsung 85\" LED 4K UHD UN85U8000FPX",
+            "revenue": 6817.25
+          }
+        ]
       }
     }
   },
-  SV:{
-    name:"El Salvador",flag:"🇸🇻",
-    brands:{
-      ATO:{
-        label:"Almacenes Tropigas",color:"#8b5cf6",colorDim:"rgba(139,92,246,0.15)",
-        impressions:{M25:17831608,M26:16650259,growth:-6.63},
-        clicks:{M25:746708,M26:684500,growth:-8.33},
-        visits:{M25:null,M26:null,growth:null},
-        ctr:4.11,
-        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
-        orders:{M25:null,M26:null,growth:null},
-        convRate:{M25:null,M26:null},
-        avgTicket:{M26:null},
-        partDigital:{M26:null},partTotal:{M26:null},
-        nonBrand:45.05,brandPct:54.95,
-        indexation:{noIndexed:1950000,total:1958720,indexed:8720},
-        weightedPos:{M26:3.0,M25:null},
-        cwv:{lcp:"2.7s",inp:"579ms",cls:"0.26"},
-        recognition:{award:false,text:"ATO SV con tráfico estable. INP de 579ms es el más alto — oportunidad de mejora técnica urgente."},
-        suggestion:"⚡ INP 579ms es crítico y afecta directamente la experiencia de usuario en móvil. Priorizar optimización de interactividad para mejorar conversión.",
-        keywords:[
-          {k:"honor 400 pro",cl:903,p:5.4},{k:"iphone 13",cl:876,p:7.2},
-          {k:"iphone 13 pro max",cl:853,p:6.9},{k:"motos",cl:821,p:5.5},
-          {k:"honor 400",cl:763,p:5.8},{k:"iphone 14 pro max",cl:750,p:7.9},
-          {k:"iphone 15 pro max",cl:739,p:6.9},{k:"xbox series x el salvador",cl:676,p:5.8},
-          {k:"sofa cama",cl:666,p:4.8},{k:"aire acondicionado",cl:661,p:6.7},
-          {k:"freedom cr1 150 precio el salvador",cl:655,p:1.7},{k:"honor 400 lite",cl:652,p:7.2},
-          {k:"maquina de coser",cl:648,p:4.5},{k:"s24 ultra",cl:641,p:7.8},
-          {k:"ropero",cl:623,p:4.2},{k:"xbox series s el salvador",cl:621,p:5.4},
-          {k:"roperos",cl:525,p:3.3},{k:"iphone 15",cl:522,p:7.4},
-          {k:"iphone 11 precio el salvador",cl:515,p:5.7},{k:"samsung a15",cl:507,p:6.4},
-        ],
-        categories:[
-          {n:"Celulares y Teléfonos",r:8618.90},{n:"Refrigeración",r:8122.00},
-          {n:"Dormitorio",r:7696.00},{n:"Sala",r:5559.94},
-          {n:"TV y Video",r:5301.98},{n:"Cocina",r:5164.32},
-          {n:"Camas y Colchones",r:3524.00},{n:"Lavadoras y secadoras",r:3436.00},
-          {n:"Comedor",r:2424.97},{n:"Cocina / Comedor",r:2478.94},
-        ],
-        products:[
-          {n:"Ropero Commodity MDF/MDP Rústico Off White",r:1912.00},
-          {n:"Refrigeradora Mastertech 12 Pies 2 Puertas",r:1550.00},
-          {n:"Motocicleta AKT 200 cc Negro TT",r:1499.99},
-          {n:"Motocicleta deportiva Freedom 150 CC CR1-150",r:1469.99},
-          {n:"Refrigeradora Samsung 12 Pies 2 Puertas Top Mount",r:1461.00},
-          {n:"Samsung Galaxy S25 Ultra 12GB + 512GB Gris",r:1349.00},
-          {n:"Ropero Commodity MDP Gris RP2421IPGRIS",r:1246.00},
-          {n:"Celular Apple iPhone 13 128 GB Midnight",r:1064.00},
-          {n:"Cocina a Gas LP Mastertech 6 quemadores",r:1078.00},
-          {n:"Juego de comedor Commodity Nelson 6 sillas",r:894.00},
-        ],
-        monthly:[
-          {m:"Abr",i:1500,c:62},{m:"May",i:1520,c:63},{m:"Jun",i:1480,c:61},
-          {m:"Jul",i:1550,c:64},{m:"Ago",i:1600,c:66},{m:"Sep",i:1650,c:68},
-          {m:"Oct",i:1580,c:65},{m:"Nov",i:1600,c:66},{m:"Dic",i:1550,c:64},
-          {m:"Ene",i:1400,c:58},{m:"Feb",i:1430,c:59},{m:"Mar",i:1500,c:62},
-        ],
+  "HN": {
+    "nombre": "Honduras",
+    "marcas": {
+      "ATO": {
+        "label": "Almacenes Tropigas",
+        "impresiones": {
+          "M25": null,
+          "M26": null,
+          "growth_pct": null
+        },
+        "clics": {
+          "M25": null,
+          "M26": null,
+          "growth_pct": null
+        },
+        "visitas": {
+          "M25": 290047,
+          "M26": 324117,
+          "growth_pct": 11.75
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 0.0,
+            "ordenes": 0,
+            "conversion_pct": 0.0,
+            "ticket_promedio": 0.0,
+            "add_to_cart_pct": 0.0,
+            "revenue_digital_total": 0.0,
+            "revenue_total_ecommerce": 0.0,
+            "participacion_digital_pct": 0.0,
+            "participacion_total_pct": 0.0
+          },
+          "M26": {
+            "revenue_seo": 0.0,
+            "ordenes": 0,
+            "conversion_pct": 0.0,
+            "ticket_promedio": 0.0,
+            "add_to_cart_pct": 0.0,
+            "revenue_digital_total": 0.0,
+            "revenue_total_ecommerce": 0.0,
+            "participacion_digital_pct": 0.0,
+            "participacion_total_pct": 0.0
+          },
+          "growth_pct": null
+        },
+        "trafico": {
+          "marca_pct": null,
+          "no_marca_pct": null
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": null,
+            "total": null
+          },
+          "posicion_ponderada_M26": null,
+          "core_web_vitals": {
+            "LCP": null,
+            "INP": null,
+            "CLS": null
+          }
+        },
+        "top_20_keywords_no_marca": [],
+        "top_10_categorias_revenue": [],
+        "top_10_productos_revenue": []
       },
-      LCO:{
-        label:"La Curacao",color:"#ec4899",colorDim:"rgba(236,72,153,0.15)",
-        impressions:{M25:33105000,M26:51807967,growth:56.49},
-        clicks:{M25:905850,M26:1700505,growth:87.73},
-        visits:{M25:null,M26:null,growth:null},
-        ctr:3.28,
-        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
-        orders:{M25:null,M26:null,growth:null},
-        convRate:{M25:null,M26:null},
-        avgTicket:{M26:null},
-        partDigital:{M26:null},partTotal:{M26:null},
-        nonBrand:72.35,brandPct:27.65,
-        indexation:{noIndexed:6570000,total:6610000,indexed:40000},
-        weightedPos:{M26:3.0,M25:null},
-        cwv:{lcp:"2.7s",inp:"228ms",cls:"0.89"},
-        recognition:{award:true,text:"La Curacao SV con +87.7% de clics orgánicos. Fuerte crecimiento en visibilidad regional."},
-        suggestion:"🌟 Gran crecimiento en clics e impresiones. CLS 0.89 es el más alto del portafolio — urgente revisar estabilidad de elementos visuales en móvil.",
-        keywords:[
-          {k:"aire acondicionado",cl:3524,p:3.8},{k:"starlink el salvador",cl:3523,p:4.4},
-          {k:"samsung galaxy fit3",cl:2903,p:1.3},{k:"aire acondicionado portatil",cl:2706,p:5.9},
-          {k:"laptops el salvador",cl:2604,p:3.8},{k:"motos el salvador",cl:2458,p:3.4},
-          {k:"samsung",cl:2344,p:4.8},{k:"iphone 13",cl:2111,p:6.2},
-          {k:"smartwatch",cl:2078,p:3.1},{k:"ps5 el salvador",cl:1785,p:6.6},
-          {k:"honor magic 7 lite",cl:1563,p:5.5},{k:"sofa cama el salvador",cl:1553,p:2.5},
-          {k:"microondas",cl:1546,p:3.7},{k:"iphone el salvador",cl:1521,p:6.0},
-          {k:"microondas el salvador",cl:1477,p:1.7},{k:"motos",cl:1463,p:3.2},
-          {k:"refrigeradora",cl:1421,p:5.5},{k:"freidora de aire",cl:1378,p:4.5},
-          {k:"iphone 14 pro max",cl:1359,p:6.5},{k:"iphone 17 pro max",cl:1357,p:4.8},
+      "LCO": {
+        "label": "La Curacao",
+        "impresiones": {
+          "M25": 21570912,
+          "M26": 21804775,
+          "growth_pct": 1.08
+        },
+        "clics": {
+          "M25": 522516,
+          "M26": 604379,
+          "growth_pct": 15.67
+        },
+        "visitas": {
+          "M25": 363384,
+          "M26": 736206,
+          "growth_pct": 102.6
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 565097.47,
+            "ordenes": 1729,
+            "conversion_pct": 0.48,
+            "ticket_promedio": 326.83,
+            "add_to_cart_pct": 4.63,
+            "revenue_digital_total": 3919582.11,
+            "revenue_total_ecommerce": 3919582.11,
+            "participacion_digital_pct": 14.42,
+            "participacion_total_pct": 14.42
+          },
+          "M26": {
+            "revenue_seo": 1350501.95,
+            "ordenes": 3129,
+            "conversion_pct": 0.32,
+            "ticket_promedio": 431.61,
+            "add_to_cart_pct": 3.79,
+            "revenue_digital_total": 4927469.62,
+            "revenue_total_ecommerce": 5742114.3,
+            "participacion_digital_pct": 27.41,
+            "participacion_total_pct": 23.52
+          },
+          "growth_pct": 138.99
+        },
+        "trafico": {
+          "marca_pct": 16.54,
+          "no_marca_pct": 83.46
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 6570000,
+            "total": 6610000
+          },
+          "posicion_ponderada_M26": 4.3,
+          "core_web_vitals": {
+            "LCP": "3s",
+            "INP": "184ms",
+            "CLS": "0.89"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "iphone 17 pro max",
+            "clics": 1631,
+            "posicion_promedio": 3.4
+          },
+          {
+            "keyword": "molineros comercial",
+            "clics": 1518,
+            "posicion_promedio": 8.6
+          },
+          {
+            "keyword": "starlink honduras",
+            "clics": 861,
+            "posicion_promedio": 5.9
+          },
+          {
+            "keyword": "iphone 17 pro max precio honduras",
+            "clics": 743,
+            "posicion_promedio": 6.2
+          },
+          {
+            "keyword": "nkd 150 precio honduras",
+            "clics": 522,
+            "posicion_promedio": 1.8
+          },
+          {
+            "keyword": "aire acondicionado",
+            "clics": 516,
+            "posicion_promedio": 5.9
+          },
+          {
+            "keyword": "akt 200",
+            "clics": 483,
+            "posicion_promedio": 2.2
+          },
+          {
+            "keyword": "iphone 17 pro max honduras",
+            "clics": 412,
+            "posicion_promedio": 3.6
+          },
+          {
+            "keyword": "closet",
+            "clics": 393,
+            "posicion_promedio": 2.8
+          },
+          {
+            "keyword": "google pixel honduras",
+            "clics": 393,
+            "posicion_promedio": 3.6
+          },
+          {
+            "keyword": "xbox series x honduras",
+            "clics": 378,
+            "posicion_promedio": 4.5
+          },
+          {
+            "keyword": "motos honduras",
+            "clics": 364,
+            "posicion_promedio": 7.9
+          },
+          {
+            "keyword": "nintendo switch 2 precio honduras",
+            "clics": 345,
+            "posicion_promedio": 3.6
+          },
+          {
+            "keyword": "maquina de coser",
+            "clics": 328,
+            "posicion_promedio": 5.2
+          },
+          {
+            "keyword": "google pixel 7 pro precio honduras",
+            "clics": 318,
+            "posicion_promedio": 2.3
+          },
+          {
+            "keyword": "aire acondicionado portatil",
+            "clics": 317,
+            "posicion_promedio": 8.2
+          },
+          {
+            "keyword": "xbox series x precio honduras",
+            "clics": 302,
+            "posicion_promedio": 5.0
+          },
+          {
+            "keyword": "motos",
+            "clics": 296,
+            "posicion_promedio": 6.2
+          },
+          {
+            "keyword": "lavadora whirlpool",
+            "clics": 280,
+            "posicion_promedio": 3.6
+          },
+          {
+            "keyword": "s24 ultra",
+            "clics": 273,
+            "posicion_promedio": 7.8
+          }
         ],
-        categories:[
-          {n:"Celulares y Teléfonos",r:179874.87},{n:"Computación",r:62141.98},
-          {n:"Audio",r:54164.37},{n:"Gaming",r:44562.32},
-          {n:"TV y Video",r:25789.75},{n:"Celulares",r:1515.00},
-          {n:"Computación (acc)",r:1099.00},{n:"Personal Audio",r:628.94},
-          {n:"Powerbanks y Cargadores",r:172.94},{n:"Accesorios de computación",r:163.91},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 261930.04
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Camas y Colchones",
+            "revenue": 169945.09
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Dormitorio",
+            "revenue": 146501.57
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Sala",
+            "revenue": 121784.81
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Lavadoras y secadoras",
+            "revenue": 108227.01
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Refrigeración",
+            "revenue": 107787.3
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Cocina",
+            "revenue": 70161.29
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 64411.24
+          },
+          {
+            "categoria_1": "Automotriz",
+            "categoria_2": "Motocicletas",
+            "revenue": 60566.81
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Comedor",
+            "revenue": 58657.55
+          }
         ],
-        products:[
-          {n:"iPhone 13 6GB + 128GB Midnight",r:17246.00},
-          {n:"Parlante JBL 40 Hz Bluetooth Negro PartyBox Club 120",r:5956.00},
-          {n:"Nintendo Switch Edición OLED Super Mario Bros",r:5896.99},
-          {n:"Consola PS5 Slim Bundle Ratchet & Clank",r:5832.00},
-          {n:"Parlante JBL 40 Hz Bluetooth PartyBox Stage 320",r:4942.00},
-          {n:"iPhone 14 6GB + 128GB Midnight",r:4364.00},
-          {n:"Samsung Galaxy S25 Ultra 12GB + 256GB Azul",r:4057.00},
-          {n:"HONOR Magic7 Lite 8GB + 256GB Negro",r:4157.00},
-          {n:"Consola Nintendo Switch Mario Kart 8 Delux",r:4259.95},
-          {n:"Samsung Galaxy S25 Ultra 12GB + 256GB Negro",r:3849.00},
-        ],
-        monthly:[
-          {m:"Abr",i:2800,c:75},{m:"May",i:2900,c:80},{m:"Jun",i:3100,c:86},
-          {m:"Jul",i:3500,c:97},{m:"Ago",i:3800,c:105},{m:"Sep",i:4100,c:113},
-          {m:"Oct",i:4500,c:124},{m:"Nov",i:4800,c:133},{m:"Dic",i:5200,c:143},
-          {m:"Ene",i:3800,c:105},{m:"Feb",i:3600,c:99},{m:"Mar",i:4000,c:110},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Motocicleta Zmoto 62.0X49.5 mm Multicolor SX2 2025",
+            "revenue": 34609.74
+          },
+          {
+            "producto": "Ropero Quattro Panamá MDP Blanco y Marrón",
+            "revenue": 33450.16
+          },
+          {
+            "producto": "Televisor TCL 55\" LED 4K UHD 55V6C",
+            "revenue": 29452.09
+          },
+          {
+            "producto": "Televisor TCL 50\" QLED FHD 50S5K",
+            "revenue": 27338.37
+          },
+          {
+            "producto": "Televisor TCL 65\" QD-MiniLed 4K 65C6K",
+            "revenue": 21384.61
+          },
+          {
+            "producto": "Ropero Moval Moveis MDP Gris Panama",
+            "revenue": 18652.5
+          },
+          {
+            "producto": "Sala 321 Encina 3 piezas Finlandia",
+            "revenue": 18073.26
+          },
+          {
+            "producto": "Ropero Commodity MDP Beige RP2423NATCR",
+            "revenue": 17521.25
+          },
+          {
+            "producto": "Televisor TCL 98\" QLED 4K UHD 98P8K",
+            "revenue": 15658.97
+          },
+          {
+            "producto": "Cama Olympia King Desparadplusk",
+            "revenue": 12857.44
+          }
+        ]
       },
-      RSO:{
-        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
-        impressions:{M25:29440676,M26:26555183,growth:-9.80},
-        clicks:{M25:825080,M26:844151,growth:2.31},
-        visits:{M25:null,M26:null,growth:null},
-        ctr:3.18,
-        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
-        orders:{M25:null,M26:null,growth:null},
-        convRate:{M25:null,M26:null},
-        avgTicket:{M26:null},
-        partDigital:{M26:null},partTotal:{M26:null},
-        nonBrand:84.09,brandPct:15.91,
-        indexation:{noIndexed:3110000,total:3128700,indexed:18700},
-        weightedPos:{M26:5.0,M25:null},
-        cwv:{lcp:"3.1s",inp:"219ms",cls:"0.58"},
-        recognition:{award:false,text:"RadioShack SV mantiene clics estables (+2.3%) con fuerte tráfico no-marca al 84%."},
-        suggestion:"🔑 Con 84% de tráfico no-marca, RadioShack SV tiene alta visibilidad genérica. El reto es convertir ese tráfico en ventas — revisar páginas de destino y UX.",
-        keywords:[
-          {k:"nintendo switch 2 el salvador",cl:2844,p:4.9},{k:"ps5 el salvador",cl:1895,p:5.6},
-          {k:"iphone 13",cl:1443,p:7.2},{k:"iphone 15 pro max",cl:1430,p:6.9},
-          {k:"ps5",cl:1424,p:5.3},{k:"switch 2 el salvador",cl:1357,p:4.8},
-          {k:"xbox series x el salvador",cl:1346,p:5.6},{k:"nintendo switch el salvador",cl:1322,p:6.8},
-          {k:"audifonos inalambricos",cl:1173,p:11.6},{k:"playstation 5",cl:1076,p:8.0},
-          {k:"iphone 15",cl:1074,p:5.4},{k:"audifonos bluetooth",cl:1050,p:3.8},
-          {k:"tablets el salvador",cl:1026,p:3.5},{k:"honor 400 pro",cl:1000,p:6.3},
-          {k:"chromecast el salvador",cl:947,p:3.3},{k:"xbox series x",cl:918,p:6.7},
-          {k:"iphone 14",cl:893,p:5.7},{k:"jbl charge 5",cl:888,p:5.7},
-          {k:"jbl flip 6",cl:865,p:6.2},{k:"s24 ultra",cl:871,p:8.6},
+      "RSO": {
+        "label": "RadioShack",
+        "impresiones": {
+          "M25": 11880800,
+          "M26": 12403440,
+          "growth_pct": 4.4
+        },
+        "clics": {
+          "M25": 278648,
+          "M26": 304339,
+          "growth_pct": 9.22
+        },
+        "visitas": {
+          "M25": 181378,
+          "M26": 290362,
+          "growth_pct": 60.09
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 69142.01,
+            "ordenes": 376,
+            "conversion_pct": 0.21,
+            "ticket_promedio": 183.89,
+            "add_to_cart_pct": 2.7,
+            "revenue_digital_total": 482387.11,
+            "revenue_total_ecommerce": 482387.12,
+            "participacion_digital_pct": 14.33,
+            "participacion_total_pct": 0.0
+          },
+          "M26": {
+            "revenue_seo": 239761.34,
+            "ordenes": 713,
+            "conversion_pct": 0.28,
+            "ticket_promedio": 336.27,
+            "add_to_cart_pct": 3.08,
+            "revenue_digital_total": 992535.75,
+            "revenue_total_ecommerce": 1245517.81,
+            "participacion_digital_pct": 24.16,
+            "participacion_total_pct": 0.0
+          },
+          "growth_pct": 246.77
+        },
+        "trafico": {
+          "marca_pct": 9.83,
+          "no_marca_pct": 90.17
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 3110000,
+            "total": 3128700
+          },
+          "posicion_ponderada_M26": 4.3,
+          "core_web_vitals": {
+            "LCP": "3.1s",
+            "INP": "199ms",
+            "CLS": "0.75"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "audifonos inalambricos",
+            "clics": 856,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "nintendo switch 2",
+            "clics": 526,
+            "posicion_promedio": 6.9
+          },
+          {
+            "keyword": "starlink honduras",
+            "clics": 498,
+            "posicion_promedio": 7.6
+          },
+          {
+            "keyword": "laptop gamer honduras",
+            "clics": 428,
+            "posicion_promedio": 2.8
+          },
+          {
+            "keyword": "control remoto universal",
+            "clics": 393,
+            "posicion_promedio": 6.3
+          },
+          {
+            "keyword": "nintendo switch 2 honduras",
+            "clics": 388,
+            "posicion_promedio": 5.2
+          },
+          {
+            "keyword": "iphone 11",
+            "clics": 365,
+            "posicion_promedio": 3.0
+          },
+          {
+            "keyword": "google pixel honduras",
+            "clics": 358,
+            "posicion_promedio": 2.6
+          },
+          {
+            "keyword": "honor x7b",
+            "clics": 338,
+            "posicion_promedio": 6.8
+          },
+          {
+            "keyword": "laptop gamer",
+            "clics": 335,
+            "posicion_promedio": 2.3
+          },
+          {
+            "keyword": "google pixel 6 pro precio honduras",
+            "clics": 316,
+            "posicion_promedio": 2.0
+          },
+          {
+            "keyword": "auriculares inalambricos",
+            "clics": 312,
+            "posicion_promedio": 3.4
+          },
+          {
+            "keyword": "computadora de escritorio",
+            "clics": 290,
+            "posicion_promedio": 7.2
+          },
+          {
+            "keyword": "steam deck honduras",
+            "clics": 289,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "iphone 17 pro max",
+            "clics": 269,
+            "posicion_promedio": 5.7
+          },
+          {
+            "keyword": "repetidor wifi",
+            "clics": 262,
+            "posicion_promedio": 7.3
+          },
+          {
+            "keyword": "honor 200 pro",
+            "clics": 257,
+            "posicion_promedio": 6.8
+          },
+          {
+            "keyword": "honor x7",
+            "clics": 252,
+            "posicion_promedio": 7.3
+          },
+          {
+            "keyword": "tablet",
+            "clics": 252,
+            "posicion_promedio": 4.1
+          },
+          {
+            "keyword": "baterias recargables",
+            "clics": 248,
+            "posicion_promedio": 4.5
+          }
         ],
-        categories:[
-          {n:"Celulares y Teléfonos",r:null},{n:"Gaming",r:null},
-          {n:"Audio",r:null},{n:"Computación",r:null},
-          {n:"TV y Video",r:null},{n:"Otros",r:null},
-          {n:"Accesorios",r:null},{n:"Tablets",r:null},
-          {n:"Wearables",r:null},{n:"Periféricos",r:null},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 92484.33
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 57376.06
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 30975.5
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Audio",
+            "revenue": 27853.3
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Gaming",
+            "revenue": 17345.62
+          },
+          {
+            "categoria_1": "Computación",
+            "categoria_2": "Computación",
+            "revenue": 1041.22
+          },
+          {
+            "categoria_1": "Audio",
+            "categoria_2": "Personal Audio",
+            "revenue": 353.34
+          },
+          {
+            "categoria_1": "Video",
+            "categoria_2": "TV y Video",
+            "revenue": 336.31
+          },
+          {
+            "categoria_1": "Computación",
+            "categoria_2": "Accesorios de computación",
+            "revenue": 132.25
+          },
+          {
+            "categoria_1": "Audio",
+            "categoria_2": "Audio",
+            "revenue": 59.96
+          }
         ],
-        products:[
-          {n:"Nintendo Switch 2 El Salvador",r:null},{n:"PS5 Digital Edition",r:null},
-          {n:"iPhone 15 Pro Max",r:null},{n:"Xbox Series X",r:null},
-          {n:"JBL PartyBox Stage 320",r:null},{n:"Laptop HP Omen",r:null},
-          {n:"Samsung Galaxy S25 Ultra",r:null},{n:"AirPods Pro",r:null},
-          {n:"Tablet Samsung Galaxy Tab",r:null},{n:"Apple Watch Series 9",r:null},
-        ],
-        noRevenueData:true,
-        monthly:[
-          {m:"Abr",i:2450,c:68},{m:"May",i:2500,c:70},{m:"Jun",i:2480,c:69},
-          {m:"Jul",i:2600,c:72},{m:"Ago",i:2650,c:74},{m:"Sep",i:2600,c:72},
-          {m:"Oct",i:2550,c:71},{m:"Nov",i:2480,c:69},{m:"Dic",i:2420,c:67},
-          {m:"Ene",i:2200,c:61},{m:"Feb",i:2250,c:62},{m:"Mar",i:2300,c:64},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Televisor TCL 50S5K 50\" QLED FHD Google TV",
+            "revenue": 16265.51
+          },
+          {
+            "producto": "Televisor LG WebOs 24 LCD 65\" 4K UHD 65UT8000PSB",
+            "revenue": 14275.63
+          },
+          {
+            "producto": "Televisor de 86'' LG 86UR8750PSA 4K UHD",
+            "revenue": 12014.03
+          },
+          {
+            "producto": "Impresora multifuncional Epson L3250 Inkjet Wi-Fi Negro",
+            "revenue": 9848.44
+          },
+          {
+            "producto": "Televisor TCL Google TV LED 55\" 4K UHD 55V6C",
+            "revenue": 6191.42
+          },
+          {
+            "producto": "Tablet Samsung  Galaxy Tab A9+ 64 GB 4 GB 11\" Camara 8 MP Gris",
+            "revenue": 5879.85
+          },
+          {
+            "producto": "Parlante de torre RadioShack 4001944 450 W Bluetooth Negro",
+            "revenue": 5624.48
+          },
+          {
+            "producto": "Televisor TCL Google TV UHD 55\" 4K UHD 55P635I",
+            "revenue": 5541.1
+          },
+          {
+            "producto": "Consola PlayStation 5 Slim Bundle Ratchet & Clank: Rift Apart y Returnal",
+            "revenue": 5366.19
+          },
+          {
+            "producto": "Tablet Vortex 4GB 64GB 10.1\" Negro 2ADLJCMG101",
+            "revenue": 5330.43
+          }
+        ]
       }
     }
   },
-  HN:{
-    name:"Honduras",flag:"🇭🇳",
-    brands:{
-      LCO:{
-        label:"La Curacao",color:"#ec4899",colorDim:"rgba(236,72,153,0.15)",
-        impressions:{M25:21570912,M26:21804775,growth:1.08},
-        clicks:{M25:522516,M26:604379,growth:15.67},
-        visits:{M25:null,M26:null,growth:null},
-        ctr:2.77,
-        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
-        orders:{M25:null,M26:null,growth:null},
-        convRate:{M25:null,M26:null},
-        avgTicket:{M26:null},
-        partDigital:{M26:null},partTotal:{M26:null},
-        nonBrand:83.46,brandPct:16.54,
-        indexation:{noIndexed:6570000,total:6610000,indexed:40000},
-        weightedPos:{M26:3.0,M25:null},
-        cwv:{lcp:"3.0s",inp:"184ms",cls:"0.89"},
-        recognition:{award:false,text:"La Curacao HN con crecimiento estable en clics (+15.7%). CLS crítico requiere atención."},
-        suggestion:"🔧 CLS 0.89 es el más alto junto con LCO SV — urgente estabilizar elementos visuales. INP 184ms es el mejor del portafolio, mantenerlo.",
-        keywords:[
-          {k:"iphone 17 pro max",cl:1631,p:3.4},{k:"molineros comercial",cl:1518,p:8.6},
-          {k:"starlink honduras",cl:861,p:5.9},{k:"iphone 17 pro max precio honduras",cl:743,p:6.2},
-          {k:"nkd 150 precio honduras",cl:522,p:1.8},{k:"aire acondicionado",cl:516,p:5.9},
-          {k:"akt 200",cl:483,p:2.2},{k:"iphone 17 pro max honduras",cl:412,p:3.6},
-          {k:"closet",cl:393,p:2.8},{k:"google pixel honduras",cl:393,p:3.6},
-          {k:"xbox series x honduras",cl:378,p:4.5},{k:"motos honduras",cl:364,p:7.9},
-          {k:"nintendo switch 2 precio honduras",cl:345,p:3.6},{k:"maquina de coser",cl:328,p:5.2},
-          {k:"google pixel 7 pro precio honduras",cl:318,p:2.3},{k:"aire acondicionado portatil",cl:317,p:8.2},
-          {k:"xbox series x precio honduras",cl:302,p:5.0},{k:"motos",cl:296,p:6.2},
-          {k:"lavadora whirlpool",cl:280,p:3.6},{k:"s24 ultra",cl:273,p:7.8},
-        ],
-        categories:[
-          {n:"TV y Video",r:261930.04},{n:"Camas y Colchones",r:169945.09},
-          {n:"Dormitorio",r:146501.57},{n:"Sala",r:121784.81},
-          {n:"Lavadoras y secadoras",r:108227.01},{n:"Refrigeración",r:107787.30},
-          {n:"Cocina",r:70161.29},{n:"Celulares y Teléfonos",r:64411.24},
-          {n:"Motocicletas",r:60566.81},{n:"Comedor",r:58657.55},
-        ],
-        products:[
-          {n:"Motocicleta Zmoto SX2 2025",r:34609.74},
-          {n:"Ropero Quattro Panamá MDP Blanco y Marrón",r:33450.16},
-          {n:"Televisor TCL 55\" LED 4K UHD 55V6C",r:29452.09},
-          {n:"Televisor TCL 50\" QLED FHD 50S5K",r:27338.37},
-          {n:"Televisor TCL 65\" QD-MiniLed 4K 65C6K",r:21384.61},
-          {n:"Sala 321 Encina 3 piezas Finlandia",r:18073.26},
-          {n:"Ropero Commodity MDP Beige RP2423NATCR",r:17521.25},
-          {n:"Ropero Moval Moveis MDP Gris Panama",r:18652.50},
-          {n:"Televisor TCL 98\" QLED 4K UHD 98P8K",r:15658.97},
-          {n:"Televisor LG WebOs 24 LCD 65\" 4K UHD",r:14275.63},
-        ],
-        monthly:[
-          {m:"Abr",i:1800,c:43},{m:"May",i:1820,c:44},{m:"Jun",i:1850,c:45},
-          {m:"Jul",i:1900,c:46},{m:"Ago",i:1920,c:47},{m:"Sep",i:1900,c:46},
-          {m:"Oct",i:1850,c:45},{m:"Nov",i:1850,c:45},{m:"Dic",i:1820,c:44},
-          {m:"Ene",i:1780,c:43},{m:"Feb",i:1790,c:43},{m:"Mar",i:1820,c:44},
-        ],
+  "NC": {
+    "nombre": "Nicaragua",
+    "marcas": {
+      "ATO": {
+        "label": "Almacenes Tropigas",
+        "impresiones": {
+          "M25": null,
+          "M26": null,
+          "growth_pct": null
+        },
+        "clics": {
+          "M25": null,
+          "M26": null,
+          "growth_pct": null
+        },
+        "visitas": {
+          "M25": 259126,
+          "M26": 383298,
+          "growth_pct": 47.92
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 0.0,
+            "ordenes": 0,
+            "conversion_pct": 0.0,
+            "ticket_promedio": 0.0,
+            "add_to_cart_pct": 0.01,
+            "revenue_digital_total": 0.0,
+            "revenue_total_ecommerce": 0.0,
+            "participacion_digital_pct": 0.0,
+            "participacion_total_pct": 0.0
+          },
+          "M26": {
+            "revenue_seo": 0.0,
+            "ordenes": 0,
+            "conversion_pct": 0.0,
+            "ticket_promedio": 0.0,
+            "add_to_cart_pct": 0.01,
+            "revenue_digital_total": 0.0,
+            "revenue_total_ecommerce": 0.0,
+            "participacion_digital_pct": 0.0,
+            "participacion_total_pct": 0.0
+          },
+          "growth_pct": null
+        },
+        "trafico": {
+          "marca_pct": null,
+          "no_marca_pct": null
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": null,
+            "total": null
+          },
+          "posicion_ponderada_M26": null,
+          "core_web_vitals": {
+            "LCP": null,
+            "INP": null,
+            "CLS": null
+          }
+        },
+        "top_20_keywords_no_marca": [],
+        "top_10_categorias_revenue": [],
+        "top_10_productos_revenue": []
       },
-      RSO:{
-        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
-        impressions:{M25:11880800,M26:12403440,growth:4.40},
-        clicks:{M25:278648,M26:304339,growth:9.22},
-        visits:{M25:null,M26:null,growth:null},
-        ctr:2.45,
-        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
-        orders:{M25:null,M26:null,growth:null},
-        convRate:{M25:null,M26:null},
-        avgTicket:{M26:null},
-        partDigital:{M26:null},partTotal:{M26:null},
-        nonBrand:90.17,brandPct:9.83,
-        indexation:{noIndexed:3110000,total:3128700,indexed:18700},
-        weightedPos:{M26:4.0,M25:null},
-        cwv:{lcp:"3.1s",inp:"199ms",cls:"0.75"},
-        recognition:{award:false,text:"RadioShack HN con crecimiento orgánico estable (+9.2% clics). Alto tráfico no-marca."},
-        suggestion:"📱 El 90% de tráfico no-marca indica gran visibilidad genérica. Invertir en páginas de producto optimizadas para gaming y electrónica para capitalizar ese tráfico.",
-        keywords:[
-          {k:"audifonos inalambricos",cl:856,p:3.8},{k:"nintendo switch 2",cl:526,p:6.9},
-          {k:"starlink honduras",cl:498,p:7.6},{k:"laptop gamer honduras",cl:428,p:2.8},
-          {k:"control remoto universal",cl:393,p:6.3},{k:"nintendo switch 2 honduras",cl:388,p:5.2},
-          {k:"iphone 11",cl:365,p:3.0},{k:"google pixel honduras",cl:358,p:2.6},
-          {k:"honor x7b",cl:338,p:6.8},{k:"laptop gamer",cl:335,p:2.3},
-          {k:"google pixel 6 pro precio honduras",cl:316,p:2.0},{k:"auriculares inalambricos",cl:312,p:3.4},
-          {k:"computadora de escritorio",cl:290,p:7.2},{k:"steam deck honduras",cl:289,p:3.8},
-          {k:"iphone 17 pro max",cl:269,p:5.7},{k:"repetidor wifi",cl:262,p:7.3},
-          {k:"honor 200 pro",cl:257,p:6.8},{k:"honor x7",cl:252,p:7.3},
-          {k:"tablet",cl:252,p:4.1},{k:"baterias recargables",cl:248,p:4.5},
+      "LCO": {
+        "label": "La Curacao",
+        "impresiones": {
+          "M25": 14772556,
+          "M26": 15619954,
+          "growth_pct": 5.74
+        },
+        "clics": {
+          "M25": 442240,
+          "M26": 456907,
+          "growth_pct": 3.32
+        },
+        "visitas": {
+          "M25": 331334,
+          "M26": 653968,
+          "growth_pct": 97.37
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 751404.53,
+            "ordenes": 1790,
+            "conversion_pct": 0.54,
+            "ticket_promedio": 419.78,
+            "add_to_cart_pct": 5.93,
+            "revenue_digital_total": 4523850.48,
+            "revenue_total_ecommerce": 4547897.4,
+            "participacion_digital_pct": 16.61,
+            "participacion_total_pct": 16.52
+          },
+          "M26": {
+            "revenue_seo": 489066.77,
+            "ordenes": 1397,
+            "conversion_pct": 0.39,
+            "ticket_promedio": 350.08,
+            "add_to_cart_pct": 5.66,
+            "revenue_digital_total": 3012927.19,
+            "revenue_total_ecommerce": 5618749.83,
+            "participacion_digital_pct": 16.23,
+            "participacion_total_pct": 8.7
+          },
+          "growth_pct": -34.91
+        },
+        "trafico": {
+          "marca_pct": 20.05,
+          "no_marca_pct": 79.95
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 6570000,
+            "total": 6610000
+          },
+          "posicion_ponderada_M26": 4.0,
+          "core_web_vitals": {
+            "LCP": "3.1s",
+            "INP": "190ms",
+            "CLS": "0.89"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "starlink nicaragua",
+            "clics": 1030,
+            "posicion_promedio": 3.5
+          },
+          {
+            "keyword": "akt 150",
+            "clics": 1007,
+            "posicion_promedio": 1.8
+          },
+          {
+            "keyword": "akt 200 precio nicaragua",
+            "clics": 735,
+            "posicion_promedio": 2.5
+          },
+          {
+            "keyword": "akt 200",
+            "clics": 722,
+            "posicion_promedio": 1.4
+          },
+          {
+            "keyword": "akt 150 precio nicaragua",
+            "clics": 662,
+            "posicion_promedio": 3.0
+          },
+          {
+            "keyword": "aire acondicionado",
+            "clics": 598,
+            "posicion_promedio": 3.6
+          },
+          {
+            "keyword": "akt cs3 150 precio nicaragua",
+            "clics": 478,
+            "posicion_promedio": 3.3
+          },
+          {
+            "keyword": "akt ttr 200 precio nicaragua",
+            "clics": 413,
+            "posicion_promedio": 3.0
+          },
+          {
+            "keyword": "moto akt 150 precio nicaragua",
+            "clics": 405,
+            "posicion_promedio": 1.5
+          },
+          {
+            "keyword": "nkd 150 precio nicaragua",
+            "clics": 404,
+            "posicion_promedio": 3.0
+          },
+          {
+            "keyword": "akt 150 montañera",
+            "clics": 401,
+            "posicion_promedio": 1.1
+          },
+          {
+            "keyword": "akt cyclone 150",
+            "clics": 388,
+            "posicion_promedio": 1.5
+          },
+          {
+            "keyword": "akt cyclone 150 precio nicaragua",
+            "clics": 370,
+            "posicion_promedio": 4.1
+          },
+          {
+            "keyword": "moto akt 150",
+            "clics": 299,
+            "posicion_promedio": 1.5
+          },
+          {
+            "keyword": "aire acondicionado portatil",
+            "clics": 295,
+            "posicion_promedio": 5.0
+          },
+          {
+            "keyword": "akt 125",
+            "clics": 281,
+            "posicion_promedio": 2.4
+          },
+          {
+            "keyword": "iphone nicaragua",
+            "clics": 276,
+            "posicion_promedio": 4.5
+          },
+          {
+            "keyword": "el verdugo nicaragua",
+            "clics": 262,
+            "posicion_promedio": 6.3
+          },
+          {
+            "keyword": "akt",
+            "clics": 226,
+            "posicion_promedio": 5.7
+          },
+          {
+            "keyword": "freidora de aire",
+            "clics": 226,
+            "posicion_promedio": 4.2
+          }
         ],
-        categories:[
-          {n:"TV y Video",r:92484.33},{n:"Computación",r:57376.06},
-          {n:"Celulares y Teléfonos",r:30975.50},{n:"Audio",r:27853.30},
-          {n:"Gaming",r:17345.62},{n:"Computación (acc)",r:1041.22},
-          {n:"Personal Audio",r:353.34},{n:"Video / TV",r:336.31},
-          {n:"Accesorios de computación",r:132.25},{n:"Audio",r:59.96},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Refrigeración",
+            "revenue": 79823.52
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 63515.23
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Lavadoras y secadoras",
+            "revenue": 56855.98
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Camas y Colchones",
+            "revenue": 54034.05
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Climatización",
+            "revenue": 34215.54
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Cocina",
+            "revenue": 33221.32
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Sala",
+            "revenue": 25191.98
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Dormitorio",
+            "revenue": 18458.82
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 12947.48
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Comedor",
+            "revenue": 10356.38
+          }
         ],
-        products:[
-          {n:"Televisor TCL 50S5K 50\" QLED FHD Google TV",r:16265.51},
-          {n:"Televisor LG WebOs 24 LCD 65\" 4K UHD",r:14275.63},
-          {n:"Televisor de 86'' LG 86UR8750PSA 4K UHD",r:12014.03},
-          {n:"Impresora multifuncional Epson L3250 Inkjet Wi-Fi",r:9848.44},
-          {n:"Televisor TCL Google TV LED 55\" 4K UHD 55V6C",r:6191.42},
-          {n:"Tablet Samsung Galaxy Tab A9+ 64 GB 4 GB",r:5879.85},
-          {n:"Parlante de torre RadioShack 450 W Bluetooth",r:5624.48},
-          {n:"Consola PS5 Slim Bundle Ratchet & Clank",r:5366.19},
-          {n:"Televisor TCL Google TV UHD 55\" 4K UHD",r:5541.10},
-          {n:"Televisor TCL Google TV 55\" 4K UHD 55P635I",r:5541.10},
+        "top_10_productos_revenue": [
+          {
+            "producto": "Set de Cama Facenco Queen Ortopédico Plus",
+            "revenue": 13140.51
+          },
+          {
+            "producto": "Aire Acondicionado LG Frío 12,000 BTU VX121C1",
+            "revenue": 11589.0
+          },
+          {
+            "producto": "Refrigeradora Samsung  11 Pies 2 Puertas Top Mount RT31DG5124S9AP",
+            "revenue": 5556.06
+          },
+          {
+            "producto": "Televisor TCL 75\" LED 4K UHD 75P755I",
+            "revenue": 5218.53
+          },
+          {
+            "producto": "Refrigeradora LG  22 Pies 3 Puertas French Door GM22BGPK",
+            "revenue": 4917.4
+          },
+          {
+            "producto": "Refrigeradora Samsung  14 Pies 2 Puertas Top Mount RT38DG6224S9",
+            "revenue": 4780.32
+          },
+          {
+            "producto": "Aire Acondicionado Mastertech Inverter 12000 BTU MTM12I1DW1",
+            "revenue": 4767.84
+          },
+          {
+            "producto": "Refrigeradora Frigidaire  15.4 Pies 2 Puertas Side by Side FRSA15K2HVG",
+            "revenue": 4412.69
+          },
+          {
+            "producto": "Refrigeradora Whirlpool  9 Pies 2 Puertas Top Mount WT02209D",
+            "revenue": 4188.41
+          },
+          {
+            "producto": "Aire Acondicionado LG Dual Inverter 12,000 BTU VX122C1UJP1",
+            "revenue": 4098.11
+          }
+        ]
+      },
+      "RSO": {
+        "label": "RadioShack",
+        "impresiones": {
+          "M25": 7391372,
+          "M26": 8635382,
+          "growth_pct": 16.83
+        },
+        "clics": {
+          "M25": 143456,
+          "M26": 276818,
+          "growth_pct": 92.96
+        },
+        "visitas": {
+          "M25": 111360,
+          "M26": 286468,
+          "growth_pct": 157.24
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 190211.71,
+            "ordenes": 611,
+            "conversion_pct": 0.55,
+            "ticket_promedio": 311.31,
+            "add_to_cart_pct": 3.9,
+            "revenue_digital_total": 508777.89,
+            "revenue_total_ecommerce": 512917.02,
+            "participacion_digital_pct": 37.39,
+            "participacion_total_pct": 0.0
+          },
+          "M26": {
+            "revenue_seo": 67297.76,
+            "ordenes": 568,
+            "conversion_pct": 0.22,
+            "ticket_promedio": 118.48,
+            "add_to_cart_pct": 3.57,
+            "revenue_digital_total": 99930.18,
+            "revenue_total_ecommerce": 369252.08,
+            "participacion_digital_pct": 67.34,
+            "participacion_total_pct": 0.0
+          },
+          "growth_pct": -64.62
+        },
+        "trafico": {
+          "marca_pct": 44.12,
+          "no_marca_pct": 55.88
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 3110000,
+            "total": 3128700
+          },
+          "posicion_ponderada_M26": 4.8,
+          "core_web_vitals": {
+            "LCP": "2.7s",
+            "INP": "190ms",
+            "CLS": "0.82"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "smartwatch",
+            "clics": 420,
+            "posicion_promedio": 2.6
+          },
+          {
+            "keyword": "audifonos inalambricos",
+            "clics": 336,
+            "posicion_promedio": 2.8
+          },
+          {
+            "keyword": "power bank",
+            "clics": 278,
+            "posicion_promedio": 1.7
+          },
+          {
+            "keyword": "samsung s23 ultra precio nicaragua",
+            "clics": 269,
+            "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "ps5 nicaragua",
+            "clics": 259,
+            "posicion_promedio": 5.9
+          },
+          {
+            "keyword": "play 5 precio nicaragua",
+            "clics": 247,
+            "posicion_promedio": 3.7
+          },
+          {
+            "keyword": "repetidor wifi",
+            "clics": 241,
+            "posicion_promedio": 3.3
+          },
+          {
+            "keyword": "nintendo switch precio nicaragua",
+            "clics": 240,
+            "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "infinix note 40 pro precio nicaragua",
+            "clics": 235,
+            "posicion_promedio": 1.6
+          },
+          {
+            "keyword": "laptop gamer",
+            "clics": 232,
+            "posicion_promedio": 2.7
+          },
+          {
+            "keyword": "infinix note 40 pro",
+            "clics": 221,
+            "posicion_promedio": 7.3
+          },
+          {
+            "keyword": "ps5 precio nicaragua",
+            "clics": 218,
+            "posicion_promedio": 4.0
+          },
+          {
+            "keyword": "repetidor wifi nicaragua",
+            "clics": 216,
+            "posicion_promedio": 3.5
+          },
+          {
+            "keyword": "auriculares inalambricos",
+            "clics": 215,
+            "posicion_promedio": 3.4
+          },
+          {
+            "keyword": "nintendo switch nicaragua",
+            "clics": 214,
+            "posicion_promedio": 4.9
+          },
+          {
+            "keyword": "playstation 5 precio nicaragua",
+            "clics": 211,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "playstation 5 nicaragua",
+            "clics": 208,
+            "posicion_promedio": 6.2
+          },
+          {
+            "keyword": "laptop gamer nicaragua",
+            "clics": 195,
+            "posicion_promedio": 4.9
+          },
+          {
+            "keyword": "infinix note 40 pro precio",
+            "clics": 189,
+            "posicion_promedio": 7.1
+          },
+          {
+            "keyword": "laptop gamer",
+            "clics": 232,
+            "posicion_promedio": 2.7
+          }
         ],
-        monthly:[
-          {m:"Abr",i:990,c:23},{m:"May",i:1000,c:24},{m:"Jun",i:1020,c:24},
-          {m:"Jul",i:1050,c:25},{m:"Ago",i:1060,c:25},{m:"Sep",i:1040,c:25},
-          {m:"Oct",i:1010,c:24},{m:"Nov",i:1020,c:24},{m:"Dic",i:1010,c:24},
-          {m:"Ene",i:970,c:23},{m:"Feb",i:980,c:23},{m:"Mar",i:1000,c:24},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 19823.98
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 12951.64
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Audio",
+            "revenue": 11547.49
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Gaming",
+            "revenue": 11482.86
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 5316.72
+          },
+          {
+            "categoria_1": "Ferretería",
+            "categoria_2": "Iluminación y Electricidad",
+            "revenue": 719.32
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Oficina",
+            "revenue": 273.93
+          },
+          {
+            "categoria_1": "Audio",
+            "categoria_2": "Personal Audio",
+            "revenue": 273.6
+          },
+          {
+            "categoria_1": "Mundo gamer",
+            "categoria_2": "Accesorios Gaming",
+            "revenue": 262.72
+          },
+          {
+            "categoria_1": "Audio",
+            "categoria_2": "Instrumentos musicales",
+            "revenue": 218.89
+          }
         ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Laptop Gaming HP 16GB M.2 512GB 15.6\" Azul metalizado Victus Omen",
+            "revenue": 2602.54
+          },
+          {
+            "producto": "Silla gaming RadioShack Con luces Madera y acero Negro y gris",
+            "revenue": 1506.53
+          },
+          {
+            "producto": "Laptop Lenovo 8 GB SSD 256 GB 14\" Musgo oscuro Yoga Slim 7",
+            "revenue": 1396.89
+          },
+          {
+            "producto": "Televisor TCL 32\" LCD HD S6500",
+            "revenue": 1395.52
+          },
+          {
+            "producto": "Laptop gaming Acer 16 GB 512 GB 15.6'' Negro AN51558740H",
+            "revenue": 1205.13
+          },
+          {
+            "producto": "Silla Gaming Basic RadioShack 2606041 Negro y Gris",
+            "revenue": 1150.42
+          },
+          {
+            "producto": "Televisor TCL 55\" LED 4K UHD 55P615I",
+            "revenue": 1040.62
+          },
+          {
+            "producto": "Laptop Acer Nitro V Intel CoreTM i5-13420H 16 GB SSD 1 TB 15.6\" Negro",
+            "revenue": 994.43
+          },
+          {
+            "producto": "Parlante portátil RadioShack 160 W Bluetooth Negro 4001979",
+            "revenue": 975.9
+          },
+          {
+            "producto": "Televisor TCL 55\" LED 4K UHD 55P735",
+            "revenue": 931.03
+          }
+        ]
       }
     }
   },
-  NC:{
-    name:"Nicaragua",flag:"🇳🇮",
-    brands:{
-      LCO:{
-        label:"La Curacao",color:"#ec4899",colorDim:"rgba(236,72,153,0.15)",
-        impressions:{M25:14772556,M26:15619954,growth:5.73},
-        clicks:{M25:442240,M26:456907,growth:3.31},
-        visits:{M25:null,M26:null,growth:null},
-        ctr:2.92,
-        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
-        orders:{M25:null,M26:null,growth:null},
-        convRate:{M25:null,M26:null},
-        avgTicket:{M26:null},
-        partDigital:{M26:null},partTotal:{M26:null},
-        nonBrand:79.95,brandPct:20.05,
-        indexation:{noIndexed:6570000,total:6610000,indexed:40000},
-        weightedPos:{M26:4.0,M25:null},
-        cwv:{lcp:"3.1s",inp:"190ms",cls:"0.89"},
-        recognition:{award:false,text:"La Curacao NI con crecimiento orgánico estable. Fuerte posición en keywords de motos (AKT)."},
-        suggestion:"🏍️ Las keywords de motos AKT dominan el tráfico orgánico. Aprovechar esta intención para capturar categorías complementarias. CLS 0.89 requiere corrección urgente.",
-        keywords:[
-          {k:"starlink nicaragua",cl:1030,p:3.5},{k:"akt 150",cl:1007,p:1.8},
-          {k:"akt 200 precio nicaragua",cl:735,p:2.5},{k:"akt 200",cl:722,p:1.4},
-          {k:"akt 150 precio nicaragua",cl:662,p:3.0},{k:"aire acondicionado",cl:598,p:3.6},
-          {k:"akt cs3 150 precio nicaragua",cl:478,p:3.3},{k:"akt ttr 200 precio nicaragua",cl:413,p:3.0},
-          {k:"moto akt 150 precio nicaragua",cl:405,p:1.5},{k:"nkd 150 precio nicaragua",cl:404,p:3.0},
-          {k:"akt 150 montañera",cl:401,p:1.1},{k:"akt cyclone 150",cl:388,p:1.5},
-          {k:"akt cyclone 150 precio nicaragua",cl:370,p:4.1},{k:"moto akt 150",cl:299,p:1.5},
-          {k:"aire acondicionado portatil",cl:295,p:5.0},{k:"akt 125",cl:281,p:2.4},
-          {k:"iphone nicaragua",cl:276,p:4.5},{k:"el verdugo nicaragua",cl:262,p:6.3},
-          {k:"akt",cl:226,p:5.7},{k:"freidora de aire",cl:226,p:4.2},
+  "SV": {
+    "nombre": "El Salvador",
+    "marcas": {
+      "ATO": {
+        "label": "Almacenes Tropigas",
+        "impresiones": {
+          "M25": 17831608,
+          "M26": 16650259,
+          "growth_pct": -6.63
+        },
+        "clics": {
+          "M25": 746708,
+          "M26": 684500,
+          "growth_pct": -8.33
+        },
+        "visitas": {
+          "M25": 764698,
+          "M26": 797162,
+          "growth_pct": 4.25
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 77309.65,
+            "ordenes": 293,
+            "conversion_pct": 0.04,
+            "ticket_promedio": 263.86,
+            "add_to_cart_pct": 1.65,
+            "revenue_digital_total": 212261.41,
+            "revenue_total_ecommerce": 212261.41,
+            "participacion_digital_pct": 36.42,
+            "participacion_total_pct": 36.42
+          },
+          "M26": {
+            "revenue_seo": 66381.56,
+            "ordenes": 291,
+            "conversion_pct": 0.03,
+            "ticket_promedio": 228.12,
+            "add_to_cart_pct": 2.8,
+            "revenue_digital_total": 331377.8,
+            "revenue_total_ecommerce": 340714.16,
+            "participacion_digital_pct": 20.03,
+            "participacion_total_pct": 19.48
+          },
+          "growth_pct": -14.14
+        },
+        "trafico": {
+          "marca_pct": 54.95,
+          "no_marca_pct": 45.05
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 1950000,
+            "total": 1958720
+          },
+          "posicion_ponderada_M26": 6.3,
+          "core_web_vitals": {
+            "LCP": "2.7s",
+            "INP": "579ms",
+            "CLS": "0.26"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "honor 400 pro",
+            "clics": 903,
+            "posicion_promedio": 5.4
+          },
+          {
+            "keyword": "iphone 13",
+            "clics": 876,
+            "posicion_promedio": 7.2
+          },
+          {
+            "keyword": "iphone 13 pro max",
+            "clics": 853,
+            "posicion_promedio": 6.9
+          },
+          {
+            "keyword": "motos",
+            "clics": 821,
+            "posicion_promedio": 5.5
+          },
+          {
+            "keyword": "honor 400",
+            "clics": 763,
+            "posicion_promedio": 5.8
+          },
+          {
+            "keyword": "iphone 14 pro max",
+            "clics": 750,
+            "posicion_promedio": 7.9
+          },
+          {
+            "keyword": "iphone 15 pro max",
+            "clics": 739,
+            "posicion_promedio": 6.9
+          },
+          {
+            "keyword": "xbox series x el salvador",
+            "clics": 676,
+            "posicion_promedio": 5.8
+          },
+          {
+            "keyword": "sofa cama",
+            "clics": 666,
+            "posicion_promedio": 4.8
+          },
+          {
+            "keyword": "aire acondicionado",
+            "clics": 661,
+            "posicion_promedio": 6.7
+          },
+          {
+            "keyword": "freedom cr1 150 precio el salvador",
+            "clics": 655,
+            "posicion_promedio": 1.7
+          },
+          {
+            "keyword": "honor 400 lite",
+            "clics": 652,
+            "posicion_promedio": 7.2
+          },
+          {
+            "keyword": "maquina de coser",
+            "clics": 648,
+            "posicion_promedio": 4.5
+          },
+          {
+            "keyword": "s24 ultra",
+            "clics": 641,
+            "posicion_promedio": 7.8
+          },
+          {
+            "keyword": "ropero",
+            "clics": 623,
+            "posicion_promedio": 4.2
+          },
+          {
+            "keyword": "xbox series s el salvador",
+            "clics": 621,
+            "posicion_promedio": 5.4
+          },
+          {
+            "keyword": "roperos",
+            "clics": 525,
+            "posicion_promedio": 3.3
+          },
+          {
+            "keyword": "iphone 15",
+            "clics": 522,
+            "posicion_promedio": 7.4
+          },
+          {
+            "keyword": "iphone 11 precio el salvador",
+            "clics": 515,
+            "posicion_promedio": 5.7
+          },
+          {
+            "keyword": "samsung a15",
+            "clics": 507,
+            "posicion_promedio": 6.4
+          }
         ],
-        categories:[
-          {n:"Refrigeración",r:79823.52},{n:"TV y Video",r:63515.23},
-          {n:"Lavadoras y secadoras",r:56855.98},{n:"Camas y Colchones",r:54034.05},
-          {n:"Climatización",r:34215.54},{n:"Cocina",r:33221.32},
-          {n:"Sala",r:25191.98},{n:"Dormitorio",r:18458.82},
-          {n:"Celulares y Teléfonos",r:null},{n:"Comedor",r:10356.38},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 8618.9
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Refrigeración",
+            "revenue": 8122.0
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Dormitorio",
+            "revenue": 7696.0
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Sala",
+            "revenue": 5559.94
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 5301.98
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Cocina",
+            "revenue": 5164.32
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Camas y Colchones",
+            "revenue": 3524.0
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Lavadoras y secadoras",
+            "revenue": 3436.0
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Cocina",
+            "revenue": 2478.94
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Comedor",
+            "revenue": 2424.97
+          }
         ],
-        products:[
-          {n:"Set de Cama Facenco Queen Ortopédico Plus",r:13140.51},
-          {n:"Aire Acondicionado LG Frío 12,000 BTU VX121C1",r:11589.00},
-          {n:"Refrigeradora Samsung 11 Pies 2 Puertas Top Mount",r:5556.06},
-          {n:"Refrigeradora LG 22 Pies 3 Puertas French Door",r:4917.40},
-          {n:"Refrigeradora Samsung 14 Pies 2 Puertas Top Mount",r:4780.32},
-          {n:"Refrigeradora Frigidaire 15.4 Pies Side by Side",r:4412.69},
-          {n:"Televisor TCL 75\" LED 4K UHD 75P755I",r:5218.53},
-          {n:"Refrigeradora Whirlpool 9 Pies 2 Puertas Top Mount",r:4188.41},
-          {n:"Aire Acondicionado LG Dual Inverter 12,000 BTU",r:4098.11},
-          {n:"Televisor TCL 55\" LED 4K UHD 55P615I",r:1040.62},
-        ],
-        monthly:[
-          {m:"Abr",i:1230,c:37},{m:"May",i:1250,c:37},{m:"Jun",i:1280,c:38},
-          {m:"Jul",i:1310,c:39},{m:"Ago",i:1320,c:39},{m:"Sep",i:1300,c:39},
-          {m:"Oct",i:1280,c:38},{m:"Nov",i:1290,c:39},{m:"Dic",i:1270,c:38},
-          {m:"Ene",i:1220,c:37},{m:"Feb",i:1230,c:37},{m:"Mar",i:1250,c:38},
-        ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "Ropero Commodity  MDF/MDP Rústico / Off White BE15RUSTOFFW",
+            "revenue": 1912.0
+          },
+          {
+            "producto": "Refrigeradora Mastertech  12 Pies 2 Puertas Top Mount MTFF310D2ASD",
+            "revenue": 1550.0
+          },
+          {
+            "producto": "Motocicleta todo terreno AKT 200 cc Negro TT",
+            "revenue": 1499.99
+          },
+          {
+            "producto": "Motocicleta deportiva Freedom 150 CC Rojo  CR1-150",
+            "revenue": 1469.99
+          },
+          {
+            "producto": "Refrigeradora Samsung  12 Pies 2 Puertas Top Mount RT35DG5124S9",
+            "revenue": 1461.0
+          },
+          {
+            "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Gris",
+            "revenue": 1349.0
+          },
+          {
+            "producto": "Ropero Commodity MDP Gris RP2421IPGRIS",
+            "revenue": 1246.0
+          },
+          {
+            "producto": "Cocina a Gas LP Mastertech 6 quemadores MTG30B63AS",
+            "revenue": 1078.0
+          },
+          {
+            "producto": "Celular Apple iPhone 13 128 GB 6.1\" Midnight",
+            "revenue": 1064.0
+          },
+          {
+            "producto": "Juego de comedor Commodity Nelson Rectangular 6 sillas",
+            "revenue": 894.0
+          }
+        ]
       },
-      RSO:{
-        label:"RadioShack",color:"#f97316",colorDim:"rgba(249,115,22,0.15)",
-        impressions:{M25:7391372,M26:8635382,growth:16.83},
-        clicks:{M25:143456,M26:276818,growth:92.97},
-        visits:{M25:null,M26:null,growth:null},
-        ctr:3.21,
-        revenue:{M25:null,M26:null,growth:null,asistidaNote:true},
-        orders:{M25:null,M26:null,growth:null},
-        convRate:{M25:null,M26:null},
-        avgTicket:{M26:null},
-        partDigital:{M26:null},partTotal:{M26:null},
-        nonBrand:55.88,brandPct:44.12,
-        indexation:{noIndexed:3110000,total:3128700,indexed:18700},
-        weightedPos:{M26:4.0,M25:null},
-        cwv:{lcp:"2.7s",inp:"190ms",cls:"0.82"},
-        recognition:{award:false,text:"RadioShack NI con +93% de clics — el mayor crecimiento de clics de RSO en la región."},
-        suggestion:"🚀 Excelente crecimiento de clics (+93%). Aprovechar el momentum para expandir categorías de gaming y electrónica que ya tienen tracción orgánica.",
-        keywords:[
-          {k:"smartwatch",cl:420,p:2.6},{k:"audifonos inalambricos",cl:336,p:2.8},
-          {k:"power bank",cl:278,p:1.7},{k:"samsung s23 ultra precio nicaragua",cl:269,p:4.4},
-          {k:"ps5 nicaragua",cl:259,p:5.9},{k:"play 5 precio nicaragua",cl:247,p:3.7},
-          {k:"repetidor wifi",cl:241,p:3.3},{k:"nintendo switch precio nicaragua",cl:240,p:4.4},
-          {k:"infinix note 40 pro precio nicaragua",cl:235,p:1.6},{k:"laptop gamer",cl:232,p:2.7},
-          {k:"infinix note 40 pro",cl:221,p:7.3},{k:"ps5 precio nicaragua",cl:218,p:4.0},
-          {k:"repetidor wifi nicaragua",cl:216,p:3.5},{k:"auriculares inalambricos",cl:215,p:3.4},
-          {k:"nintendo switch nicaragua",cl:214,p:4.9},{k:"playstation 5 precio nicaragua",cl:211,p:3.8},
-          {k:"playstation 5 nicaragua",cl:208,p:6.2},{k:"laptop gamer nicaragua",cl:195,p:4.9},
-          {k:"infinix note 40 pro precio",cl:189,p:7.1},{k:"laptop gamer",cl:232,p:2.7},
+      "LCO": {
+        "label": "La Curacao",
+        "impresiones": {
+          "M25": 33105000,
+          "M26": 51807967,
+          "growth_pct": 56.5
+        },
+        "clics": {
+          "M25": 905850,
+          "M26": 1700505,
+          "growth_pct": 87.72
+        },
+        "visitas": {
+          "M25": 907053,
+          "M26": 1956086,
+          "growth_pct": 115.65
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 3189565.77,
+            "ordenes": 7281,
+            "conversion_pct": 0.8,
+            "ticket_promedio": 438.07,
+            "add_to_cart_pct": 6.86,
+            "revenue_digital_total": 17675780.69,
+            "revenue_total_ecommerce": 17680107.74,
+            "participacion_digital_pct": 18.04,
+            "participacion_total_pct": 18.04
+          },
+          "M26": {
+            "revenue_seo": 2086702.6,
+            "ordenes": 5600,
+            "conversion_pct": 0.51,
+            "ticket_promedio": 372.63,
+            "add_to_cart_pct": 3.49,
+            "revenue_digital_total": 10895349.88,
+            "revenue_total_ecommerce": 23528759.64,
+            "participacion_digital_pct": 19.15,
+            "participacion_total_pct": 8.87
+          },
+          "growth_pct": -34.58
+        },
+        "trafico": {
+          "marca_pct": 27.65,
+          "no_marca_pct": 72.35
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 6570000,
+            "total": 6610000
+          },
+          "posicion_ponderada_M26": 3.0,
+          "core_web_vitals": {
+            "LCP": "2.7s",
+            "INP": "228ms",
+            "CLS": "0.89"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "aire acondicionado",
+            "clics": 3524,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "starlink el salvador",
+            "clics": 3523,
+            "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "samsung galaxy fit3",
+            "clics": 2903,
+            "posicion_promedio": 1.3
+          },
+          {
+            "keyword": "aire acondicionado portatil",
+            "clics": 2706,
+            "posicion_promedio": 5.9
+          },
+          {
+            "keyword": "laptops el salvador",
+            "clics": 2604,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "motos el salvador",
+            "clics": 2458,
+            "posicion_promedio": 3.4
+          },
+          {
+            "keyword": "samsung",
+            "clics": 2344,
+            "posicion_promedio": 4.8
+          },
+          {
+            "keyword": "iphone 13",
+            "clics": 2111,
+            "posicion_promedio": 6.2
+          },
+          {
+            "keyword": "smartwatch",
+            "clics": 2078,
+            "posicion_promedio": 3.1
+          },
+          {
+            "keyword": "ps5 el salvador",
+            "clics": 1785,
+            "posicion_promedio": 6.6
+          },
+          {
+            "keyword": "honor magic 7 lite",
+            "clics": 1563,
+            "posicion_promedio": 5.5
+          },
+          {
+            "keyword": "sofa cama el salvador",
+            "clics": 1553,
+            "posicion_promedio": 2.5
+          },
+          {
+            "keyword": "microondas",
+            "clics": 1546,
+            "posicion_promedio": 3.7
+          },
+          {
+            "keyword": "iphone el salvador",
+            "clics": 1521,
+            "posicion_promedio": 6.0
+          },
+          {
+            "keyword": "microondas el salvador",
+            "clics": 1477,
+            "posicion_promedio": 1.7
+          },
+          {
+            "keyword": "motos",
+            "clics": 1463,
+            "posicion_promedio": 3.2
+          },
+          {
+            "keyword": "refrigeradora",
+            "clics": 1421,
+            "posicion_promedio": 5.5
+          },
+          {
+            "keyword": "freidora de aire",
+            "clics": 1378,
+            "posicion_promedio": 4.5
+          },
+          {
+            "keyword": "iphone 14 pro max",
+            "clics": 1359,
+            "posicion_promedio": 6.5
+          },
+          {
+            "keyword": "iphone 17 pro max",
+            "clics": 1357,
+            "posicion_promedio": 4.8
+          }
         ],
-        categories:[
-          {n:"Computación",r:19823.98},{n:"TV y Video",r:12951.64},
-          {n:"Audio",r:11547.49},{n:"Gaming",r:11482.86},
-          {n:"Celulares y Teléfonos",r:5316.72},{n:"Iluminación y Electricidad",r:719.32},
-          {n:"Oficina",r:273.93},{n:"Personal Audio",r:273.60},
-          {n:"Audio (inst.)",r:218.89},{n:"Accesorios Gaming",r:262.72},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 254652.23
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 246467.34
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Camas y Colchones",
+            "revenue": 233551.73
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Refrigeración",
+            "revenue": 224931.16
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Lavadoras y secadoras",
+            "revenue": 191110.74
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Sala",
+            "revenue": 171056.92
+          },
+          {
+            "categoria_1": "Muebles",
+            "categoria_2": "Dormitorio",
+            "revenue": 132274.2
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Climatización",
+            "revenue": 118672.12
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 106380.09
+          },
+          {
+            "categoria_1": "Línea Blanca",
+            "categoria_2": "Cocina",
+            "revenue": 102926.87
+          }
         ],
-        products:[
-          {n:"Laptop Gaming HP 16GB M.2 512GB Victus Omen",r:2602.54},
-          {n:"Silla gaming RadioShack Con luces Negro y gris",r:1506.53},
-          {n:"Laptop Lenovo 8 GB SSD 256 GB Yoga Slim 7",r:1396.89},
-          {n:"Laptop Acer Nitro V Intel Core i5 16 GB 1 TB",r:994.43},
-          {n:"Laptop Acer AN51558740H Gaming 16 GB 512 GB",r:1205.13},
-          {n:"Televisor TCL 55\" LED 4K UHD 55P735",r:931.03},
-          {n:"Silla Gaming Basic RadioShack Negro y Gris",r:1150.42},
-          {n:"Parlante portátil RadioShack 160 W Bluetooth",r:975.90},
-          {n:"Televisor TCL 55\" LED 4K UHD 55P615I",r:1040.62},
-          {n:"Televisor TCL 32\" LCD HD S6500",r:800.00},
+        "top_10_productos_revenue": [
+          {
+            "producto": "Ropero Commodity  MDF/MDP Rústico / Off White BE15RUSTOFFW",
+            "revenue": 24884.0
+          },
+          {
+            "producto": "iPhone 13 6GB + 128GB Midnight",
+            "revenue": 23782.0
+          },
+          {
+            "producto": "Aire Acondicionado Samsung Giratorio 12000 BTU AR12BVHQAURN",
+            "revenue": 14876.62
+          },
+          {
+            "producto": "Lavadora Eléctrica Samsung Superior 19 kg WA19CG6442BW",
+            "revenue": 13955.25
+          },
+          {
+            "producto": "Sala 3-2-1 Diesa 3 piezas Ferrara",
+            "revenue": 13801.0
+          },
+          {
+            "producto": "Lavadora LG Superior 18 kg WT18WVTM",
+            "revenue": 12169.13
+          },
+          {
+            "producto": "Refrigeradora Whirlpool  20 Pies 3 Puertas French Door MWRF220SEHM",
+            "revenue": 12100.63
+          },
+          {
+            "producto": "Set de Cama Base 3 en 1 Capri Queen Super Rest Master",
+            "revenue": 11381.46
+          },
+          {
+            "producto": "Pantalla TCL 50\" QLED FHD 50S5K",
+            "revenue": 11060.0
+          },
+          {
+            "producto": "Refrigeradora LG  22 Pies 3 Puertas French Door LM22SGPK",
+            "revenue": 11014.0
+          }
+        ]
+      },
+      "RSO": {
+        "label": "RadioShack",
+        "impresiones": {
+          "M25": 29440676,
+          "M26": 26555183,
+          "growth_pct": -9.8
+        },
+        "clics": {
+          "M25": 825080,
+          "M26": 844151,
+          "growth_pct": 2.31
+        },
+        "visitas": {
+          "M25": 612265,
+          "M26": 858940,
+          "growth_pct": 40.29
+        },
+        "venta_seo": {
+          "M25": {
+            "revenue_seo": 796405.76,
+            "ordenes": 3064,
+            "conversion_pct": 0.5,
+            "ticket_promedio": 259.92,
+            "add_to_cart_pct": 2.84,
+            "revenue_digital_total": 2434363.87,
+            "revenue_total_ecommerce": 2434367.86,
+            "participacion_digital_pct": 32.72,
+            "participacion_total_pct": 32.72
+          },
+          "M26": {
+            "revenue_seo": 391862.59,
+            "ordenes": 1670,
+            "conversion_pct": 0.29,
+            "ticket_promedio": 234.65,
+            "add_to_cart_pct": 2.3,
+            "revenue_digital_total": 1489477.02,
+            "revenue_total_ecommerce": 2916268.67,
+            "participacion_digital_pct": 26.31,
+            "participacion_total_pct": 13.44
+          },
+          "growth_pct": -50.8
+        },
+        "trafico": {
+          "marca_pct": 15.91,
+          "no_marca_pct": 84.09
+        },
+        "salud_tecnica": {
+          "indexacion": {
+            "no_indexadas": 3110000,
+            "total": 3128700
+          },
+          "posicion_ponderada_M26": 5.0,
+          "core_web_vitals": {
+            "LCP": "3.1s",
+            "INP": "219ms",
+            "CLS": "0.58"
+          }
+        },
+        "top_20_keywords_no_marca": [
+          {
+            "keyword": "nintendo switch 2 el salvador",
+            "clics": 2844,
+            "posicion_promedio": 4.9
+          },
+          {
+            "keyword": "ps5 el salvador",
+            "clics": 1895,
+            "posicion_promedio": 5.6
+          },
+          {
+            "keyword": "iphone 13",
+            "clics": 1443,
+            "posicion_promedio": 7.2
+          },
+          {
+            "keyword": "iphone 15 pro max",
+            "clics": 1430,
+            "posicion_promedio": 6.9
+          },
+          {
+            "keyword": "ps5",
+            "clics": 1424,
+            "posicion_promedio": 5.3
+          },
+          {
+            "keyword": "switch 2 el salvador",
+            "clics": 1357,
+            "posicion_promedio": 4.8
+          },
+          {
+            "keyword": "xbox series x el salvador",
+            "clics": 1346,
+            "posicion_promedio": 5.6
+          },
+          {
+            "keyword": "nintendo switch el salvador",
+            "clics": 1322,
+            "posicion_promedio": 6.8
+          },
+          {
+            "keyword": "audifonos inalambricos",
+            "clics": 1173,
+            "posicion_promedio": 11.6
+          },
+          {
+            "keyword": "playstation 5",
+            "clics": 1076,
+            "posicion_promedio": 8.0
+          },
+          {
+            "keyword": "iphone 15",
+            "clics": 1074,
+            "posicion_promedio": 5.4
+          },
+          {
+            "keyword": "audifonos bluetooth",
+            "clics": 1050,
+            "posicion_promedio": 3.8
+          },
+          {
+            "keyword": "tablets el salvador",
+            "clics": 1026,
+            "posicion_promedio": 3.5
+          },
+          {
+            "keyword": "honor 400 pro",
+            "clics": 1000,
+            "posicion_promedio": 6.3
+          },
+          {
+            "keyword": "chromecast el salvador",
+            "clics": 947,
+            "posicion_promedio": 3.3
+          },
+          {
+            "keyword": "xbox series x",
+            "clics": 918,
+            "posicion_promedio": 6.7
+          },
+          {
+            "keyword": "iphone 14",
+            "clics": 893,
+            "posicion_promedio": 5.7
+          },
+          {
+            "keyword": "jbl charge 5",
+            "clics": 888,
+            "posicion_promedio": 5.7
+          },
+          {
+            "keyword": "s24 ultra",
+            "clics": 871,
+            "posicion_promedio": 8.6
+          },
+          {
+            "keyword": "jbl flip 6",
+            "clics": 865,
+            "posicion_promedio": 6.2
+          }
         ],
-        monthly:[
-          {m:"Abr",i:615,c:12},{m:"May",i:625,c:12},{m:"Jun",i:650,c:13},
-          {m:"Jul",i:700,c:14},{m:"Ago",i:720,c:14},{m:"Sep",i:710,c:14},
-          {m:"Oct",i:720,c:14},{m:"Nov",i:740,c:15},{m:"Dic",i:750,c:15},
-          {m:"Ene",i:700,c:14},{m:"Feb",i:710,c:14},{m:"Mar",i:730,c:14},
+        "top_10_categorias_revenue": [
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Celulares y Teléfonos",
+            "revenue": 179874.87
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Computación",
+            "revenue": 62141.98
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Audio",
+            "revenue": 54164.37
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "Gaming",
+            "revenue": 44562.32
+          },
+          {
+            "categoria_1": "Tecnología",
+            "categoria_2": "TV y Video",
+            "revenue": 25789.75
+          },
+          {
+            "categoria_1": "Telefonía",
+            "categoria_2": "Celulares",
+            "revenue": 1515.0
+          },
+          {
+            "categoria_1": "Computación",
+            "categoria_2": "Computación",
+            "revenue": 1099.0
+          },
+          {
+            "categoria_1": "Audio",
+            "categoria_2": "Personal Audio",
+            "revenue": 628.94
+          },
+          {
+            "categoria_1": "Telefonía",
+            "categoria_2": "Powerbanks y Cargadores",
+            "revenue": 172.94
+          },
+          {
+            "categoria_1": "Computación",
+            "categoria_2": "Accesorios de computación",
+            "revenue": 163.91
+          }
         ],
+        "top_10_productos_revenue": [
+          {
+            "producto": "iPhone 13 6GB + 128GB Midnight",
+            "revenue": 17246.0
+          },
+          {
+            "producto": "Parlante portátil JBL 40 Hz - 20 kHz (-6 dB) Bluetooth Negro PartyBox Club 120",
+            "revenue": 5956.0
+          },
+          {
+            "producto": "Nintendo Switch Edición OLED 64 GB HRGSKAASD Super Mario Bros™ Wonder",
+            "revenue": 5896.99
+          },
+          {
+            "producto": "Consola PlayStation 5 Slim Bundle Ratchet & Clank: Rift Apart y Returnal",
+            "revenue": 5832.0
+          },
+          {
+            "producto": "Parlante portátil JBL 40 Hz Bluetooth Negro PartyBox Stage 320",
+            "revenue": 4942.0
+          },
+          {
+            "producto": "iPhone 14 6GB + 128GB Midnight",
+            "revenue": 4364.0
+          },
+          {
+            "producto": "Consola Nintendo Switch Mario Kart 8 Delux HRG-S-KAA1B",
+            "revenue": 4259.95
+          },
+          {
+            "producto": "HONOR Magic7 Lite 8GB + 256GB Negro",
+            "revenue": 4157.0
+          },
+          {
+            "producto": "Samsung Galaxy S25 Ultra 12GB + 256GB Azul",
+            "revenue": 4057.0
+          },
+          {
+            "producto": "Consola PlayStation 5 Slim Digital Bundle Ratchet & Clank: Rift Apart y Returnal",
+            "revenue": 3849.0
+          }
+        ]
       }
     }
   }
