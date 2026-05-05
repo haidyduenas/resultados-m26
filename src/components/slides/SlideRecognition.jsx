@@ -3,7 +3,7 @@ import { isNil, NA } from '../../utils/formatters.js';
 export default function SlideRecognition({ country, brand }) {
   const recognition = brand.data?.recognition ?? null;
   const award = recognition?.award === true;
-  const text = recognition?.text;
+  const text = award ? recognition?.award_text : recognition?.generic_text;
   const hasContent = !isNil(text);
 
   const icon = hasContent ? (award ? '🏆' : '🚀') : '✨';
@@ -45,7 +45,7 @@ export default function SlideRecognition({ country, brand }) {
       </div>
 
       <h2 className="fade-in fade-in-d1" style={headlineStyle}>
-        Lo que celebramos este año
+        {award ? 'Lo que celebramos este año' : 'Nuestro próximo capítulo'}
       </h2>
 
       <div

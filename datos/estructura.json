@@ -1,6 +1,22 @@
 {
+  "_meta": {
+    "version": "2.0",
+    "fuente": "Google Sheets oficial — SEO Info",
+    "fecha_actualizacion": "M26",
+    "cambios_v2": [
+      "Datos completos sincronizados con Google Sheets oficial",
+      "ATC y CR M26 corregidos para todas las marcas",
+      "Top 10 categorías y productos verificados por marca",
+      "Impresiones, clics, posición ponderada e indexación corregidos",
+      "GT ATO clics: +16.04% (corregido vs -96.76% del JSON anterior)",
+      "CR RSO M25 ahora comparable: imp 10.1M, clics 358.62K",
+      "Reconocimientos sin award reemplazados por mensaje genérico de M27"
+    ],
+    "nota_canal": "En M26 se separó la venta asistida del canal SEO. Las cifras reflejan venta orgánica pura."
+  },
   "CR": {
     "nombre": "Costa Rica",
+    "flag": "🇨🇷",
     "marcas": {
       "Gollo": {
         "label": "Gollo",
@@ -36,7 +52,7 @@
             "ordenes": 25356,
             "conversion_pct": 0.39,
             "ticket_promedio": 384.23,
-            "add_to_cart_pct": 4.01,
+            "add_to_cart_pct": 3.51,
             "revenue_digital_total": 20162405.39,
             "revenue_total_ecommerce": 28159358.44,
             "participacion_digital_pct": 48.32,
@@ -50,8 +66,8 @@
         },
         "salud_tecnica": {
           "indexacion": {
-            "no_indexadas": 15589,
-            "total": 2569405
+            "no_indexadas": 2700000,
+            "total": 2700000
           },
           "posicion_ponderada_M26": 2.5,
           "core_web_vitals": {
@@ -67,6 +83,11 @@
             "posicion_promedio": 3.1
           },
           {
+            "keyword": "nintendo switch",
+            "clics": 8606,
+            "posicion_promedio": 2.4
+          },
+          {
             "keyword": "iphone 13",
             "clics": 6803,
             "posicion_promedio": 4.1
@@ -75,16 +96,6 @@
             "keyword": "nintendo switch 2",
             "clics": 5077,
             "posicion_promedio": 5.4
-          },
-          {
-            "keyword": "nintendo switch",
-            "clics": 4369,
-            "posicion_promedio": 5.2
-          },
-          {
-            "keyword": "nintendo switch costa rica",
-            "clics": 4237,
-            "posicion_promedio": 2.4
           },
           {
             "keyword": "iphone 15",
@@ -146,100 +157,101 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 2241212.3
+            "revenue": 2200000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 1375667.75
+            "revenue": 1400000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Lavadoras y secadoras",
-            "revenue": 1218800.4
+            "revenue": 1200000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Refrigeración",
-            "revenue": 1157044.23
+            "revenue": 1200000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Camas y Colchones",
-            "revenue": 412924.98
+            "revenue": 412900
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Cocina",
-            "revenue": 403063.07
+            "revenue": 403100
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Gaming",
-            "revenue": 346448.28
+            "revenue": 346400
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 318402.78
+            "revenue": 318400
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Dormitorio",
-            "revenue": 276841.6
+            "revenue": 276800
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Climatización",
-            "revenue": 271308.23
+            "revenue": 271300
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Televisor TCL 55V6C Google TV LED 55\" 4K UHD",
-            "revenue": 178053.62
+            "revenue": 178100
           },
           {
             "producto": "Televisor TCL Google TV QLED 65\" 4K UHD 65C6K",
-            "revenue": 100254.05
+            "revenue": 100300
           },
           {
-            "producto": "Pantalla TCL 50S5k 50\" QLED 50\" FHD Google TV",
-            "revenue": 96387.88
+            "producto": "Pantalla TCL 50S5k 50\" QLED FHD Google TV",
+            "revenue": 96400
           },
           {
             "producto": "Televisor TCL Google TV QLED 65\" 4K UHD 65P8K",
-            "revenue": 89152.82
+            "revenue": 89200
           },
           {
             "producto": "iPhone 13 4GB + 128GB Midnight",
-            "revenue": 89039.23
+            "revenue": 89000
           },
           {
             "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Titanium Black",
-            "revenue": 79594.74
+            "revenue": 79600
           },
           {
-            "producto": "Samsung S24 Ultra  12GB + 256GB Titanium Black",
-            "revenue": 72765.22
+            "producto": "Samsung S24 Ultra 12GB + 256GB Titanium Black",
+            "revenue": 72800
           },
           {
             "producto": "Lavadora Frigidaire FWAB20J4EBGUW Carga superior 44 Libras",
-            "revenue": 70383.82
+            "revenue": 70400
           },
           {
             "producto": "Refrigeradora Frigidaire 15 Pies 2 Puertas Side by Side FRSA15K2HVG",
-            "revenue": 68270.15
+            "revenue": 68300
           },
           {
             "producto": "iPhone 16 8GB + 128GB Negro",
-            "revenue": 63939.72
+            "revenue": 63900
           }
         ],
-        "suggestion": "🎯 Recuperar revenue: la caída de -47% requiere reactivación urgente. Apostar fuerte en Celulares y TV (top categorías). Reducir dependencia de keywords de marca y conquistar búsquedas genéricas de Línea Blanca.",
+        "suggestion": "🎯 Apostar fuerte en Celulares y TV (top categorías). Reducir dependencia de keywords de marca y conquistar búsquedas genéricas de Línea Blanca.",
         "recognition": {
           "award": true,
-          "text": "Gollo CR sigue siendo el de mayor venta orgánica regional ($9.7M en M26)."
+          "award_text": "Gollo sigue siendo el de mayor venta orgánica regional $9.7M en M26.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#00ff87",
         "colorDim": "rgba(0,255,135,0.15)"
@@ -247,14 +259,14 @@
       "RSO": {
         "label": "RadioShack",
         "impresiones": {
-          "M25": 358616,
+          "M25": 10100000,
           "M26": 8339528,
-          "growth_pct": 2225.48
+          "growth_pct": -17.43
         },
         "clics": {
-          "M25": 10081704,
+          "M25": 358620,
           "M26": 315151,
-          "growth_pct": -96.87
+          "growth_pct": -12.12
         },
         "visitas": {
           "M25": 242225,
@@ -276,9 +288,9 @@
           "M26": {
             "revenue_seo": 48864.0,
             "ordenes": 249,
-            "conversion_pct": 0.09,
+            "conversion_pct": 0.1,
             "ticket_promedio": 196.24,
-            "add_to_cart_pct": 3.86,
+            "add_to_cart_pct": 1.91,
             "revenue_digital_total": 189497.05,
             "revenue_total_ecommerce": 189872.71,
             "participacion_digital_pct": 25.79,
@@ -408,42 +420,42 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 17806.68
+            "revenue": 17800
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Audio",
-            "revenue": 7793.48
+            "revenue": 7800
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 7281.82
+            "revenue": 7300
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Gaming",
-            "revenue": 6120.69
+            "revenue": 6100
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 5241.47
+            "revenue": 5200
           },
           {
             "categoria_1": "Telefonía",
             "categoria_2": "Powerbanks y Cargadores",
-            "revenue": 219.16
+            "revenue": 219.2
           },
           {
             "categoria_1": "Salud y Belleza",
             "categoria_2": "Bienestar y Salud",
-            "revenue": 193.34
+            "revenue": 193.3
           },
           {
             "categoria_1": "Ferretería",
             "categoria_2": "Baterías",
-            "revenue": 186.13
+            "revenue": 186.1
           },
           {
             "categoria_1": "Ferretería",
@@ -453,71 +465,72 @@
           {
             "categoria_1": "Telefonía",
             "categoria_2": "Accesorios de celulares",
-            "revenue": 65.99
+            "revenue": 66.0
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "iPhone 17 Pro Max 12GB + 256GB Cosmic Orange",
-            "revenue": 3292.36
+            "revenue": 3300
           },
           {
             "producto": "Consola PlayStation 5 Digital Core HW 2015",
-            "revenue": 3117.11
+            "revenue": 3100
           },
           {
             "producto": "Laptop HP 32 GB SSD 1 TB OMEN 17-DB0009LA",
-            "revenue": 1889.84
+            "revenue": 1900
           },
           {
             "producto": "iPhone 15 Pro 8GB + 256GB Negro",
-            "revenue": 1817.82
+            "revenue": 1800
           },
           {
             "producto": "iPhone 17 Pro Max 12GB + 256GB Plateado",
-            "revenue": 1673.81
+            "revenue": 1700
           },
           {
             "producto": "Parlante JBL 40 Hz-20 kHz Bluetooth Negro JBLPBSTAGE320AM",
-            "revenue": 1637.56
+            "revenue": 1600
           },
           {
             "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Titanium Blue",
-            "revenue": 1547.82
+            "revenue": 1500
           },
           {
             "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Titanium Black",
-            "revenue": 1527.08
+            "revenue": 1500
           },
           {
             "producto": "iPhone 16 Pro Max 8GB + 256GB Black Titanium",
-            "revenue": 1439.86
+            "revenue": 1400
           },
           {
             "producto": "Laptop Asus Zenbook 14 AMD Ryzen™ AI 7 350 32 GB M.2 1 TB 14\" Negro",
-            "revenue": 1286.14
+            "revenue": 1300
           }
         ],
-        "suggestion": "🔧 Crítico: CLS 0.83 afecta visibilidad. Aprovechar el 86.67% de tráfico no-marca optimizando UX para convertir mejor. Foco en categorías de electrónica y gaming.",
+        "suggestion": "📊 El tráfico de no marca es 87%, porque no tenemos precensia de marca",
         "recognition": {
           "award": false,
-          "text": "RadioShack CR tiene el mayor % de tráfico No Marca de la región (86.67%)."
+          "award_text": "El 87% de tráfico no-marca.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#f97316",
         "colorDim": "rgba(249,115,22,0.15)"
       }
-    },
-    "flag": "🇨🇷"
+    }
   },
   "EC": {
     "nombre": "Ecuador",
+    "flag": "🇪🇨",
     "marcas": {
       "Artefacta": {
         "label": "Artefacta",
         "impresiones": {
-          "M25": 2699000,
+          "M25": 23200000,
           "M26": 43104794,
-          "growth_pct": 1497.07
+          "growth_pct": 85.8
         },
         "clics": {
           "M25": 793000,
@@ -544,9 +557,9 @@
           "M26": {
             "revenue_seo": 3124486.95,
             "ordenes": 8537,
-            "conversion_pct": 0.43,
+            "conversion_pct": 0.63,
             "ticket_promedio": 365.99,
-            "add_to_cart_pct": 3.71,
+            "add_to_cart_pct": 4.17,
             "revenue_digital_total": 8013754.65,
             "revenue_total_ecommerce": 8013754.65,
             "participacion_digital_pct": 38.99,
@@ -671,100 +684,101 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 637986.49
+            "revenue": 638000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Lavadoras y secadoras",
-            "revenue": 592055.29
+            "revenue": 592000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Refrigeración",
-            "revenue": 444509.62
+            "revenue": 445000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Climatización",
-            "revenue": 235216.32
+            "revenue": 235000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 225367.48
+            "revenue": 225000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 173248.82
+            "revenue": 173000
           },
           {
             "categoria_1": "Automotriz",
             "categoria_2": "Motocicletas",
-            "revenue": 170586.98
+            "revenue": 171000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Cocina",
-            "revenue": 114904.24
+            "revenue": 115000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Gaming",
-            "revenue": 70754.68
+            "revenue": 71000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Dormitorio",
-            "revenue": 64212.42
+            "revenue": 64000
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Televisor TCL Google TV 55\" 4K UHD 55P6K",
-            "revenue": 44638.03
+            "revenue": 44600
           },
           {
             "producto": "Lavadora LG Superior 18 KG WT18WV6T",
-            "revenue": 44350.55
+            "revenue": 44400
           },
           {
             "producto": "Impresora multifuncional Epson Inkjet Wi-Fi Negro EcoTank L3250",
-            "revenue": 44192.48
+            "revenue": 44200
           },
           {
             "producto": "Lavadora Samsung Frontal 26 kg WF26DG8250AVAP",
-            "revenue": 44142.52
+            "revenue": 44100
           },
           {
             "producto": "Televisor TCL Google TV 65\" 4K UHD 65P6K",
-            "revenue": 34548.71
+            "revenue": 34500
           },
           {
             "producto": "Lavadora Whirlpool Superior 19Kg 7MWTW1904LM",
-            "revenue": 31459.72
+            "revenue": 31500
           },
           {
             "producto": "Lavadora Eléctrica Samsung Superior 21 Kg WA21CG6746BDAP",
-            "revenue": 27985.9
+            "revenue": 28000
           },
           {
             "producto": "Televisor TCL Google TV LED 43\" 4K UHD 43V6C",
-            "revenue": 22577.53
+            "revenue": 22600
           },
           {
             "producto": "PlayStation 5 Slim Digital 1 TB Gran Turismo 7 y Astro Bot",
-            "revenue": 22329.68
+            "revenue": 22300
           },
           {
             "producto": "Televisor TCL Google TV QLED 65\" HDR 4K 65P7K",
-            "revenue": 19478.36
+            "revenue": 19500
           }
         ],
-        "suggestion": "🚀 Líder regional en revenue (+68% growth). Mantener el ritmo expandiendo catálogo indexado. Apostar por Automotriz que ya genera $170K. CLS 0.39 puede mejorar.",
+        "suggestion": "🚀 Líder regional en revenue. Mantener el ritmo expandiendo catálogo indexado, más urls en Google. Categoria que resalta Automotriz.",
         "recognition": {
           "award": true,
-          "text": "Artefacta EC: mayor crecimiento de revenue regional (+68.34%)."
+          "award_text": "Crecimos $1.8MM vs M25",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#3b82f6",
         "colorDim": "rgba(59,130,246,0.15)"
@@ -777,9 +791,9 @@
           "growth_pct": 13710.73
         },
         "clics": {
-          "M25": 4092132,
+          "M25": 53820,
           "M26": 84386,
-          "growth_pct": -97.94
+          "growth_pct": 56.79
         },
         "visitas": {
           "M25": 49004,
@@ -801,9 +815,9 @@
           "M26": {
             "revenue_seo": 28168.02,
             "ordenes": 110,
-            "conversion_pct": 0.07,
+            "conversion_pct": 0.17,
             "ticket_promedio": 256.07,
-            "add_to_cart_pct": 2.14,
+            "add_to_cart_pct": 2.26,
             "revenue_digital_total": 185817.44,
             "revenue_total_ecommerce": 185817.44,
             "participacion_digital_pct": 15.16,
@@ -933,116 +947,117 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 12937.23
+            "revenue": 13000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 8041.75
+            "revenue": 8000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 3046.1
+            "revenue": 3000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Audio",
-            "revenue": 1749.21
+            "revenue": 2000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Telefonía",
-            "revenue": 1635.21
+            "revenue": 2000
           },
           {
             "categoria_1": "Salud y Belleza",
             "categoria_2": "Cuidado personal",
-            "revenue": 112.17
+            "revenue": 112
           },
           {
             "categoria_1": "Ferretería",
             "categoria_2": "Baterías",
-            "revenue": 67.43
+            "revenue": 67
           },
           {
             "categoria_1": "Ferretería",
             "categoria_2": "Hogar inteligente",
-            "revenue": 10.44
+            "revenue": 10
           },
           {
             "categoria_1": "Hogar",
             "categoria_2": "Decoración",
-            "revenue": 4.87
+            "revenue": 5
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Impresora inalámbrica Epson Ecotank L1250 Inkjet Wi-Fi Negro",
-            "revenue": 9227.75
+            "revenue": 9200
           },
           {
             "producto": "Mini Kit Starlink AC Dual Band Wifi",
-            "revenue": 1495.63
+            "revenue": 1500
           },
           {
             "producto": "Laptop HP 16 GB SSD 512 GB 15.6\" Dorado 15-FC0275LA",
-            "revenue": 1043.48
+            "revenue": 1000
           },
           {
             "producto": "Televisor TCL Google TV QLED 75\" 4K UHD 75P7K",
-            "revenue": 903.48
+            "revenue": 903.5
           },
           {
             "producto": "Xiaomi X7 Pro 12GB + 256GB Amarillo",
-            "revenue": 850.44
+            "revenue": 850.4
           },
           {
             "producto": "Televisor TCL Google TV 55\" 4K UHD 55P6K",
-            "revenue": 822.61
+            "revenue": 822.6
           },
           {
             "producto": "Televisor LG WebOS 24 LED 65\" 4K UHD 65NANO80TSA",
-            "revenue": 781.74
+            "revenue": 781.7
           },
           {
             "producto": "Televisor TCL Google TV 50\" 4K UHD 50V6C",
-            "revenue": 739.12
+            "revenue": 739.1
           },
           {
             "producto": "Televisor Samsung Tizen LED 43\" 4K UHD UN43DU7000PCZE",
-            "revenue": 615.66
+            "revenue": 615.7
           },
           {
             "producto": "Laptop HP 15-fc0276la AMD 16 GB SSD 1 TB 15,6\"",
-            "revenue": 607.83
+            "revenue": 607.8
           }
         ],
-        "suggestion": "📈 Revenue creció +107% — excelente. CLS 0.85 es crítico. Invertir en categorías nuevas: gaming y audio muestran potencial con keywords no-marca al 96.81%.",
+        "suggestion": "📈 Revenue creció +107%. Invertir en categorías nuevas: gaming y audio muestran potencial con keywords no-marca al 97%.",
         "recognition": {
-          "award": true,
-          "text": "RadioShack EC creció +107.83% en revenue. Líder en crecimiento de RSO."
+          "award": false,
+          "award_text": "Crecimos +108% en revenue.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#f97316",
         "colorDim": "rgba(249,115,22,0.15)"
       }
-    },
-    "flag": "🇪🇨"
+    }
   },
   "GT": {
     "nombre": "Guatemala",
+    "flag": "🇬🇹",
     "marcas": {
       "ATO": {
         "label": "Almacenes Tropigas",
         "impresiones": {
-          "M25": 526712,
+          "M25": 526710,
           "M26": 21496380,
-          "growth_pct": 3981.24
+          "growth_pct": 3981.26
         },
         "clics": {
-          "M25": 18881952,
+          "M25": 526710,
           "M26": 611218,
-          "growth_pct": -96.76
+          "growth_pct": 16.04
         },
         "visitas": {
           "M25": 393349,
@@ -1064,9 +1079,9 @@
           "M26": {
             "revenue_seo": 142882.59,
             "ordenes": 492,
-            "conversion_pct": 0.06,
+            "conversion_pct": 0.07,
             "ticket_promedio": 290.41,
-            "add_to_cart_pct": 2.77,
+            "add_to_cart_pct": 2.19,
             "revenue_digital_total": 380065.2,
             "revenue_total_ecommerce": 402535.74,
             "participacion_digital_pct": 37.59,
@@ -1092,9 +1107,19 @@
         },
         "top_20_keywords_no_marca": [
           {
+            "keyword": "muebles para tv",
+            "clics": 1215,
+            "posicion_promedio": 3.4
+          },
+          {
             "keyword": "redmi note 13 pro precio guatemala",
             "clics": 946,
             "posicion_promedio": 4.4
+          },
+          {
+            "keyword": "roperos",
+            "clics": 798,
+            "posicion_promedio": 3.1
           },
           {
             "keyword": "suzuki gixxer 150 precio guatemala",
@@ -1107,11 +1132,6 @@
             "posicion_promedio": 6.8
           },
           {
-            "keyword": "muebles para tv",
-            "clics": 631,
-            "posicion_promedio": 3.4
-          },
-          {
             "keyword": "akt 150",
             "clics": 621,
             "posicion_promedio": 2.0
@@ -1120,11 +1140,6 @@
             "keyword": "tvs raider 125",
             "clics": 604,
             "posicion_promedio": 4.7
-          },
-          {
-            "keyword": "mueble para tv",
-            "clics": 584,
-            "posicion_promedio": 4.0
           },
           {
             "keyword": "samsung a55 precio guatemala",
@@ -1177,16 +1192,6 @@
             "posicion_promedio": 2.3
           },
           {
-            "keyword": "roperos",
-            "clics": 406,
-            "posicion_promedio": 3.1
-          },
-          {
-            "keyword": "ropero",
-            "clics": 392,
-            "posicion_promedio": 3.0
-          },
-          {
             "keyword": "closet",
             "clics": 376,
             "posicion_promedio": 7.7
@@ -1196,100 +1201,101 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 5173.78
+            "revenue": 40000
           },
           {
             "categoria_1": "Automotriz",
             "categoria_2": "Motocicletas",
-            "revenue": 2159.82
+            "revenue": 17000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Dormitorio",
-            "revenue": 2146.57
+            "revenue": 17000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 1138.59
+            "revenue": 9000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Refrigeración",
-            "revenue": 1092.33
+            "revenue": 9000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Camas y Colchones",
-            "revenue": 930.61
+            "revenue": 7000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 812.62
+            "revenue": 6000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Sala",
-            "revenue": 758.15
+            "revenue": 6000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Lavadoras y secadoras",
-            "revenue": 612.33
+            "revenue": 5000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Comedor",
-            "revenue": 512.96
+            "revenue": 4000
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Ropero Quattro Panamá MDP Blanco y Marrón",
-            "revenue": 727.11
+            "revenue": 6000
           },
           {
             "producto": "iPhone 17 Pro Max 12GB + 256GB Deep Blue",
-            "revenue": 652.97
+            "revenue": 5000
           },
           {
             "producto": "iPhone 17 Pro Max 12GB + 256GB Plateado",
-            "revenue": 652.79
+            "revenue": 5000
           },
           {
             "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Azul",
-            "revenue": 532.56
+            "revenue": 4000
           },
           {
             "producto": "Motocicleta Deportiva Bajaj 160.37cc Multicolor PULSAR160NSUG2025",
-            "revenue": 326.83
+            "revenue": 3000
           },
           {
             "producto": "Samsung Galaxy S25 Ultra 12GB + 256GB Titanium Black",
-            "revenue": 321.72
+            "revenue": 3000
           },
           {
             "producto": "Motocicleta Deportiva AKT 149.5CC Multicolor AK150CS3AZUL",
-            "revenue": 301.42
+            "revenue": 2000
           },
           {
             "producto": "Motocicleta deportiva AKT 149.5 cc Negro CS3 Black Edition 2026",
-            "revenue": 301.31
+            "revenue": 2000
           },
           {
             "producto": "Motocicleta BAJAJ PULSAR160NS 160 CC Multicolor",
-            "revenue": 273.05
+            "revenue": 2000
           },
           {
             "producto": "iPhone 17 Pro Max 12GB + 512GB Azul",
-            "revenue": 258.34
+            "revenue": 2000
           }
         ],
-        "suggestion": "🏆 Triplicaste revenue (+247%). Consolidar Motocicletas y Celulares. INP 407ms es el más alto del portafolio — urgente optimizar interactividad móvil.",
+        "suggestion": "🏆 Triplicaste revenue +247%. Consolidar Motocicletas y Celulares.",
         "recognition": {
           "award": true,
-          "text": "ATO Guatemala triplicó revenue (+247.12%). Mayor crecimiento de revenue regional."
+          "award_text": "El crecimiento más alto de la región +247.% en revenue",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#8b5cf6",
         "colorDim": "rgba(139,92,246,0.15)"
@@ -1326,9 +1332,9 @@
           "M26": {
             "revenue_seo": 975670.49,
             "ordenes": 2666,
-            "conversion_pct": 0.23,
+            "conversion_pct": 0.21,
             "ticket_promedio": 365.97,
-            "add_to_cart_pct": 3.18,
+            "add_to_cart_pct": 2.48,
             "revenue_digital_total": 4746937.38,
             "revenue_total_ecommerce": 5738461.05,
             "participacion_digital_pct": 20.55,
@@ -1458,100 +1464,101 @@
           {
             "categoria_1": "Automotriz",
             "categoria_2": "Motocicletas",
-            "revenue": 188573.16
+            "revenue": 189000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 180852.14
+            "revenue": 181000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 120124.44
+            "revenue": 120000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Camas y Colchones",
-            "revenue": 71495.19
+            "revenue": 71000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Dormitorio",
-            "revenue": 71111.97
+            "revenue": 71000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Refrigeración",
-            "revenue": 50936.85
+            "revenue": 51000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Sala",
-            "revenue": 48909.63
+            "revenue": 49000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 35042.44
+            "revenue": 35000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Lavadoras y secadoras",
-            "revenue": 32021.25
+            "revenue": 32000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Cocina",
-            "revenue": 27232.41
+            "revenue": 27000
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "iPhone 17 Pro Max 12GB + 256GB Deep Blue",
-            "revenue": 21894.84
+            "revenue": 22000
           },
           {
             "producto": "Motocicleta Suzuki GN125F 2026 125 cc 2026 Rojo",
-            "revenue": 19915.32
+            "revenue": 20000
           },
           {
             "producto": "Televisor TCL 50\" QLED FHD 50S5K",
-            "revenue": 14858.99
+            "revenue": 15000
           },
           {
             "producto": "Ropero Quattro Panamá MDPBlanco y Marrón",
-            "revenue": 14561.91
+            "revenue": 15000
           },
           {
             "producto": "Motocicleta Honda 109cc Multicolor NAVI1102025",
-            "revenue": 14109.15
+            "revenue": 14000
           },
           {
             "producto": "Televisor TCL 55\" LED 4K UHD 55V6C",
-            "revenue": 12971.47
+            "revenue": 13000
           },
           {
             "producto": "iPhone 17 Pro Max 12GB + 256GB Plateado",
-            "revenue": 11678.97
+            "revenue": 12000
           },
           {
             "producto": "Televisor TCL 65\" QD-MiniLed 4K 65C6K",
-            "revenue": 11645.28
+            "revenue": 12000
           },
           {
             "producto": "iPhone 17 Pro Max 12GB + 256GB Cosmic Orange",
-            "revenue": 10010.55
+            "revenue": 10000
           },
           {
             "producto": "Motocicleta Deportiva Bajaj PULSAR200NSU 199.5 cc Multicolor",
-            "revenue": 8972.68
+            "revenue": 9000
           }
         ],
-        "suggestion": "📊 Mayor volumen de clics regional (+185%). Gran posición ponderada (3.1). Reducir CLS 0.57 para subir conversión. Foco en mantener crecimiento de revenue (+68.79%).",
+        "suggestion": "📊 Mayor volumen de clics regional +185%. Gran posición ponderada 3.1. Muebles, Motos y Celulares tienen potencial de optimizarse.",
         "recognition": {
           "award": true,
-          "text": "La Curacao GT lidera en volumen de clics: +185.07% vs M25."
+          "award_text": "Más personas nos eligieron, crecimos en clics: +185% vs M25. ¡Eso es más visibilidad! Vendimos +69% más que el M25",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#ec4899",
         "colorDim": "rgba(236,72,153,0.15)"
@@ -1588,9 +1595,9 @@
           "M26": {
             "revenue_seo": 369939.3,
             "ordenes": 1368,
-            "conversion_pct": 0.22,
+            "conversion_pct": 0.26,
             "ticket_promedio": 270.42,
-            "add_to_cart_pct": 3.37,
+            "add_to_cart_pct": 2.12,
             "revenue_digital_total": 1604927.05,
             "revenue_total_ecommerce": 1808572.96,
             "participacion_digital_pct": 23.05,
@@ -1720,109 +1727,110 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Gaming",
-            "revenue": 125595.67
+            "revenue": 126000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 86752.57
+            "revenue": 87000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 57072.05
+            "revenue": 57000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 40255.97
+            "revenue": 40000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Audio",
-            "revenue": 32474.12
+            "revenue": 32000
           },
           {
             "categoria_1": "Infantil y Bebé",
             "categoria_2": "Juguetería",
-            "revenue": 6207.07
+            "revenue": 6000
           },
           {
-            "categoria_1": "Gift Card",
-            "categoria_2": "VOID",
-            "revenue": 3786.91
+            "categoria_1": "Tecnología",
+            "categoria_2": "Cámaras",
+            "revenue": 5000
           },
           {
-            "categoria_1": "Mundo gamer",
-            "categoria_2": "Consolas y Videojuegos",
-            "revenue": 2334.41
+            "categoria_1": "Tecnología",
+            "categoria_2": "Almacenamiento",
+            "revenue": 2000
           },
           {
-            "categoria_1": "Mundo gamer",
-            "categoria_2": "VOID",
-            "revenue": 744.16
+            "categoria_1": "Tecnología",
+            "categoria_2": "Telefonía",
+            "revenue": 2000
           },
           {
-            "categoria_1": "Ferretería",
-            "categoria_2": "Iluminación y Electricidad",
-            "revenue": 316.7
+            "categoria_1": "Tecnología",
+            "categoria_2": "Powerbanks y Cargadores",
+            "revenue": 1000
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Consola de videojuegos PlayStation 5 Fortnite Cobalt Star Bundle Disc Edition",
-            "revenue": 17179.24
+            "revenue": 17200
           },
           {
             "producto": "Consola PlayStation 5 Slim Bundle Ratchet & Clank: Rift Apart y Returnal",
-            "revenue": 15614.54
+            "revenue": 15600
           },
           {
             "producto": "Consola PlayStation 5 Bundle con ASTRO BOT y Gran Turismo 7 1000038893",
-            "revenue": 13549.51
+            "revenue": 13500
           },
           {
             "producto": "Nintendo Switch 2 Edición HK 256 GB Mario Kart World",
-            "revenue": 12343.93
+            "revenue": 12300
           },
           {
             "producto": "Consola PlayStation 5 Digital CFI2015B01X",
-            "revenue": 10404.65
+            "revenue": 10400
           },
           {
             "producto": "Nintendo Switch Edición OLED 64 GB HRGSKAASD Super Mario Bros™ Wonder",
-            "revenue": 8381.48
+            "revenue": 8400
           },
           {
             "producto": "Televisor TCL 65\" QD-MiniLed 4K 65C6K",
-            "revenue": 7401.94
+            "revenue": 7400
           },
           {
             "producto": "Consola PlayStation 5 Bundle Digital con ASTRO BOT y Gran Turismo 7 1000038898",
-            "revenue": 6838.27
+            "revenue": 6800
           },
           {
             "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Negro",
-            "revenue": 6827.36
+            "revenue": 6800
           },
           {
             "producto": "Televisor Samsung 85\" LED 4K UHD UN85U8000FPX",
-            "revenue": 6817.25
+            "revenue": 6800
           }
         ],
-        "suggestion": "🎮 Gaming domina tu revenue (top cat). +33.5% en clics es positivo. CLS 0.76 requiere atención. Capitalizar el 89.8% no-marca con landing pages mejor optimizadas.",
+        "suggestion": "🎮 Gaming domina tu revenue (top cat). +33.5% en clics. Capitalizar el 90% no-marca. Definir categorías con más tráfico de SEO y optimizarlas.",
         "recognition": {
           "award": false,
-          "text": "RadioShack GT con +33.54% de clics. Tráfico no-marca sólido al 89.80%."
+          "award_text": "RadioShack GT con +33.54% de clics y Gaming como categoría #1.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#f97316",
         "colorDim": "rgba(249,115,22,0.15)"
       }
-    },
-    "flag": "🇬🇹"
+    }
   },
   "HN": {
     "nombre": "Honduras",
+    "flag": "🇭🇳",
     "marcas": {
       "ATO": {
         "label": "Almacenes Tropigas",
@@ -1843,26 +1851,26 @@
         },
         "venta_seo": {
           "M25": {
-            "revenue_seo": 0.0,
+            "revenue_seo": 0,
             "ordenes": 0,
-            "conversion_pct": 0.0,
-            "ticket_promedio": 0.0,
-            "add_to_cart_pct": 0.0,
-            "revenue_digital_total": 0.0,
-            "revenue_total_ecommerce": 0.0,
-            "participacion_digital_pct": 0.0,
-            "participacion_total_pct": 0.0
+            "conversion_pct": 0,
+            "ticket_promedio": 0,
+            "add_to_cart_pct": 0,
+            "revenue_digital_total": 0,
+            "revenue_total_ecommerce": 0,
+            "participacion_digital_pct": 0,
+            "participacion_total_pct": 0
           },
           "M26": {
-            "revenue_seo": 0.0,
+            "revenue_seo": 0,
             "ordenes": 0,
-            "conversion_pct": 0.0,
-            "ticket_promedio": 0.0,
-            "add_to_cart_pct": 0.0,
-            "revenue_digital_total": 0.0,
-            "revenue_total_ecommerce": 0.0,
-            "participacion_digital_pct": 0.0,
-            "participacion_total_pct": 0.0
+            "conversion_pct": 0,
+            "ticket_promedio": 0,
+            "add_to_cart_pct": 0,
+            "revenue_digital_total": 0,
+            "revenue_total_ecommerce": 0,
+            "participacion_digital_pct": 0,
+            "participacion_total_pct": 0
           },
           "growth_pct": null
         },
@@ -1888,7 +1896,8 @@
         "suggestion": "📋 Sin data de ventas/keywords/categorías en M26. Priorizar implementación de tracking en Adobe Analytics y Search Console para tener visibilidad completa.",
         "recognition": {
           "award": false,
-          "text": "ATO Honduras pendiente de implementar tracking completo M26."
+          "award_text": "ATO Honduras está construyendo su base de tracking SEO para M27.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#8b5cf6",
         "colorDim": "rgba(139,92,246,0.15)"
@@ -1925,9 +1934,9 @@
           "M26": {
             "revenue_seo": 1350501.95,
             "ordenes": 3129,
-            "conversion_pct": 0.32,
+            "conversion_pct": 0.43,
             "ticket_promedio": 431.61,
-            "add_to_cart_pct": 3.79,
+            "add_to_cart_pct": 3.36,
             "revenue_digital_total": 4927469.62,
             "revenue_total_ecommerce": 5742114.3,
             "participacion_digital_pct": 27.41,
@@ -2057,100 +2066,101 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 261930.04
+            "revenue": 262000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Camas y Colchones",
-            "revenue": 169945.09
+            "revenue": 170000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Dormitorio",
-            "revenue": 146501.57
+            "revenue": 147000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Sala",
-            "revenue": 121784.81
+            "revenue": 122000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Lavadoras y secadoras",
-            "revenue": 108227.01
+            "revenue": 108000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Refrigeración",
-            "revenue": 107787.3
+            "revenue": 108000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Cocina",
-            "revenue": 70161.29
+            "revenue": 70000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 64411.24
+            "revenue": 64000
           },
           {
             "categoria_1": "Automotriz",
             "categoria_2": "Motocicletas",
-            "revenue": 60566.81
+            "revenue": 61000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Comedor",
-            "revenue": 58657.55
+            "revenue": 59000
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Motocicleta Zmoto 62.0X49.5 mm Multicolor SX2 2025",
-            "revenue": 34609.74
+            "revenue": 35000
           },
           {
             "producto": "Ropero Quattro Panamá MDP Blanco y Marrón",
-            "revenue": 33450.16
+            "revenue": 33000
           },
           {
             "producto": "Televisor TCL 55\" LED 4K UHD 55V6C",
-            "revenue": 29452.09
+            "revenue": 29000
           },
           {
             "producto": "Televisor TCL 50\" QLED FHD 50S5K",
-            "revenue": 27338.37
+            "revenue": 27000
           },
           {
             "producto": "Televisor TCL 65\" QD-MiniLed 4K 65C6K",
-            "revenue": 21384.61
+            "revenue": 21000
           },
           {
             "producto": "Ropero Moval Moveis MDP Gris Panama",
-            "revenue": 18652.5
+            "revenue": 19000
           },
           {
             "producto": "Sala 321 Encina 3 piezas Finlandia",
-            "revenue": 18073.26
+            "revenue": 18000
           },
           {
             "producto": "Ropero Commodity MDP Beige RP2423NATCR",
-            "revenue": 17521.25
+            "revenue": 18000
           },
           {
             "producto": "Televisor TCL 98\" QLED 4K UHD 98P8K",
-            "revenue": 15658.97
+            "revenue": 16000
           },
           {
             "producto": "Cama Olympia King Desparadplusk",
-            "revenue": 12857.44
+            "revenue": 13000
           }
         ],
-        "suggestion": "🛏️ TV y Camas dominan. CLS 0.89 es el más alto — urgente estabilizar layout. INP 184ms es el mejor del portafolio, mantenerlo. Foco en convertir el 83% no-marca.",
+        "suggestion": "🛏️ TV y Camas dominan. Foco en optimizar la páginas de destino de trafico de no marca porque representa el 83% del tráfico.",
         "recognition": {
-          "award": false,
-          "text": "La Curacao HN con revenue de $1.35M en M26. CLS crítico requiere atención."
+          "award": true,
+          "award_text": "Duplicamos nuestras visitas 736k en M26.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#ec4899",
         "colorDim": "rgba(236,72,153,0.15)"
@@ -2187,13 +2197,13 @@
           "M26": {
             "revenue_seo": 239761.34,
             "ordenes": 713,
-            "conversion_pct": 0.28,
+            "conversion_pct": 0.25,
             "ticket_promedio": 336.27,
-            "add_to_cart_pct": 3.08,
+            "add_to_cart_pct": 2.39,
             "revenue_digital_total": 992535.75,
             "revenue_total_ecommerce": 1245517.81,
             "participacion_digital_pct": 24.16,
-            "participacion_total_pct": 0.0
+            "participacion_total_pct": 19.0
           },
           "growth_pct": 246.77
         },
@@ -2319,109 +2329,85 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 92484.33
+            "revenue": 92000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 57376.06
+            "revenue": 58000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 30975.5
+            "revenue": 31000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Audio",
-            "revenue": 27853.3
+            "revenue": 28000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Gaming",
-            "revenue": 17345.62
-          },
-          {
-            "categoria_1": "Computación",
-            "categoria_2": "Computación",
-            "revenue": 1041.22
-          },
-          {
-            "categoria_1": "Audio",
-            "categoria_2": "Personal Audio",
-            "revenue": 353.34
-          },
-          {
-            "categoria_1": "Video",
-            "categoria_2": "TV y Video",
-            "revenue": 336.31
-          },
-          {
-            "categoria_1": "Computación",
-            "categoria_2": "Accesorios de computación",
-            "revenue": 132.25
-          },
-          {
-            "categoria_1": "Audio",
-            "categoria_2": "Audio",
-            "revenue": 59.96
+            "revenue": 17000
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Televisor TCL 50S5K 50\" QLED FHD Google TV",
-            "revenue": 16265.51
+            "revenue": 16000
           },
           {
             "producto": "Televisor LG WebOs 24 LCD 65\" 4K UHD 65UT8000PSB",
-            "revenue": 14275.63
+            "revenue": 14000
           },
           {
             "producto": "Televisor de 86'' LG 86UR8750PSA 4K UHD",
-            "revenue": 12014.03
+            "revenue": 12000
           },
           {
             "producto": "Impresora multifuncional Epson L3250 Inkjet Wi-Fi Negro",
-            "revenue": 9848.44
+            "revenue": 10000
           },
           {
             "producto": "Televisor TCL Google TV LED 55\" 4K UHD 55V6C",
-            "revenue": 6191.42
+            "revenue": 6000
           },
           {
-            "producto": "Tablet Samsung  Galaxy Tab A9+ 64 GB 4 GB 11\" Camara 8 MP Gris",
-            "revenue": 5879.85
+            "producto": "Tablet Samsung Galaxy Tab A9+ 64 GB 4 GB 11\" Camara 8 MP Gris",
+            "revenue": 6000
           },
           {
             "producto": "Parlante de torre RadioShack 4001944 450 W Bluetooth Negro",
-            "revenue": 5624.48
+            "revenue": 6000
           },
           {
             "producto": "Televisor TCL Google TV UHD 55\" 4K UHD 55P635I",
-            "revenue": 5541.1
+            "revenue": 6000
           },
           {
             "producto": "Consola PlayStation 5 Slim Bundle Ratchet & Clank: Rift Apart y Returnal",
-            "revenue": 5366.19
+            "revenue": 5000
           },
           {
             "producto": "Tablet Vortex 4GB 64GB 10.1\" Negro 2ADLJCMG101",
-            "revenue": 5330.43
+            "revenue": 5000
           }
         ],
-        "suggestion": "📺 Crecimiento estable (+9.22%). 90% de tráfico no-marca = enorme oportunidad. Optimizar páginas de TV y Computación que dominan revenue. CLS 0.75 atender.",
+        "suggestion": "📺 Crecimiento estable +9%. 90% de tráfico no-marca. Optimizar páginas de TV y Computación que dominan revenue.",
         "recognition": {
           "award": false,
-          "text": "RadioShack HN con crecimiento orgánico estable (+9.22% clics)."
+          "award_text": "RadioShack HN triplicó su revenue orgánico (+247%) en M26.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#f97316",
         "colorDim": "rgba(249,115,22,0.15)"
       }
-    },
-    "flag": "🇭🇳"
+    }
   },
   "NC": {
     "nombre": "Nicaragua",
+    "flag": "🇳🇮",
     "marcas": {
       "ATO": {
         "label": "Almacenes Tropigas",
@@ -2442,26 +2428,26 @@
         },
         "venta_seo": {
           "M25": {
-            "revenue_seo": 0.0,
+            "revenue_seo": 0,
             "ordenes": 0,
-            "conversion_pct": 0.0,
-            "ticket_promedio": 0.0,
+            "conversion_pct": 0,
+            "ticket_promedio": 0,
             "add_to_cart_pct": 0.01,
-            "revenue_digital_total": 0.0,
-            "revenue_total_ecommerce": 0.0,
-            "participacion_digital_pct": 0.0,
-            "participacion_total_pct": 0.0
+            "revenue_digital_total": 0,
+            "revenue_total_ecommerce": 0,
+            "participacion_digital_pct": 0,
+            "participacion_total_pct": 0
           },
           "M26": {
-            "revenue_seo": 0.0,
+            "revenue_seo": 0,
             "ordenes": 0,
-            "conversion_pct": 0.0,
-            "ticket_promedio": 0.0,
+            "conversion_pct": 0,
+            "ticket_promedio": 0,
             "add_to_cart_pct": 0.01,
-            "revenue_digital_total": 0.0,
-            "revenue_total_ecommerce": 0.0,
-            "participacion_digital_pct": 0.0,
-            "participacion_total_pct": 0.0
+            "revenue_digital_total": 0,
+            "revenue_total_ecommerce": 0,
+            "participacion_digital_pct": 0,
+            "participacion_total_pct": 0
           },
           "growth_pct": null
         },
@@ -2487,7 +2473,8 @@
         "suggestion": "📋 Sin data de ventas/keywords/categorías. Implementar tracking básico antes de definir estrategia SEO.",
         "recognition": {
           "award": false,
-          "text": "ATO Nicaragua pendiente de implementar tracking completo M26."
+          "award_text": "ATO Nicaragua está construyendo su base de tracking SEO para M27.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#8b5cf6",
         "colorDim": "rgba(139,92,246,0.15)"
@@ -2524,9 +2511,9 @@
           "M26": {
             "revenue_seo": 489066.77,
             "ordenes": 1397,
-            "conversion_pct": 0.39,
+            "conversion_pct": 0.21,
             "ticket_promedio": 350.08,
-            "add_to_cart_pct": 5.66,
+            "add_to_cart_pct": 3.61,
             "revenue_digital_total": 3012927.19,
             "revenue_total_ecommerce": 5618749.83,
             "participacion_digital_pct": 16.23,
@@ -2656,100 +2643,101 @@
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Refrigeración",
-            "revenue": 79823.52
+            "revenue": 80000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 63515.23
+            "revenue": 64000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Lavadoras y secadoras",
-            "revenue": 56855.98
+            "revenue": 57000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Camas y Colchones",
-            "revenue": 54034.05
+            "revenue": 54000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Climatización",
-            "revenue": 34215.54
+            "revenue": 34000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Cocina",
-            "revenue": 33221.32
+            "revenue": 33000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Sala",
-            "revenue": 25191.98
+            "revenue": 25000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Dormitorio",
-            "revenue": 18458.82
+            "revenue": 18000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 12947.48
+            "revenue": 13000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Comedor",
-            "revenue": 10356.38
+            "revenue": 10000
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Set de Cama Facenco Queen Ortopédico Plus",
-            "revenue": 13140.51
+            "revenue": 13000
           },
           {
             "producto": "Aire Acondicionado LG Frío 12,000 BTU VX121C1",
-            "revenue": 11589.0
+            "revenue": 12000
           },
           {
-            "producto": "Refrigeradora Samsung  11 Pies 2 Puertas Top Mount RT31DG5124S9AP",
-            "revenue": 5556.06
+            "producto": "Refrigeradora Samsung 11 Pies 2 Puertas Top Mount RT31DG5124S9AP",
+            "revenue": 6000
           },
           {
             "producto": "Televisor TCL 75\" LED 4K UHD 75P755I",
-            "revenue": 5218.53
+            "revenue": 5000
           },
           {
-            "producto": "Refrigeradora LG  22 Pies 3 Puertas French Door GM22BGPK",
-            "revenue": 4917.4
+            "producto": "Refrigeradora LG 22 Pies 3 Puertas French Door GM22BGPK",
+            "revenue": 5000
           },
           {
-            "producto": "Refrigeradora Samsung  14 Pies 2 Puertas Top Mount RT38DG6224S9",
-            "revenue": 4780.32
+            "producto": "Refrigeradora Samsung 14 Pies 2 Puertas Top Mount RT38DG6224S9",
+            "revenue": 5000
           },
           {
             "producto": "Aire Acondicionado Mastertech Inverter 12000 BTU MTM12I1DW1",
-            "revenue": 4767.84
+            "revenue": 5000
           },
           {
-            "producto": "Refrigeradora Frigidaire  15.4 Pies 2 Puertas Side by Side FRSA15K2HVG",
-            "revenue": 4412.69
+            "producto": "Refrigeradora Frigidaire 15.4 Pies 2 Puertas Side by Side FRSA15K2HVG",
+            "revenue": 4000
           },
           {
-            "producto": "Refrigeradora Whirlpool  9 Pies 2 Puertas Top Mount WT02209D",
-            "revenue": 4188.41
+            "producto": "Refrigeradora Whirlpool 9 Pies 2 Puertas Top Mount WT02209D",
+            "revenue": 4000
           },
           {
             "producto": "Aire Acondicionado LG Dual Inverter 12,000 BTU VX122C1UJP1",
-            "revenue": 4098.11
+            "revenue": 4000
           }
         ],
-        "suggestion": "🏍️ Keywords de motos AKT dominan tu tráfico. Aprovechar para vender categorías complementarias (cascos, accesorios). CLS 0.89 crítico — corregir urgente.",
+        "suggestion": "🏍️ Keywords de motos AKT dominan el tráfico, pero no convierten. Optimizar categorías y productos.",
         "recognition": {
           "award": false,
-          "text": "La Curacao NI con fuerte posición en keywords de motos AKT."
+          "award_text": "La Curacao NI domina las keywords de motos AKT en posición 1-2.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#ec4899",
         "colorDim": "rgba(236,72,153,0.15)"
@@ -2786,13 +2774,13 @@
           "M26": {
             "revenue_seo": 67297.76,
             "ordenes": 568,
-            "conversion_pct": 0.22,
+            "conversion_pct": 0.2,
             "ticket_promedio": 118.48,
-            "add_to_cart_pct": 3.57,
+            "add_to_cart_pct": 4.08,
             "revenue_digital_total": 99930.18,
             "revenue_total_ecommerce": 369252.08,
             "participacion_digital_pct": 67.34,
-            "participacion_total_pct": 0.0
+            "participacion_total_pct": 18.0
           },
           "growth_pct": -64.62
         },
@@ -2907,130 +2895,111 @@
             "keyword": "infinix note 40 pro precio",
             "clics": 189,
             "posicion_promedio": 7.1
-          },
-          {
-            "keyword": "laptop gamer",
-            "clics": 232,
-            "posicion_promedio": 2.7
           }
         ],
         "top_10_categorias_revenue": [
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 19823.98
+            "revenue": 20000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 12951.64
+            "revenue": 13000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Audio",
-            "revenue": 11547.49
+            "revenue": 12000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Gaming",
-            "revenue": 11482.86
+            "revenue": 11000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 5316.72
+            "revenue": 5000
           },
           {
             "categoria_1": "Ferretería",
             "categoria_2": "Iluminación y Electricidad",
-            "revenue": 719.32
+            "revenue": 719
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Oficina",
-            "revenue": 273.93
-          },
-          {
-            "categoria_1": "Audio",
-            "categoria_2": "Personal Audio",
-            "revenue": 273.6
-          },
-          {
-            "categoria_1": "Mundo gamer",
-            "categoria_2": "Accesorios Gaming",
-            "revenue": 262.72
-          },
-          {
-            "categoria_1": "Audio",
-            "categoria_2": "Instrumentos musicales",
-            "revenue": 218.89
+            "revenue": 274
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "Laptop Gaming HP 16GB M.2 512GB 15.6\" Azul metalizado Victus Omen",
-            "revenue": 2602.54
+            "revenue": 3000
           },
           {
             "producto": "Silla gaming RadioShack Con luces Madera y acero Negro y gris",
-            "revenue": 1506.53
+            "revenue": 2000
           },
           {
             "producto": "Laptop Lenovo 8 GB SSD 256 GB 14\" Musgo oscuro Yoga Slim 7",
-            "revenue": 1396.89
+            "revenue": 1000
           },
           {
             "producto": "Televisor TCL 32\" LCD HD S6500",
-            "revenue": 1395.52
+            "revenue": 1000
           },
           {
             "producto": "Laptop gaming Acer 16 GB 512 GB 15.6'' Negro AN51558740H",
-            "revenue": 1205.13
+            "revenue": 1000
           },
           {
             "producto": "Silla Gaming Basic RadioShack 2606041 Negro y Gris",
-            "revenue": 1150.42
+            "revenue": 1000
           },
           {
             "producto": "Televisor TCL 55\" LED 4K UHD 55P615I",
-            "revenue": 1040.62
+            "revenue": 1000
           },
           {
             "producto": "Laptop Acer Nitro V Intel CoreTM i5-13420H 16 GB SSD 1 TB 15.6\" Negro",
-            "revenue": 994.43
+            "revenue": 994
           },
           {
             "producto": "Parlante portátil RadioShack 160 W Bluetooth Negro 4001979",
-            "revenue": 975.9
+            "revenue": 976
           },
           {
             "producto": "Televisor TCL 55\" LED 4K UHD 55P735",
-            "revenue": 931.03
+            "revenue": 931
           }
         ],
-        "suggestion": "🚀 Crecimiento de clics +93% — el mayor de RSO en la región. Aprovechar momentum para expandir gaming y electrónica que ya tienen tracción.",
+        "suggestion": "🚀 Crecimiento de clics +93%. Gaming y electrónica tienen tracción se necesita convertir.",
         "recognition": {
           "award": true,
-          "text": "RadioShack NI con +92.97% de clics — el mayor crecimiento de RSO regional."
+          "award_text": "RadioShack NI con +92.97% de clics — el mayor crecimiento de RSO regional.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#f97316",
         "colorDim": "rgba(249,115,22,0.15)"
       }
-    },
-    "flag": "🇳🇮"
+    }
   },
   "SV": {
     "nombre": "El Salvador",
+    "flag": "🇸🇻",
     "marcas": {
       "ATO": {
         "label": "Almacenes Tropigas",
         "impresiones": {
-          "M25": 17831608,
+          "M25": 16300000,
           "M26": 16650259,
-          "growth_pct": -6.63
+          "growth_pct": 2.15
         },
         "clics": {
-          "M25": 746708,
+          "M25": 746710,
           "M26": 684500,
           "growth_pct": -8.33
         },
@@ -3054,9 +3023,9 @@
           "M26": {
             "revenue_seo": 66381.56,
             "ordenes": 291,
-            "conversion_pct": 0.03,
+            "conversion_pct": 0.04,
             "ticket_promedio": 228.12,
-            "add_to_cart_pct": 2.8,
+            "add_to_cart_pct": 2.83,
             "revenue_digital_total": 331377.8,
             "revenue_total_ecommerce": 340714.16,
             "participacion_digital_pct": 20.03,
@@ -3070,8 +3039,8 @@
         },
         "salud_tecnica": {
           "indexacion": {
-            "no_indexadas": 1950000,
-            "total": 1958720
+            "no_indexadas": 2000000,
+            "total": 2000000
           },
           "posicion_ponderada_M26": 6.3,
           "core_web_vitals": {
@@ -3186,100 +3155,101 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 8618.9
+            "revenue": 8620
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Refrigeración",
-            "revenue": 8122.0
+            "revenue": 8120
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Dormitorio",
-            "revenue": 7696.0
+            "revenue": 7700
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Sala",
-            "revenue": 5559.94
+            "revenue": 5560
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 5301.98
+            "revenue": 5300
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Cocina",
-            "revenue": 5164.32
+            "revenue": 5160
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Camas y Colchones",
-            "revenue": 3524.0
+            "revenue": 3520
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Lavadoras y secadoras",
-            "revenue": 3436.0
+            "revenue": 3440
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Cocina",
-            "revenue": 2478.94
+            "revenue": 2480
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Comedor",
-            "revenue": 2424.97
+            "revenue": 2420
           }
         ],
         "top_10_productos_revenue": [
           {
-            "producto": "Ropero Commodity  MDF/MDP Rústico / Off White BE15RUSTOFFW",
-            "revenue": 1912.0
+            "producto": "Ropero Commodity MDF/MDP Rústico / Off White BE15RUSTOFFW",
+            "revenue": 1910
           },
           {
-            "producto": "Refrigeradora Mastertech  12 Pies 2 Puertas Top Mount MTFF310D2ASD",
-            "revenue": 1550.0
+            "producto": "Refrigeradora Mastertech 12 Pies 2 Puertas Top Mount MTFF310D2ASD",
+            "revenue": 1550
           },
           {
             "producto": "Motocicleta todo terreno AKT 200 cc Negro TT",
-            "revenue": 1499.99
+            "revenue": 1500
           },
           {
-            "producto": "Motocicleta deportiva Freedom 150 CC Rojo  CR1-150",
-            "revenue": 1469.99
+            "producto": "Motocicleta deportiva Freedom 150 CC Rojo CR1-150",
+            "revenue": 1470
           },
           {
-            "producto": "Refrigeradora Samsung  12 Pies 2 Puertas Top Mount RT35DG5124S9",
-            "revenue": 1461.0
+            "producto": "Refrigeradora Samsung 12 Pies 2 Puertas Top Mount RT35DG5124S9",
+            "revenue": 1460
           },
           {
             "producto": "Samsung Galaxy S25 Ultra 12GB + 512GB Gris",
-            "revenue": 1349.0
+            "revenue": 1350
           },
           {
             "producto": "Ropero Commodity MDP Gris RP2421IPGRIS",
-            "revenue": 1246.0
+            "revenue": 1250
           },
           {
             "producto": "Cocina a Gas LP Mastertech 6 quemadores MTG30B63AS",
-            "revenue": 1078.0
+            "revenue": 1080
           },
           {
             "producto": "Celular Apple iPhone 13 128 GB 6.1\" Midnight",
-            "revenue": 1064.0
+            "revenue": 1060
           },
           {
             "producto": "Juego de comedor Commodity Nelson Rectangular 6 sillas",
-            "revenue": 894.0
+            "revenue": 894
           }
         ],
-        "suggestion": "⚡ INP 579ms es el peor de la región — crítico para móvil. CLS 0.26 está bien. Trabajar Celulares y Refrigeración (top categorías). Brand traffic 54.95%.",
+        "suggestion": "⚡ INP 579ms debe mejorar es crítico para móvil. Trabajar Celulares y Refrigeración (top categorías). Recuperar tráfico.",
         "recognition": {
           "award": false,
-          "text": "ATO SV con tráfico estable. INP 579ms es el más alto regional."
+          "award_text": "ATO El Salvador mantiene el 54.95% de tráfico de marca, el más alto regional.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#8b5cf6",
         "colorDim": "rgba(139,92,246,0.15)"
@@ -3316,9 +3286,9 @@
           "M26": {
             "revenue_seo": 2086702.6,
             "ordenes": 5600,
-            "conversion_pct": 0.51,
+            "conversion_pct": 0.29,
             "ticket_promedio": 372.63,
-            "add_to_cart_pct": 3.49,
+            "add_to_cart_pct": 3.93,
             "revenue_digital_total": 10895349.88,
             "revenue_total_ecommerce": 23528759.64,
             "participacion_digital_pct": 19.15,
@@ -3345,8 +3315,13 @@
         "top_20_keywords_no_marca": [
           {
             "keyword": "aire acondicionado",
-            "clics": 3524,
-            "posicion_promedio": 3.8
+            "clics": 6230,
+            "posicion_promedio": 4.71
+          },
+          {
+            "keyword": "motos",
+            "clics": 3921,
+            "posicion_promedio": 3.33
           },
           {
             "keyword": "starlink el salvador",
@@ -3354,7 +3329,12 @@
             "posicion_promedio": 4.4
           },
           {
-            "keyword": "samsung galaxy fit3",
+            "keyword": "microondas",
+            "clics": 3023,
+            "posicion_promedio": 2.72
+          },
+          {
+            "keyword": "samsung galaxy fit 3",
             "clics": 2903,
             "posicion_promedio": 1.3
           },
@@ -3367,11 +3347,6 @@
             "keyword": "laptops el salvador",
             "clics": 2604,
             "posicion_promedio": 3.8
-          },
-          {
-            "keyword": "motos el salvador",
-            "clics": 2458,
-            "posicion_promedio": 3.4
           },
           {
             "keyword": "samsung",
@@ -3404,24 +3379,9 @@
             "posicion_promedio": 2.5
           },
           {
-            "keyword": "microondas",
-            "clics": 1546,
-            "posicion_promedio": 3.7
-          },
-          {
             "keyword": "iphone el salvador",
             "clics": 1521,
             "posicion_promedio": 6.0
-          },
-          {
-            "keyword": "microondas el salvador",
-            "clics": 1477,
-            "posicion_promedio": 1.7
-          },
-          {
-            "keyword": "motos",
-            "clics": 1463,
-            "posicion_promedio": 3.2
           },
           {
             "keyword": "refrigeradora",
@@ -3448,100 +3408,101 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 254652.23
+            "revenue": 255000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 246467.34
+            "revenue": 246000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Camas y Colchones",
-            "revenue": 233551.73
+            "revenue": 234000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Refrigeración",
-            "revenue": 224931.16
+            "revenue": 225000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Lavadoras y secadoras",
-            "revenue": 191110.74
+            "revenue": 191000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Sala",
-            "revenue": 171056.92
+            "revenue": 171000
           },
           {
             "categoria_1": "Muebles",
             "categoria_2": "Dormitorio",
-            "revenue": 132274.2
+            "revenue": 132000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Climatización",
-            "revenue": 118672.12
+            "revenue": 119000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 106380.09
+            "revenue": 106000
           },
           {
             "categoria_1": "Línea Blanca",
             "categoria_2": "Cocina",
-            "revenue": 102926.87
+            "revenue": 103000
           }
         ],
         "top_10_productos_revenue": [
           {
-            "producto": "Ropero Commodity  MDF/MDP Rústico / Off White BE15RUSTOFFW",
-            "revenue": 24884.0
+            "producto": "Ropero Commodity MDF/MDP Rústico / Off White BE15RUSTOFFW",
+            "revenue": 24900
           },
           {
             "producto": "iPhone 13 6GB + 128GB Midnight",
-            "revenue": 23782.0
+            "revenue": 23800
           },
           {
             "producto": "Aire Acondicionado Samsung Giratorio 12000 BTU AR12BVHQAURN",
-            "revenue": 14876.62
+            "revenue": 14900
           },
           {
             "producto": "Lavadora Eléctrica Samsung Superior 19 kg WA19CG6442BW",
-            "revenue": 13955.25
+            "revenue": 14000
           },
           {
             "producto": "Sala 3-2-1 Diesa 3 piezas Ferrara",
-            "revenue": 13801.0
+            "revenue": 13800
           },
           {
             "producto": "Lavadora LG Superior 18 kg WT18WVTM",
-            "revenue": 12169.13
+            "revenue": 12200
           },
           {
-            "producto": "Refrigeradora Whirlpool  20 Pies 3 Puertas French Door MWRF220SEHM",
-            "revenue": 12100.63
+            "producto": "Refrigeradora Whirlpool 20 Pies 3 Puertas French Door MWRF220SEHM",
+            "revenue": 12100
           },
           {
             "producto": "Set de Cama Base 3 en 1 Capri Queen Super Rest Master",
-            "revenue": 11381.46
+            "revenue": 11400
           },
           {
             "producto": "Pantalla TCL 50\" QLED FHD 50S5K",
-            "revenue": 11060.0
+            "revenue": 11100
           },
           {
-            "producto": "Refrigeradora LG  22 Pies 3 Puertas French Door LM22SGPK",
-            "revenue": 11014.0
+            "producto": "Refrigeradora LG 22 Pies 3 Puertas French Door LM22SGPK",
+            "revenue": 11000
           }
         ],
-        "suggestion": "🌟 +87.7% en clics — excelente crecimiento. CLS 0.89 es el más alto junto con HN/NC LCO — urgente revisar estabilidad. Top categoría: Celulares y Teléfonos.",
+        "suggestion": "🌟 +87.7% en clics — excelente crecimiento. Top categoría: Celulares y Teléfonos.",
         "recognition": {
           "award": true,
-          "text": "La Curacao SV con +87.73% de clics y +56.49% de impresiones."
+          "award_text": "La Curacao SV con +87.73% de clics y +56.49% de impresiones.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#ec4899",
         "colorDim": "rgba(236,72,153,0.15)"
@@ -3578,9 +3539,9 @@
           "M26": {
             "revenue_seo": 391862.59,
             "ordenes": 1670,
-            "conversion_pct": 0.29,
+            "conversion_pct": 0.19,
             "ticket_promedio": 234.65,
-            "add_to_cart_pct": 2.3,
+            "add_to_cart_pct": 1.83,
             "revenue_digital_total": 1489477.02,
             "revenue_total_ecommerce": 2916268.67,
             "participacion_digital_pct": 26.31,
@@ -3710,105 +3671,105 @@
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Celulares y Teléfonos",
-            "revenue": 179874.87
+            "revenue": 180000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Computación",
-            "revenue": 62141.98
+            "revenue": 62000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Audio",
-            "revenue": 54164.37
+            "revenue": 54000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "Gaming",
-            "revenue": 44562.32
+            "revenue": 45000
           },
           {
             "categoria_1": "Tecnología",
             "categoria_2": "TV y Video",
-            "revenue": 25789.75
+            "revenue": 26000
           },
           {
             "categoria_1": "Telefonía",
             "categoria_2": "Celulares",
-            "revenue": 1515.0
+            "revenue": 2000
           },
           {
             "categoria_1": "Computación",
             "categoria_2": "Computación",
-            "revenue": 1099.0
+            "revenue": 1000
           },
           {
             "categoria_1": "Audio",
             "categoria_2": "Personal Audio",
-            "revenue": 628.94
+            "revenue": 629
           },
           {
             "categoria_1": "Telefonía",
             "categoria_2": "Powerbanks y Cargadores",
-            "revenue": 172.94
+            "revenue": 173
           },
           {
             "categoria_1": "Computación",
             "categoria_2": "Accesorios de computación",
-            "revenue": 163.91
+            "revenue": 164
           }
         ],
         "top_10_productos_revenue": [
           {
             "producto": "iPhone 13 6GB + 128GB Midnight",
-            "revenue": 17246.0
+            "revenue": 17200
           },
           {
-            "producto": "Parlante portátil JBL 40 Hz - 20 kHz (-6 dB) Bluetooth Negro PartyBox Club 120",
-            "revenue": 5956.0
+            "producto": "Parlante portátil JBL 40 Hz - 20 kHz Bluetooth Negro PartyBox Club 120",
+            "revenue": 6000
           },
           {
             "producto": "Nintendo Switch Edición OLED 64 GB HRGSKAASD Super Mario Bros™ Wonder",
-            "revenue": 5896.99
+            "revenue": 5900
           },
           {
             "producto": "Consola PlayStation 5 Slim Bundle Ratchet & Clank: Rift Apart y Returnal",
-            "revenue": 5832.0
+            "revenue": 5800
           },
           {
             "producto": "Parlante portátil JBL 40 Hz Bluetooth Negro PartyBox Stage 320",
-            "revenue": 4942.0
+            "revenue": 4900
           },
           {
             "producto": "iPhone 14 6GB + 128GB Midnight",
-            "revenue": 4364.0
+            "revenue": 4400
           },
           {
             "producto": "Consola Nintendo Switch Mario Kart 8 Delux HRG-S-KAA1B",
-            "revenue": 4259.95
+            "revenue": 4300
           },
           {
             "producto": "HONOR Magic7 Lite 8GB + 256GB Negro",
-            "revenue": 4157.0
+            "revenue": 4200
           },
           {
             "producto": "Samsung Galaxy S25 Ultra 12GB + 256GB Azul",
-            "revenue": 4057.0
+            "revenue": 4100
           },
           {
             "producto": "Consola PlayStation 5 Slim Digital Bundle Ratchet & Clank: Rift Apart y Returnal",
-            "revenue": 3849.0
+            "revenue": 3800
           }
         ],
-        "suggestion": "🎯 Clics estables (+2.31%). 84% no-marca con buen LCP 3.1s pero CLS 0.58 mejora. Foco en convertir tráfico genérico de gaming y celulares.",
+        "suggestion": "🎯 Foco en convertir tráfico genérico de gaming y celulares.",
         "recognition": {
           "award": false,
-          "text": "RadioShack SV mantiene clics estables con fuerte tráfico no-marca al 84.09%."
+          "award_text": "RadioShack SV mantiene clics estables con 84% de tráfico no-marca.",
+          "generic_text": "Cada keyword conquistada es un paso más. ¡Intentémoslo en M27 y hagamos historia! 🚀"
         },
         "color": "#f97316",
         "colorDim": "rgba(249,115,22,0.15)"
       }
-    },
-    "flag": "🇸🇻"
+    }
   }
 }
