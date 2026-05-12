@@ -3039,8 +3039,8 @@
         },
         "salud_tecnica": {
           "indexacion": {
-            "no_indexadas": 2000000,
-            "total": 2000000
+            "no_indexadas": 1950000,
+            "total": 1958720
           },
           "posicion_ponderada_M26": 6.3,
           "core_web_vitals": {
